@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgraud"
+    tools:context="com.Inspira.odo.buyerUi.HomeBuper"
+    android:orientation="vertical">
+
+
+
+
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <Spinner
+            android:layout_marginTop="@dimen/_15sdp"
+            android:id="@+id/spinner2"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="match_parent"
+            android:background="#dea63e"
+            android:layout_height="@dimen/_2sdp"/>
+        <Spinner
+            android:layout_marginTop="@dimen/_15sdp"
+            android:id="@+id/spinner3"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:textColorHint="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_width="match_parent"
+            android:background="#dea63e"
+            android:layout_height="@dimen/_2sdp"/>
+        <Spinner
+            android:layout_marginTop="@dimen/_15sdp"
+            android:id="@+id/spinner4"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:textColorHint="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_width="match_parent"
+            android:background="#dea63e"
+            android:layout_height="@dimen/_2sdp"/>
+
+
+
+
+    </LinearLayout>
+    <ImageView
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:layout_gravity="center"
+        android:src="@drawable/logo_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

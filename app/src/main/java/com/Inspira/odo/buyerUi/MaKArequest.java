@@ -3,7 +3,7 @@ package com.Inspira.odo.buyerUi;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +28,7 @@ public class MaKArequest extends Fragment {
         submet_requst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Dialog dialog = new Dialog(getContext(), R.style.custom_dialog_theme);
+                final Dialog dialog = new Dialog(getActivity(), R.style.custom_dialog_theme);
                 dialog.setContentView(R.layout.comfirm_layout);
                 final Button ok = (Button) dialog.findViewById(R.id.ok);
                 Button no  =(Button)dialog.findViewById(R.id.no);
@@ -46,7 +46,7 @@ public class MaKArequest extends Fragment {
                     @Override
                     public void onClick(View view) {
 
-                        final Dialog okdialog = new Dialog(getContext(), R.style.custom_dialog_theme);
+                        final Dialog okdialog = new Dialog(getActivity(), R.style.custom_dialog_theme);
                         okdialog.setContentView(R.layout.ok_dialog);
                         Button OK_d =(Button)okdialog.findViewById(R.id.ok);
                         OK_d.setOnClickListener(new View.OnClickListener() {

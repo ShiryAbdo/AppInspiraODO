@@ -1,20 +1,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/backgraud"
-
+    android:layout_height="wrap_content"
+     android:background="@drawable/backgraud"
     tools:context="com.Inspira.odo.sellerUi.SellerFragment"
     android:orientation="vertical">
     <ImageView
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_weight=".5"
         android:layout_gravity="center"
         android:src="@drawable/logo_small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <LinearLayout
+        android:layout_weight="1"
         android:layout_marginRight="@dimen/_15sdp"
         android:layout_marginLeft="@dimen/_15sdp"
         android:layout_marginStart="@dimen/_15sdp"
@@ -24,8 +23,8 @@
         android:layout_height="wrap_content">
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/_12sdp"
-            android:layout_height="wrap_content">
+            android:theme="@style/TextLabel"
+             android:layout_height="wrap_content">
 
             <EditText
                 android:id="@+id/addServiseText"
@@ -33,7 +32,7 @@
                 android:layout_height="wrap_content"
                  android:hint="Full Name"
                  android:background="#00ffffff"
-                android:inputType="text"
+                android:inputType="textPersonName"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff" />
 
@@ -41,11 +40,12 @@
         <View
             android:layout_width="match_parent"
             android:background="#dea63e"
-            android:layout_height="@dimen/_2sdp"/>
+            android:layout_height="@dimen/_1sdp"/>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/_12sdp"
+            android:theme="@style/TextLabel"
+            android:layout_marginTop="@dimen/_5sdp"
             android:layout_height="wrap_content">
 
             <EditText
@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                  android:hint="Mobile Number"
                 android:background="#00ffffff"
-                android:inputType="text"
+                android:inputType="phone"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff" />
         </android.support.design.widget.TextInputLayout>
@@ -61,17 +61,18 @@
         <View
             android:layout_width="match_parent"
             android:background="#dea63e"
-            android:layout_height="@dimen/_2sdp"/>
+            android:layout_height="@dimen/_1sdp"/>
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/_12sdp"
+            android:theme="@style/TextLabel"
+            android:layout_marginTop="@dimen/_5sdp"
             android:layout_height="wrap_content">
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                  android:hint="Password"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:background="#00ffffff"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff"/>
@@ -79,18 +80,20 @@
         <View
             android:layout_width="match_parent"
             android:background="#dea63e"
-            android:layout_height="@dimen/_2sdp"/>
+            android:layout_height="@dimen/_1sdp"/>
 
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/_12sdp"            android:layout_height="wrap_content">
+            android:theme="@style/TextLabel"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_height="wrap_content">
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                  android:hint="Confirm Password"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:background="#00ffffff"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff"/>
@@ -98,22 +101,22 @@
         <View
             android:layout_width="match_parent"
             android:background="#dea63e"
-            android:layout_height="@dimen/_2sdp"/>
+            android:layout_height="@dimen/_1sdp"/>
 
     </LinearLayout>
     <LinearLayout
+        android:layout_weight="1"
         android:layout_marginRight="@dimen/_2sdp"
         android:layout_marginLeft="@dimen/_2sdp"
         android:layout_marginStart="@dimen/_2sdp"
         android:layout_marginEnd="@dimen/_2sdp"
-        android:layout_marginBottom="@dimen/_2sdp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+         android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <Button
             android:layout_gravity="bottom"
-            android:padding="@dimen/_5sdp"
+             android:padding="@dimen/_5sdp"
             style="?metaButtonBarButtonStyle"
-             android:textSize="@dimen/_35sdp"
+             android:textSize="@dimen/_15sdp"
             android:background="#dcae3b"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

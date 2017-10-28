@@ -80,7 +80,7 @@
             android:layout_gravity="bottom"
             android:padding="@dimen/_2sdp"
             style="?metaButtonBarButtonStyle"
-            android:textSize="@dimen/_35sdp"
+            android:textSize="@dimen/_20sdp"
             android:background="#dcae3b"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

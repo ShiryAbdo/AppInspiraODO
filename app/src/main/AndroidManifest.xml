@@ -37,13 +37,17 @@
             android:name=".mainLuncher.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_splash"
-            android:theme="@style/FullscreenTheme" />
-        <activity
-            android:name=".mainLuncher.RegistrationActivity"
-            android:label="@string/title_activity_registration" />
+            android:theme="@style/FullscreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".mainLuncher.RegistrationActivity"></activity>
         <activity
             android:name=".buyerUi.NavigationActivity"
-            android:theme="@style/AppTheme">
+            android:theme="@style/nav">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -52,14 +56,9 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".buyerUi.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".buyerUi.RequestResponses"></activity>
+        <activity android:name=".buyerUi.MainActivity"></activity>
+        <activity android:name=".buyerUi.RequestResponses" />
+        <activity android:name=".buyerUi.NavigationDrawerBuyer"></activity>
     </application>
 
 </manifest>

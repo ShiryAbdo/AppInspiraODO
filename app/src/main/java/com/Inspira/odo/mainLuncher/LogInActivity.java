@@ -3,6 +3,8 @@ package com.Inspira.odo.mainLuncher;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.Inspira.odo.R;
@@ -22,12 +24,16 @@ import org.json.JSONObject;
 public class LogInActivity extends AppCompatActivity {
     LoginButton loginButton ;
     CallbackManager callbackManager ;
+    Button signUP ;
+    Button login ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
         setContentView(R.layout.activity_log_in);
+        signUP =(Button)findViewById(R.id.signUP);
+        login =(Button)findViewById(R.id.login);
 
         callbackManager=CallbackManager.Factory.create();
         loginButton = (LoginButton)findViewById(R.id.login_button);
@@ -62,6 +68,24 @@ public class LogInActivity extends AppCompatActivity {
             @Override
             public void onError(FacebookException error) {
 
+            }
+        });
+
+        signUP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LogInActivity.this,RegistrationActivity.class);
+                startActivity(intent);
+                finish();
+
+            }
+        });
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LogInActivity.this,SinInRegis.class);
+                startActivity(intent);
+                finish();
             }
         });
 

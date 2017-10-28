@@ -1,11 +1,13 @@
 package com.Inspira.odo.buyerUi;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.Inspira.odo.R;
 
@@ -16,16 +18,24 @@ import com.Inspira.odo.R;
 public class BuperFragment extends Fragment {
 
 
-    public BuperFragment() {
-        // Required empty public constructor
-    }
+     Button Campany_acount ;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_buper, container, false);
+        View rooteView= inflater.inflate(R.layout.fragment_buper, container, false);
+        Campany_acount=(Button)rooteView.findViewById(R.id.Campany_acount);
+        Campany_acount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),NavigationDrawerBuyer.class);
+                startActivity(intent);
+
+            }
+        });
+        return rooteView;
     }
 
 }

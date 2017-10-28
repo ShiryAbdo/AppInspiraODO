@@ -1,21 +1,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
     android:background="@drawable/backgraud"
     android:layout_height="match_parent"
     tools:context="com.Inspira.odo.buyerUi.BuperFragment"
     android:orientation="vertical">
 
     <ImageView
-        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_weight=".5"
         android:layout_gravity="center"
         android:src="@drawable/logo_small"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"/>
 
     <LinearLayout
-        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_weight="2"
+         android:layout_marginRight="@dimen/_15sdp"
         android:layout_marginLeft="@dimen/_15sdp"
         android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginEnd="@dimen/_15sdp"
@@ -24,8 +25,8 @@
         android:layout_height="wrap_content">
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/_25sdp"
-            android:layout_height="wrap_content">
+            android:theme="@style/TextLabel"
+             android:layout_height="wrap_content">
 
             <EditText
                 android:id="@+id/addServiseText"
@@ -33,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Full Name"
                  android:background="#00ffffff"
-                android:inputType="text"
+                android:inputType="textPersonName"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff" />
 
@@ -41,11 +42,12 @@
         <View
             android:layout_width="match_parent"
             android:background="#dea63e"
-            android:layout_height="@dimen/_2sdp"/>
+            android:layout_height="@dimen/_1sdp"/>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/_25sdp"
+            android:theme="@style/TextLabel"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_height="wrap_content">
 
             <EditText
@@ -53,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Mobile Number"
                 android:background="#00ffffff"
-                android:inputType="text"
+                android:inputType="phone"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff" />
         </android.support.design.widget.TextInputLayout>
@@ -61,12 +63,12 @@
         <View
             android:layout_width="match_parent"
             android:background="#dea63e"
-            android:layout_height="@dimen/_2sdp"/>
+            android:layout_height="@dimen/_1sdp"/>
 
 
 
         <Spinner
-            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_30sdp"
             android:id="@+id/spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -78,28 +80,29 @@
         <View
             android:layout_width="match_parent"
             android:background="#dea63e"
-            android:layout_height="@dimen/_2sdp"/>
+            android:layout_height="@dimen/_1sdp"/>
 
     </LinearLayout>
+
     <LinearLayout
-        android:layout_marginRight="@dimen/_2sdp"
+        android:layout_weight="1"
+         android:layout_marginRight="@dimen/_2sdp"
         android:layout_marginLeft="@dimen/_2sdp"
         android:layout_marginStart="@dimen/_2sdp"
         android:layout_marginEnd="@dimen/_2sdp"
-        android:layout_marginBottom="@dimen/_2sdp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <Button
             android:layout_gravity="bottom"
             android:padding="@dimen/_5sdp"
             style="?metaButtonBarButtonStyle"
-            android:textSize="@dimen/_20sdp"
+            android:textSize="@dimen/_15sdp"
             android:background="#dcae3b"
+            android:id="@+id/Campany_acount"
+            android:textAllCaps="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Creat Company Profile" />
-
-
+            android:text="Creat Campany acount " />
     </LinearLayout>
 
 

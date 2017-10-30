@@ -16,6 +16,8 @@ import com.Inspira.odo.R;
 import com.Inspira.odo.adaptors.DrawerItemCustomAdapter;
 import com.Inspira.odo.model.ObjectDrawerItem;
 
+import java.util.ArrayList;
+
 
 /**
  * Created by Andy on 10-Dec-14.
@@ -25,12 +27,13 @@ public class NavigationDrawerHelper {
     DrawerLayout mDrawerLayout;
     ListView mDrawerListView;
     private android.support.v7.app.ActionBarDrawerToggle mDrawerToggle;
+    ArrayList<ObjectDrawerItem> drawerItem = new ArrayList<>();
 
 //    app:headerLayout="@layout/nav_header_main2"
 
     // Method to initialize our NavigationDrawer from the hosting Activity.
     // We pass the Activity and the OnItemClickListener
-    public void init(Activity activity, Toolbar tool, ListView.OnItemClickListener listener) {
+    public void init(Activity activity, Toolbar tool, ListView.OnItemClickListener listener ,ArrayList<ObjectDrawerItem> drawerItemCaming ) {
 
         mDrawerLayout = (DrawerLayout) activity.findViewById(R.id.drawer_layout);
         mDrawerListView = (ListView) activity.findViewById(R.id.left_drawer);
@@ -38,12 +41,10 @@ public class NavigationDrawerHelper {
         mDrawerListView.addHeaderView(header);
 
         // List the Drawer Items
-        ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[4];
 
-        drawerItem[0] = new ObjectDrawerItem(R.drawable.up, "Email");
-        drawerItem[1] = new ObjectDrawerItem(R.drawable.up, "Web");
-        drawerItem[2] = new ObjectDrawerItem(R.drawable.up, "Music");
-        drawerItem[3] = new ObjectDrawerItem(R.drawable.up, "Settings");
+
+        this.drawerItem=drawerItemCaming;
+
 
 
         // Declare a new instance of our Custom drawer Adapter
@@ -56,6 +57,8 @@ public class NavigationDrawerHelper {
         // Set shadow and the default item selected in the ListView to be the first one
         mDrawerLayout.setDrawerShadow(R.drawable.menu, GravityCompat.START);
           mDrawerListView.setItemChecked(0,true);
+
+
  //        mDrawerLayout.addView();
 
         // Call the next method
@@ -78,7 +81,8 @@ public class NavigationDrawerHelper {
 
         ActionBar actionBar = theActivity.getActionBar();
 //        actionBar.setDisplayHomeAsUpEnabled(false);
-
+//        MenuItem menuItem = navigationView.getMenu().getItem(0);
+//        menuItem.setIcon(R.drawable.nav_new_drawable);
 
         mDrawerToggle = new android.support.v7.app.ActionBarDrawerToggle(
                 activity, mDrawerLayout, tool, R.string.navigation_drawer_open, R.string.navigation_drawer_close)

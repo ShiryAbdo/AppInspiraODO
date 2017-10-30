@@ -16,6 +16,9 @@ import android.widget.ListView;
 
 import com.Inspira.odo.helper.NavigationDrawerHelper;
 import com.Inspira.odo.R;
+import com.Inspira.odo.model.ObjectDrawerItem;
+
+import java.util.ArrayList;
 
 
 public class NavigationDrawerBuyer extends AppCompatActivity implements ListView.OnItemClickListener {
@@ -34,8 +37,16 @@ protected void onCreate(Bundle savedInstanceState) {
         // Define  and initialize our NavigationDrawerHelper Class Constant
         // The First parameters is the Activity (this)
         // The Second is the ListView.OnItemClickListener (this), as our Activity implements it
+
+    ArrayList<ObjectDrawerItem> drawerItem = new ArrayList<>();
+    drawerItem.add(new ObjectDrawerItem(0, "My Requestes"));
+    drawerItem.add(new ObjectDrawerItem(1, "Mak Arequest"));
+    drawerItem.add(new ObjectDrawerItem(2, ""));
+    drawerItem.add(new ObjectDrawerItem(3, "Edit Profile"));
+    drawerItem.add(new ObjectDrawerItem(4, "Change Language"));
+    drawerItem.add(new ObjectDrawerItem(5, "Log Out"));
         mNavigationDrawerHelper = new NavigationDrawerHelper();
-        mNavigationDrawerHelper.init(this,toolbar ,this);
+        mNavigationDrawerHelper.init(this,toolbar ,this,drawerItem);
 
         // We define our Fragment Constant
         mFragment = new HomeBuper();

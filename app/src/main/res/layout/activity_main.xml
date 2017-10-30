@@ -16,7 +16,7 @@
 
     <ListView
          android:id="@+id/left_drawer"
-        android:layout_width="@dimen/_150sdp"
+        android:layout_width="@dimen/_200sdp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:choiceMode="singleChoice"

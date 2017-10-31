@@ -7,6 +7,7 @@ import android.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import com.Inspira.odo.R;
@@ -14,22 +15,32 @@ import com.Inspira.odo.adaptors.CustomArrayAdapter_Spinner;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class HomeBuper extends Fragment {
 
     CustomArrayAdapter_Spinner  myAdaptor ;
-    Spinner SpinnerCarType ;
+    Spinner SpinnerCarType ,your_car_model ,your_car_year ,Type_of_requset;
     ArrayList<String>categories ;
+    Button saveData ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
    View rooteView = inflater.inflate(R.layout.fragment_home_buper, container, false);
-        SpinnerCarType =(Spinner)rooteView.findViewById(R.id.SpinnerCarType);
 
+        getActivity().setTitle("Home");
+        SpinnerCarType =(Spinner)rooteView.findViewById(R.id.SpinnerCarType);
+        your_car_model= (Spinner)rooteView.findViewById(R.id.your_car_model);
+        your_car_year=(Spinner)rooteView.findViewById(R.id.your_car_year);
+        saveData=(Button)rooteView.findViewById(R.id.saveData);
+        Type_of_requset=(Spinner) rooteView.findViewById(R.id.Type_of_requset);
+        saveData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
 
 
@@ -46,6 +57,9 @@ public class HomeBuper extends Fragment {
                 R.layout.customspinneritem, categories);
 
         SpinnerCarType.setAdapter(myAdaptor);
+        your_car_model.setAdapter(myAdaptor);
+        your_car_year.setAdapter(myAdaptor);
+        Type_of_requset.setAdapter(myAdaptor);
 
 
         return rooteView;

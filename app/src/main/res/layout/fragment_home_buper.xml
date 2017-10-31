@@ -13,6 +13,9 @@
 
 
     <LinearLayout
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_weight="1"
         android:layout_marginTop="@dimen/_30sdp"
         android:layout_marginRight="@dimen/_15sdp"
         android:layout_marginLeft="@dimen/_15sdp"
@@ -24,6 +27,7 @@
 
 
         <Spinner
+            android:textAlignment="viewStart"
             android:layout_marginTop="@dimen/_15sdp"
             android:id="@+id/SpinnerCarType"
             android:textColor="#ffffff"
@@ -38,7 +42,7 @@
             android:layout_height="@dimen/_2sdp"/>
         <Spinner
             android:layout_marginTop="@dimen/_15sdp"
-            android:id="@+id/spinner3"
+            android:id="@+id/your_car_model"
             android:textColor="#ffffff"
             android:layout_marginBottom="@dimen/_20sdp"
             android:textColorHint="#ffffff"
@@ -50,7 +54,20 @@
             android:layout_height="@dimen/_2sdp"/>
         <Spinner
             android:layout_marginTop="@dimen/_15sdp"
-            android:id="@+id/spinner4"
+            android:id="@+id/your_car_year"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:textColorHint="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_width="match_parent"
+            android:background="#dea63e"
+            android:layout_height="@dimen/_2sdp"/>
+
+        <Spinner
+            android:layout_marginTop="@dimen/_15sdp"
+            android:id="@+id/Type_of_requset"
             android:textColor="#ffffff"
             android:layout_marginBottom="@dimen/_20sdp"
             android:textColorHint="#ffffff"
@@ -65,10 +82,28 @@
 
 
     </LinearLayout>
-    <ImageView
-        android:layout_marginBottom="@dimen/_15sdp"
-        android:layout_gravity="center"
-        android:src="@drawable/logo_small"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
+
+    <LinearLayout
+        android:layout_weight=".4"
+        android:layout_marginRight="@dimen/_2sdp"
+        android:layout_marginLeft="@dimen/_2sdp"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:layout_marginEnd="@dimen/_2sdp"
+        android:layout_marginBottom="@dimen/_2sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_gravity="bottom"
+            android:padding="@dimen/_5sdp"
+            style="?metaButtonBarButtonStyle"
+            android:textSize="@dimen/_20sdp"
+            android:background="#dcae3b"
+            android:id="@+id/saveData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save" />
+
+
+    </LinearLayout>
 </LinearLayout>

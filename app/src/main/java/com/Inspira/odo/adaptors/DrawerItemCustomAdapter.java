@@ -74,7 +74,7 @@ public class DrawerItemCustomAdapter extends BaseAdapter {
 
         if (activiy instanceof NavigationDrawerBuyer && position==0){
 
-            numbers.setText(objectDrawerItem.getNumber());
+            numbers.setText(objectDrawerItem.getNumber()+"");
 
         }
 

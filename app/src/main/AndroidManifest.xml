@@ -44,7 +44,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".mainLuncher.RegistrationActivity"></activity>
+        <activity android:name=".mainLuncher.RegistrationActivity" />
         <activity
             android:name=".buyerUi.NavigationActivity"
             android:theme="@style/nav">
@@ -56,9 +56,10 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".buyerUi.MainActivity"></activity>
+        <activity android:name=".buyerUi.MainActivity" />
         <activity android:name=".buyerUi.RequestResponses" />
-        <activity android:name=".buyerUi.NavigationDrawerBuyer"></activity>
+        <activity android:name=".buyerUi.NavigationDrawerBuyer" />
+        <activity android:name=".sellerUi.ContinuingRegSeler"></activity>
     </application>
 
 </manifest>

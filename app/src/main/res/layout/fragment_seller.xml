@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+
     <LinearLayout
         android:layout_weight="1"
         android:layout_marginRight="@dimen/_15sdp"
@@ -113,14 +114,16 @@
          android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
+            android:id="@+id/CreatCampanyAcount"
             android:layout_gravity="bottom"
              android:padding="@dimen/_5sdp"
             style="?metaButtonBarButtonStyle"
              android:textSize="@dimen/_15sdp"
             android:background="#dcae3b"
+            android:textAllCaps="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Creat Acount" />
+            android:text="Creat Campany acount "  />
     </LinearLayout>
 
 

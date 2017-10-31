@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.Inspira.odo.R;
+import com.Inspira.odo.sellerUi.ContinuingRegSeler;
 
 
 /**
@@ -18,7 +19,7 @@ import com.Inspira.odo.R;
 public class BuperFragment extends Fragment {
 
 
-     Button Campany_acount ;
+     Button creatSelerAcout ;
 
 
     @Override
@@ -26,12 +27,13 @@ public class BuperFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rooteView= inflater.inflate(R.layout.fragment_buper, container, false);
-        Campany_acount=(Button)rooteView.findViewById(R.id.Campany_acount);
-        Campany_acount.setOnClickListener(new View.OnClickListener() {
+        creatSelerAcout =(Button)rooteView.findViewById(R.id.creatSelerAcout);
+        creatSelerAcout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),NavigationDrawerBuyer.class);
+                Intent intent = new Intent(getActivity(), NavigationDrawerBuyer.class);
                 startActivity(intent);
+
 
             }
         });

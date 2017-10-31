@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/backgraud"
+    android:layout_height="match_parent"
+    tools:context="com.Inspira.odo.sellerUi.WorkingOnOne"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark" >
+
+        <ImageView
+            android:id="@+id/go_back"
+            android:layout_gravity="start"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:padding="@dimen/_4sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/back"
+            android:contentDescription="back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_margin="@dimen/_8sdp"
+            android:textColor="#fff"
+            android:gravity="center"
+             android:textAlignment="viewStart"
+             android:text= "Working On"
+            android:id="@+id/wasf_titel"
+            />
+
+        <ImageView
+            android:id="@+id/competRegister"
+            android:layout_gravity="end"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:padding="@dimen/_4sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/courrect"
+            android:contentDescription="back" />
+
+    </android.support.v7.widget.Toolbar>
+    <LinearLayout
+         android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:background="#000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Spinner
+                android:textAlignment="viewStart"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:id="@+id/SpinnerOne"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:background="#dea63e"
+            android:layout_height="@dimen/_2sdp"/>
+        <LinearLayout
+            android:background="#000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Spinner
+                android:textAlignment="viewStart"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:id="@+id/SpinnerTwo"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:background="#dea63e"
+            android:layout_height="@dimen/_2sdp"/>
+
+        <LinearLayout
+            android:background="#000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Spinner
+                android:textAlignment="viewStart"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:id="@+id/SpinnerThree"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:background="#dea63e"
+            android:layout_height="@dimen/_2sdp"/>
+        <LinearLayout
+            android:background="#000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Spinner
+                android:textAlignment="viewStart"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:id="@+id/SpinnerCarFoure"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:background="#dea63e"
+            android:layout_height="@dimen/_2sdp"/>
+
+
+    </LinearLayout>
+
+</LinearLayout >

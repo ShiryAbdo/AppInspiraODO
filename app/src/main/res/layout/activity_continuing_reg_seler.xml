@@ -100,7 +100,7 @@
             style="?metaButtonBarButtonStyle"
             android:textSize="@dimen/_15sdp"
             android:background="#dcae3b"
-            android:id="@+id/Campany_acount"
+            android:id="@+id/Campany_acount_Countio"
             android:textAllCaps="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

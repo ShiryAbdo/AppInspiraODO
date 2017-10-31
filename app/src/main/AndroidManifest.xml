@@ -59,7 +59,8 @@
         <activity android:name=".buyerUi.MainActivity" />
         <activity android:name=".buyerUi.RequestResponses" />
         <activity android:name=".buyerUi.NavigationDrawerBuyer" />
-        <activity android:name=".sellerUi.ContinuingRegSeler"></activity>
+        <activity android:name=".sellerUi.ContinuingRegSeler" />
+        <activity android:name=".sellerUi.WorkingOnOne"></activity>
     </application>
 
 </manifest>

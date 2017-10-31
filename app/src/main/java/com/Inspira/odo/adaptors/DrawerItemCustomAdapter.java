@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.Inspira.odo.R;
+import com.Inspira.odo.buyerUi.NavigationDrawerBuyer;
 import com.Inspira.odo.model.ObjectDrawerItem;
 
 import java.util.ArrayList;
@@ -27,11 +28,13 @@ public class DrawerItemCustomAdapter extends BaseAdapter {
     Context mContext;
     int mLayoutResourceId;
     ArrayList<ObjectDrawerItem> mData = new ArrayList<>();
+    Activity activiy ;
 
-    public DrawerItemCustomAdapter(Context context, int layoutResourceId,  ArrayList<ObjectDrawerItem>  data) {
+    public DrawerItemCustomAdapter(Activity activit,Context context, int layoutResourceId,  ArrayList<ObjectDrawerItem>  data) {
         this.mContext = context;
         this.mLayoutResourceId = layoutResourceId;
         this.mData = data;
+        activiy =activit;
     }
 
     @Override
@@ -65,8 +68,15 @@ public class DrawerItemCustomAdapter extends BaseAdapter {
 
 
          TextView nameTextView = (TextView) listItem.findViewById(R.id.drawer_item_name);
+        TextView numbers = (TextView)listItem.findViewById(R.id.numbers);
 
          nameTextView.setText(objectDrawerItem.getName());
+
+        if (activiy instanceof NavigationDrawerBuyer && position==0){
+
+            numbers.setText(objectDrawerItem.getNumber());
+
+        }
 
 
         return listItem;

@@ -48,7 +48,7 @@ public class NavigationDrawerHelper {
 
 
         // Declare a new instance of our Custom drawer Adapter
-        DrawerItemCustomAdapter adapter = new DrawerItemCustomAdapter(activity, R.layout.listview_drawer_item_row, drawerItem);
+        DrawerItemCustomAdapter adapter = new DrawerItemCustomAdapter( activity,activity, R.layout.listview_drawer_item_row, drawerItem);
 
         // Set the Adapter and the Listener on the ListView
         mDrawerListView.setAdapter(adapter);

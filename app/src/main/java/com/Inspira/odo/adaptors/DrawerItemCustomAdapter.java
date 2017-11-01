@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.Inspira.odo.R;
 import com.Inspira.odo.buyerUi.NavigationDrawerBuyer;
 import com.Inspira.odo.model.ObjectDrawerItem;
+import com.Inspira.odo.sellerUi.NavigationDrawerSeler;
 
 import java.util.ArrayList;
 
@@ -72,7 +73,7 @@ public class DrawerItemCustomAdapter extends BaseAdapter {
 
          nameTextView.setText(objectDrawerItem.getName());
 
-        if (activiy instanceof NavigationDrawerBuyer && position==0){
+        if (activiy instanceof NavigationDrawerSeler && position==0){
 
             numbers.setText(objectDrawerItem.getNumber()+"");
 

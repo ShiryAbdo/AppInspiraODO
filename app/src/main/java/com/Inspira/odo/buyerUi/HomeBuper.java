@@ -35,6 +35,9 @@ public class HomeBuper extends Fragment {
         your_car_year=(Spinner)rooteView.findViewById(R.id.your_car_year);
         saveData=(Button)rooteView.findViewById(R.id.saveData);
         Type_of_requset=(Spinner) rooteView.findViewById(R.id.Type_of_requset);
+
+
+//        when clicked save data   and when opened again show what selected before
         saveData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

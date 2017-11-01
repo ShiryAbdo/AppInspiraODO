@@ -2,7 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/backgraud"
     tools:context="com.Inspira.odo.buyerUi.MaKArequest">
@@ -74,60 +73,67 @@
         android:layout_height="wrap_content">
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-             android:layout_height="wrap_content">
+            android:theme="@style/TextLabel"
+            android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/addServiseText"
+                android:id="@+id/PartId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Part"
-                 android:inputType="text"
+                android:background="#00ffffff"
+                android:inputType="textPersonName"
                 android:textColor="#ffffff"
-                 android:textColorHint="#ffffff" />
+                android:textColorHint="#ffffff" />
 
         </android.support.design.widget.TextInputLayout>
         <View
             android:layout_width="match_parent"
             android:background="#dea63e"
-            android:layout_height="@dimen/_2sdp"/>
-
+            android:layout_height="@dimen/_1sdp"/>
         <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="match_parent"
-             android:layout_height="wrap_content">
+            android:theme="@style/TextLabel"
+            android:layout_height="wrap_content">
 
             <EditText
+                android:id="@+id/engine_capacity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Engine Capacity"
-                 android:inputType="text"
+                android:background="#00ffffff"
+                android:inputType="textPersonName"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff" />
-        </android.support.design.widget.TextInputLayout>
 
+        </android.support.design.widget.TextInputLayout>
         <View
             android:layout_width="match_parent"
             android:background="#dea63e"
-            android:layout_height="@dimen/_2sdp"/>
-
+            android:layout_height="@dimen/_1sdp"/>
 
 
         <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+            android:theme="@style/TextLabel"
+            android:layout_height="wrap_content">
 
             <EditText
-                android:layout_width="match_parent"
+                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Color"
-                 android:inputType="text"
+                android:background="#00ffffff"
+                android:inputType="textPersonName"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff" />
-        </android.support.design.widget.TextInputLayout>
 
+        </android.support.design.widget.TextInputLayout>
         <View
             android:layout_width="match_parent"
             android:background="#dea63e"
-            android:layout_height="@dimen/_2sdp"/>
+            android:layout_height="@dimen/_1sdp"/>
 
     </LinearLayout>
     <LinearLayout
@@ -153,7 +159,7 @@
 
             android:layout_width="match_parent"
             android:background="#ffffff"
-            android:layout_height="@dimen/_2sdp"/>
+            android:layout_height="@dimen/_1sdp"/>
 
     </LinearLayout>
     <LinearLayout

@@ -60,7 +60,8 @@
         <activity android:name=".buyerUi.RequestResponses" />
         <activity android:name=".buyerUi.NavigationDrawerBuyer" />
         <activity android:name=".sellerUi.ContinuingRegSeler" />
-        <activity android:name=".sellerUi.WorkingOnOne"></activity>
+        <activity android:name=".sellerUi.WorkingOnOne" />
+        <activity android:name=".sellerUi.NavigationDrawerSeler"></activity>
     </application>
 
 </manifest>

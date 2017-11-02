@@ -1,10 +1,13 @@
 package com.Inspira.odo.sellerUi;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 import com.Inspira.odo.R;
@@ -14,6 +17,7 @@ import java.util.ArrayList;
 public class WorkingOnOne extends AppCompatActivity {
     ArrayList<String> categories;
     Spinner SpinnerOne ,SpinnerTwo ,SpinnerThree  ,SpinnerCarFoure;
+    ImageView competRegister ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,16 @@ public class WorkingOnOne extends AppCompatActivity {
         SpinnerTwo=(Spinner)findViewById(R.id.SpinnerTwo);
         SpinnerThree =(Spinner)findViewById(R.id.SpinnerThree);
         SpinnerCarFoure =(Spinner)findViewById(R.id.SpinnerCarFoure);
+        competRegister=(ImageView)findViewById(R.id.competRegister);
+        competRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(WorkingOnOne.this,NavigationDrawerSeler.class);
+                startActivity(intent);
+                finish();
+
+            }
+        });
 
 
         // Spinner Drop down elements

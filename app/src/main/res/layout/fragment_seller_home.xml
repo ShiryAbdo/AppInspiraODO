@@ -5,36 +5,36 @@
     android:layout_height="match_parent"
     tools:context="com.Inspira.odo.sellerUi.SellerHome"
     android:orientation="vertical">
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/colorPrimaryDark"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="8dp" >
-        <ImageView
-            android:id="@+id/go_back"
-            android:layout_gravity="start"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:padding="@dimen/_4sdp"
-            android:layout_margin="@dimen/_10sdp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/back"
-            android:contentDescription="back" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:textColor="#fff"
-            android:text="@string/mak_arequest"
-            android:id="@+id/wasf_titel"
-            />
+    <!--<android.support.v7.widget.Toolbar-->
+        <!--android:id="@+id/toolbar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="56dp"-->
+        <!--android:background="@color/colorPrimaryDark"-->
+        <!--tools:layout_editor_absoluteY="0dp"-->
+        <!--tools:layout_editor_absoluteX="8dp" >-->
+        <!--<ImageView-->
+            <!--android:id="@+id/go_back"-->
+            <!--android:layout_gravity="start"-->
+            <!--android:layout_width="@dimen/_25sdp"-->
+            <!--android:layout_height="@dimen/_25sdp"-->
+            <!--android:padding="@dimen/_4sdp"-->
+            <!--android:layout_margin="@dimen/_10sdp"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:src="@drawable/back"-->
+            <!--android:contentDescription="back" />-->
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="18sp"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:textColor="#fff"-->
+            <!--android:text="@string/mak_arequest"-->
+            <!--android:id="@+id/wasf_titel"-->
+            <!--/>-->
 
-    </android.support.v7.widget.Toolbar>
+    <!--</android.support.v7.widget.Toolbar>-->
 
     <android.support.v7.widget.RecyclerView
         android:layout_margin="@dimen/_10sdp"

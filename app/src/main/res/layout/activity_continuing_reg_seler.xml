@@ -34,7 +34,7 @@
                 android:id="@+id/addServiseText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Full Name"
+                android:hint="Campany Name"
                 android:background="#00ffffff"
                 android:inputType="textPersonName"
                 android:textColor="#ffffff"
@@ -46,32 +46,69 @@
             android:background="#dea63e"
             android:layout_height="@dimen/_1sdp"/>
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:theme="@style/TextLabel"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_height="wrap_content">
+        <!--<com.Inspira.odo.ui.DelayAutoCompleteTextView-->
+            <!--android:layout_marginTop="@dimen/_5sdp"            android:id="@+id/geo_autocomplete"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:ems="10"-->
+            <!--android:ellipsize="end"-->
+            <!--android:maxLines="1"-->
+            <!--android:layout_gravity="center"-->
+             <!--android:imeOptions="flagNoExtractUi|actionSearch"-->
+            <!--android:scrollHorizontally="true"-->
+            <!--android:singleLine="true"-->
+            <!--android:completionThreshold="1"-->
+            <!--android:textColor="#fffefe"-->
+            <!--android:textColorHint="#fffefe"-->
+            <!--android:hint="Campany Adress"-->
+            <!--android:dropDownVerticalOffset="10dp"-->
+            <!--android:dropDownWidth="10dp"-->
+            <!--android:dropDownHorizontalOffset="30dp">-->
+            <!--<requestFocus />-->
+        <!--</com.Inspira.odo.ui.DelayAutoCompleteTextView>-->
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Mobile Number"
-                android:background="#00ffffff"
-                android:inputType="phone"
-                android:textColor="#ffffff"
-                android:textColorHint="#ffffff" />
-        </android.support.design.widget.TextInputLayout>
 
-        <View
+        <com.Inspira.odo.ui.DelayAutoCompleteTextView
+            android:id="@+id/geo_autocomplete"
             android:layout_width="match_parent"
-            android:background="#dea63e"
-            android:layout_height="@dimen/_1sdp"/>
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:ellipsize="middle"
+            android:maxLines="1"
+            android:imeOptions="flagNoExtractUi|actionSearch"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:completionThreshold="1"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+             android:hint="Campany Adress"
+            android:dropDownVerticalOffset="10dp"
+            android:dropDownWidth="200dp"
+            android:dropDownHorizontalOffset="30dp">
+            <requestFocus />
+        </com.Inspira.odo.ui.DelayAutoCompleteTextView>
+        <!--<fragment-->
+            <!--android:layout_gravity="center_horizontal"-->
+ <!---->
+            <!--android:hint="Address"-->
+            <!--android:gravity="center"-->
+            <!--android:id="@+id/place_autocomplete_fragment"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"-->
+            <!--/>-->
+
+        <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:background="#dea63e"-->
+            <!--android:layout_height="@dimen/_1sdp"/>-->
 
 
 
         <Spinner
+            android:textAlignment="viewStart"
             android:layout_marginTop="@dimen/_30sdp"
-            android:id="@+id/spinner"
+            android:id="@+id/spinner_tYpeSeler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#00ffffff"

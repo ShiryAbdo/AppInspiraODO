@@ -3,17 +3,14 @@ package com.Inspira.odo.sellerUi;
 
 import android.os.Bundle;
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.view.LayoutInflater;
+ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.Inspira.odo.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class MyFavorites extends Fragment {
+
+public class RequestResponses extends Fragment {
 
 
 
@@ -21,15 +18,16 @@ public class MyFavorites extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-          View rooteViw =inflater.inflate(R.layout.fragment_my_favorites, container, false);
-        getActivity().setTitle(R.string.My_Favorites);
-        return rooteViw ;
+       View rooteView = inflater.inflate(R.layout.fragment_request_responses, container, false);
+        getActivity().setTitle(R.string.Request_Responses);
+
+        return rooteView ;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        getActivity().setTitle(R.string.My_Favorites);
+        getActivity().setTitle(R.string.Request_Responses);
     }
 
 }

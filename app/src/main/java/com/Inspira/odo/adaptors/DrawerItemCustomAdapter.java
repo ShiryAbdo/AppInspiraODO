@@ -75,7 +75,10 @@ public class DrawerItemCustomAdapter extends BaseAdapter {
 
         if (activiy instanceof NavigationDrawerSeler && position==0){
 
-            numbers.setText(objectDrawerItem.getNumber()+"");
+            numbers.setText(" "+objectDrawerItem.getNumber()+" ");
+            numbers.setBackgroundResource(R.drawable.round);
+
+
 
         }
 

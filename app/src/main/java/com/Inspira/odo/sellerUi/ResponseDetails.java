@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 
 import com.Inspira.odo.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class MyFavorites extends Fragment {
+
+
+public class ResponseDetails extends Fragment {
+
 
 
 
@@ -21,15 +21,18 @@ public class MyFavorites extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-          View rooteViw =inflater.inflate(R.layout.fragment_my_favorites, container, false);
-        getActivity().setTitle(R.string.My_Favorites);
-        return rooteViw ;
+        // Inflate the layout for this fragment
+
+
+        View rooteViwe = inflater.inflate(R.layout.fragment_response_details, container, false);
+        getActivity().setTitle(R.string.Response_Details);
+        return  rooteViwe ;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        getActivity().setTitle(R.string.My_Favorites);
+        getActivity().setTitle(R.string.Response_Details);
     }
 
 }

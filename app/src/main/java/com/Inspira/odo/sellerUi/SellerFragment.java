@@ -25,6 +25,7 @@ public class SellerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View roooteView = inflater.inflate(R.layout.fragment_seller, container, false);
+        getActivity().setTitle("Home");
         CreatCampanyAcount=(Button)roooteView.findViewById(R.id.CreatCampanyAcount);
         CreatCampanyAcount.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="#e2de68"
-    android:weightSum="3"
-     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:layout_marginBottom="@dimen/_3sdp"
+    android:layout_marginRight="5dp"
+    android:backgroundTint="#8f979daf"
+    android:layout_marginLeft="5dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginStart="5dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:id="@+id/card"
 
+    >
 
     <LinearLayout
+        android:background="#ffffff"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
+            android:id="@+id/image_itme_selle"
             android:layout_weight=".2"
             android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_100sdp"
@@ -27,7 +39,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textStyle="bold"
-
+                android:id="@+id/Name_request"
                 android:textColor="#000"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -37,6 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:id="@+id/name_car"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:layout_margin="@dimen/_5sdp"
@@ -52,6 +65,7 @@
                     android:layout_width="@dimen/_2sdp"
                     android:layout_height="@dimen/_20sdp"/>
                 <TextView
+                    android:id="@+id/Type_car"
                     android:layout_margin="@dimen/_5sdp"
                     android:layout_weight="1"
                     android:layout_gravity="center"
@@ -67,6 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:id="@+id/year_car"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:layout_margin="@dimen/_5sdp"
@@ -82,6 +97,7 @@
                     android:layout_width="@dimen/_2sdp"
                     android:layout_height="@dimen/_20sdp"/>
                 <TextView
+                    android:id="@+id/model_car"
                     android:layout_margin="@dimen/_5sdp"
                     android:layout_weight="1"
                     android:layout_gravity="center"
@@ -97,6 +113,7 @@
                     android:layout_width="@dimen/_2sdp"
                     android:layout_height="@dimen/_20sdp"/>
                 <TextView
+                    android:id="@+id/color_car"
                     android:layout_margin="@dimen/_5sdp"
                     android:layout_weight="1"
                     android:layout_gravity="center"
@@ -113,6 +130,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <ImageView
+                android:id="@+id/Favorite_image"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -126,6 +144,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+            android:id="@+id/time_of_post"
             android:layout_margin="@dimen/_10sdp"
             android:layout_gravity="end"
             android:gravity="end"
@@ -134,4 +153,4 @@
             android:text="00:00"/>
     </LinearLayout>
 
-</LinearLayout>
+</android.support.v7.widget.CardView>

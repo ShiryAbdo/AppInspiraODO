@@ -27,7 +27,7 @@
 
 
         <Spinner
-            android:textAlignment="viewStart"
+            android:textAlignment="textStart"
             android:layout_marginTop="@dimen/_15sdp"
             android:id="@+id/SpinnerCarType"
             android:textColor="#ffffff"
@@ -39,7 +39,7 @@
         <View
             android:layout_width="match_parent"
             android:background="#dea63e"
-            android:layout_height="@dimen/_2sdp"/>
+            android:layout_height="@dimen/_1sdp"/>
         <Spinner
             android:layout_marginTop="@dimen/_15sdp"
             android:id="@+id/your_car_model"
@@ -51,7 +51,7 @@
         <View
             android:layout_width="match_parent"
             android:background="#dea63e"
-            android:layout_height="@dimen/_2sdp"/>
+            android:layout_height="@dimen/_1sdp"/>
         <Spinner
             android:layout_marginTop="@dimen/_15sdp"
             android:id="@+id/your_car_year"
@@ -63,7 +63,7 @@
         <View
             android:layout_width="match_parent"
             android:background="#dea63e"
-            android:layout_height="@dimen/_2sdp"/>
+            android:layout_height="@dimen/_1sdp"/>
 
         <Spinner
             android:layout_marginTop="@dimen/_15sdp"
@@ -76,7 +76,7 @@
         <View
             android:layout_width="match_parent"
             android:background="#dea63e"
-            android:layout_height="@dimen/_2sdp"/>
+            android:layout_height="@dimen/_1sdp"/>
 
 
 

@@ -46,7 +46,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".mainLuncher.RegistrationActivity" />
         <activity
@@ -65,8 +64,8 @@
         <activity android:name=".buyerUi.NavigationDrawerBuyer" />
         <activity android:name=".sellerUi.ContinuingRegSeler" />
         <activity android:name=".sellerUi.WorkingOnOne" />
-        <activity android:name=".sellerUi.NavigationDrawerSeler"></activity>
-
+        <activity android:name=".sellerUi.NavigationDrawerSeler" />
+        <activity android:name=".sellerUi.DialogeSellerData"></activity>
     </application>
 
 </manifest>

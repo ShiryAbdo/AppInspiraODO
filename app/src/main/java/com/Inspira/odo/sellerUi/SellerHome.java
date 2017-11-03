@@ -17,7 +17,6 @@ import com.Inspira.odo.model.SellerHomeData;
 
 import java.util.ArrayList;
 
-import static com.facebook.FacebookSdk.getApplicationContext;
 
 
 public class SellerHome extends Fragment {
@@ -25,14 +24,15 @@ public class SellerHome extends Fragment {
     RecyclerView recycler_view ;
     View rooteView ;
     private ArrayList<SellerHomeData> data;
-    private DataAdapter dataSellerHomeAdaptor ;
+    private DataSellerHomeAdaptor dataSellerHomeAdaptor ;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rooteView =inflater.inflate(R.layout.fragment_seller_home, container, false);
-        data = new ArrayList<>();
+         data = new ArrayList<>();
+        getActivity().findViewById(R.id.filter);
         initViews();
          return rooteView ;
 
@@ -56,7 +56,7 @@ public class SellerHome extends Fragment {
         data.add(new SellerHomeData(0,"part part","Hundia","Verna","1459","1500vv" ,"selver","11:13",false) );
         data.add(new SellerHomeData(0,"Bark ","Marsedis","Verna","1339","1500vv" ,"black","1:13",true) );
         data.add(new SellerHomeData(0,"Front Bark Pads","Frarry","Verna","1909","1500vv" ,"red","1:13",false) );
-        dataSellerHomeAdaptor= new DataAdapter(data,getActivity());
+        dataSellerHomeAdaptor= new DataSellerHomeAdaptor(data,getActivity().getBaseContext() ,getActivity());
         recycler_view.setAdapter(dataSellerHomeAdaptor);
         dataSellerHomeAdaptor.notifyDataSetChanged();
 

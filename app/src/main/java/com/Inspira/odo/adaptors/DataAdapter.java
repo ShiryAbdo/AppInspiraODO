@@ -46,12 +46,12 @@ public class DataAdapter  extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         viewHolder.model_car.setText(androidList.get(i).getModleCare());
         viewHolder.color_car.setText(androidList.get(i).getColorcar());
         viewHolder.time_of_post.setText(androidList.get(i).getTimePost());
-//        if(androidList.get(i).isFavorite()==false){
-//          viewHolder.Favorite_image.setImageResource(R.drawable.star);
-//
-//        }else {
-//            viewHolder.Favorite_image.setImageResource(R.drawable.staryellow);
-//        }
+        if(androidList.get(i).isFavorite()==false){
+          viewHolder.Favorite_image.setImageResource(R.drawable.star);
+
+        }else {
+            viewHolder.Favorite_image.setImageResource(R.drawable.staryellow);
+        }
 
 
 

@@ -1,21 +1,34 @@
 package com.Inspira.odo.adaptors;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.Inspira.odo.R;
 import com.Inspira.odo.model.SellerHomeData;
+import com.Inspira.odo.sellerUi.DialogeSellerData;
 
 import java.util.ArrayList;
+
+import static android.R.attr.data;
+import static android.R.attr.theme;
 
 /**
  * Created by shirya on 03/11/17.
@@ -25,10 +38,12 @@ public class DataSellerHomeAdaptor  extends RecyclerView.Adapter<DataSellerHomeA
     private ArrayList<SellerHomeData> androidList;
     private Context context;
     private int lastPosition=-1;
+    Activity activity ;
 
-    public DataSellerHomeAdaptor(ArrayList<SellerHomeData> android, Context c) {
+    public DataSellerHomeAdaptor(ArrayList<SellerHomeData> android, Context c , Activity activity) {
         this.androidList = android;
         this.context=c;
+        this.activity =activity ;
     }
 
     @Override
@@ -56,11 +71,85 @@ public class DataSellerHomeAdaptor  extends RecyclerView.Adapter<DataSellerHomeA
 //        }
 
 
-
+//        viewHolder.card.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View view, MotionEvent motionEvent) {
+//
+//                final Dialog okdialog = new Dialog(context.getApplicationContext(), R.style.custom_dialog_theme);
+//                okdialog.setContentView(R.layout.dialog_seller_home_data);
+//                Button OK_d =(Button)okdialog.findViewById(R.id.ok);
+//                Spinner SpinnerCarType = (Spinner)okdialog.findViewById(R.id.SpinnerCarType);
+//                Spinner your_car_model = (Spinner)okdialog.findViewById(R.id.your_car_model);
+//                Spinner your_car_year =(Spinner)okdialog.findViewById(R.id.your_car_year);
+//                ArrayList<String>categories ;
+//                CustomArrayAdapter_Spinner  myAdaptor ;
+//
+//                // Spinner Drop down elements
+//                categories= new ArrayList<>();
+//                categories.add("Automobile");
+//                categories.add("Business Services");
+//                categories.add("Computers");
+//                categories.add("Education");
+//                categories.add("Personal");
+//                categories.add("Travel");
+//
+//                myAdaptor = new CustomArrayAdapter_Spinner(context.getApplicationContext(),
+//                        R.layout.customspinneritem, categories);
+//                SpinnerCarType.setAdapter(myAdaptor);
+//                your_car_model.setAdapter(myAdaptor);
+//                your_car_year.setAdapter(myAdaptor);
+//                OK_d.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        okdialog.dismiss();
+//
+//                    }
+//                });okdialog.show();
+//
+//                return false;
+//            }
+//        });
 
         viewHolder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+                final Dialog okdialog = new Dialog(activity, R.style.custom_dialog_theme);
+                okdialog.setContentView(R.layout.dialog_seller_home_data);
+                Button OK_d =(Button)okdialog.findViewById(R.id.ok);
+                Spinner SpinnerCarType = (Spinner)okdialog.findViewById(R.id.SpinnerCarType);
+                Spinner your_car_model = (Spinner)okdialog.findViewById(R.id.your_car_model);
+                Spinner your_car_year =(Spinner)okdialog.findViewById(R.id.your_car_year);
+                ArrayList<String>categories ;
+                CustomArrayAdapter_Spinner  myAdaptor ;
+
+                // Spinner Drop down elements
+                categories= new ArrayList<>();
+                categories.add("Automobile");
+                categories.add("Business Services");
+                categories.add("Computers");
+                categories.add("Education");
+                categories.add("Personal");
+                categories.add("Travel");
+
+                myAdaptor = new CustomArrayAdapter_Spinner(context.getApplicationContext(),
+                        R.layout.customspinneritem, categories);
+                SpinnerCarType.setAdapter(myAdaptor);
+                your_car_model.setAdapter(myAdaptor);
+                your_car_year.setAdapter(myAdaptor);
+                OK_d.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        okdialog.dismiss();
+
+                    }
+                });okdialog.show();
+//
+//                Toast.makeText(context,"this",Toast.LENGTH_SHORT).show();
+//                Intent intent= new Intent(context, DialogeSellerData.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+//                context.startActivity(intent);
 
 
             }

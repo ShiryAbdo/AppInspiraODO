@@ -2,6 +2,7 @@ package com.Inspira.odo.buyerUi;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,9 @@ import android.widget.ListView;
 
 import com.Inspira.odo.helper.NavigationDrawerHelper;
 import com.Inspira.odo.R;
+import com.Inspira.odo.mainLuncher.ChangeLanguage;
+import com.Inspira.odo.mainLuncher.EditProfile;
+import com.Inspira.odo.mainLuncher.LocaleHelper;
 import com.Inspira.odo.model.ObjectDrawerItem;
 
 import java.util.ArrayList;
@@ -25,6 +29,11 @@ public class NavigationDrawerBuyer extends AppCompatActivity implements ListView
 private NavigationDrawerHelper mNavigationDrawerHelper;
 
 private Fragment mFragment;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
@@ -86,16 +95,21 @@ public boolean onOptionsItemSelected(MenuItem item) {
 
 
         switch (position) {
-            case 0:
-                 mFragment = new HomeBuper();
-                break;
             case 1:
-                mFragment = new MyRequest();
+                 mFragment = new MyRequest();
                 break;
             case 2:
                 mFragment = new MaKArequest();
                 break;
             case 3:
+                 break;
+            case 4:
+                mFragment = new EditProfile();
+                break;
+            case  5 :
+                mFragment = new ChangeLanguage();
+                break;
+            case  6:
                 mFragment = new HomeBuper();
                 break;
         }

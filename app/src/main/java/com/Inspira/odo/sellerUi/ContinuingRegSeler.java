@@ -1,5 +1,6 @@
 package com.Inspira.odo.sellerUi;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.widget.Spinner;
 import com.Inspira.odo.R;
 import com.Inspira.odo.adaptors.CustomArrayAdapter_Spinner;
 import com.Inspira.odo.adaptors.GeoAutoCompleteAdapter;
+import com.Inspira.odo.mainLuncher.LocaleHelper;
 import com.Inspira.odo.model.GeoSearchResult;
 import com.Inspira.odo.ui.DelayAutoCompleteTextView;
 import com.google.android.gms.common.api.Status;
@@ -33,6 +35,11 @@ public class ContinuingRegSeler extends AppCompatActivity {
     Spinner spinner_tYpeSeler ;
     ArrayList<String> categories ;
     CustomArrayAdapter_Spinner  myAdaptor ;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

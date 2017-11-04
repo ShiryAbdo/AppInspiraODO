@@ -35,6 +35,9 @@
     <string name="Change_Language">Change Language</string>
     <string name="apply">Apply</string>
     <string name="filters">Filters</string>
+    <string name="Edit_Profile">Edit Profile</string>
+    <string name="MyRequest">My Request</string>
+    <string name="MaK_Arequest">MaK Arequest</string>
 
 
 </resources>

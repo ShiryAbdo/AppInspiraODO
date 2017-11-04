@@ -18,6 +18,7 @@ import com.Inspira.odo.buyerUi.HomeBuper;
 import com.Inspira.odo.buyerUi.MaKArequest;
 import com.Inspira.odo.buyerUi.MyRequest;
 import com.Inspira.odo.helper.NavigationDrawerHelper;
+import com.Inspira.odo.mainLuncher.EditProfile;
 import com.Inspira.odo.model.ObjectDrawerItem;
 
 import java.util.ArrayList;
@@ -98,7 +99,12 @@ public class NavigationDrawerSeler extends AppCompatActivity  implements ListVie
                 mFragment = new MyFavorites();
                 break;
             case 3:
-                mFragment = new HomeBuper();
+                 break;
+            case 4:
+                mFragment = new EditProfile();
+                break;
+            case 5:
+                mFragment = new SellerHome();
                 break;
         }
         attachFragment();

@@ -2,6 +2,7 @@ package com.Inspira.odo.buyerUi;
 
 
 import android.app.Dialog;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -24,6 +25,7 @@ public class MaKArequest extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rooteView = inflater.inflate(R.layout.fragment_ma_karequest, container, false);
+        getActivity().setTitle(R.string.MaK_Arequest);
         submet_requst =(Button)rooteView.findViewById(R.id.submet_requst);
         submet_requst.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +67,13 @@ public class MaKArequest extends Fragment {
             }
         });
         return  rooteView ;
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        getActivity().setTitle(R.string.MaK_Arequest);
+
     }
 
 }

@@ -1,6 +1,7 @@
 package com.Inspira.odo.mainLuncher;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,10 @@ public class SplashActivity extends AppCompatActivity {
     private static int SPLASH_TIME_OUT = 2000;
 
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

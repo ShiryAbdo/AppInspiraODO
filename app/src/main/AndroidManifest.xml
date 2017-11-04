@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.Inspira.odo">
 
-    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".mainLuncher.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -59,13 +59,26 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".buyerUi.MainActivity" />
-        <activity android:name=".buyerUi.RequestResponses" />
-        <activity android:name=".buyerUi.NavigationDrawerBuyer" />
-        <activity android:name=".sellerUi.ContinuingRegSeler" />
-        <activity android:name=".sellerUi.WorkingOnOne" />
-        <activity android:name=".sellerUi.NavigationDrawerSeler" />
-        <activity android:name=".sellerUi.DialogeSellerData"></activity>
+        <activity android:name=".buyerUi.MainActivity"
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            />
+        <activity android:name=".buyerUi.RequestResponses"
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            />
+        <activity android:name=".buyerUi.NavigationDrawerBuyer"
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            />
+        <activity android:name=".sellerUi.ContinuingRegSeler"
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            />
+        <activity android:name=".sellerUi.WorkingOnOne"
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            />
+        <activity android:name=".sellerUi.NavigationDrawerSeler"
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            />
+        <activity
+            android:name=".sellerUi.DialogeSellerData"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
     </application>
-
 </manifest>

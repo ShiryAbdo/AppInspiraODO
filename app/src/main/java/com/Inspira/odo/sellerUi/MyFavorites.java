@@ -32,6 +32,8 @@ public class MyFavorites extends Fragment {
                              Bundle savedInstanceState) {
           View rooteViw =inflater.inflate(R.layout.fragment_my_favorites, container, false);
         getActivity().setTitle(R.string.My_Favorites);
+        getActivity().findViewById(R.id.filter).setVisibility(View.VISIBLE);
+
         return rooteViw ;
     }
 

@@ -18,7 +18,9 @@ public class OrderRequestes extends Fragment {
                              Bundle savedInstanceState) {
         View rooteView = inflater.inflate(R.layout.fragment_order_requestes, container, false);
         getActivity().setTitle(R.string.Order_Requestes);
-         return  rooteView;
+        getActivity().findViewById(R.id.filter).setVisibility(View.GONE);
+
+        return  rooteView;
     }
 
     @Override

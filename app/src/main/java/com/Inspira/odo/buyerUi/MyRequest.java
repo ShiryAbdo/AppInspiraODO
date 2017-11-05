@@ -23,8 +23,9 @@ public class MyRequest extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rooteView = inflater.inflate(R.layout.fragment_my_request, container, false);
+        getActivity().findViewById(R.id.filter).setVisibility(View.VISIBLE);
         getActivity().setTitle(R.string.MyRequest);
-        return rooteView;
+         return rooteView;
     }
 
     @Override

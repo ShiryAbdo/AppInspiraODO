@@ -21,6 +21,7 @@ public class EditProfile extends Fragment {
         // Inflate the layout for this fragment
          View  rooteiew = inflater.inflate(R.layout.fragment_edit_profile, container, false);
         getActivity().setTitle(R.string.Edit_Profile);
+        getActivity().findViewById(R.id.filter).setVisibility(View.GONE);
 
         return  rooteiew;
     }

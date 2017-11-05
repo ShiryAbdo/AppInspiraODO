@@ -3,8 +3,7 @@ package com.Inspira.odo.buyerUi;
 
 import android.os.Bundle;
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.view.LayoutInflater;
+ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -30,6 +29,7 @@ public class HomeBuper extends Fragment {
    View rooteView = inflater.inflate(R.layout.fragment_home_buper, container, false);
 
         getActivity().setTitle("Home");
+        getActivity().findViewById(R.id.filter).setVisibility(View.GONE);
         SpinnerCarType =(Spinner)rooteView.findViewById(R.id.SpinnerCarType);
         your_car_model= (Spinner)rooteView.findViewById(R.id.your_car_model);
         your_car_year=(Spinner)rooteView.findViewById(R.id.your_car_year);

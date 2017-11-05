@@ -2,6 +2,7 @@ package com.Inspira.odo.sellerUi;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,8 +18,11 @@ import com.Inspira.odo.R;
 import com.Inspira.odo.buyerUi.HomeBuper;
 import com.Inspira.odo.buyerUi.MaKArequest;
 import com.Inspira.odo.buyerUi.MyRequest;
+import com.Inspira.odo.buyerUi.NavigationDrawerBuyer;
 import com.Inspira.odo.helper.NavigationDrawerHelper;
+import com.Inspira.odo.mainLuncher.ChangeLanguage;
 import com.Inspira.odo.mainLuncher.EditProfile;
+import com.Inspira.odo.mainLuncher.LogInActivity;
 import com.Inspira.odo.model.ObjectDrawerItem;
 
 import java.util.ArrayList;
@@ -89,22 +93,23 @@ public class NavigationDrawerSeler extends AppCompatActivity  implements ListVie
 
 
         switch (position) {
-            case 0:
-                mFragment = new SellerHome();
-                break;
             case 1:
                 mFragment = new OrderRequestes();
                 break;
             case 2:
                 mFragment = new MyFavorites();
                 break;
-            case 3:
-                 break;
+             case 3:
+                break;
             case 4:
                 mFragment = new EditProfile();
                 break;
-            case 5:
-                mFragment = new SellerHome();
+            case  5 :
+                mFragment = new ChangeLanguage();
+                break;
+            case  6:
+                Intent intent = new Intent(NavigationDrawerSeler.this, LogInActivity.class);
+                startActivity(intent);
                 break;
         }
         attachFragment();

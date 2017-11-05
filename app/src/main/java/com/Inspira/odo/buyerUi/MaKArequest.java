@@ -26,6 +26,7 @@ public class MaKArequest extends Fragment {
         // Inflate the layout for this fragment
         View rooteView = inflater.inflate(R.layout.fragment_ma_karequest, container, false);
         getActivity().setTitle(R.string.MaK_Arequest);
+        getActivity().findViewById(R.id.filter).setVisibility(View.GONE);
         submet_requst =(Button)rooteView.findViewById(R.id.submet_requst);
         submet_requst.setOnClickListener(new View.OnClickListener() {
             @Override

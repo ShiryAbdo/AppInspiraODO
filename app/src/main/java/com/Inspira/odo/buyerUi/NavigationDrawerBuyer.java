@@ -3,6 +3,7 @@ package com.Inspira.odo.buyerUi;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,7 @@ import com.Inspira.odo.R;
 import com.Inspira.odo.mainLuncher.ChangeLanguage;
 import com.Inspira.odo.mainLuncher.EditProfile;
 import com.Inspira.odo.mainLuncher.LocaleHelper;
+import com.Inspira.odo.mainLuncher.LogInActivity;
 import com.Inspira.odo.model.ObjectDrawerItem;
 
 import java.util.ArrayList;
@@ -110,7 +112,8 @@ public boolean onOptionsItemSelected(MenuItem item) {
                 mFragment = new ChangeLanguage();
                 break;
             case  6:
-                mFragment = new HomeBuper();
+                Intent intent = new Intent(NavigationDrawerBuyer.this, LogInActivity.class);
+                startActivity(intent);
                 break;
         }
         attachFragment();

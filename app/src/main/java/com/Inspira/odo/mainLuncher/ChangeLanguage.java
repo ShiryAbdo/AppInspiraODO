@@ -25,6 +25,7 @@ public class ChangeLanguage extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_change_language, container, false);
         getActivity().setTitle(R.string.Change_Language);
+        getActivity().findViewById(R.id.filter).setVisibility(View.GONE);
 
         arabic = (Button) rootView.findViewById(R.id.arabic);
         english = (Button) rootView.findViewById(R.id.english);

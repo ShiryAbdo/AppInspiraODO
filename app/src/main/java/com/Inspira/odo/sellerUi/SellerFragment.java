@@ -4,12 +4,24 @@ package com.Inspira.odo.sellerUi;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.Inspira.odo.R;
+import com.Inspira.odo.data.ApiClient;
+import com.Inspira.odo.data.ApiInterface;
+import com.Inspira.odo.data.Model.BuyerRegistration;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static android.content.ContentValues.TAG;
 
 
 /**
@@ -19,7 +31,6 @@ public class SellerFragment extends Fragment {
 
 
     Button CreatCampanyAcount ;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,6 +45,8 @@ public class SellerFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+
         return  roooteView;
     }
 

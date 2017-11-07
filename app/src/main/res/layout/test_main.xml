@@ -15,12 +15,12 @@
         android:id="@+id/frame"
         android:layout_width="match_parent"
         android:layout_height="450dp"
-        android:background="@drawable/profile">
+        android:background="@drawable/logo">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/profiletransparent"
+            android:src="@drawable/logo"
             android:scaleType="fitXY"/>
 
         <RelativeLayout
@@ -40,7 +40,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:src="@drawable/search"
+                android:src="@drawable/logo"
                 android:layout_marginTop="25dp"
                 android:layout_alignParentRight="true"
 
@@ -62,14 +62,14 @@
 
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/twitter"
+            android:src="@drawable/logo"
             android:layout_marginTop="25dp"
             />
     <ImageView
 
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:src="@drawable/facebook"
+        android:src="@drawable/logo"
         android:layout_marginTop="25dp"
         android:layout_marginLeft="8dp"
         />
@@ -77,7 +77,7 @@
 
     android:layout_width="30dp"
     android:layout_height="30dp"
-    android:src="@drawable/insta"
+    android:src="@drawable/logo"
     android:layout_marginTop="25dp"
         android:layout_marginLeft="8dp"
     />

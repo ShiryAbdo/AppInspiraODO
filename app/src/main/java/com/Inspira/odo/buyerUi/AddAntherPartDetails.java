@@ -13,8 +13,6 @@ import android.widget.Button;
 import com.Inspira.odo.R;
 import com.Inspira.odo.data.ApiClient;
 import com.Inspira.odo.data.ApiInterface;
-import com.Inspira.odo.data.ApiInterfaceOrder;
-import com.Inspira.odo.data.Model.BuyerRegistration;
 import com.Inspira.odo.data.Model.Order;
 import com.Inspira.odo.data.Model.OrderImage;
 import com.Inspira.odo.data.Model.OrderList;
@@ -71,10 +69,10 @@ public class AddAntherPartDetails extends Fragment {
 
 
 
-                        ApiInterfaceOrder apiService =
-                                ApiClient.getClient().create(ApiInterfaceOrder.class);
+                        ApiInterface apiService =
+                                ApiClient.getClient().create(ApiInterface.class);
 
-                        Call<ResponseBody> call = apiService.doOrders(new Order("userPhone","carType","carModel","carYear",  orderList));
+                        Call<ResponseBody> call = apiService.addOrders(new Order("userPhone","carType","carModel","carYear",  orderList));
                         call.enqueue(new Callback<ResponseBody>() {
                             @Override
                             public void onResponse(Call<ResponseBody>call, Response<ResponseBody> response) {

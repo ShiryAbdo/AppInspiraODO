@@ -1,22 +1,20 @@
 package com.Inspira.odo.sellerUi;
 
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.Inspira.odo.R;
-import com.Inspira.odo.adaptors.DataAdapter;
 import com.Inspira.odo.adaptors.DataSellerHomeAdaptor;
 import com.Inspira.odo.model.SellerHomeData;
 
 import java.util.ArrayList;
-
 
 
 public class SellerHome extends Fragment {
@@ -31,13 +29,12 @@ public class SellerHome extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rooteView =inflater.inflate(R.layout.fragment_seller_home, container, false);
-         data = new ArrayList<>();
+        data = new ArrayList<>();
         getActivity().findViewById(R.id.filter);
         initViews();
          return rooteView ;
 
     }
-
 
     private void initViews(){
         recycler_view = (RecyclerView)rooteView.findViewById(R.id.recycler_view);

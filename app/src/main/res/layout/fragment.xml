@@ -13,7 +13,7 @@
         android:text="helllo " />
 
     <com.Inspira.odo.ui.DelayAutoCompleteTextView
-        android:id="@+id/geo_autocomplete"
+        android:id="@+id/company_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
          android:ems="10"

@@ -62,7 +62,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/addServiseText"
+                android:id="@+id/company_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/Campany_Name"
@@ -100,11 +100,11 @@
 
 
         <com.Inspira.odo.ui.DelayAutoCompleteTextView
-            android:id="@+id/geo_autocomplete"
+            android:id="@+id/company_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:ellipsize="middle"
+            android:ellipsize="end"
             android:maxLines="1"
             android:imeOptions="flagNoExtractUi|actionSearch"
             android:scrollHorizontally="true"

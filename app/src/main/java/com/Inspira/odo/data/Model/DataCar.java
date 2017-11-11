@@ -837,10 +837,6 @@ public class DataCar {
         DaihatsuModels.add("Sirion");
         DaihatsuModels.add("Terios");
         DaihatsuModels.add("YRV");
-
-
-
-
         return DaihatsuModels;
     }
 
@@ -869,7 +865,6 @@ public class DataCar {
         CitroenModle.add("Xsara");
         CitroenModle.add("Xsara Picasso");
         CitroenModle.add("ZX");
-
         return CitroenModle;
     }
 
@@ -1078,7 +1073,6 @@ public class DataCar {
         CarTypesEnglish.add("Suzuki");
         CarTypesEnglish.add("Toyota");
         CarTypesEnglish.add("Volvo");
-
         CarTypesEnglish.add("Volkswagen");
 
 

@@ -19,7 +19,7 @@ public class RequestResponses extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
        View rooteView = inflater.inflate(R.layout.fragment_request_responses, container, false);
-        getActivity().setTitle(R.string.Request_Responses);
+        getActivity().setTitle(R.string.Request_Responsesr);
 
         return rooteView ;
     }
@@ -27,7 +27,7 @@ public class RequestResponses extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        getActivity().setTitle(R.string.Request_Responses);
+        getActivity().setTitle(R.string.Request_Responsesr);
     }
 
 }

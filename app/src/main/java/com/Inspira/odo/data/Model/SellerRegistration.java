@@ -41,13 +41,13 @@ public class SellerRegistration {
     @Expose
     private List<WorkingOn> workingOn = null;
 
-    public SellerRegistration(String phoneNumber, String fullName, String email, String password, String hashVal, String userType, String companyName, String companyAddress, CompanyOnMap companyOnMap, String companyType, List<WorkingOn> workingOn) {
+    public SellerRegistration(String phoneNumber, String fullName, String email, String password, String hashVal, String companyName, String companyAddress, CompanyOnMap companyOnMap, String companyType, List<WorkingOn> workingOn) {
         this.phoneNumber = phoneNumber;
         this.fullName = fullName;
         this.email = email;
         this.password = password;
         this.hashVal = hashVal;
-        this.userType = userType;
+        this.userType = "seller";
         this.companyName = companyName;
         this.companyAddress = companyAddress;
         this.companyOnMap = companyOnMap;

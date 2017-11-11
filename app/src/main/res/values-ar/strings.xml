@@ -44,6 +44,12 @@
     <string name="Order_Requestes">طلبات الزبائن</string>
     <string name="Edit_Profile">"تعديل  الحساب  "</string>
     <string name="Change_Language">تعديل اللغة</string>
-    <string name="Request_Responses">العروض المتاحة</string>
-    <string name="action_settings"></string>
+    <string name="Request_Responsesr">العروض المتاحة</string>
+    <string name="action_settings">...</string>
+    <string name="required">مطلوب</string>
+    <string name="business_service">أعمال تجارية</string>
+    <string name="computers">حواسيب</string>
+    <string name="education">تعليمية</string>
+    <string name="personal">شخصية</string>
+    <string name="travel">رحلة</string>
 </resources>

@@ -29,4 +29,5 @@ public class CompanyOnMap {
         this.latitude = latitude;
     }
 
+
 }

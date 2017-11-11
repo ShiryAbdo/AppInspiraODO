@@ -54,39 +54,39 @@ public class HomeBuper extends Fragment {
 
 
         // Spinner Drop down elements
-        categories_CarType.add(R.string.your_car_type+"");
-        categories_CarType.add("Business Services");
-        categories_CarType.add("Computers");
-        categories_CarType.add("Education");
-        categories_CarType.add("Personal");
-        categories_CarType.add("Travel");
+        categories_CarType.add(getString(R.string.your_car_type));
+        categories_CarType.add(getString(R.string.business_service));
+        categories_CarType.add(getString(R.string.computers));
+        categories_CarType.add(getString(R.string.education));
+        categories_CarType.add(getString(R.string.personal));
+        categories_CarType.add(getString(R.string.travel));
 
         // Spinner Drop down elements
-        categories_car_model.add(R.string.your_car_modle+"");
-        categories_car_model.add("Business Services");
-        categories_car_model.add("Computers");
-        categories_car_model.add("Education");
-        categories_car_model.add("Personal");
-        categories_car_model.add("Travel");
+        categories_car_model.add(getString(R.string.your_car_type));
+        categories_car_model.add(getString(R.string.business_service));
+        categories_car_model.add(getString(R.string.computers));
+        categories_car_model.add(getString(R.string.education));
+        categories_car_model.add(getString(R.string.personal));
+        categories_car_model.add(getString(R.string.travel));
         // Spinner Drop down elements
-        categories_car_year.add(R.string.your_car_year+"");
-        categories_car_year.add("Business Services");
-        categories_car_year.add("Computers");
-        categories_car_year.add("Education");
-        categories_car_year.add("Personal");
-        categories_car_year.add("Travel");
+        categories_car_year.add(getString(R.string.your_car_type));
+        categories_car_year.add(getString(R.string.business_service));
+        categories_car_year.add(getString(R.string.computers));
+        categories_car_year.add(getString(R.string.education));
+        categories_car_year.add(getString(R.string.personal));
+        categories_car_year.add(getString(R.string.travel));
         // Spinner Drop down elements
-        categories_Type_of_requset.add(R.string.your_Type_requse+"");
-        categories_Type_of_requset.add("Business Services");
-        categories_Type_of_requset.add("Computers");
-        categories_Type_of_requset.add("Education");
-        categories_Type_of_requset.add("Personal");
-        categories_Type_of_requset.add("Travel");
+        categories_Type_of_requset.add(getString(R.string.your_car_type));
+        categories_Type_of_requset.add(getString(R.string.business_service));
+        categories_Type_of_requset.add(getString(R.string.computers));
+        categories_Type_of_requset.add(getString(R.string.education));
+        categories_Type_of_requset.add(getString(R.string.personal));
+        categories_Type_of_requset.add(getString(R.string.travel));
 
 
 
         myAdaptor_CarType = new CustomArrayAdapter_Spinner(getActivity(),
-                R.layout.customspinneritem, categories_CarType);
+                R.layout.customspinneritem, categories_car_model);
         myAdaptor_car_model = new CustomArrayAdapter_Spinner(getActivity(),
                 R.layout.customspinneritem, categories_car_model);
         myAdaptor_car_year = new CustomArrayAdapter_Spinner(getActivity(),

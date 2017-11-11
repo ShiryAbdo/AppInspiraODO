@@ -14,7 +14,7 @@
     <TextView
         android:padding="@dimen/_10sdp"
           android:textColor="#ffffff"
-        android:text="Your Request has been send successfully to the relevant seller "
+        android:text="@string/send_successfully"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <LinearLayout
@@ -30,7 +30,7 @@
             android:gravity="end"
             android:id="@+id/ok"
             android:background="#00dadada"
-            android:text="OK"
+            android:text="@string/ok"
             android:textColor="@color/colorPrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

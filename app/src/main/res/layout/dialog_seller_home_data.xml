@@ -62,21 +62,7 @@
         android:layout_width="match_parent"
         android:background="#dea63e"
         android:layout_height="@dimen/_1sdp"/>
-    <Spinner
-        android:layout_marginTop="@dimen/_15sdp"
-        android:id="@+id/your_car_year"
-        android:textColor="#ffffff"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        style="@style/Base.Widget.AppCompat.Spinner"
-        android:layout_marginBottom="@dimen/_20sdp"
-        android:textColorHint="#ffffff"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <View
-        android:layout_width="match_parent"
-        android:background="#dea63e"
-        android:layout_height="@dimen/_1sdp"/>
+
 
     <LinearLayout
         android:padding="@dimen/_20sdp"

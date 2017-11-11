@@ -96,13 +96,14 @@
         <Button
             android:layout_gravity="bottom"
             android:padding="@dimen/_5sdp"
+            android:textAllCaps="false"
             style="?metaButtonBarButtonStyle"
             android:textSize="@dimen/_20sdp"
             android:background="#dcae3b"
             android:id="@+id/saveData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Save" />
+            android:text="@string/Continue" />
 
 
     </LinearLayout>

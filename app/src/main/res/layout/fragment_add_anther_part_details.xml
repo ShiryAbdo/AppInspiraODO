@@ -31,7 +31,7 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:textColor="#fff"
-            android:text="@string/mak_arequest"
+            android:text="@string/Add_part_details"
             android:id="@+id/wasf_titel"
             />
 
@@ -39,13 +39,8 @@
 
 
     <LinearLayout
-         android:layout_marginRight="@dimen/_2sdp"
-        android:layout_marginLeft="@dimen/_2sdp"
-        android:layout_marginStart="@dimen/_2sdp"
-        android:background="#5f6e6e6e"
-        android:layout_marginEnd="@dimen/_2sdp"
-        android:layout_marginBottom="@dimen/_2sdp"
-        android:layout_width="match_parent"
+         android:background="#5f6e6e6e"
+         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
              android:padding="@dimen/_5sdp"
@@ -101,7 +96,7 @@
                 android:id="@+id/addServiseText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Part"
+                android:hint="@string/Part"
                 android:inputType="text"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff" />
@@ -119,7 +114,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Engine Capacity"
+                android:hint="@string/Engine_Capacity"
                 android:inputType="text"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff" />
@@ -140,7 +135,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Color"
+                android:hint="@string/Color"
                 android:inputType="text"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff" />
@@ -170,7 +165,7 @@
             android:layout_marginBottom="@dimen/_7sdp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+ Add anther part details "/>
+            android:text="@string/Add_anther_part_details"/>
         <View
 
             android:layout_width="match_parent"

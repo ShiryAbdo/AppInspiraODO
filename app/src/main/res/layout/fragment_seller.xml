@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#00ffffff"
-                android:hint="Full Name"
+                android:hint="@string/Full_Name"
                 android:inputType="textPersonName"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff" />
@@ -57,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#00ffffff"
-                android:hint="Mobile Number"
+                android:hint="@string/Mobile_Number"
                 android:inputType="phone"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff" />
@@ -79,7 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#00ffffff"
-                android:hint="Password"
+                android:hint="@string/Password"
                 android:inputType="textPassword"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff" />
@@ -101,7 +101,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#00ffffff"
-                android:hint="Confirm Password"
+                android:hint="@string/Confirm_Password"
                 android:inputType="textPassword"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff" />
@@ -132,7 +132,7 @@
             android:layout_gravity="bottom"
             android:background="#dcae3b"
             android:padding="@dimen/_5sdp"
-            android:text="Creat Campany acount "
+            android:text="@string/Creat_Campany_acount"
             android:textAllCaps="false"
             android:textSize="@dimen/_15sdp" />
     </LinearLayout>

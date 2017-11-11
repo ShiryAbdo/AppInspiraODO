@@ -2,12 +2,43 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
     android:orientation="vertical"
     android:background="@drawable/backgraud"
     android:layout_height="match_parent"
     tools:context="com.Inspira.odo.sellerUi.ContinuingRegSeler">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp"
+        android:layout_height="@dimen/_56sdp"
+        android:layout_width="match_parent"
+         android:background="@color/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <ImageView
+            android:id="@+id/go_back"
+            android:layout_gravity="start"
+            android:padding="@dimen/_5sdp"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/back"
+            android:contentDescription="back" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="#fff"
+            android:text="@string/add_compay_details"
+            android:id="@+id/wasf_titel"
+            />
+    </android.support.v7.widget.Toolbar>
 
     <ImageView
         android:layout_weight=".5"
@@ -34,7 +65,7 @@
                 android:id="@+id/addServiseText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Campany Name"
+                android:hint="@string/Campany_Name"
                 android:background="#00ffffff"
                 android:inputType="textPersonName"
                 android:textColor="#ffffff"
@@ -81,7 +112,7 @@
             android:completionThreshold="1"
             android:textColor="#ffffff"
             android:textColorHint="#ffffff"
-             android:hint="Campany Adress"
+             android:hint="@string/Campany_Adress"
             android:dropDownVerticalOffset="10dp"
             android:dropDownWidth="200dp"
             android:dropDownHorizontalOffset="30dp">
@@ -142,7 +173,7 @@
             android:textAllCaps="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Creat Campany acount " />
+            android:text="@string/Creat_Campany_acount" />
     </LinearLayout>
 
 

@@ -16,7 +16,7 @@
         android:textStyle="bold"
         android:textSize="@dimen/_18sdp"
         android:textColor="#ffffff"
-        android:text="Confirm Send The Request"
+        android:text="@string/Confirm_Send_The_Request"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <LinearLayout
@@ -31,7 +31,7 @@
             android:gravity="start"
             android:id="@+id/no"
             android:background="#00dadada"
-            android:text="Cancle"
+            android:text="@string/Cancle"
             android:textColor="#ffffff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -42,7 +42,7 @@
             android:gravity="end"
             android:id="@+id/ok"
             android:background="#00dadada"
-            android:text="Confirm"
+            android:text="@string/Confirm"
             android:textColor="@color/colorPrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

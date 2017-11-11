@@ -62,7 +62,7 @@ public class SellerHome extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        getActivity().setTitle(R.string.home);
+        getActivity().setTitle(R.string.home_seller);
     }
 
 

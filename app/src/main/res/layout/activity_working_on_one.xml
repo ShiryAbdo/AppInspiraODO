@@ -33,7 +33,7 @@
             android:textColor="#fff"
             android:gravity="center"
              android:textAlignment="viewStart"
-             android:text= "Working On"
+             android:text= "@string/Working_On"
             android:id="@+id/wasf_titel"
             />
 

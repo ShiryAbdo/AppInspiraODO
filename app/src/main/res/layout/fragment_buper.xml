@@ -33,7 +33,7 @@
                 android:id="@+id/fname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Full Name"
+                android:hint="@string/Full_Name"
                 android:background="#00ffffff"
                 android:inputType="textPersonName"
                 android:textColor="#ffffff"
@@ -55,7 +55,7 @@
                 android:id="@+id/phone_no"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Mobile Number"
+                android:hint="@string/Mobile_Number"
                 android:background="#00ffffff"
                 android:inputType="phone"
                 android:textColor="#ffffff"
@@ -77,7 +77,7 @@
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email Address"
+                android:hint="@string/Email_Address"
                 android:background="#00ffffff"
                 android:inputType="textEmailAddress"
                 android:textColor="#ffffff"
@@ -99,7 +99,7 @@
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
+                android:hint="@string/Password"
                 android:inputType="textPassword"
                 android:background="#00ffffff"
                 android:textColor="#ffffff"
@@ -120,7 +120,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Confirm Password"
+                android:hint="@string/Confirm_Password"
                 android:inputType="textPassword"
                 android:background="#00ffffff"
                 android:textColor="#ffffff"
@@ -149,7 +149,7 @@
             android:background="#dcae3b"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Creat Acount" />
+            android:text="@string/Creat_Acount" />
     </LinearLayout>
 
 

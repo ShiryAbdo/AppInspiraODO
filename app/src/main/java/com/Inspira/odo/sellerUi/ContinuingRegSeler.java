@@ -44,7 +44,7 @@ public class ContinuingRegSeler extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_continuing_reg_seler);
+         setContentView(R.layout.activity_continuing_reg_seler);
         Campany_acount_Countio = (Button)findViewById(R.id.Campany_acount_Countio);
         spinner_tYpeSeler=(Spinner)findViewById(R.id.spinner_tYpeSeler);
         Campany_acount_Countio.setOnClickListener(new View.OnClickListener() {

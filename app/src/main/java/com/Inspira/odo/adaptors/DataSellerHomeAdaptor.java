@@ -39,6 +39,7 @@ public class DataSellerHomeAdaptor  extends RecyclerView.Adapter<DataSellerHomeA
     private Context context;
     private int lastPosition=-1;
     Activity activity ;
+    ArrayList<String>categories_CarType ,categories_car_model ;
 
     public DataSellerHomeAdaptor(ArrayList<SellerHomeData> android, Context c , Activity activity) {
         this.androidList = android;
@@ -122,23 +123,30 @@ public class DataSellerHomeAdaptor  extends RecyclerView.Adapter<DataSellerHomeA
                 Spinner your_car_model = (Spinner)okdialog.findViewById(R.id.your_car_model);
                 Spinner your_car_year =(Spinner)okdialog.findViewById(R.id.your_car_year);
                 ArrayList<String>categories ;
-                CustomArrayAdapter_Spinner  myAdaptor ;
+                 CustomArrayAdapter_Spinner  myAdaptor_CarType  ,myAdaptor_car_model ;
+                categories_CarType = new ArrayList<String>();
+                categories_CarType.add(R.string.your_car_type+"");
+                categories_CarType.add("Business Services");
+                categories_CarType.add("Computers");
+                categories_CarType.add("Education");
+                categories_CarType.add("Personal");
+                categories_CarType.add("Travel");
 
                 // Spinner Drop down elements
-                categories= new ArrayList<>();
-                categories.add("Automobile");
-                categories.add("Business Services");
-                categories.add("Computers");
-                categories.add("Education");
-                categories.add("Personal");
-                categories.add("Travel");
-
-                myAdaptor = new CustomArrayAdapter_Spinner(context.getApplicationContext(),
-                        R.layout.customspinneritem, categories);
-                SpinnerCarType.setAdapter(myAdaptor);
-                your_car_model.setAdapter(myAdaptor);
-                your_car_year.setAdapter(myAdaptor);
-                OK_d.setOnClickListener(new View.OnClickListener() {
+                categories_car_model= new ArrayList<String>();
+                categories_car_model.add(R.string.your_car_modle+"");
+                categories_car_model.add("Business Services");
+                categories_car_model.add("Computers");
+                categories_car_model.add("Education");
+                categories_car_model.add("Personal");
+                categories_car_model.add("Travel");
+                myAdaptor_CarType = new CustomArrayAdapter_Spinner(context.getApplicationContext(),
+                        R.layout.customspinneritem, categories_CarType);
+                myAdaptor_car_model = new CustomArrayAdapter_Spinner(context,
+                        R.layout.customspinneritem, categories_car_model);
+                SpinnerCarType.setAdapter(myAdaptor_CarType);
+                your_car_model.setAdapter(myAdaptor_car_model);
+                 OK_d.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         okdialog.dismiss();

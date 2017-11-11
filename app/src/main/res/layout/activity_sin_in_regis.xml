@@ -34,7 +34,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Mobile Number"
+                android:hint="@string/Mobile_Number"
                 android:background="#00ffffff"
                 android:inputType="text"
                 android:textColor="#ffffff"
@@ -53,7 +53,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
+                android:hint="@string/Password"
                 android:inputType="text"
                 android:background="#00ffffff"
                 android:textColor="#ffffff"

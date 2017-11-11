@@ -105,9 +105,9 @@ public class RegistrationActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "Buyer";
+                    return R.string.Buyer+"";
                 case 1:
-                    return "Seller";
+                    return R.string.Seller+"";
 
             }
             return null;

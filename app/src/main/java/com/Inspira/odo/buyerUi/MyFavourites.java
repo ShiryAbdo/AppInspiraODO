@@ -9,15 +9,23 @@ import android.view.ViewGroup;
 
 import com.Inspira.odo.R;
 
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class MyFavourites extends Fragment {
 
-public class MakTyreRequest extends Fragment {
+
+    public MyFavourites() {
+        // Required empty public constructor
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-         View rooteview = inflater.inflate(R.layout.fragment_mak_tyre_request, container, false);
-        getActivity().setTitle(R.string.MakTyreRequest);
-        return  rooteview;
+       View rooteView = inflater.inflate(R.layout.fragment_my_favourites, container, false);
+        getActivity().setTitle(R.string.My_Favorites);
+        return rooteView;
     }
 
 }

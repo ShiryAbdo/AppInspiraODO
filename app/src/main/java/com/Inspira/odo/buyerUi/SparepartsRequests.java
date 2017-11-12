@@ -9,15 +9,23 @@ import android.view.ViewGroup;
 
 import com.Inspira.odo.R;
 
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class SparepartsRequests extends Fragment {
 
-public class MakTyreRequest extends Fragment {
+
+    public SparepartsRequests() {
+        // Required empty public constructor
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-         View rooteview = inflater.inflate(R.layout.fragment_mak_tyre_request, container, false);
-        getActivity().setTitle(R.string.MakTyreRequest);
-        return  rooteview;
+      View rooteView = inflater.inflate(R.layout.fragment_spareparts_requests, container, false);
+        getActivity().setTitle(R.string.SparepartsRequests);
+        return  rooteView ;
     }
 
 }

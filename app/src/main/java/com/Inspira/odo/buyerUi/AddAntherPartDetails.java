@@ -70,13 +70,13 @@ public class AddAntherPartDetails extends AppCompatActivity {
                     public void onClick(View view) {
 
 
-
+                        dialog.dismiss();
 
 
                         ApiInterface apiService =
                                 ApiClient.getClient().create(ApiInterface.class);
 
-                        Call<ResponseBody> call = apiService.addOrders(new Order("012039489038","carType","carModel","carYear",  orderList ,orderImages));
+                        Call<ResponseBody> call = apiService.addOrders(new Order("01009560620","carType","carModel","carYear",  orderList ,orderImages));
                         call.enqueue(new Callback<ResponseBody>() {
                             @Override
                             public void onResponse(Call<ResponseBody>call, Response<ResponseBody> response) {

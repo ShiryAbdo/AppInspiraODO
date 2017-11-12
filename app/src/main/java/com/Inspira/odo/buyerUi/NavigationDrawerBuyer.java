@@ -49,12 +49,15 @@ protected void onCreate(Bundle savedInstanceState) {
         // The Second is the ListView.OnItemClickListener (this), as our Activity implements it
 
     ArrayList<ObjectDrawerItem> drawerItem = new ArrayList<>();
-    drawerItem.add(new ObjectDrawerItem(0, "My Requestes"));
-    drawerItem.add(new ObjectDrawerItem(1, "Mak Arequest"));
-    drawerItem.add(new ObjectDrawerItem(2, ""));
-    drawerItem.add(new ObjectDrawerItem(3, "Edit Profile"));
-    drawerItem.add(new ObjectDrawerItem(4, "Change Language"));
-    drawerItem.add(new ObjectDrawerItem(5, "Log Out"));
+    drawerItem.add(new ObjectDrawerItem(0, getString(R.string.MyRequest)));
+    drawerItem.add(new ObjectDrawerItem(1, "   "+getString(R.string.SparepartsRequests)));
+    drawerItem.add(new ObjectDrawerItem(2, "   "+getString(R.string.AccesoriesRequests)));
+    drawerItem.add(new ObjectDrawerItem(3, "   "+getString(R.string.SparepartsRequests)));
+    drawerItem.add(new ObjectDrawerItem(4, getString(R.string.MaK_Arequest)));
+    drawerItem.add(new ObjectDrawerItem(5, getString(R.string.My_Favorites)));
+    drawerItem.add(new ObjectDrawerItem(6, getString(R.string.Edit_Profile)));
+    drawerItem.add(new ObjectDrawerItem(7, getString(R.string.Change_Language)));
+    drawerItem.add(new ObjectDrawerItem(8, getString(R.string.Loge_Out)));
         mNavigationDrawerHelper = new NavigationDrawerHelper();
         mNavigationDrawerHelper.init(this,toolbar ,this,drawerItem);
 

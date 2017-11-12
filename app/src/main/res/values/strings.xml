@@ -9,7 +9,7 @@
 
     <string name="title_activity_test" translatable="false">Test</string>
     <string name="title_activity_registration" translatable="false">RegistrationActivity</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings" translatable="false">Settings</string>
     <string name="section_format" translatable="false">Hello World from section: %1$d</string>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -76,6 +76,16 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Request_Responsesr">Request Responsesr</string>
+    <string name="one_Tyre" translatable="false">1 Tyre</string>
+    <string name="two_tyre" translatable="false">2 Tyres</string>
+    <string name="four_tyre">4 Tyres</string>
+    <string name="Run_flot_tyres">Run flot tyres</string>
+    <string name="MakTyreRequest">Mak a Tyre Request</string>
+    <string name="SparepartsRequests">Spare parts Requests</string>
+    <string name="AccesoriesRequests">Accesories Requests</string>
+    <string name="TyreBattereyRequests"><![CDATA[Tyre & Batterey Requests]]></string>
+    <string name="Loge_Out">Log Out</string>
 
 
 </resources>

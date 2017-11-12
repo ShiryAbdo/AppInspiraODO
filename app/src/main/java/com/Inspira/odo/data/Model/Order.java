@@ -22,7 +22,7 @@ public class Order {
     @SerializedName("orderList")
     @Expose
     private List<OrderList> orderList = null;
-    @SerializedName("orderList")
+    @SerializedName("orderImages")
     @Expose
     private List<OrderImage> ImagedList = null;
 

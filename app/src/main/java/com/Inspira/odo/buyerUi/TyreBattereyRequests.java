@@ -9,17 +9,25 @@ import android.view.ViewGroup;
 
 import com.Inspira.odo.R;
 
-public class AccesoriesRequests extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class TyreBattereyRequests extends Fragment {
 
+
+    public TyreBattereyRequests() {
+        // Required empty public constructor
+    }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-     View rooteViw =   inflater.inflate(R.layout.fragment_accesories_requests, container, false);
-        getActivity().setTitle(R.string.AccesoriesRequests);
-        return  rooteViw;
+ View rooteView=     inflater.inflate(R.layout.fragment_tyre_batterey_requests, container, false);
+        getActivity().setTitle(R.string.TyreBattereyRequests);
+
+        return  rooteView;
     }
 
 }

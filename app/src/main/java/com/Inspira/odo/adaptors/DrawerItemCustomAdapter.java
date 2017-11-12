@@ -62,7 +62,8 @@ public class DrawerItemCustomAdapter extends BaseAdapter {
         LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
         listItem = inflater.inflate(mLayoutResourceId, parent, false);
         if(position==2){
-            listItem.setBackgroundColor(Color.BLACK);
+//            listItem.setBackgroundColor(Color.BLACK);
+            listItem.setBackground( mContext.getResources().getDrawable(R.drawable.rounded_border));
         }else {
             listItem.setBackground( mContext.getResources().getDrawable(R.drawable.rounded_border));
         }

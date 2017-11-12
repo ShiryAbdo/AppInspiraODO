@@ -49,4 +49,10 @@
     <string name="enter_data">أدخل  البيانات</string>
     <string name="chose_type">إختار  نوع العربية</string>
     <string name="chose_modle">إختار  موديل  العربية</string>
+    <string name="Run_flot_tyres">كاوتش ران فلات</string>
+    <string name="one_Tyre"></string>
+    <string name="MakTyreRequest">طلب كاوتش</string>
+    <string name="SparepartsRequests">طلبات قطع الغيار</string>
+    <string name="AccesoriesRequests">طلبات الاكسسوار و الكماليات</string>
+    <string name="TyreBattereyRequests">طلبات الكاوتش و البطاريات</string>
 </resources>

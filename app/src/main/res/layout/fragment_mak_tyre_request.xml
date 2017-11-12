@@ -1,7 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-     android:layout_height="match_parent"
+      android:layout_height="match_parent"
     android:background="@drawable/backgraud"
     tools:context="com.Inspira.odo.buyerUi.MakTyreRequest"
     android:orientation="vertical">
@@ -11,10 +11,75 @@
 
     </LinearLayout>
 
+<LinearLayout
+    android:gravity="bottom"
+    android:layout_weight="1"
+     android:layout_gravity="center"
+     android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
+    <Spinner
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:popupBackground="@color/trat"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:id="@+id/Type_of_requset"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:textColorHint="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <View
+        android:layout_width="match_parent"
+        android:background="#dea63e"
+        android:layout_height="@dimen/_1sdp"/>
+
+    <CheckBox
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:button ="@color/colorPrimary"
+      android:layout_margin="@dimen/_20sdp"
+        android:textColor="#ffffff"
+        android:buttonTint= "@color/colorPrimary"
+          android:id="@+id/checkBox3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Run_flot_tyres" />
+
+
+
+
+</LinearLayout>
+    <RadioButton
+        android:id="@+id/one_Tyre"
+        android:layout_width="wrap_content"
+        android:textColor="#ffffff"
+        android:buttonTint="@color/colorPrimary"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="@string/one_Tyre" />
+
+    <RadioButton
+        android:id="@+id/two_tyre"
+        android:layout_width="wrap_content"
+        android:textColor="#ffffff"
+        android:buttonTint="@color/colorPrimary"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="@string/two_tyre" />
+
+    <RadioButton
+        android:id="@+id/radioButton3"
+        android:layout_width="wrap_content"
+        android:textColor="#ffffff"
+        android:buttonTint="@color/colorPrimary"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="@string/four_tyre" />
 
     <LinearLayout
-        android:layout_weight=".4"
+        android:layout_weight="1"
         android:layout_marginRight="@dimen/_2sdp"
         android:layout_marginLeft="@dimen/_2sdp"
         android:layout_marginStart="@dimen/_2sdp"
@@ -32,6 +97,6 @@
             android:id="@+id/saveData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Continue" />
+            android:text="@string/submet_requst"/>
 </LinearLayout>
 </LinearLayout>

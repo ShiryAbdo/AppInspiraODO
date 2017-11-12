@@ -51,12 +51,12 @@ public class BuperFragment extends Fragment {
                  String  phone = phoneNo.getText().toString().trim();
                  String  passwrd= password.getText().toString().trim() ;
                 String emaile = email.getText().toString().trim();
-//                if(!name.isEmpty()&&!phone.isEmpty()&&!passwrd.isEmpty() &&!emaile.isEmpty()){
-//                    getData();
-//
-//                }else {
-//                    Toast.makeText(getContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
-//                }
+                if(!name.isEmpty()&&!phone.isEmpty()&&!passwrd.isEmpty() &&!emaile.isEmpty()){
+                    getData();
+
+                }else {
+                    Toast.makeText(getContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
+                }
 
 
 
@@ -79,6 +79,8 @@ public class BuperFragment extends Fragment {
                 int responseCode = response.code();
                 Log.d("CODE", "ResponseCode: " + responseCode);
                 if(responseCode==200){
+                    Toast.makeText(getContext(),"ResponseCode: " + responseCode,Toast.LENGTH_SHORT).show();
+
                     Intent intent = new Intent(getActivity(), NavigationDrawerBuyer.class);
                     startActivity(intent);
                 }else {

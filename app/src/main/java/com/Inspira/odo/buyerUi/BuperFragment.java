@@ -1,8 +1,8 @@
 package com.Inspira.odo.buyerUi;
 
 
-import android.content.Intent;
-import android.os.Bundle;
+ import android.content.Intent;
+ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -45,13 +45,11 @@ public class BuperFragment extends Fragment {
         creatSelerAcout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), NavigationDrawerBuyer.class);
-                startActivity(intent);
                  String name = fName.getText().toString().trim();
                  String  phone = phoneNo.getText().toString().trim();
                  String  passwrd= password.getText().toString().trim() ;
                 String emaile = email.getText().toString().trim();
-                if(!name.isEmpty()&&!phone.isEmpty()&&!passwrd.isEmpty() &&!emaile.isEmpty()){
+                if(fName.getText().toString().trim()!=null&&!name.isEmpty()&&!phone.isEmpty()&&!passwrd.isEmpty() &&!emaile.isEmpty()){
                     getData();
 
                 }else {
@@ -84,7 +82,7 @@ public class BuperFragment extends Fragment {
                     Intent intent = new Intent(getActivity(), NavigationDrawerBuyer.class);
                     startActivity(intent);
                 }else {
-
+                    Toast.makeText(getContext(),"ResponseCode: " + responseCode,Toast.LENGTH_SHORT).show();
                     Toast.makeText(getContext()," else",Toast.LENGTH_SHORT).show();
                 }
             }

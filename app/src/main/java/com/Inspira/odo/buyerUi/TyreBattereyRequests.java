@@ -2,22 +2,15 @@ package com.Inspira.odo.buyerUi;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
+import android.app.Fragment;
+ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.Inspira.odo.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class TyreBattereyRequests extends Fragment {
-
-
-    public TyreBattereyRequests() {
-        // Required empty public constructor
-    }
 
 
     @Override

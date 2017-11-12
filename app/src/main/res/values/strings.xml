@@ -27,7 +27,7 @@
     <string name="DrawerClosed" translatable="false">Close Drawer Navigation</string>
     <string name="home">Home</string>
     <string name="Order_Requestes">Order Requestes</string>
-    <string name="Request_Responsesr">Request Responses</string>
+    <string name="Request_Responses">Request Responses</string>
     <string name="Response_Details">Response_Details</string>
     <string name="Respond_to_aReques">Respond to a Reques</string>
     <string name="My_Favorites">My Favorites</string>
@@ -70,12 +70,12 @@
     <string name="send_successfully">Your Request has been send successfully to the relevant seller</string>
     <string name="ok">OK</string>
     <string name="home_seller">Home</string>
-    <string name="required">Required</string>
-    <string name="business_service">Business Services</string>
-    <string name="computers">Computers</string>
-    <string name="education">Education</string>
-    <string name="personal">Personal</string>
-    <string name="travel">Travel</string>
+    <string name="enter_data">Enter Data</string>
+    <string name="chose_type">Choes your type car</string>
+    <string name="chose_modle">Choes your car modle</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

@@ -25,6 +25,15 @@ public class OrderList {
     @Expose
     private String size;
 
+    public OrderList(String partType, String part, String engineCapacity, String color, String ampere, String size) {
+        this.partType = partType;
+        this.part = part;
+        this.engineCapacity = engineCapacity;
+        this.color = color;
+        this.ampere = ampere;
+        this.size = size;
+    }
+
     public String getPartType() {
         return partType;
     }

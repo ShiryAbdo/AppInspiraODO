@@ -31,6 +31,7 @@
             android:layout_marginTop="@dimen/_15sdp"
             android:id="@+id/SpinnerCarType"
             android:textColor="#ffffff"
+            android:popupBackground="@color/trat"
             android:textColorHint="#ffffff"
             android:layout_width="match_parent"
             android:layout_marginBottom="@dimen/_20sdp"
@@ -44,6 +45,7 @@
             android:layout_marginTop="@dimen/_15sdp"
             android:id="@+id/your_car_model"
             android:textColor="#ffffff"
+            android:popupBackground="@color/trat"
             android:layout_marginBottom="@dimen/_20sdp"
             android:textColorHint="#ffffff"
             android:layout_width="match_parent"
@@ -53,6 +55,7 @@
             android:background="#dea63e"
             android:layout_height="@dimen/_1sdp"/>
         <Spinner
+            android:popupBackground="@color/trat"
             android:layout_marginTop="@dimen/_15sdp"
             android:id="@+id/your_car_year"
             android:textColor="#ffffff"
@@ -66,6 +69,7 @@
             android:layout_height="@dimen/_1sdp"/>
 
         <Spinner
+            android:popupBackground="@color/trat"
             android:layout_marginTop="@dimen/_15sdp"
             android:id="@+id/Type_of_requset"
             android:textColor="#ffffff"

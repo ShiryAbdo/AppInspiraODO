@@ -22,15 +22,28 @@ public class Order {
     @SerializedName("orderList")
     @Expose
     private List<OrderList> orderList = null;
+    @SerializedName("orderList")
+    @Expose
+    private List<OrderImage> ImagedList = null;
 
 
-    public Order(String phoneNumber, String carType, String carModel, String carYear, List<OrderList> orderList) {
+    public Order(String phoneNumber, String carType, String carModel, String carYear, List<OrderList> orderList , List<OrderImage> orderImages ) {
         this.phoneNumber = phoneNumber;
         this.carType = carType;
         this.carModel = carModel;
         this.carYear = carYear;
         this.orderList = orderList;
+        this.ImagedList=orderImages;
      }
+
+
+    public List<OrderImage> getImagedList() {
+        return ImagedList;
+    }
+
+    public void setImagedList(List<OrderImage> imagedList) {
+        ImagedList = imagedList;
+    }
 
     public String getPhoneNumber() {
         return phoneNumber;

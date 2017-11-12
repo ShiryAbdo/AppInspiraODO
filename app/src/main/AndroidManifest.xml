@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.Inspira.odo">
 
-
     <application
         android:name=".mainLuncher.MyApplication"
         android:allowBackup="true"
@@ -59,26 +58,28 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".buyerUi.MainActivity"
-            android:windowSoftInputMode="adjustPan|adjustResize"
-            />
-        <activity android:name=".buyerUi.RequestResponses"
-            android:windowSoftInputMode="adjustPan|adjustResize"
-            />
-        <activity android:name=".buyerUi.NavigationDrawerBuyer"
-            android:windowSoftInputMode="adjustPan|adjustResize"
-            />
-        <activity android:name=".sellerUi.ContinuingRegSeler"
-            android:windowSoftInputMode="adjustPan|adjustResize"
-            />
-        <activity android:name=".sellerUi.WorkingOnOne"
-            android:windowSoftInputMode="adjustPan|adjustResize"
-            />
-        <activity android:name=".sellerUi.NavigationDrawerSeler"
-            android:windowSoftInputMode="adjustPan|adjustResize"
-            />
+        <activity
+            android:name=".buyerUi.MainActivity"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
+        <activity
+            android:name=".buyerUi.RequestResponses"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
+        <activity
+            android:name=".buyerUi.NavigationDrawerBuyer"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
+        <activity
+            android:name=".sellerUi.ContinuingRegSeler"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
+        <activity
+            android:name=".sellerUi.WorkingOnOne"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
+        <activity
+            android:name=".sellerUi.NavigationDrawerSeler"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
             android:name=".sellerUi.DialogeSellerData"
             android:windowSoftInputMode="adjustPan|adjustResize" />
+        <activity android:name=".buyerUi.AddAntherPartDetails"></activity>
     </application>
+
 </manifest>

@@ -13,6 +13,10 @@ public class OrderImage {
     @Expose
     private String originalName;
 
+    public OrderImage(String originalName) {
+        this.originalName = originalName;
+    }
+
     public String getId() {
         return id;
     }

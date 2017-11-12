@@ -7,10 +7,9 @@
     android:background="@drawable/backgraud"
     tools:context="com.Inspira.odo.mainLuncher.SplashActivity">
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/_100sdp"
         android:src="@drawable/logoodo"
-        android:padding="@dimen/_50sdp"
-        android:layout_height="wrap_content"/>
+         android:layout_height="@dimen/_100sdp"/>
 
 
 </LinearLayout>

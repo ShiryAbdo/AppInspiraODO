@@ -1,14 +1,13 @@
 package com.Inspira.odo.buyerUi;
 
-
 import android.app.Dialog;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.Inspira.odo.R;
 import com.Inspira.odo.data.ApiClient;
@@ -27,27 +26,32 @@ import retrofit2.Response;
 
 import static android.content.ContentValues.TAG;
 
-
-
-// image sends in anther url ;
-public class AddAntherPartDetails extends Fragment {
+public class AddAntherPartDetails extends AppCompatActivity {
 
     Button submet_requst ;
     List<OrderList> orderList ;
     List<OrderImage> orderImages ;
+    EditText part , enginCapasty ,color ;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View rooteView = inflater.inflate(R.layout.fragment_add_anther_part_details, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_add_anther_part_details);
         orderList= new ArrayList<>();
         orderImages= new ArrayList<>();
+        part=(EditText)findViewById(R.id.part) ;
+        enginCapasty=(EditText)findViewById(R.id.enginCapasty) ;
+        color=(EditText)findViewById(R.id.color) ;
+        orderList.add(new OrderList("partType","part","engineCapacity","color","ampere","size"));
+        orderImages.add(new OrderImage("photo.jpg"));
 
-        submet_requst =(Button)rooteView.findViewById(R.id.submet_requst);
+
+
+        submet_requst =(Button)findViewById(R.id.submet_requst);
         submet_requst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Dialog dialog = new Dialog(getContext(), R.style.custom_dialog_theme);
+                final Dialog dialog = new Dialog(AddAntherPartDetails.this, R.style.custom_dialog_theme);
                 dialog.setContentView(R.layout.comfirm_layout);
                 final Button ok = (Button) dialog.findViewById(R.id.ok);
                 Button no  =(Button)dialog.findViewById(R.id.no);
@@ -72,11 +76,12 @@ public class AddAntherPartDetails extends Fragment {
                         ApiInterface apiService =
                                 ApiClient.getClient().create(ApiInterface.class);
 
-                        Call<ResponseBody> call = apiService.addOrders(new Order("userPhone","carType","carModel","carYear",  orderList));
+                        Call<ResponseBody> call = apiService.addOrders(new Order("012039489038","carType","carModel","carYear",  orderList ,orderImages));
                         call.enqueue(new Callback<ResponseBody>() {
                             @Override
                             public void onResponse(Call<ResponseBody>call, Response<ResponseBody> response) {
                                 int responseCode = response.code();
+                                Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_LONG).show();
                                 Log.d("CODE", "ResponseCode: " + responseCode);
                             }
 
@@ -91,7 +96,7 @@ public class AddAntherPartDetails extends Fragment {
 
 
 
-                        final Dialog okdialog = new Dialog(getContext(), R.style.custom_dialog_theme);
+                        final Dialog okdialog = new Dialog(AddAntherPartDetails.this, R.style.custom_dialog_theme);
                         okdialog.setContentView(R.layout.ok_dialog);
                         Button OK_d =(Button)okdialog.findViewById(R.id.ok);
                         OK_d.setOnClickListener(new View.OnClickListener() {
@@ -110,7 +115,5 @@ public class AddAntherPartDetails extends Fragment {
             }
         });
 
-        return  rooteView;
     }
-
 }

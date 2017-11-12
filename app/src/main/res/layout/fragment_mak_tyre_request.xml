@@ -1,0 +1,37 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+     android:layout_height="match_parent"
+    android:background="@drawable/backgraud"
+    tools:context="com.Inspira.odo.buyerUi.MakTyreRequest"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_weight=".4"
+        android:layout_marginRight="@dimen/_2sdp"
+        android:layout_marginLeft="@dimen/_2sdp"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:layout_marginEnd="@dimen/_2sdp"
+        android:layout_marginBottom="@dimen/_2sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_gravity="bottom"
+            android:padding="@dimen/_5sdp"
+            android:textAllCaps="false"
+            style="?metaButtonBarButtonStyle"
+            android:textSize="@dimen/_20sdp"
+            android:background="#dcae3b"
+            android:id="@+id/saveData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Continue" />
+</LinearLayout>
+</LinearLayout>

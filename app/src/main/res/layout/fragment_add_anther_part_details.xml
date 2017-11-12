@@ -74,8 +74,8 @@
 
             android:layout_gravity="center"
             android:src="@drawable/logoodo"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_100sdp" />
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp" />
     </LinearLayout>
 
 
@@ -90,31 +90,39 @@
         android:layout_height="wrap_content">
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:theme="@style/TextLabel"
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/addServiseText"
+                android:id="@+id/part"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/Part"
+                android:background="#00ffffff"
                 android:inputType="text"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff" />
-
         </android.support.design.widget.TextInputLayout>
+
         <View
             android:layout_width="match_parent"
             android:background="#dea63e"
             android:layout_height="@dimen/_2sdp"/>
+            android:layout_height="@dimen/_2sdp"/>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:theme="@style/TextLabel"
             android:layout_height="wrap_content">
 
             <EditText
+                android:id="@+id/enginCapasty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/Engine_Capacity"
+                android:background="#00ffffff"
                 android:inputType="text"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff" />
@@ -129,13 +137,16 @@
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:textColor="#ffffff"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:theme="@style/TextLabel"
             android:layout_height="wrap_content">
 
             <EditText
+                android:id="@+id/color"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/Color"
+                android:background="#00ffffff"
                 android:inputType="text"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff" />
@@ -145,7 +156,6 @@
             android:layout_width="match_parent"
             android:background="#dea63e"
             android:layout_height="@dimen/_2sdp"/>
-
     </LinearLayout>
     <LinearLayout
         android:layout_marginRight="@dimen/_30sdp"

@@ -1,11 +1,141 @@
 package com.Inspira.odo.data.Model;
 
-import android.app.Activity;
 
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 
 
 public class DataCar {
+    Map<String,ArrayList<String> > AllData = new HashMap<>();
+
+ ArrayList<String> years = new ArrayList<>();
+
+    public ArrayList<String> getYears() {
+        years.add("1950");
+        years.add("1951");
+        years.add("1952");
+        years.add("1953");
+        years.add("1954");
+        years.add("1955");
+        years.add("1956");
+        years.add("1957");
+        years.add("1958");
+        years.add("1959");
+        years.add("1960");
+        years.add("1961");
+        years.add("1962");
+        years.add("1963");
+        years.add("1964");
+        years.add("1965");
+        years.add("1966");
+        years.add("1967");
+        years.add("1968");
+        years.add("1969");
+        years.add("1970");
+        years.add("1971");
+        years.add("1972");
+        years.add("1973");
+        years.add("1974");
+        years.add("1975");
+        years.add("1976");
+        years.add("1977");
+        years.add("1978");
+        years.add("1979");
+        years.add("1980");
+        years.add("1981");
+        years.add("1982");
+        years.add("1983");
+        years.add("1984");
+        years.add("1985");
+        years.add("1986");
+        years.add("1987");
+        years.add("1988");
+        years.add("1989");
+        years.add("1990");
+        years.add("1991");
+        years.add("1992");
+        years.add("1993");
+        years.add("1994");
+        years.add("1995");
+        years.add("1996");
+        years.add("1997");
+        years.add("1998");
+        years.add("1999");
+        years.add("2000");
+        years.add("2001");
+        years.add("2002");
+        years.add("2003");
+        years.add("2004");
+        years.add("2005");
+        years.add("2006");
+        years.add("2007");
+        years.add("2008");
+        years.add("2009");
+        years.add("2010");
+        years.add("2011");
+        years.add("2012");
+        years.add("2013");
+        years.add("2014");
+        years.add("2015");
+        years.add("2016");
+        years.add("2017");
+        years.add("2018");
+
+
+        return years;
+    }
+
+    public Map<String, ArrayList<String> > getAllData() {
+        AllData.put("Alfa Romeo",getAlfaRomeoModle());
+        AllData.put("Audi",getAudiModle());
+        AllData.put("BMW",getBMWModle());
+        AllData.put("BYD",getBYDModle());
+        AllData.put("Brilliance" ,getBrillianceModle());
+        AllData.put("Cherry", getCherryModle());
+        AllData.put("Chevrolet" ,getChevroletModle());
+        AllData.put("Chrysler",getChryslerModle());
+        AllData.put("Citroen" ,getCitroenModle());
+        AllData.put("Daewoo" ,getDaewooModle());
+        AllData.put("Daihatsu",getDaihatsuModels());
+        AllData.put("Dodge" ,getDodgeModels());
+        AllData.put("Fiat",getFiatModels() );
+        AllData.put("Ford" ,getFordModle() );
+        AllData.put("Geely" ,getGeelyModle());
+        AllData.put("Honda" ,getHondaModle());
+        AllData.put("Hummer",getHummerModle());
+        AllData.put("Hyundai",getHyundaiModle() );
+        AllData.put("Isuzu",getIsuzuModle());
+        AllData.put("Jaguar",getJaguarModle());
+        AllData.put("Jeep" ,getJeepModle() );
+        AllData.put("Kia",getKiaModle() );
+        AllData.put("Lada",getLadaModle());
+        AllData.put("Land Rover" ,getLandRoverModel() );
+        AllData.put("MG",getMGModle());
+        AllData.put("MINI",getMINIModle());
+        AllData.put("Mazda",getMazdaModle());
+        AllData.put("Mercedes Benz" ,getMercedesBenzModle());
+        AllData.put("Mitsubishi",getMitsubishiMOodle());
+        AllData.put("Nissan" ,getNissanModle());
+        AllData.put("Opel",getOpelModle());
+        AllData.put("Other Make", getOtherMakeModle());
+        AllData.put("Peugeot",getPeugeotModle());
+        AllData.put("Porsche" ,getPorscheModle());
+        AllData.put("Proton",getProtonModle());
+        AllData.put("Renault",getRenaultModle());
+        AllData.put("Saipa",getSaipaModle());
+        AllData.put("Seat",getSeatModle());
+        AllData.put("Skoda",getSkodaModle());
+        AllData.put("Speranza",getSperanzaModle());
+        AllData.put("Ssang Yong",getSsangYongModle());
+        AllData.put("Subaru" ,getSubaruModle() );
+        AllData.put("Suzuki" , getSuzukiModle());
+        AllData.put("Toyota",getToyotaModle());
+        AllData.put("Volvo",getVolvoModle());
+        AllData.put("Volkswagen" , getVolkswagenModle() );
+        return AllData;
+    }
+
     ArrayList<String>CarTypesEnglish =new ArrayList<>();
     ArrayList<String>AlfaRomeoModle= new ArrayList<>();
     ArrayList<String>AudiModle = new ArrayList<>();
@@ -837,6 +967,10 @@ public class DataCar {
         DaihatsuModels.add("Sirion");
         DaihatsuModels.add("Terios");
         DaihatsuModels.add("YRV");
+
+
+
+
         return DaihatsuModels;
     }
 
@@ -865,6 +999,7 @@ public class DataCar {
         CitroenModle.add("Xsara");
         CitroenModle.add("Xsara Picasso");
         CitroenModle.add("ZX");
+
         return CitroenModle;
     }
 
@@ -1027,6 +1162,14 @@ public class DataCar {
         return AlfaRomeoModle;
     }
 
+
+    public void setAllData(Map<String,ArrayList<String> > allData) {
+
+        AllData = allData;
+    }
+
+
+
     public ArrayList<String> getCarTypesEnglish() {
         CarTypesEnglish.add("Alfa Romeo");
         CarTypesEnglish.add("Audi");
@@ -1069,9 +1212,11 @@ public class DataCar {
         CarTypesEnglish.add("Skoda");
         CarTypesEnglish.add("Speranza");
         CarTypesEnglish.add("Ssang Yong");
+
         CarTypesEnglish.add("Subaru");
         CarTypesEnglish.add("Suzuki");
         CarTypesEnglish.add("Toyota");
+
         CarTypesEnglish.add("Volvo");
         CarTypesEnglish.add("Volkswagen");
 

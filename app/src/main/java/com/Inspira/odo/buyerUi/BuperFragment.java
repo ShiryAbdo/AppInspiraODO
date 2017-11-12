@@ -70,7 +70,7 @@ public class BuperFragment extends Fragment {
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
 
-        Call<ResponseBody> call = apiService.doBuyerRegister(new BuyerRegistration(fName.getText().toString(),phoneNo.getText().toString(),password.getText().toString(),email.getText().toString()));
+        Call<ResponseBody> call = apiService.doBuyerRegister(new BuyerRegistration(fName.getText().toString(),phoneNo.getText().toString(),password.getText().toString(),email.getText().toString(),"1bu4i3iug262bi6u22j2ij3bug5ug45i","buyer"));
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody>call, Response<ResponseBody> response) {

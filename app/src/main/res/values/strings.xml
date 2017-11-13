@@ -75,17 +75,24 @@
     <string name="chose_modle">Choes your car modle</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="Request_Responsesr">Request Responsesr</string>
     <string name="one_Tyre" translatable="false">1 Tyre</string>
     <string name="two_tyre" translatable="false">2 Tyres</string>
-    <string name="four_tyre">4 Tyres</string>
+    <string name="four_tyre" translatable="false">4 Tyres</string>
     <string name="Run_flot_tyres">Run flot tyres</string>
     <string name="MakTyreRequest">Mak a Tyre Request</string>
     <string name="SparepartsRequests">Spare parts Requests</string>
     <string name="AccesoriesRequests">Accesories Requests</string>
     <string name="TyreBattereyRequests"><![CDATA[Tyre & Batterey Requests]]></string>
     <string name="Loge_Out">Log Out</string>
+    <string name="Size">Size</string>
+    <string name="larg_poles">Larg poles</string>
+    <string name="small_poles">Small poles</string>
+    <string name="i_do_not_know">i do not know</string>
+    <string name="Reversed">Reversed</string>
+    <string name="donot_know">I do not  know my battey</string>
+    <string name="know">i  know my battey</string>
 
 
 </resources>

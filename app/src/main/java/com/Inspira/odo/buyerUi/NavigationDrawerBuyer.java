@@ -50,9 +50,9 @@ protected void onCreate(Bundle savedInstanceState) {
 
     ArrayList<ObjectDrawerItem> drawerItem = new ArrayList<>();
     drawerItem.add(new ObjectDrawerItem(0, getString(R.string.MyRequest)));
-    drawerItem.add(new ObjectDrawerItem(1, "   "+getString(R.string.SparepartsRequests)));
-    drawerItem.add(new ObjectDrawerItem(2, "   "+getString(R.string.AccesoriesRequests)));
-    drawerItem.add(new ObjectDrawerItem(3, "   "+getString(R.string.SparepartsRequests)));
+    drawerItem.add(new ObjectDrawerItem(1, "     "+getString(R.string.SparepartsRequests)));
+    drawerItem.add(new ObjectDrawerItem(2, "     "+getString(R.string.AccesoriesRequests)));
+    drawerItem.add(new ObjectDrawerItem(3, "     "+getString(R.string.TyreBattereyRequests)));
     drawerItem.add(new ObjectDrawerItem(4, getString(R.string.MaK_Arequest)));
     drawerItem.add(new ObjectDrawerItem(5, getString(R.string.My_Favorites)));
     drawerItem.add(new ObjectDrawerItem(6, getString(R.string.Edit_Profile)));
@@ -101,27 +101,38 @@ public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (position) {
             case 1:
-                 mFragment = new MyRequest();
-                break;
+                 break;
             case 2:
-                mFragment = new MaKArequest();
+                mFragment = new SparepartsRequests();
                 break;
             case 3:
+                mFragment = new AccesoriesRequests();
                  break;
             case 4:
-                mFragment = new EditProfile();
+                mFragment = new TyreBattereyRequests();
                 break;
             case  5 :
-                mFragment = new ChangeLanguage();
+                mFragment = new MaKArequest();
                 break;
             case  6:
-                Intent intent = new Intent(NavigationDrawerBuyer.this, LogInActivity.class);
+                mFragment = new MyFavourites();
+                break;
+            case  7:
+                mFragment = new EditProfile();
+                break;
+            case  8:
+
+                break;
+            case  9:
+             Intent intent = new Intent(NavigationDrawerBuyer.this, LogInActivity.class);
                 startActivity(intent);
                 break;
         }
         attachFragment();
 
     }
+
+
 
     // Our custom method to attach/replace Fragments
     private void attachFragment() {

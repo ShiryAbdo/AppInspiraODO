@@ -14,22 +14,29 @@
 <LinearLayout
     android:gravity="bottom"
     android:layout_weight="1"
+    android:layout_margin="@dimen/_10sdp"
      android:layout_gravity="center"
      android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <Spinner
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:popupBackground="@color/trat"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:id="@+id/Type_of_requset"
-        android:textColor="#ffffff"
-        android:layout_marginBottom="@dimen/_20sdp"
-        android:textColorHint="#ffffff"
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:theme="@style/TextLabel"
+
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/phone_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/Size"
+            android:background="#00ffffff"
+            android:inputType="phone"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff" />
+    </android.support.design.widget.TextInputLayout>
     <View
         android:layout_width="match_parent"
         android:background="#dea63e"

@@ -1,10 +1,11 @@
 package com.Inspira.odo.buyerUi;
 
 
- import android.content.Intent;
- import android.os.Bundle;
+  import android.content.Intent;
+  import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+ import android.text.TextUtils;
+ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,16 +46,25 @@ public class BuperFragment extends Fragment {
         creatSelerAcout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 String name = fName.getText().toString().trim();
-                 String  phone = phoneNo.getText().toString().trim();
-                 String  passwrd= password.getText().toString().trim() ;
-                String emaile = email.getText().toString().trim();
-                if(fName.getText().toString().trim()!=null&&!name.isEmpty()&&!phone.isEmpty()&&!passwrd.isEmpty() &&!emaile.isEmpty()){
-                    getData();
+                if(fName.getText().toString().trim()!=null&&fName.getText().toString().trim()!=""&&
+                        phoneNo.getText().toString().trim()!=null&&phoneNo.getText().toString().trim()!=""&&
+                        password.getText().toString().trim()!=null&&password.getText().toString().trim()!=""&&
+                        email.getText().toString().trim()!=null&&email.getText().toString().trim()!=""){
+                    String name =getDatafromEditText(fName);
+                    String  phone = getDatafromEditText(phoneNo);
+                    String  passwrd= getDatafromEditText(password);
+                    String emaile = getDatafromEditText(email);
+                    if(fName.getText().toString().trim()!=null&&!name.isEmpty()&&!phone.isEmpty()&&!passwrd.isEmpty() &&!emaile.isEmpty()){
+                        getData();
 
+                    }else {
+                        Toast.makeText(getContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
+                    }
                 }else {
+
                     Toast.makeText(getContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
                 }
+
 
 
 
@@ -81,7 +91,9 @@ public class BuperFragment extends Fragment {
 
                     Intent intent = new Intent(getActivity(), NavigationDrawerBuyer.class);
                     startActivity(intent);
+                   getActivity().finish();
                 }else {
+
                     Toast.makeText(getContext(),"ResponseCode: " + responseCode,Toast.LENGTH_SHORT).show();
                     Toast.makeText(getContext()," else",Toast.LENGTH_SHORT).show();
                 }
@@ -95,5 +107,24 @@ public class BuperFragment extends Fragment {
         });
 
     }
+
+
+    private String getDatafromEditText(EditText editText){
+        String text="";
+        if(TextUtils.isEmpty(editText.getText().toString())){
+//            editText.setError(getString(R.string.enter_data)+"");
+        }else {
+            text=editText.getText().toString();
+            if(text.contains("")){
+
+                editText.setError("This can't contain a space ");
+            }else{
+                return text;}
+
+        }
+        return text;
+
+    }
+
 
 }

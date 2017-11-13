@@ -1,13 +1,155 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/backgraud"
     android:layout_height="match_parent"
     tools:context="com.Inspira.odo.buyerUi.MakeBatteryRequest">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Spinner
+            android:popupBackground="@color/trat"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:id="@+id/KNOW_BATTERY"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:textColorHint="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_width="match_parent"
+            android:background="#dea63e"
+            android:layout_height="@dimen/_1sdp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="bottom"
+        android:layout_weight=".5"
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_con.tent">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:theme="@style/TextLabel"
+
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/Size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/Size"
+                android:background="#00ffffff"
+                android:inputType="phone"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff" />
+        </android.support.design.widget.TextInputLayout>
+        <View
+            android:layout_width="match_parent"
+            android:background="#dea63e"
+            android:layout_height="@dimen/_1sdp"/>
+
+        <CheckBox
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:button ="@color/colorPrimary"
+            android:layout_margin="@dimen/_20sdp"
+            android:textColor="#ffffff"
+            android:buttonTint= "@color/colorPrimary"
+            android:id="@+id/checkBox3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Run_flot_tyres" />
+
+        <CheckBox
+            android:id="@+id/checkBox4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CheckBox" />
+
+        <CheckBox
+            android:id="@+id/checkBox5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CheckBox" />
+
+
+    </LinearLayout>
+    <RadioButton
+        android:id="@+id/larg_poles "
+        android:layout_width="wrap_content"
+        android:textColor="#ffffff"
+        android:buttonTint="@color/colorPrimary"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="@string/larg_poles" />
+
+    <RadioButton
+        android:id="@+id/small_poles"
+        android:layout_width="wrap_content"
+        android:textColor="#ffffff"
+        android:buttonTint="@color/colorPrimary"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="@string/small_poles" />
+
+    <RadioButton
+        android:id="@+id/not_know "
+        android:layout_width="wrap_content"
+        android:textColor="#ffffff"
+        android:buttonTint="@color/colorPrimary"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="@string/i_do_not_know" />
+
+
+    <CheckBox
+        android:layout_marginStart="@dimen/_30sdp"
+        android:layout_marginLeft="@dimen/_30sdp"
+        android:layout_marginRight="@dimen/_30sdp"
+        android:layout_marginEnd="@dimen/_30sdp"
+         android:layout_gravity="center"
+        android:textColor="#ffffff"
+        android:id="@+id/checkBox6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Reversed" />
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_marginRight="@dimen/_2sdp"
+        android:layout_marginLeft="@dimen/_2sdp"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:layout_marginEnd="@dimen/_2sdp"
+        android:layout_marginBottom="@dimen/_2sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:layout_gravity="bottom"
+            android:padding="@dimen/_5sdp"
+            android:textAllCaps="false"
+            style="?metaButtonBarButtonStyle"
+            android:textSize="@dimen/_20sdp"
+            android:background="#dcae3b"
+            android:id="@+id/saveData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/submet_requst"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -12,21 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.Inspira.odo.R;
-import com.Inspira.odo.data.ApiClient;
-import com.Inspira.odo.data.ApiInterface;
-import com.Inspira.odo.data.Model.BuyerRegistration;
-
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
-import static android.content.ContentValues.TAG;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class SellerFragment extends Fragment {
 
 

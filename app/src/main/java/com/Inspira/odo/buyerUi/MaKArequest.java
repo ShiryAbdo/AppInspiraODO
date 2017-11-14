@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.Inspira.odo.R;
 
@@ -19,6 +20,7 @@ public class MaKArequest extends Fragment {
 
 
     Button submet_requst ;
+    ImageView add_image ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,6 +30,9 @@ public class MaKArequest extends Fragment {
         getActivity().setTitle(R.string.MaK_Arequest);
         getActivity().findViewById(R.id.filter).setVisibility(View.GONE);
         submet_requst =(Button)rooteView.findViewById(R.id.submet_requst);
+        add_image = (ImageView)rooteView.findViewById(R.id.add_image);
+
+
         submet_requst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

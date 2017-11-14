@@ -49,26 +49,24 @@ public class BuperFragment extends Fragment {
 
                 Intent intent = new Intent(getActivity(), NavigationDrawerBuyer.class);
                 startActivity(intent);
-//                if(fName.getText().toString().trim().equals("")&&
-//                  phoneNo.getText().toString().trim().equals("")&&
-//                  password.getText().toString().trim().equals("")&&
-//                  email.getText().toString().trim().equals("")){
-//                    String name =getDatafromEditText(fName);
-//                    String  phone = getDatafromEditText(phoneNo);
-//                    String  passwrd= getDatafromEditText(password);
-//                    String emaile = getDatafromEditText(email);
-//                    if(fName.getText().toString().trim()!=null&&!name.isEmpty()&&!phone.isEmpty()&&!passwrd.isEmpty() &&!emaile.isEmpty()){
-////                        getData();
-//
-//                    }else {
-//                        Toast.makeText(getContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
-//                    }
-//                }else {
-//
-//                    Toast.makeText(getContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
-//                }
+                if(!fName.getText().toString().trim().equals("")&&
+                        !phoneNo.getText().toString().trim().equals("")&&
+                        !password.getText().toString().trim().equals("")&&
+                        !email.getText().toString().trim().equals("")){
+                    String name =getDatafromEditText(fName);
+                    String  phone = getDatafromEditText(phoneNo);
+                    String  passwrd= getDatafromEditText(password);
+                    String emaile = getDatafromEditText(email);
+                    if(fName.getText().toString().trim()!=null&&!name.isEmpty()&&!phone.isEmpty()&&!passwrd.isEmpty() &&!emaile.isEmpty()){
+                        getData();
 
+                    }else {
+                        Toast.makeText(getContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
+                    }
+                }else {
 
+                    Toast.makeText(getContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
+                }
 
 
 

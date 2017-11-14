@@ -2,7 +2,6 @@ package com.Inspira.odo.mainLuncher;
 
 import android.app.Application;
 import android.content.Context;
-//import com.Inspira.odo.util.LocaleHelper;
 
 /**
  * Created by ZeOwls on 11/4/2017.

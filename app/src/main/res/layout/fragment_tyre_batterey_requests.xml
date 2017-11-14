@@ -1,8 +1,25 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.Inspira.odo.buyerUi.TyreBattereyRequests">
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:id="@+id/fragment_container"
+    tools:context="com.Inspira.odo.buyerUi.TyreBattereyRequests"
+    android:orientation="vertical">
 
 
-</FrameLayout>
+    <Button
+        android:id="@+id/Tyre"
+        android:textAllCaps="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tyre Request" />
+
+    <Button
+        android:textAllCaps="false"
+        android:id="@+id/Battery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Battery Rrquest" />
+</LinearLayout>

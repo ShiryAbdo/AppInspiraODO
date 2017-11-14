@@ -82,7 +82,7 @@ public class WorkingOnOne extends AppCompatActivity {
                 ApiInterface apiService =
                         ApiClient.getClient().create(ApiInterface.class);
 
-                // ToDo Just Add WorkingOn List and it'll work  ,, IMPORTANT
+//                // ToDo Just Add WorkingOn List and it'll work  ,, IMPORTANT
 //                Call<ResponseBody> call = apiService.doSellerRegister(new SellerRegistration(phoneNo,fName, email,password,hashVal, companyName, companyAddress, companyOnMap,companyType));
 //                call.enqueue(new Callback<ResponseBody>() {
 //                    @Override

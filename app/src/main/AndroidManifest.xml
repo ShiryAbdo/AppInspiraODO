@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.Inspira.odo">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".mainLuncher.MyApplication"
@@ -79,7 +81,11 @@
         <activity
             android:name=".sellerUi.DialogeSellerData"
             android:windowSoftInputMode="adjustPan|adjustResize" />
-        <activity android:name=".buyerUi.AddAntherPartDetails"></activity>
+        <activity android:name=".buyerUi.AddAntherPartDetails" />
+        <activity
+            android:name=".buyerUi.TyreBattereyRequestsTabe"
+            android:label="@string/title_activity_tyre_batterey_requests_tabe"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/backgraud"
-    tools:context="com.Inspira.odo.buyerUi.MaKArequest">
+    tools:context="com.Inspira.odo.buyerUi.AddAntherPartDetails">
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -71,11 +71,20 @@
             android:text="Add Photo"/>
 
         <ImageView
-
+            android:id="@+id/add_image"
             android:layout_gravity="center"
             android:src="@drawable/logoodo"
             android:layout_width="@dimen/_50sdp"
             android:layout_height="@dimen/_50sdp" />
+
+
+
+        <TextView
+            android:textColor="#ffffff"
+            android:id="@+id/view"
+            android:textSize="@dimen/_15sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 

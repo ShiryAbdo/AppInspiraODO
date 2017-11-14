@@ -14,6 +14,7 @@ import com.Inspira.odo.R;
 import com.Inspira.odo.data.Model.OrderImage;
 import com.Inspira.odo.data.Model.OrderList;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AccesoriesRequests extends Fragment {
@@ -31,6 +32,8 @@ public class AccesoriesRequests extends Fragment {
      View rooteViw =   inflater.inflate(R.layout.fragment_accesories_requests, container, false);
         getActivity().setTitle(R.string.AccesoriesRequests);
         PartId=(EditText)rooteViw.findViewById(R.id.PartId);
+        orderList= new ArrayList<>();
+        orderImages = new ArrayList<>();
         orderList.add(new OrderList("partType","part","engineCapacity","color","ampere","size"));
         orderImages.add(new OrderImage("photo.jpg"));
         add_anther_part_detalis=(TextView)rooteViw.findViewById(R.id.add_anther_part_detalis);

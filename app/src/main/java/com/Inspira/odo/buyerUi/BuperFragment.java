@@ -30,7 +30,7 @@ import static android.content.ContentValues.TAG;
 public class BuperFragment extends Fragment {
 
 
-     Button creatSelerAcout ;
+    Button creatSelerAcout ;
     EditText fName, phoneNo, password, email;
 
 
@@ -39,31 +39,34 @@ public class BuperFragment extends Fragment {
                              Bundle savedInstanceState) {
          View rooteView= inflater.inflate(R.layout.fragment_buper, container, false);
         creatSelerAcout =(Button)rooteView.findViewById(R.id.creatSelerAcout);
-        fName = rooteView.findViewById(R.id.fname);
-        phoneNo = rooteView.findViewById(R.id.phone_no);
-        password = rooteView.findViewById(R.id.password);
-        email = rooteView.findViewById(R.id.email);
+        fName =(EditText) rooteView.findViewById(R.id.fname);
+        phoneNo = (EditText)rooteView.findViewById(R.id.phone_no);
+        password = (EditText)rooteView.findViewById(R.id.password);
+        email = (EditText)rooteView.findViewById(R.id.email);
         creatSelerAcout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(fName.getText().toString().trim()!=null&&fName.getText().toString().trim()!=""&&
-                        phoneNo.getText().toString().trim()!=null&&phoneNo.getText().toString().trim()!=""&&
-                        password.getText().toString().trim()!=null&&password.getText().toString().trim()!=""&&
-                        email.getText().toString().trim()!=null&&email.getText().toString().trim()!=""){
-                    String name =getDatafromEditText(fName);
-                    String  phone = getDatafromEditText(phoneNo);
-                    String  passwrd= getDatafromEditText(password);
-                    String emaile = getDatafromEditText(email);
-                    if(fName.getText().toString().trim()!=null&&!name.isEmpty()&&!phone.isEmpty()&&!passwrd.isEmpty() &&!emaile.isEmpty()){
-                        getData();
 
-                    }else {
-                        Toast.makeText(getContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
-                    }
-                }else {
-
-                    Toast.makeText(getContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
-                }
+                Intent intent = new Intent(getActivity(), NavigationDrawerBuyer.class);
+                startActivity(intent);
+//                if(fName.getText().toString().trim().equals("")&&
+//                  phoneNo.getText().toString().trim().equals("")&&
+//                  password.getText().toString().trim().equals("")&&
+//                  email.getText().toString().trim().equals("")){
+//                    String name =getDatafromEditText(fName);
+//                    String  phone = getDatafromEditText(phoneNo);
+//                    String  passwrd= getDatafromEditText(password);
+//                    String emaile = getDatafromEditText(email);
+//                    if(fName.getText().toString().trim()!=null&&!name.isEmpty()&&!phone.isEmpty()&&!passwrd.isEmpty() &&!emaile.isEmpty()){
+////                        getData();
+//
+//                    }else {
+//                        Toast.makeText(getContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
+//                    }
+//                }else {
+//
+//                    Toast.makeText(getContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
+//                }
 
 
 
@@ -112,7 +115,7 @@ public class BuperFragment extends Fragment {
     private String getDatafromEditText(EditText editText){
         String text="";
         if(TextUtils.isEmpty(editText.getText().toString())){
-//            editText.setError(getString(R.string.enter_data)+"");
+            editText.setError(getString(R.string.enter_data));
         }else {
             text=editText.getText().toString();
             if(text.contains("")){
@@ -125,6 +128,5 @@ public class BuperFragment extends Fragment {
         return text;
 
     }
-
 
 }

@@ -32,16 +32,29 @@ public class AddAntherPartDetails extends AppCompatActivity {
     List<OrderList> orderList ;
     List<OrderImage> orderImages ;
     EditText part , enginCapasty ,color ;
+    Bundle  bundle ;
+    String  car_type ,car_modle ,car_year , request_type;
+//    partType == request_type ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_add_anther_part_details);
+        bundle = getIntent().getExtras();
+ if(bundle !=null){
+     car_type=bundle.getString("car_type");
+     car_modle=bundle.getString("car_modle");
+     car_year=bundle.getString("car_year");
+     request_type=bundle.getString("request_type");
+
+ }
         orderList= new ArrayList<>();
         orderImages= new ArrayList<>();
+
         part=(EditText)findViewById(R.id.part) ;
         enginCapasty=(EditText)findViewById(R.id.enginCapasty) ;
         color=(EditText)findViewById(R.id.color) ;
+//
         orderList.add(new OrderList("partType","part","engineCapacity","color","ampere","size"));
         orderImages.add(new OrderImage("photo.jpg"));
 
@@ -55,8 +68,7 @@ public class AddAntherPartDetails extends AppCompatActivity {
                 dialog.setContentView(R.layout.comfirm_layout);
                 final Button ok = (Button) dialog.findViewById(R.id.ok);
                 Button no  =(Button)dialog.findViewById(R.id.no);
-                // if button is clicked, close the custom dialog
-                no.setOnClickListener(new View.OnClickListener() {
+                 no.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
@@ -72,25 +84,6 @@ public class AddAntherPartDetails extends AppCompatActivity {
 
                         dialog.dismiss();
 
-
-                        ApiInterface apiService =
-                                ApiClient.getClient().create(ApiInterface.class);
-
-                        Call<ResponseBody> call = apiService.addOrders(new Order("01009560620","carType","carModel","carYear",  orderList ,orderImages));
-                        call.enqueue(new Callback<ResponseBody>() {
-                            @Override
-                            public void onResponse(Call<ResponseBody>call, Response<ResponseBody> response) {
-                                int responseCode = response.code();
-                                Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_LONG).show();
-                                Log.d("CODE", "ResponseCode: " + responseCode);
-                            }
-
-                            @Override
-                            public void onFailure(Call<ResponseBody>call, Throwable t) {
-                                // Log error here since request failed
-                                Log.e(TAG, t.toString());
-                            }
-                        });
 
 
 
@@ -116,4 +109,27 @@ public class AddAntherPartDetails extends AppCompatActivity {
         });
 
     }
+     public  void sendOrder (String phone ,String carType ,String carModel ,String   carYear ,  List<OrderList> orderList ,List<OrderImage> orderImages ){
+
+
+         ApiInterface apiService =
+                 ApiClient.getClient().create(ApiInterface.class);
+
+         Call<ResponseBody> call = apiService.addOrders(new Order("01009560620","carType","carModel","carYear",  orderList ,orderImages));
+         call.enqueue(new Callback<ResponseBody>() {
+             @Override
+             public void onResponse(Call<ResponseBody>call, Response<ResponseBody> response) {
+                 int responseCode = response.code();
+                 Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_LONG).show();
+                 Log.d("CODE", "ResponseCode: " + responseCode);
+             }
+
+             @Override
+             public void onFailure(Call<ResponseBody>call, Throwable t) {
+                 // Log error here since request failed
+                 Log.e(TAG, t.toString());
+             }
+         });
+
+     }
 }

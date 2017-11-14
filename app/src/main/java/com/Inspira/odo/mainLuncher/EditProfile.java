@@ -18,8 +18,7 @@ public class EditProfile extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-         View  rooteiew = inflater.inflate(R.layout.fragment_edit_profile, container, false);
+          View  rooteiew = inflater.inflate(R.layout.fragment_edit_profile, container, false);
         getActivity().setTitle(R.string.Edit_Profile);
         getActivity().findViewById(R.id.filter).setVisibility(View.GONE);
 

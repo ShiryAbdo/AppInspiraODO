@@ -54,7 +54,7 @@
 
     <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
         <item name="android:background">@color/trasfr</item>
-        <item name="tabTextAppearance">@style/MyCustomTabText</item>
+        <item name="tabTextAppearance">@style/TextLabel</item>
         <item name="tabSelectedTextColor">@color/SELECTED_TAB_TEXT_COLOR</item>
         <item name="tabIndicatorColor">@color/Color_hint</item>
     </style>

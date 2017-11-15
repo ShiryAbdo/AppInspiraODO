@@ -94,6 +94,7 @@
     <string name="donot_know">I do not  know my battey</string>
     <string name="know">i  know my battey</string>
     <string name="title_activity_tyre_batterey_requests_tabe">TyreBattereyRequestsTabe</string>
+    <string name="Ampar">Ampar</string>
 
 
 </resources>

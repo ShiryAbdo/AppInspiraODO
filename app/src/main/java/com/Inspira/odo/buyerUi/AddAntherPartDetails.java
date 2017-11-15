@@ -24,6 +24,7 @@ import com.Inspira.odo.data.ApiInterface;
 import com.Inspira.odo.data.Model.Order;
 import com.Inspira.odo.data.Model.OrderImage;
 import com.Inspira.odo.data.Model.OrderList;
+import com.Inspira.odo.database.SharedPreferencesManager;
 import com.Inspira.odo.helper.UploadImageHelper;
 
 import java.io.File;
@@ -53,6 +54,9 @@ public class AddAntherPartDetails extends AppCompatActivity {
     private String imagepath=null;
     TextView viewT ;
     String imageName = null ;
+    SharedPreferencesManager sharedPreferencesManager ;
+    ImageView back ;
+    String PHONE_number ;
 
 //    partType == request_type ;
 
@@ -60,6 +64,8 @@ public class AddAntherPartDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_add_anther_part_details);
+        sharedPreferencesManager= new SharedPreferencesManager(this);
+        PHONE_number= sharedPreferencesManager.getUser_Phoe();
         bundle = getIntent().getExtras();
          if(bundle !=null){
              car_type=bundle.getString("car_type");
@@ -78,6 +84,15 @@ public class AddAntherPartDetails extends AppCompatActivity {
         enginCapasty=(EditText)findViewById(R.id.enginCapasty) ;
         color=(EditText)findViewById(R.id.color) ;
         add_image= (ImageView)findViewById(R.id.add_image);
+        back=(ImageView)findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent  intent =new Intent(AddAntherPartDetails.this,NavigationDrawerBuyer.class);
+                startActivity(intent);
+
+            }
+        });
         add_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,15 +122,20 @@ public class AddAntherPartDetails extends AppCompatActivity {
         submet_requst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                orderList.add(new OrderList("spareParts","Motor","20","red" , "amper","size"));
 
-                if(part.getText().toString().trim().equals("")&&
-                   enginCapasty.getText().toString().trim().equals("")&&
-                    color.getText().toString().trim().equals("")){
+                orderImages.add(new OrderImage("images"));
+
+                if(!part.getText().toString().trim().equals("")&&
+                   !enginCapasty.getText().toString().trim().equals("")&&
+                    !color.getText().toString().trim().equals("")){
                     orderList.add(new OrderList(request_type,part.getText().toString().trim(), enginCapasty.getText().toString().trim(),color.getText().toString().trim()," "," "));
 
+
                 }
+
                 if (imageName!=null) {
-                    orderImages.add(new OrderImage(viewT.getText().toString().trim()));
+                    orderImages.add(new OrderImage("images"));
                 }else {
                     Toast.makeText(getApplicationContext(),"select image",Toast.LENGTH_SHORT).show();
 
@@ -141,7 +161,20 @@ public class AddAntherPartDetails extends AppCompatActivity {
 
                         dialog.dismiss();
 
-                        sendOrder("01210287863",car_type ,car_modle,car_year ,orderList ,orderImages);
+                        if(car_type!=null &&car_modle!=null&&car_year!=null){
+                            if(PHONE_number!=null){
+                                sendOrder(PHONE_number,car_type,car_modle ,car_year,orderList ,orderImages);
+
+                            }else {
+                                Toast.makeText(getApplicationContext(),"رقم الهاتف غير موجود",Toast.LENGTH_SHORT).show();
+
+                            }
+
+                        }else {
+
+                            Toast.makeText(getApplicationContext(),"ماركة العربية و الميل غير موجودين ",Toast.LENGTH_SHORT).show();
+                        }
+
 
 
 
@@ -185,7 +218,7 @@ public class AddAntherPartDetails extends AppCompatActivity {
 
                     InputStream is = getContentResolver().openInputStream(data.getData());
 
-//                    UploadImageHelper.uploadImage(uploadImageHelper.getBytes(is));
+                    UploadImageHelper.uploadImage(uploadImageHelper.getBytes(is));
 
                 } catch (IOException e) {
                     e.printStackTrace();

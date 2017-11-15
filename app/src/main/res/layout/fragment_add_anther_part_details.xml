@@ -46,6 +46,7 @@
              android:padding="@dimen/_5sdp"
             style="?metaButtonBarButtonStyle"
             android:src="@drawable/up"
+            android:id="@+id/back"
             android:textSize="@dimen/_20sdp"
              android:layout_width="match_parent"
             android:layout_height="wrap_content"

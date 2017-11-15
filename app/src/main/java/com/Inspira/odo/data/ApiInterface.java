@@ -19,6 +19,7 @@ public interface ApiInterface {
     String Orders = "orders/buyer/addOrder";
 
     String UploadImage = "/images/upload ";
+    String Login = "/login/" ;
 
 
 
@@ -33,6 +34,6 @@ public interface ApiInterface {
 
     @Multipart
     @POST(UploadImage)
-    Call<Response> uploadImage(@Part MultipartBody.Part image);
+    Call<Response> uploadImage(@Part MultipartBody.Part photos);
 }
 

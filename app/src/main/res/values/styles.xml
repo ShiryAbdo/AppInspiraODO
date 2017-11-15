@@ -8,6 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowNoTitle">true</item>
     </style>
+    <style name="WhiteCheck">
+        <item name="colorAccent">#fff</item>
+    </style>
 
     <style name="nav" parent="android:Theme.Holo.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>

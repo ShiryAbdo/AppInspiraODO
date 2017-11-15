@@ -18,6 +18,7 @@ public class SharedPreferencesManager {
     private  String Car_Type =  "Car_Type" ;
     private  String Car_Modle = "Car_Modle";
    private   String Car_Year =  "Car_Year"  ;
+    private  String partTyp ="partType" ;
 
     public SharedPreferencesManager(Context mContext) {
         this.mContext = mContext;
@@ -61,7 +62,7 @@ public class SharedPreferencesManager {
     }
 
     public void setCar_Type(String car_Type) {
-        editor.putString(car_Type,Car_Type);
+        editor.putString(Car_Type,car_Type);
         editor.commit();
      }
 
@@ -70,16 +71,27 @@ public class SharedPreferencesManager {
     }
 
     public void setCar_Modle(String car_Modle) {
-        editor.putString(car_Modle,Car_Modle);
+        editor.putString(Car_Modle,car_Modle);
         editor.commit();
      }
 
-    public String getCar_Year() {
+    public String getCar_Year()
+    {
         return  pref.getString(Car_Year,null);
     }
 
     public void setCar_Year(String car_Year) {
-        editor.putString(car_Year,Car_Year);
+        editor.putString(Car_Year,car_Year);
         editor.commit();
      }
+
+    public String getPartType() {
+        return pref.getString(partTyp,null);
+    }
+
+    public void setPartType(String partType) {
+        editor.putString(partTyp,partType);
+        editor.commit();
+        this.partTyp = partType;
+    }
 }

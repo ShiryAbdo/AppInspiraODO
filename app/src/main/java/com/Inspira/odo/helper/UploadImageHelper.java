@@ -96,7 +96,7 @@ public class UploadImageHelper {
 
         RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpeg"), imageBytes);
 
-        MultipartBody.Part body = MultipartBody.Part.createFormData("image", "image.jpg", requestFile);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("photos", "image.jpg", requestFile);
         Call<Response> call = apiService.uploadImage(body);
          call.enqueue(new Callback<Response>() {
             @Override

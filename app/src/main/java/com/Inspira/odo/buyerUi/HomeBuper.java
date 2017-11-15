@@ -4,7 +4,7 @@ package com.Inspira.odo.buyerUi;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
- import android.view.LayoutInflater;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -15,6 +15,7 @@ import android.widget.Toast;
  import com.Inspira.odo.R;
 import com.Inspira.odo.adaptors.CustomArrayAdapter_Spinner;
 import com.Inspira.odo.data.Model.DataCar;
+import com.Inspira.odo.database.SharedPreferencesManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,13 +29,17 @@ public class HomeBuper extends Fragment {
     ArrayList<String>categories_CarType ,categories_car_model ,categories_car_year ,categories_Type_of_requset;
     Button saveData ;
     DataCar dataCar ;
-    String  item_model ,itemType,itemTYear ,itemRequest ;
+    String  item_model ,itemType,itemTYear ,itemRequest ,   carType ,carYear ,carePar ,carModle;
     Map<String, ArrayList<String> > AllData ;
+    SharedPreferencesManager sharedPreferencesManager ;
+    int positionModle ;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             final Bundle savedInstanceState) {
         // Inflate the layout for this fragment
    View rooteView = inflater.inflate(R.layout.fragment_home_buper, container, false);
+        sharedPreferencesManager= new SharedPreferencesManager(getActivity());
 
         getActivity().setTitle(R.string.Home);
         AllData = new HashMap<>() ;
@@ -53,7 +58,7 @@ public class HomeBuper extends Fragment {
         AllData =dataCar.getAllData();
         dataCar.getCarTypesEnglish() ;
         categories_CarType.addAll(dataCar.getCarTypesEnglish() );
-        categories_CarType.add(  getString(R.string.your_car_type));
+        categories_CarType.add(getString(R.string.your_car_type));
         categories_car_model.add(getString(R.string.your_car_modle));
         categories_car_year.add(getString(R.string.your_car_year));
         categories_car_year.addAll(dataCar.getYears());
@@ -76,6 +81,26 @@ public class HomeBuper extends Fragment {
         SpinnerCarType.setAdapter(myAdaptor_CarType);
         your_car_year.setAdapter(myAdaptor_car_year);
         Type_of_requset.setAdapter(myAdaptor_Type_of_requset);
+          carType =sharedPreferencesManager.getCar_Type();
+
+        if (carType != null) {
+             carModle =sharedPreferencesManager.getCar_Modle();
+            carYear =sharedPreferencesManager.getCar_Year() ;
+              carePar =sharedPreferencesManager.getPartType();
+             int  positionType = categories_CarType.indexOf(carType);
+            categories_car_model.addAll(AllData.get(carType));
+              positionModle =categories_car_model.indexOf(carModle);
+            int positioYear = categories_car_year.indexOf(carYear);
+            int positionPART=categories_Type_of_requset.indexOf(carePar);
+
+
+            SpinnerCarType.setSelection(positionType);
+            your_car_model.setSelection(positionModle);
+            your_car_year.setSelection(positioYear);
+            Type_of_requset.setSelection(positionPART);
+
+
+        }
 
 
         // Spinner click listener
@@ -90,9 +115,14 @@ public class HomeBuper extends Fragment {
 //                    Toast.makeText(parent.getContext(),getString(R.string.chose_type) , Toast.LENGTH_LONG).show();
                 }else {
                     itemType= parent.getItemAtPosition(position).toString();
+                    sharedPreferencesManager.setCar_Type(itemType);
                     categories_car_model.clear();
                     categories_car_model.add(getString(R.string.your_car_modle));
                     categories_car_model.addAll(AllData.get(itemType));
+                    if(carType !=null){
+                        your_car_model.setSelection(positionModle);
+                    }
+
 //                    Toast.makeText(parent.getContext(), itemType, Toast.LENGTH_LONG).show();
                 }
             }
@@ -102,6 +132,7 @@ public class HomeBuper extends Fragment {
 
             }
         });
+
 
         myAdaptor_car_model = new CustomArrayAdapter_Spinner(getActivity(),
                 R.layout.customspinneritem, categories_car_model);
@@ -117,7 +148,9 @@ public class HomeBuper extends Fragment {
                     item_model=null;
 //                    Toast.makeText(parent.getContext(),getString(R.string.chose_modle) , Toast.LENGTH_LONG).show();
                 }else {
+
                     item_model=parent.getItemAtPosition(position).toString() ;
+                    sharedPreferencesManager.setCar_Modle(item_model);
 //                    Toast.makeText(parent.getContext(), item_model, Toast.LENGTH_LONG).show();
                 }
             }
@@ -139,6 +172,7 @@ public class HomeBuper extends Fragment {
 //                    Toast.makeText(parent.getContext(),getString(R.string.chose_modle) , Toast.LENGTH_LONG).show();
                 }else {
                     itemTYear=parent.getItemAtPosition(position).toString() ;
+                    sharedPreferencesManager.setCar_Year(itemTYear);
 //                    Toast.makeText(parent.getContext(), itemTYear, Toast.LENGTH_LONG).show();
                 }
             }
@@ -161,6 +195,7 @@ public class HomeBuper extends Fragment {
                     Toast.makeText(parent.getContext(),getString(R.string.chose_modle) , Toast.LENGTH_LONG).show();
                 }else {
                     itemRequest=parent.getItemAtPosition(position).toString() ;
+                    sharedPreferencesManager.setPartType(itemRequest);
                     Toast.makeText(parent.getContext(), itemRequest, Toast.LENGTH_LONG).show();
                 }
             }
@@ -179,11 +214,20 @@ public class HomeBuper extends Fragment {
                     Intent  intent =new Intent(getActivity(),AddAntherPartDetails.class);
                      intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                      intent.putExtra("car_type" ,itemType);
-                    intent.putExtra("car_modle" ,item_model);
-                    intent.putExtra("car_year" ,itemTYear);
-                    intent.putExtra("request_type",itemRequest);
+                     intent.putExtra("car_modle" ,item_model);
+                     intent.putExtra("car_year" ,itemTYear);
+                     intent.putExtra("request_type",itemRequest);
                      getActivity().getApplicationContext().startActivity(intent);
-                }else{
+                }else if (carType!=null){
+                     Intent  intent =new Intent(getActivity(),AddAntherPartDetails.class);
+                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                     intent.putExtra("car_type" ,carType);
+                     intent.putExtra("car_modle" ,carModle);
+                     intent.putExtra("car_year" ,carYear);
+                     intent.putExtra("request_type",carePar);
+                     getActivity().getApplicationContext().startActivity(intent);
+
+                 }else{
               Toast.makeText(getActivity().getApplicationContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
 
                  }

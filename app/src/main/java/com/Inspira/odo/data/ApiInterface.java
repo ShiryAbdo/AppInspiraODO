@@ -20,6 +20,7 @@ public interface ApiInterface {
 
     String UploadImage = "/images/upload ";
     String Login = "/login/" ;
+    String myOrders ="/profile/buyer/myOrders" ;
 
 
 

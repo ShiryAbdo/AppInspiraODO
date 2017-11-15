@@ -62,8 +62,7 @@ public class MakeBatteryRequest extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rooteView = inflater.inflate(R.layout.fragment_make_battery_request, container, false);
-        sharedPreferencesManager= new SharedPreferencesManager(getActivity());
-        sharedPreferencesManager= new SharedPreferencesManager(getActivity());
+         sharedPreferencesManager= new SharedPreferencesManager(getActivity());
         carModle =sharedPreferencesManager.getCar_Modle();
         carYear =sharedPreferencesManager.getCar_Year() ;
         carType =sharedPreferencesManager.getCar_Type();
@@ -112,7 +111,7 @@ public class MakeBatteryRequest extends Fragment {
             larg_poles.setChecked(false);
             small_poles.setChecked(false);
         }else {
-            Toast.makeText(getApplicationContext(),"إختار نوع الإطار ",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"إختار نوع  البطاريات  ",Toast.LENGTH_SHORT).show();
 
         }
 
@@ -160,7 +159,7 @@ public class MakeBatteryRequest extends Fragment {
             @Override
             public void onClick(View view) {
 
-                if(!Size.getText().toString().trim().equals("") &&!Size.getText().toString().trim().equals("")){
+                if(!Size.getText().toString().trim().equals("") &&!amper.getText().toString().trim().equals("")){
                     orderList.add(new OrderList(carePar,Run_flot_tyresT,"","","",Size.getText().toString().trim()));
                     if(PHONE_number!=null){
                         sendOrder(PHONE_number,carType,carModle ,carYear,orderList ,orderImages);

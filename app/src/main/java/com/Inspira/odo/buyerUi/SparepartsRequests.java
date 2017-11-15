@@ -12,6 +12,7 @@ import com.Inspira.odo.R;
 
 public class SparepartsRequests extends Fragment {
     RecyclerView recycler_view;
+//    odo.eu-gb.mybluemix.net/profile/buyer/myOrders
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

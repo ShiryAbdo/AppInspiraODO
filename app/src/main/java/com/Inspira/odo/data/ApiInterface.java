@@ -1,6 +1,7 @@
 package com.Inspira.odo.data;
 
 import com.Inspira.odo.data.Model.BuyerRegistration;
+import com.Inspira.odo.data.Model.MyRequest;
 import com.Inspira.odo.data.Model.Order;
 import com.Inspira.odo.data.Model.SellerRegistration;
 
@@ -26,6 +27,8 @@ public interface ApiInterface {
 
     @POST(Register)
     Call<ResponseBody> doBuyerRegister(@Body BuyerRegistration registration) ;
+    @POST(myOrders)
+    Call<ResponseBody> domyOrders(@Body MyRequest myRequest) ;
 
     @POST(Register)
     Call<ResponseBody> doSellerRegister(@Body SellerRegistration registration) ;

@@ -18,7 +18,7 @@ public class MyOrder {
     private String orderPartType;
     @SerializedName("order")
     @Expose
-    private Order order;
+    private OrderM order;
     @SerializedName("__v")
     @Expose
     private Integer v;
@@ -55,15 +55,16 @@ public class MyOrder {
         return orderPartType;
     }
 
-    public void setOrderPartType(String orderPartType) {
+    public void setOrderPartType(String orderPartType)
+    {
         this.orderPartType = orderPartType;
     }
 
-    public Order getOrder() {
+    public OrderM getOrder() {
         return order;
     }
 
-    public void setOrder(Order order) {
+    public void setOrder(OrderM order) {
         this.order = order;
     }
 

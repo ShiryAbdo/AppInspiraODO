@@ -112,6 +112,7 @@ public class AddAntherPartDetails extends AppCompatActivity {
         });
 
  if (imageName!=null){
+//      it seen null
      viewT.setText(imageName);
      Toast.makeText(getApplicationContext(),imageName,Toast.LENGTH_SHORT).show();
  }

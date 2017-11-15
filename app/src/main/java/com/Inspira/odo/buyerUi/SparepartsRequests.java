@@ -21,6 +21,8 @@ import com.Inspira.odo.data.Model.MyRequest;
 import com.Inspira.odo.database.SharedPreferencesManager;
 import com.Inspira.odo.model.SellerHomeData;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -76,6 +78,10 @@ SharedPreferencesManager sharedPreferencesManager ;
             public void onResponse(Call<ResponseBody>call, Response<ResponseBody> response) {
                 int responseCode = response.code();
                 ResponseBody bankJSONResponse = response.body();
+                for (int i = 0 ; i<response.body().contentLength() ;i++){
+                     Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_LONG).show();
+
+                }
                  Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_LONG).show();
                 Log.d("CODE", "ResponseCode: " + responseCode);
             }

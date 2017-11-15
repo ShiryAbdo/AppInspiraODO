@@ -5,36 +5,6 @@
     android:orientation="vertical"
     android:background="@drawable/backgraud"
     tools:context="com.Inspira.odo.buyerUi.MaKArequest">
-    <!--<android.support.v7.widget.Toolbar-->
-        <!--android:id="@+id/toolbar"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="56dp"-->
-        <!--android:background="@color/colorPrimaryDark"-->
-        <!--tools:layout_editor_absoluteY="0dp"-->
-        <!--tools:layout_editor_absoluteX="8dp" >-->
-        <!--<ImageView-->
-            <!--android:id="@+id/go_back"-->
-            <!--android:layout_gravity="start"-->
-            <!--android:layout_width="@dimen/_25sdp"-->
-            <!--android:layout_height="@dimen/_25sdp"-->
-            <!--android:padding="@dimen/_4sdp"-->
-            <!--android:layout_margin="@dimen/_10sdp"-->
-            <!--android:layout_centerHorizontal="true"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:src="@drawable/back"-->
-            <!--android:contentDescription="back" />-->
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:textSize="18sp"-->
-            <!--android:gravity="center"-->
-            <!--android:layout_gravity="center"-->
-            <!--android:textColor="#fff"-->
-            <!--android:text="@string/mak_arequest"-->
-            <!--android:id="@+id/wasf_titel"-->
-            <!--/>-->
-
-    <!--</android.support.v7.widget.Toolbar>-->
 
     <LinearLayout
         android:layout_marginTop="@dimen/_10sdp"
@@ -46,19 +16,29 @@
         android:layout_height="wrap_content">
         <TextView
 
-             android:layout_width="wrap_content"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
+            android:textSize="@dimen/_15sdp"
             android:textColor="#ffffff"
             android:text="Add Photo"/>
 
         <ImageView
-
-             android:layout_gravity="center"
+            android:id="@+id/add_image"
+            android:layout_gravity="center"
             android:src="@drawable/logoodo"
             android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_100sdp" />
+
+
+
+        <TextView
+            android:textColor="#ffffff"
+            android:id="@+id/view"
+            android:textSize="@dimen/_15sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 
@@ -73,68 +53,72 @@
         android:layout_height="wrap_content">
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_12sdp"
             android:theme="@style/TextLabel"
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/PartId"
+                android:id="@+id/part"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Part"
+                android:hint="@string/Part"
                 android:background="#00ffffff"
-                android:inputType="textPersonName"
+                android:inputType="text"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff" />
-
         </android.support.design.widget.TextInputLayout>
+
         <View
             android:layout_width="match_parent"
             android:background="#dea63e"
-            android:layout_height="@dimen/_1sdp"/>
+            android:layout_height="@dimen/_2sdp"/>
+        android:layout_height="@dimen/_2sdp"/>
+
         <android.support.design.widget.TextInputLayout
-            android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_12sdp"
             android:theme="@style/TextLabel"
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/engine_capacity"
+                android:id="@+id/enginCapasty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Engine Capacity"
+                android:hint="@string/Engine_Capacity"
                 android:background="#00ffffff"
-                android:inputType="textPersonName"
+                android:inputType="text"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff" />
-
         </android.support.design.widget.TextInputLayout>
+
         <View
             android:layout_width="match_parent"
             android:background="#dea63e"
-            android:layout_height="@dimen/_1sdp"/>
+            android:layout_height="@dimen/_2sdp"/>
+
 
 
         <android.support.design.widget.TextInputLayout
-            android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_12sdp"
             android:theme="@style/TextLabel"
             android:layout_height="wrap_content">
 
             <EditText
-                 android:layout_width="match_parent"
+                android:id="@+id/color"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Color"
+                android:hint="@string/Color"
                 android:background="#00ffffff"
-                android:inputType="textPersonName"
+                android:inputType="text"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff" />
-
         </android.support.design.widget.TextInputLayout>
+
         <View
             android:layout_width="match_parent"
             android:background="#dea63e"
-            android:layout_height="@dimen/_1sdp"/>
-
+            android:layout_height="@dimen/_2sdp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_marginRight="@dimen/_30sdp"
@@ -154,12 +138,12 @@
             android:layout_marginBottom="@dimen/_7sdp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+ Add anther part details "/>
+            android:text="@string/Add_anther_part_details"/>
         <View
 
             android:layout_width="match_parent"
             android:background="#ffffff"
-            android:layout_height="@dimen/_1sdp"/>
+            android:layout_height="@dimen/_2sdp"/>
 
     </LinearLayout>
     <LinearLayout
@@ -184,7 +168,6 @@
 
 
     </LinearLayout>
-
 
 
 </LinearLayout>

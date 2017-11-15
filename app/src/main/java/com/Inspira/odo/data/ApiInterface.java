@@ -1,9 +1,12 @@
 package com.Inspira.odo.data;
 
 import com.Inspira.odo.data.Model.BuyerRegistration;
+import com.Inspira.odo.data.Model.MyOrder;
 import com.Inspira.odo.data.Model.MyRequest;
 import com.Inspira.odo.data.Model.Order;
 import com.Inspira.odo.data.Model.SellerRegistration;
+
+import java.util.ArrayList;
 
 import okhttp3.MultipartBody;
 import okhttp3.ResponseBody;
@@ -29,6 +32,8 @@ public interface ApiInterface {
     Call<ResponseBody> doBuyerRegister(@Body BuyerRegistration registration) ;
     @POST(myOrders)
     Call<ResponseBody> domyOrders(@Body MyRequest myRequest) ;
+    @POST(myOrders)
+    Call<ArrayList<MyOrder>> getJSON();
 
     @POST(Register)
     Call<ResponseBody> doSellerRegister(@Body SellerRegistration registration) ;

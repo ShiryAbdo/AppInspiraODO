@@ -21,6 +21,8 @@ import com.Inspira.odo.data.Model.MyRequest;
 import com.Inspira.odo.database.SharedPreferencesManager;
 import com.Inspira.odo.model.SellerHomeData;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -78,10 +80,7 @@ SharedPreferencesManager sharedPreferencesManager ;
             public void onResponse(Call<ResponseBody>call, Response<ResponseBody> response) {
                 int responseCode = response.code();
                 ResponseBody bankJSONResponse = response.body();
-                for (int i = 0 ; i<response.body().contentLength() ;i++){
-                     Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_LONG).show();
-
-                }
+//                loadJSONData();
                  Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_LONG).show();
                 Log.d("CODE", "ResponseCode: " + responseCode);
             }
@@ -93,5 +92,28 @@ SharedPreferencesManager sharedPreferencesManager ;
             }
         });
     }
+
+    private void loadJSOND(){
+        ApiInterface apiService =
+                ApiClient.getClient().create(ApiInterface.class);
+         Call<ArrayList<MyOrder>> call = apiService.getJSON();
+        call.enqueue(new Callback<ArrayList<MyOrder>>() {
+            @Override
+            public void onResponse(Call<ArrayList<MyOrder>> call, Response<ArrayList<MyOrder>> response) {
+
+                ArrayList<MyOrder> jsonResponse = response.body();
+                MyOrderList = new ArrayList<>(Arrays.asList(jsonResponse));
+                myRequestAdapter = new MyRequestAdapter(MyOrderList,getActivity());
+                recycler_view.setAdapter(myRequestAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<MyOrder>> call, Throwable t) {
+                Log.d("Error",t.getMessage());
+            }
+        });
+    }
+
+
 
 }

@@ -39,20 +39,20 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
 
     @Override
     public void onBindViewHolder(MyRequestAdapter.ViewHolder viewHolder, final int i) {
-//        viewHolder.Name_request.setText(androidList.get(i).getNameRequest());
-//        viewHolder.name_car.setText(androidList.get(i).getNameCar());
-//        viewHolder.Type_car.setText(androidList.get(i).getTypeCare());
-//        viewHolder.year_car.setText(androidList.get(i).getYearCar());
-//        viewHolder.model_car.setText(androidList.get(i).getModleCare());
-//        viewHolder.color_car.setText(androidList.get(i).getColorcar());
-//        viewHolder.time_of_post.setText(androidList.get(i).getTimePost());
+        viewHolder.Name_request.setText(androidList.get(i).getOrder().getPart());
+        viewHolder.name_car.setText(androidList.get(i).getCarDetails().getCarModel());
+        viewHolder.Type_car.setText(androidList.get(i).getCarDetails().getCarType());
+        viewHolder.year_car.setText(androidList.get(i).getCarDetails().getCarYear());
+        viewHolder.model_car.setText(androidList.get(i).getCarDetails().getCarModel());
+        viewHolder.color_car.setText(androidList.get(i).getOrder().getColor());
+        viewHolder.time_of_post.setText(androidList.get(i).getDate());
 //        if(androidList.get(i).isFavorite()==false){
 //            viewHolder.Favorite_image.setImageResource(R.drawable.star);
 //
 //        }else {
 //            viewHolder.Favorite_image.setImageResource(R.drawable.staryellow);
 //        }
-//
+
 
 
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.Inspira.odo">
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -85,7 +86,8 @@
         <activity
             android:name=".buyerUi.TyreBattereyRequestsTabe"
             android:label="@string/title_activity_tyre_batterey_requests_tabe"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".buyerUi.detalisOfRequest"></activity>
     </application>
 
 </manifest>

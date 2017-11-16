@@ -53,12 +53,13 @@ public class BuperFragment extends Fragment {
         phoneNo = (EditText)rooteView.findViewById(R.id.phone_no);
         password = (EditText)rooteView.findViewById(R.id.password);
         email = (EditText)rooteView.findViewById(R.id.email);
+
         creatSelerAcout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-//                Intent intent = new Intent(getActivity(), NavigationDrawerBuyer.class);
-//                startActivity(intent);
+                Intent intent = new Intent(getActivity(), NavigationDrawerBuyer.class);
+                startActivity(intent);
                 if(!fName.getText().toString().trim().equals("")&&
                         !phoneNo.getText().toString().trim().equals("")&&
                         !password.getText().toString().trim().equals("")&&
@@ -68,7 +69,7 @@ public class BuperFragment extends Fragment {
                     String  passwrd= getDatafromEditText(password);
                     String emaile = getDatafromEditText(email);
                     if(fName.getText().toString().trim()!=null&&!name.isEmpty()&&!phone.isEmpty()&&!passwrd.isEmpty() &&!emaile.isEmpty()){
-                        getData();
+//                        getData();
 
                     }else {
                         Toast.makeText(getContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();

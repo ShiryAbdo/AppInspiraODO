@@ -31,7 +31,7 @@ public interface ApiInterface {
     @POST(Register)
     Call<ResponseBody> doBuyerRegister(@Body BuyerRegistration registration) ;
     @POST(myOrders)
-    Call<ResponseBody> domyOrders(@Body MyRequest myRequest) ;
+    Call<ArrayList<MyOrder>> domyOrders(@Body MyRequest myRequest) ;
     @POST(myOrders)
     Call<ArrayList<MyOrder>> getJSON();
 

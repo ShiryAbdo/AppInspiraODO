@@ -68,51 +68,37 @@ SharedPreferencesManager sharedPreferencesManager ;
 
 
         loadJSON();
+
     }
     private void loadJSON() {
 
 
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
-        Call<ResponseBody> call = apiService.domyOrders(new MyRequest(PHONE_number)) ;
-        call.enqueue(new Callback<ResponseBody>() {
+        Call<ArrayList<MyOrder>> call = apiService.domyOrders(new MyRequest("01242536987")) ;
+        call.enqueue(new Callback<ArrayList<MyOrder>>() {
             @Override
-            public void onResponse(Call<ResponseBody>call, Response<ResponseBody> response) {
+            public void onResponse(Call<ArrayList<MyOrder>>call, Response<ArrayList<MyOrder>> response) {
                 int responseCode = response.code();
-                ResponseBody bankJSONResponse = response.body();
-//                loadJSONData();
+                ArrayList<MyOrder> bankJSONResponse = response.body();
+                ArrayList<MyOrder> MyOrderList= new ArrayList<MyOrder>();
+                MyOrderList.addAll(bankJSONResponse);
+                Toast.makeText(getApplicationContext(),bankJSONResponse.get(0).getBuyerPhoneNumber()+"",Toast.LENGTH_LONG).show();
+               myRequestAdapter = new MyRequestAdapter(MyOrderList,getActivity());
+                recycler_view.setAdapter(myRequestAdapter);
                  Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_LONG).show();
                 Log.d("CODE", "ResponseCode: " + responseCode);
             }
 
             @Override
-            public void onFailure(Call<ResponseBody>call, Throwable t) {
+            public void onFailure(Call<ArrayList<MyOrder>>call, Throwable t) {
                 // Log error here since request failed
                 Log.e(TAG, t.toString());
             }
         });
     }
 
-    private void loadJSOND(){
-        ApiInterface apiService =
-                ApiClient.getClient().create(ApiInterface.class);
-         Call<ArrayList<MyOrder>> call = apiService.getJSON();
-        call.enqueue(new Callback<ArrayList<MyOrder>>() {
-            @Override
-            public void onResponse(Call<ArrayList<MyOrder>> call, Response<ArrayList<MyOrder>> response) {
 
-                ArrayList<MyOrder> jsonResponse = response.body();
-                MyOrderList = new ArrayList<>(Arrays.asList(jsonResponse));
-                myRequestAdapter = new MyRequestAdapter(MyOrderList,getActivity());
-                recycler_view.setAdapter(myRequestAdapter);
-            }
-
-            @Override
-            public void onFailure(Call<ArrayList<MyOrder>> call, Throwable t) {
-                Log.d("Error",t.getMessage());
-            }
-        });
-    }
 
 
 

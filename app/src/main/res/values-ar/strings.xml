@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">InspiraODO</string>
+    <string name="app_name">ODO</string>
     <string name="Log_In">تسجيل الدخول</string>
     <string name="Sing_Up">تسجيل مستخدم جديد</string>
     <string name="Password">كلمة السر</string>

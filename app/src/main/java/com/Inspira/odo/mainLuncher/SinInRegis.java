@@ -88,6 +88,7 @@ public class SinInRegis extends AppCompatActivity {
                     String token =loginData.getToken();
                     sharedPreferencesManager.setUserType(user);
                     sharedPreferencesManager.setToken(token);
+                    sharedPreferencesManager.setUser_Phoe(number_phone.getText().toString().trim());
                     if(user.equals("buyer")){
 
                         Intent intent = new Intent(SinInRegis.this, NavigationDrawerBuyer.class);

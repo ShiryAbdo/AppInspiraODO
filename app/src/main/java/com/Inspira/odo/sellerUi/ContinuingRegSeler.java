@@ -16,7 +16,7 @@ import android.widget.Spinner;
 import com.Inspira.odo.R;
 import com.Inspira.odo.adaptors.CustomArrayAdapter_Spinner;
 import com.Inspira.odo.adaptors.GeoAutoCompleteAdapter;
-import com.Inspira.odo.mainLuncher.LocaleHelper;
+import com.Inspira.odo.helper.LocaleHelper;
 import com.Inspira.odo.model.GeoSearchResult;
 import com.Inspira.odo.ui.DelayAutoCompleteTextView;
 import com.google.android.gms.maps.model.LatLng;

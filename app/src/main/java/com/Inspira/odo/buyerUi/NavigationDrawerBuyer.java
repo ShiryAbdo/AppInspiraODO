@@ -17,9 +17,8 @@ import android.widget.ListView;
 
 import com.Inspira.odo.helper.NavigationDrawerHelper;
 import com.Inspira.odo.R;
-import com.Inspira.odo.mainLuncher.ChangeLanguage;
 import com.Inspira.odo.mainLuncher.EditProfile;
-import com.Inspira.odo.mainLuncher.LocaleHelper;
+import com.Inspira.odo.helper.LocaleHelper;
 import com.Inspira.odo.mainLuncher.LogInActivity;
 import com.Inspira.odo.model.ObjectDrawerItem;
 

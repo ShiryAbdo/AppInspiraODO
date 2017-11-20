@@ -1,4 +1,4 @@
-package com.Inspira.odo.mainLuncher;
+package com.Inspira.odo.helper;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -3,9 +3,7 @@ package com.Inspira.odo.mainLuncher;
 import android.app.Application;
 import android.content.Context;
 
-/**
- * Created by ZeOwls on 11/4/2017.
- */
+import com.Inspira.odo.helper.LocaleHelper;
 
 public class MyApplication extends Application {
     @Override

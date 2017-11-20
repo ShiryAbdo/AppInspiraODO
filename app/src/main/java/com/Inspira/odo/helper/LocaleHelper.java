@@ -1,4 +1,4 @@
-package com.Inspira.odo.mainLuncher;
+package com.Inspira.odo.helper;
 
 import android.annotation.TargetApi;
 import android.content.Context;

@@ -1,7 +1,6 @@
 package com.Inspira.odo.mainLuncher;
 
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -12,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.Inspira.odo.R;
+import com.Inspira.odo.helper.LocaleHelper;
 
 
 public class ChangeLanguage extends Fragment implements View.OnClickListener {

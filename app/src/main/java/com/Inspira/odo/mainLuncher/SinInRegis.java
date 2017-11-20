@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -13,7 +15,11 @@ import com.Inspira.odo.buyerUi.NavigationDrawerBuyer;
 import com.Inspira.odo.data.ApiClient;
 import com.Inspira.odo.data.ApiInterface;
 import com.Inspira.odo.data.Model.BuyerRegistration;
+import com.Inspira.odo.data.Model.Login;
+import com.Inspira.odo.data.Model.LoginData;
 import com.Inspira.odo.database.SharedPreferencesManager;
+import com.Inspira.odo.helper.LocaleHelper;
+import com.Inspira.odo.sellerUi.NavigationDrawerSeler;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -29,12 +35,15 @@ public class SinInRegis extends AppCompatActivity {
     }
     EditText number_phone  ,passwordlog;
     SharedPreferencesManager sharedPreferencesManager ;
+    Button login ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sin_in_regis);
-        sharedPreferencesManager = new SharedPreferencesManager(this);
+        login= (Button)findViewById(R.id.login);
+
+         sharedPreferencesManager = new SharedPreferencesManager(this);
         // Check if user is already logged in or not
         if (sharedPreferencesManager.isLoggedIn()) {
             // User is already logged in. Take him to main activity
@@ -44,33 +53,68 @@ public class SinInRegis extends AppCompatActivity {
         }
         number_phone=(EditText)findViewById(R.id.number_phone);
         passwordlog=(EditText)findViewById(R.id.passwordlog);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!number_phone.getText().toString().trim().equals("")&&number_phone.getText().toString().trim()!=null&&
+                !passwordlog.getText().toString().trim().equals("")&&passwordlog.getText().toString().trim()!=null){
+                    checkUser();
+                }else {
+                    Toast.makeText(getApplicationContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
+        });
 
     }
     private  void checkUser (){
+        Toast.makeText(getApplicationContext(),"ResponseCode: ",Toast.LENGTH_SHORT).show();
+
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
 
-        Call<ResponseBody> call = apiService.doBuyerRegister(new BuyerRegistration("",number_phone.getText().toString(),passwordlog.getText().toString(),"","1bu4i3iug262bi6u22j2ij3bug5ug45i","buyer"));
-        call.enqueue(new Callback<ResponseBody>() {
+        Call<LoginData> call = apiService.getLogin(new Login(number_phone.getText().toString(),passwordlog.getText().toString(),"1bu4i3iug262bi6u22j2ij3bug5ug45i"));
+        call.enqueue(new Callback<LoginData>() {
             @Override
-            public void onResponse(Call<ResponseBody>call, Response<ResponseBody> response) {
+            public void onResponse(Call<LoginData>call, Response<LoginData> response) {
                 int responseCode = response.code();
                 Log.d("CODE", "ResponseCode: " + responseCode);
                 if(responseCode==200){
+
                     sharedPreferencesManager.setLogin(true);
-                    Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(SinInRegis.this, NavigationDrawerBuyer.class);
-                    startActivity(intent);
-                    finish();
-                }else {
+                    LoginData loginData = response.body() ;
+                     String user = loginData.getUserType();
+                    String token =loginData.getToken();
+                    sharedPreferencesManager.setUserType(user);
+                    sharedPreferencesManager.setToken(token);
+                    if(user.equals("buyer")){
+
+                        Intent intent = new Intent(SinInRegis.this, NavigationDrawerBuyer.class);
+                        startActivity(intent);
+                        finish();
+
+                    }else if (user.equals("seller")){
+                        Intent intent = new Intent(SinInRegis.this, NavigationDrawerSeler.class);
+                        startActivity(intent);
+                        finish();
+
+                    }
+                    Toast.makeText(getApplicationContext(),user,Toast.LENGTH_SHORT).show();
+
 
                     Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getApplicationContext()," else",Toast.LENGTH_SHORT).show();
+
+
+                }else {
+
+                    Toast.makeText(getApplicationContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
+
                 }
             }
 
             @Override
-            public void onFailure(Call<ResponseBody>call, Throwable t) {
+            public void onFailure(Call<LoginData>call, Throwable t) {
                 // Log error here since request failed
                 Log.e(TAG, t.toString());
             }

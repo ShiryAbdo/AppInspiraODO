@@ -16,6 +16,12 @@ public class Login {
     @Expose
     private String hashVal;
 
+    public Login(String phoneNumber, String password, String hashVal) {
+        this.phoneNumber = phoneNumber;
+        this.password = password;
+        this.hashVal = hashVal;
+    }
+
     public String getPhoneNumber() {
         return phoneNumber;
     }

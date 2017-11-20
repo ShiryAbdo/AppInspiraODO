@@ -46,7 +46,7 @@
     <string name="Change_Language">تعديل اللغة</string>
     <string name="Request_Responses">العروض المتاحة</string>
     <string name="action_settings"></string>
-    <string name="enter_data">أدخل  البيانات</string>
+    <string name="enter_data">تأكد من إدخال البيانات</string>
     <string name="chose_type">إختار  نوع العربية</string>
     <string name="chose_modle">إختار  موديل  العربية</string>
     <string name="Run_flot_tyres">كاوتش ران فلات</string>

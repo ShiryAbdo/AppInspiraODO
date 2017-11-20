@@ -1,6 +1,8 @@
 package com.Inspira.odo.data;
 
 import com.Inspira.odo.data.Model.BuyerRegistration;
+import com.Inspira.odo.data.Model.Login;
+import com.Inspira.odo.data.Model.LoginData;
 import com.Inspira.odo.data.Model.MyOrder;
 import com.Inspira.odo.data.Model.MyRequest;
 import com.Inspira.odo.data.Model.Order;
@@ -23,7 +25,7 @@ public interface ApiInterface {
     String Orders = "orders/buyer/addOrder";
 
     String UploadImage = "/images/upload ";
-    String Login = "/login/" ;
+    String login = "/login/" ;
     String myOrders ="/profile/buyer/myOrders" ;
 
 
@@ -32,8 +34,8 @@ public interface ApiInterface {
     Call<ResponseBody> doBuyerRegister(@Body BuyerRegistration registration) ;
     @POST(myOrders)
     Call<ArrayList<MyOrder>> domyOrders(@Body MyRequest myRequest) ;
-    @POST(myOrders)
-    Call<ArrayList<MyOrder>> getJSON();
+    @POST(login)
+    Call<LoginData> getLogin(@Body Login Login);
 
     @POST(Register)
     Call<ResponseBody> doSellerRegister(@Body SellerRegistration registration) ;

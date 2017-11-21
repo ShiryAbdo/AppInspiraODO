@@ -1,8 +1,5 @@
 package com.Inspira.odo.database;
 
-/**
- * Created by Compu City on 22/10/2017.
- */
 
 public class CarItems {
     String carModel,carType,carYear;

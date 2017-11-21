@@ -10,23 +10,37 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.Inspira.odo.R;
 import com.Inspira.odo.data.Model.MyOrder;
+import com.Inspira.odo.helper.DateTimeHelper;
 import com.Inspira.odo.model.SellerHomeData;
+import com.github.thunder413.datetimeutils.DateTimeUtils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
+import java.util.Calendar;
+import java.util.Date;
 
 
 public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.ViewHolder> {
     private ArrayList<MyOrder> androidList;
     private Context context;
     private int lastPosition=-1;
+    SimpleDateFormat formater ;
+    DateTimeHelper dateTimeHelper ;
+    DateTimeUtils obj ;
+
 
     public MyRequestAdapter(ArrayList<MyOrder> android, Context c) {
         this.androidList = android;
         this.context=c;
+        this.obj = new DateTimeUtils();
+        this.formater = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        this.dateTimeHelper= new DateTimeHelper(context);
+
     }
 
     @Override
@@ -45,8 +59,32 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
         viewHolder.year_car.setText(androidList.get(i).getCarDetails().getCarYear());
         viewHolder.model_car.setText(androidList.get(i).getCarDetails().getCarModel());
         viewHolder.color_car.setText(androidList.get(i).getOrder().getColor());
-        viewHolder.time_of_post.setText(androidList.get(i).getDate());
-//        if(androidList.get(i).isFavorite()==false){
+
+
+        Date convertedDate = new Date();
+
+        SimpleDateFormat dfDate  = new SimpleDateFormat("dd/MM/yyyy");
+        java.util.Date d = null;
+        java.util.Date d1 = null;
+        Calendar cal = Calendar.getInstance();
+        try {
+            d = dfDate.parse("01/02/2012 ");
+            d1 = dfDate.parse(dfDate.format(cal.getTime()));//Returns 15/10/2012
+        } catch (java.text.ParseException e) {
+            e.printStackTrace();
+        }
+         String resul= dateTimeHelper.substractDates(d1,d ,dfDate);
+
+         viewHolder.time_of_post.setText(resul);
+
+
+
+
+
+
+
+
+//        if(androidList.get(i).==false){
 //            viewHolder.Favorite_image.setImageResource(R.drawable.star);
 //
 //        }else {
@@ -59,7 +97,7 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
         viewHolder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Toast.makeText(context, "", Toast.LENGTH_SHORT).show();
 
             }
         });

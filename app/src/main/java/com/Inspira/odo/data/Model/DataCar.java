@@ -2,12 +2,14 @@ package com.Inspira.odo.data.Model;
 
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 
 
 public class DataCar {
     Map<String,ArrayList<String> > AllData = new HashMap<>();
+    List<ArrayList<String> > AllDataList = new ArrayList<>();
 
  ArrayList<String> years = new ArrayList<>();
 
@@ -85,7 +87,55 @@ public class DataCar {
 
         return years;
     }
-
+    public List<ArrayList<String> > getAllDataList() {
+        AllDataList.add(0,getAlfaRomeoModle());
+        AllDataList.add(1,getAudiModle());
+        AllDataList.add(2,getBMWModle());
+        AllDataList.add(3,getBYDModle());
+        AllDataList.add(4,getBrillianceModle());
+        AllDataList.add(5, getCherryModle());
+        AllDataList.add(6,getChevroletModle());
+        AllDataList.add(7,getChryslerModle());
+        AllDataList.add(7,getCitroenModle());
+        AllDataList.add(9,getDaewooModle());
+        AllDataList.add(10,getDaihatsuModels());
+        AllDataList.add(11,getDodgeModels());
+        AllDataList.add(12,getFiatModels() );
+        AllDataList.add(13,getFordModle() );
+        AllDataList.add(14,getGeelyModle());
+        AllDataList.add(15,getHondaModle());
+        AllDataList.add(16,getHummerModle());
+        AllDataList.add(17,getHyundaiModle() );
+        AllDataList.add(18,getIsuzuModle());
+        AllDataList.add(19,getJaguarModle());
+        AllDataList.add(20,getJeepModle() );
+        AllDataList.add(21,getKiaModle() );
+        AllDataList.add(21,getLadaModle());
+        AllDataList.add(22,getLandRoverModel() );
+        AllDataList.add(23,getMGModle());
+        AllDataList.add(24,getMINIModle());
+        AllDataList.add(25,getMazdaModle());
+        AllDataList.add(26,getMercedesBenzModle());
+        AllDataList.add(27,getMitsubishiMOodle());
+        AllDataList.add(28,getNissanModle());
+        AllDataList.add(29,getOpelModle());
+        AllDataList.add(30, getOtherMakeModle());
+        AllDataList.add(31,getPeugeotModle());
+        AllDataList.add(32,getPorscheModle());
+        AllDataList.add(33,getProtonModle());
+        AllDataList.add(34,getRenaultModle());
+        AllDataList.add(35,getSaipaModle());
+        AllDataList.add(36,getSeatModle());
+        AllDataList.add(37,getSkodaModle());
+        AllDataList.add(38,getSperanzaModle());
+        AllDataList.add(39,getSsangYongModle());
+        AllDataList.add(40,getSubaruModle() );
+        AllDataList.add(41, getSuzukiModle());
+        AllDataList.add(42,getToyotaModle());
+        AllDataList.add(43,getVolvoModle());
+        AllDataList.add(44, getVolkswagenModle() );
+        return AllDataList;
+    }
     public Map<String, ArrayList<String> > getAllData() {
         AllData.put("Alfa Romeo",getAlfaRomeoModle());
         AllData.put("Audi",getAudiModle());

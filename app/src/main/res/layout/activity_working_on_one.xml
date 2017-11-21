@@ -50,94 +50,13 @@
             android:contentDescription="back" />
 
     </android.support.v7.widget.Toolbar>
-    <LinearLayout
-         android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:background="#000"
+
+
+        <ExpandableListView
+            android:groupIndicator="@null"
+            android:id="@+id/expandible_listview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Spinner
-                android:textAlignment="viewStart"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:id="@+id/SpinnerOne"
-                android:textColor="#ffffff"
-                android:textColorHint="#ffffff"
-                android:layout_width="match_parent"
-                android:layout_marginBottom="@dimen/_20sdp"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+            android:layout_height="match_parent"></ExpandableListView>
 
-
-        <View
-            android:layout_width="match_parent"
-            android:background="#dea63e"
-            android:layout_height="@dimen/_2sdp"/>
-        <LinearLayout
-            android:background="#000"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Spinner
-                android:textAlignment="viewStart"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:id="@+id/SpinnerTwo"
-                android:textColor="#ffffff"
-                android:textColorHint="#ffffff"
-                android:layout_width="match_parent"
-                android:layout_marginBottom="@dimen/_20sdp"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:background="#dea63e"
-            android:layout_height="@dimen/_2sdp"/>
-
-        <LinearLayout
-            android:background="#000"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Spinner
-                android:textAlignment="viewStart"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:id="@+id/SpinnerThree"
-                android:textColor="#ffffff"
-                android:textColorHint="#ffffff"
-                android:layout_width="match_parent"
-                android:layout_marginBottom="@dimen/_20sdp"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:background="#dea63e"
-            android:layout_height="@dimen/_2sdp"/>
-        <LinearLayout
-            android:background="#000"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Spinner
-                android:textAlignment="viewStart"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:id="@+id/SpinnerCarFoure"
-                android:textColor="#ffffff"
-                android:textColorHint="#ffffff"
-                android:layout_width="match_parent"
-                android:layout_marginBottom="@dimen/_20sdp"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:background="#dea63e"
-            android:layout_height="@dimen/_2sdp"/>
-
-
-    </LinearLayout>
-
-</LinearLayout >
+</LinearLayout>

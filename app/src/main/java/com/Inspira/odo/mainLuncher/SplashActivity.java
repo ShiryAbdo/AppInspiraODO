@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.Inspira.odo.R;
+import com.Inspira.odo.buyerUi.NavigationDrawerBuyer;
+import com.Inspira.odo.database.SharedPreferencesManager;
 import com.Inspira.odo.helper.LocaleHelper;
+import com.Inspira.odo.sellerUi.NavigationDrawerSeler;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -16,6 +19,7 @@ import com.Inspira.odo.helper.LocaleHelper;
 public class SplashActivity extends AppCompatActivity {
 
     private static int SPLASH_TIME_OUT = 2000;
+    SharedPreferencesManager sharedPreferencesManager ;
 
 
     @Override
@@ -28,25 +32,35 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_splash);
-
+        sharedPreferencesManager = new SharedPreferencesManager(this);
 
 
         new Handler().postDelayed(new Runnable() {
 
-			/*
-             * Showing splash screen with a timer. This will be useful when you
-			 * want to show case your app logo / company
-			 */
 
             @Override
             public void run() {
-                // This method will be executed once the timer is over
-                // Start your app main activity
-                Intent i = new Intent(SplashActivity.this,  LogInActivity.class);
-                startActivity(i);
+                // Check if user is already logged in or not
+                if (sharedPreferencesManager.isLoggedIn()) {
+                    String user =   sharedPreferencesManager.getUserType();
+                    if(user.equals("buyer")){
 
-                // close this activity
-                finish();
+                        Intent intent = new Intent(SplashActivity.this, NavigationDrawerBuyer.class);
+                        startActivity(intent);
+                        finish();
+
+                    }else if (user.equals("seller")){
+                        Intent intent = new Intent(SplashActivity.this, NavigationDrawerSeler.class);
+                        startActivity(intent);
+                        finish();
+
+                    }
+
+                }else {
+                    Intent intent = new Intent(SplashActivity.this, LogInActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         }, SPLASH_TIME_OUT);
     }

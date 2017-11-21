@@ -42,22 +42,17 @@ public class SinInRegis extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sin_in_regis);
         login= (Button)findViewById(R.id.login);
-
-         sharedPreferencesManager = new SharedPreferencesManager(this);
-        // Check if user is already logged in or not
-        if (sharedPreferencesManager.isLoggedIn()) {
-            // User is already logged in. Take him to main activity
-            Intent intent = new Intent(SinInRegis.this, NavigationDrawerBuyer.class);
-            startActivity(intent);
-            finish();
-        }
+        sharedPreferencesManager = new SharedPreferencesManager(this);
         number_phone=(EditText)findViewById(R.id.number_phone);
         passwordlog=(EditText)findViewById(R.id.passwordlog);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!number_phone.getText().toString().trim().equals("")&&number_phone.getText().toString().trim()!=null&&
-                !passwordlog.getText().toString().trim().equals("")&&passwordlog.getText().toString().trim()!=null){
+                String number = number_phone.getText().toString().trim() ;
+                String passord =passwordlog.getText().toString().trim() ;
+
+                if(!number_phone.getText().toString().trim().equals("")&&number!=null&&
+                !passwordlog.getText().toString().trim().equals("")&&passord!=null){
                     checkUser();
                 }else {
                     Toast.makeText(getApplicationContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
@@ -69,7 +64,6 @@ public class SinInRegis extends AppCompatActivity {
 
     }
     private  void checkUser (){
-        Toast.makeText(getApplicationContext(),"ResponseCode: ",Toast.LENGTH_SHORT).show();
 
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);

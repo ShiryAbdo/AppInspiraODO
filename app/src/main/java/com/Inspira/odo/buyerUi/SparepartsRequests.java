@@ -112,19 +112,25 @@ SharedPreferencesManager sharedPreferencesManager ;
 
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
-        Call<ArrayList<MyOrder>> call = apiService.domyOrders(new MyRequest("01242536987")) ;
+        Call<ArrayList<MyOrder>> call = apiService.domyOrders(new MyRequest(PHONE_number)) ;
         call.enqueue(new Callback<ArrayList<MyOrder>>() {
             @Override
             public void onResponse(Call<ArrayList<MyOrder>>call, Response<ArrayList<MyOrder>> response) {
                 int responseCode = response.code();
-                ArrayList<MyOrder> bankJSONResponse = response.body();
-                ArrayList<MyOrder> MyOrderList= new ArrayList<MyOrder>();
-                MyOrderList.addAll(bankJSONResponse);
-                Toast.makeText(getApplicationContext(),bankJSONResponse.get(0).getBuyerPhoneNumber()+"",Toast.LENGTH_LONG).show();
-               myRequestAdapter = new MyRequestAdapter(MyOrderList,getActivity());
-                recycler_view.setAdapter(myRequestAdapter);
-                 Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_LONG).show();
-                Log.d("CODE", "ResponseCode: " + responseCode);
+                if(responseCode==200){
+                    ArrayList<MyOrder> bankJSONResponse = response.body();
+                    if(!bankJSONResponse.isEmpty()){
+                        ArrayList<MyOrder> MyOrderList= new ArrayList<MyOrder>();
+                        MyOrderList.addAll(bankJSONResponse);
+                        Toast.makeText(getApplicationContext(),bankJSONResponse.get(0).getBuyerPhoneNumber()+"",Toast.LENGTH_LONG).show();
+                        myRequestAdapter = new MyRequestAdapter(MyOrderList,getActivity());
+                        recycler_view.setAdapter(myRequestAdapter);
+                        Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_LONG).show();
+                        Log.d("CODE", "ResponseCode: " + responseCode);
+                    }
+                }
+
+
             }
 
             @Override

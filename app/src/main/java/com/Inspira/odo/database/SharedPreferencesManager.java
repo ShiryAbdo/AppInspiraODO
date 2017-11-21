@@ -13,12 +13,18 @@ public class SharedPreferencesManager {
     private static final String KEY_IS_LOGGEDIN = "isLoggedIn" ;
     Context mContext;
     private  static final String PREFS_NAME = "Inspira";
+
+    private  String User_type= "User_Type";
     private  String User_Name = "User_Name";
-    private  String User_Phoe = "User_Phoe";
+    private  String User_Email= "User_Email";
+    private  String User_Password= "User_Password";
+    private  String User_Phoe = "User_Phone";
+
     private  String Car_Type =  "Car_Type" ;
     private  String Car_Modle = "Car_Modle";
    private   String Car_Year =  "Car_Year"  ;
     private  String partTyp ="partType" ;
+
     private  String UserType = "UserType";
     private  String Token ="Token";
 
@@ -28,6 +34,32 @@ public class SharedPreferencesManager {
         editor = pref.edit();
     }
 
+
+    public String getUser_Email() {
+        return pref.getString(User_Email,null);
+    }
+
+    public void setUser_Email(String user_Email) {
+        editor.putString(User_Email,user_Email);
+        editor.commit();
+    }
+    public String getUser_type() {
+        return pref.getString(User_type,null);
+    }
+
+    public void setUser_type(String user_type) {
+        editor.putString(User_type,user_type);
+        editor.commit();
+    }
+
+    public String getUser_Password() {
+        return pref.getString(User_Password,null);
+    }
+
+    public void setUser_Password(String user_Password) {
+        editor.putString(User_Password,user_Password);
+        editor.commit();
+    }
 
     public void setLogin(boolean isLoggedIn) {
 
@@ -94,23 +126,24 @@ public class SharedPreferencesManager {
     public void setPartType(String partType) {
         editor.putString(partTyp,partType);
         editor.commit();
+        this.partTyp = partType;
     }
 
     public String getUserType() {
         return  pref.getString(UserType,null);
-     }
+    }
 
     public void setUserType(String userType) {
-         editor.putString(UserType,userType);
+        editor.putString(UserType,userType);
         editor.commit();
     }
 
     public String getToken() {
-         return  pref.getString(Token,null);
+        return  pref.getString(Token,null);
     }
 
     public void setToken(String token) {
-         editor.putString(Token,token);
+        editor.putString(Token, token);
         editor.commit();
     }
 }

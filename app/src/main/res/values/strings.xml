@@ -95,6 +95,11 @@
     <string name="know">i  know my battey</string>
     <string name="title_activity_tyre_batterey_requests_tabe">TyreBattereyRequestsTabe</string>
     <string name="Ampar">Ampar</string>
+    <string name="Invalid_Email">Invalid Email Address</string>
+    <string name="Invalid_Not_Email">Email Not Invalid</string>
+    <string name="Password_Not_matching">Password Not matching</string>
+    <string name="cant_contain_a_space">This can\'t contain a space</string>
+    <string name="Enter_location">Enter location</string>
 
 
 </resources>

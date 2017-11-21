@@ -65,4 +65,9 @@
     <string name="larg_poles">أواشيط كبيرة</string>
     <string name="small_poles">أواشيط صغيرة</string>
     <string name="Ampar">كم أ مبير</string>
+    <string name="Invalid_Email">الإميل صحيح</string>
+    <string name="Invalid_Not_Email">الإميل  غير صحيح</string>
+    <string name="Password_Not_matching">كلمة المرور غير متطابقه</string>
+    <string name="cant_contain_a_space">أدخل البيانات</string>
+    <string name="Enter_location">أدخل المكان علي الخريطة</string>
 </resources>

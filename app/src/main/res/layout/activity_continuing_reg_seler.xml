@@ -99,25 +99,61 @@
         <!--</com.Inspira.odo.ui.DelayAutoCompleteTextView>-->
 
 
-        <com.Inspira.odo.ui.DelayAutoCompleteTextView
-            android:id="@+id/company_address"
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:theme="@style/TextLabel"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/company_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/Campany_Adress"
+                android:background="#00ffffff"
+                android:inputType="textPersonName"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff" />
+
+        </android.support.design.widget.TextInputLayout>
+        <View
+            android:layout_width="match_parent"
+            android:background="#dea63e"
+            android:layout_height="@dimen/_1sdp"/>
+        <TextView
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:imeOptions="flagNoExtractUi|actionSearch"
-            android:scrollHorizontally="true"
-            android:singleLine="true"
-            android:completionThreshold="1"
+            android:text="@string/Enter_location"
+            android:background="#00ffffff"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:inputType="textPersonName"
             android:textColor="#ffffff"
             android:textColorHint="#ffffff"
-             android:hint="@string/Campany_Adress"
-            android:dropDownVerticalOffset="10dp"
-            android:dropDownWidth="200dp"
-            android:dropDownHorizontalOffset="30dp">
-            <requestFocus />
-        </com.Inspira.odo.ui.DelayAutoCompleteTextView>
+          />
+
+            <View
+            android:layout_width="match_parent"
+            android:background="#dea63e"
+        android:layout_height="@dimen/_1sdp"/>
+        <!--<com.Inspira.odo.ui.DelayAutoCompleteTextView-->
+            <!--android:id="@+id/company_address"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:ems="10"-->
+            <!--android:ellipsize="end"-->
+            <!--android:maxLines="1"-->
+            <!--android:imeOptions="flagNoExtractUi|actionSearch"-->
+            <!--android:scrollHorizontally="true"-->
+            <!--android:singleLine="true"-->
+            <!--android:completionThreshold="1"-->
+            <!--android:textColor="#ffffff"-->
+            <!--android:textColorHint="#ffffff"-->
+             <!--android:hint="@string/Campany_Adress"-->
+            <!--android:dropDownVerticalOffset="10dp"-->
+            <!--android:dropDownWidth="200dp"-->
+            <!--android:dropDownHorizontalOffset="30dp">-->
+            <!--<requestFocus />-->
+        <!--</com.Inspira.odo.ui.DelayAutoCompleteTextView>-->
         <!--<fragment-->
             <!--android:layout_gravity="center_horizontal"-->
  <!---->

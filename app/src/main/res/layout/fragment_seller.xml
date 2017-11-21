@@ -120,6 +120,7 @@
             android:theme="@style/TextLabel">
 
             <EditText
+                android:id="@+id/Confirm_Password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#00ffffff"

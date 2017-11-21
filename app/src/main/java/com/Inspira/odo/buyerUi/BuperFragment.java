@@ -18,6 +18,7 @@ import com.Inspira.odo.data.ApiClient;
 import com.Inspira.odo.data.ApiInterface;
 import com.Inspira.odo.data.Model.BuyerRegistration;
   import com.Inspira.odo.database.SharedPreferencesManager;
+  import com.Inspira.odo.helper.CheckValidation;
   import com.Inspira.odo.mainLuncher.SinInRegis;
 
   import okhttp3.ResponseBody;
@@ -33,8 +34,9 @@ public class BuperFragment extends Fragment {
 
 
     Button creatSelerAcout ;
-    EditText fName, phoneNo, password, email;
+    EditText fName, phoneNo, password, email ,Confirm_Password;
     SharedPreferencesManager sharedPreferencesManager ;
+    CheckValidation checkValidation ;
 
 
     @Override
@@ -42,6 +44,7 @@ public class BuperFragment extends Fragment {
                              Bundle savedInstanceState) {
          View rooteView= inflater.inflate(R.layout.fragment_buper, container, false);
         sharedPreferencesManager= new SharedPreferencesManager(getApplicationContext());
+        checkValidation= new CheckValidation(getContext());
         if (sharedPreferencesManager.isLoggedIn()) {
             // User is already logged in. Take him to main activity
             Intent intent = new Intent(getActivity(), NavigationDrawerBuyer.class);
@@ -53,6 +56,7 @@ public class BuperFragment extends Fragment {
         phoneNo = (EditText)rooteView.findViewById(R.id.phone_no);
         password = (EditText)rooteView.findViewById(R.id.password);
         email = (EditText)rooteView.findViewById(R.id.email);
+        Confirm_Password =(EditText)rooteView.findViewById(R.id.Confirm_Password);
         creatSelerAcout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,13 +66,29 @@ public class BuperFragment extends Fragment {
                 if(!fName.getText().toString().trim().equals("")&&
                         !phoneNo.getText().toString().trim().equals("")&&
                         !password.getText().toString().trim().equals("")&&
-                        !email.getText().toString().trim().equals("")){
+                        !email.getText().toString().trim().equals("")&&
+                        !Confirm_Password.getText().toString().equals("")){
                     String name =getDatafromEditText(fName);
                     String  phone = getDatafromEditText(phoneNo);
                     String  passwrd= getDatafromEditText(password);
                     String emaile = getDatafromEditText(email);
+                    String confr =getDatafromEditText(Confirm_Password);
                     if(fName.getText().toString().trim()!=null&&!name.isEmpty()&&!phone.isEmpty()&&!passwrd.isEmpty() &&!emaile.isEmpty()){
-                        getData();
+                     boolean checkedEmail = checkValidation.Emailvalidate(email);
+                        boolean checkPassword =checkValidation.ComfierPassord(password ,Confirm_Password);
+                        if(checkedEmail==true){
+                            if(checkPassword==true){
+                                getData();
+                            }else {
+                                Toast.makeText(getApplicationContext(),getString(R.string.Password_Not_matching),Toast.LENGTH_SHORT).show();
+
+                            }
+
+                        }else {
+                            Toast.makeText(getApplicationContext(),getString(R.string.Invalid_Not_Email),Toast.LENGTH_SHORT).show();
+
+                        }
+
 
                     }else {
                         Toast.makeText(getContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
@@ -131,7 +151,8 @@ public class BuperFragment extends Fragment {
             text=editText.getText().toString();
             if(text.contains("")){
 
-                editText.setError("This can't contain a space ");
+
+                editText.setError("This can't contain a space");
             }else{
                 return text;}
 

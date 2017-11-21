@@ -80,21 +80,11 @@ class TinyDB {
     }
 
 
-    /**
-     * Saves 'theBitmap' into 'fullPath'
-     * @param fullPath full path of the image file e.g. "Images/MeAtLunch.png"
-     * @param theBitmap the image you want to save as a Bitmap
-     * @return true if image was saved, false otherwise
-     */
     public boolean putImageWithFullPath(String fullPath, Bitmap theBitmap) {
         return !(fullPath == null || theBitmap == null) && saveBitmap(fullPath, theBitmap);
     }
 
-    /**
-     * Creates the path for the image with name 'imageName' in DEFAULT_APP.. directory
-     * @param imageName name of the image
-     * @return the full path of the image. If it failed to create directory, return empty string
-     */
+
     private String setupFullPath(String imageName) {
         File mFolder = new File(Environment.getExternalStorageDirectory(), DEFAULT_APP_IMAGEDATA_DIRECTORY);
 
@@ -163,21 +153,12 @@ class TinyDB {
 
     // Getters
 
-    /**
-     * Get int value from SharedPreferences at 'key'. If key not found, return 'defaultValue'
-     * @param key SharedPreferences key
-     * @param defaultValue int value returned if key was not found
-     * @return int value at 'key' or 'defaultValue' if key not found
-     */
+
     public int getInt(String key) {
         return preferences.getInt(key, 0);
     }
 
-    /**
-     * Get parsed ArrayList of Integers from SharedPreferences at 'key'
-     * @param key SharedPreferences key
-     * @return ArrayList of Integers
-     */
+
     public ArrayList<Integer> getListInt(String key) {
         String[] myList = TextUtils.split(preferences.getString(key, ""), "‚‗‚");
         ArrayList<String> arrayToList = new ArrayList<>(Arrays.asList(myList));
@@ -189,32 +170,16 @@ class TinyDB {
         return newList;
     }
 
-    /**
-     * Get long value from SharedPreferences at 'key'. If key not found, return 'defaultValue'
-     * @param key SharedPreferences key
-     * @param defaultValue long value returned if key was not found
-     * @return long value at 'key' or 'defaultValue' if key not found
-     */
+
     public long getLong(String key, long defaultValue) {
         return preferences.getLong(key, defaultValue);
     }
 
-    /**
-     * Get float value from SharedPreferences at 'key'. If key not found, return 'defaultValue'
-     * @param key SharedPreferences key
-     * @param defaultValue float value returned if key was not found
-     * @return float value at 'key' or 'defaultValue' if key not found
-     */
+
     public float getFloat(String key) {
         return preferences.getFloat(key, 0);
     }
 
-    /**
-     * Get double value from SharedPreferences at 'key'. If exception thrown, return 'defaultValue'
-     * @param key SharedPreferences key
-     * @param defaultValue double value returned if exception is thrown
-     * @return double value at 'key' or 'defaultValue' if exception is thrown
-     */
     public double getDouble(String key, double defaultValue) {
         String number = getString(key);
 
@@ -226,11 +191,6 @@ class TinyDB {
         }
     }
 
-    /**
-     * Get parsed ArrayList of Double from SharedPreferences at 'key'
-     * @param key SharedPreferences key
-     * @return ArrayList of Double
-     */
     public ArrayList<Double> getListDouble(String key) {
         String[] myList = TextUtils.split(preferences.getString(key, ""), "‚‗‚");
         ArrayList<String> arrayToList = new ArrayList<>(Arrays.asList(myList));
@@ -242,39 +202,19 @@ class TinyDB {
         return newList;
     }
 
-    /**
-     * Get String value from SharedPreferences at 'key'. If key not found, return ""
-     * @param key SharedPreferences key
-     * @return String value at 'key' or "" (empty String) if key not found
-     */
     private String getString(String key) {
         return preferences.getString(key, "");
     }
 
-    /**
-     * Get parsed ArrayList of String from SharedPreferences at 'key'
-     * @param key SharedPreferences key
-     * @return ArrayList of String
-     */
     public ArrayList<String> getListString(String key) {
         return new ArrayList<>(Arrays.asList(TextUtils.split(preferences.getString(key, ""), "‚‗‚")));
     }
 
-    /**
-     * Get boolean value from SharedPreferences at 'key'. If key not found, return 'defaultValue'
-     * @param key SharedPreferences key
-     * @param defaultValue boolean value returned if key was not found
-     * @return boolean value at 'key' or 'defaultValue' if key not found
-     */
     public boolean getBoolean(String key) {
         return preferences.getBoolean(key, false);
     }
 
-    /**
-     * Get parsed ArrayList of Boolean from SharedPreferences at 'key'
-     * @param key SharedPreferences key
-     * @return ArrayList of Boolean
-     */
+
     public ArrayList<Boolean> getListBoolean(String key) {
         ArrayList<String> myList = getListString(key);
         ArrayList<Boolean> newList = new ArrayList<>();
@@ -496,10 +436,7 @@ class TinyDB {
         preferences.registerOnSharedPreferenceChangeListener(listener);
     }
 
-    /**
-     * Unregister SharedPreferences change listener
-     * @param listener listener object of OnSharedPreferenceChangeListener to be unregistered
-     */
+
     public void unregisterOnSharedPreferenceChangeListener(
             SharedPreferences.OnSharedPreferenceChangeListener listener) {
 
@@ -507,18 +444,11 @@ class TinyDB {
     }
 
 
-    /**
-     * Check if external storage is writable or not
-     * @return true if writable, false otherwise
-     */
     private static boolean isExternalStorageWritable() {
         return Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());
     }
 
-    /**
-     * Check if external storage is readable or not
-     * @return true if readable, false otherwise
-     */
+
     private static boolean isExternalStorageReadable() {
         String state = Environment.getExternalStorageState();
 

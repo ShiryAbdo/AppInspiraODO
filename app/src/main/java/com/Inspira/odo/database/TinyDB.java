@@ -525,19 +525,13 @@ class TinyDB {
         return Environment.MEDIA_MOUNTED.equals(state) ||
                 Environment.MEDIA_MOUNTED_READ_ONLY.equals(state);
     }
-    /**
-     * null keys would corrupt the shared pref file and make them unreadable this is a preventive measure
-     * @param the pref key
-     */
+
     private void checkForNullKey(String key){
     	 if (key == null){
     		 throw new NullPointerException(); 
     	 }
     }
-    /**
-     * null keys would corrupt the shared pref file and make them unreadable this is a preventive measure
-     * @param the pref key
-     */
+
     private void checkForNullValue(String value){
     	 if (value == null){
     		 throw new NullPointerException(); 

@@ -56,12 +56,36 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginTop="@dimen/_15sdp"
+            android:id="@+id/Enter_location"
+            android:paddingBottom="@dimen/_5sdp"
+             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Enter_location"
+            android:background="#00ffffff"
+            android:drawableLeft="@drawable/map"
+            android:drawablePadding="@dimen/_2sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:inputType="textPersonName"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:background="#dea63e"
+            android:layout_height="@dimen/_1sdp"/>
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:theme="@style/TextLabel"
+            android:layout_marginTop="@dimen/_5sdp"
             android:layout_height="wrap_content">
 
             <EditText
+
+
                 android:id="@+id/company_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -102,6 +126,7 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:theme="@style/TextLabel"
+            android:layout_marginTop="@dimen/_5sdp"
             android:layout_height="wrap_content">
 
             <EditText
@@ -119,22 +144,7 @@
             android:layout_width="match_parent"
             android:background="#dea63e"
             android:layout_height="@dimen/_1sdp"/>
-        <TextView
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Enter_location"
-            android:background="#00ffffff"
-            android:layout_marginBottom="@dimen/_2sdp"
-            android:inputType="textPersonName"
-            android:textColor="#ffffff"
-            android:textColorHint="#ffffff"
-          />
 
-            <View
-            android:layout_width="match_parent"
-            android:background="#dea63e"
-        android:layout_height="@dimen/_1sdp"/>
         <!--<com.Inspira.odo.ui.DelayAutoCompleteTextView-->
             <!--android:id="@+id/company_address"-->
             <!--android:layout_width="match_parent"-->
@@ -171,7 +181,7 @@
             <!--android:layout_height="@dimen/_1sdp"/>-->
 
         <Spinner
-             android:layout_marginTop="@dimen/_30sdp"
+             android:layout_marginTop="@dimen/_15sdp"
             android:id="@+id/spinner_tYpeSeler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

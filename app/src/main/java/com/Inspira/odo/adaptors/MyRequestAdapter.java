@@ -1,6 +1,9 @@
 package com.Inspira.odo.adaptors;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,16 +16,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.Inspira.odo.R;
+import com.Inspira.odo.buyerUi.RequestResponses;
 import com.Inspira.odo.data.Model.MyOrder;
+import com.Inspira.odo.data.Model.Response;
 import com.Inspira.odo.helper.DateTimeHelper;
 import com.Inspira.odo.model.SellerHomeData;
 import com.github.thunder413.datetimeutils.DateTimeUtils;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 
 public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.ViewHolder> {
@@ -32,6 +41,7 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
     SimpleDateFormat formater ;
     DateTimeHelper dateTimeHelper ;
     DateTimeUtils obj ;
+
 
 
     public MyRequestAdapter(ArrayList<MyOrder> android, Context c) {
@@ -61,12 +71,12 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
         viewHolder.color_car.setText(androidList.get(i).getOrder().getColor());
 
 
-        Date convertedDate = new Date();
-
+//        responses =androidList.get(i).getResponses();
         SimpleDateFormat dfDate  = new SimpleDateFormat("dd/MM/yyyy");
         java.util.Date d = null;
         java.util.Date d1 = null;
         Calendar cal = Calendar.getInstance();
+//        you need to split date resived
         try {
             d = dfDate.parse("01/02/2012 ");
             d1 = dfDate.parse(dfDate.format(cal.getTime()));//Returns 15/10/2012
@@ -97,7 +107,23 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
         viewHolder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(),androidList.get(i).getResponses().get(i).getPrice(),Toast.LENGTH_LONG).show();
+//                if(!androidList.get(i).getResponses().isEmpty()){
+//                    responses.addAll(androidList.get(i).getResponses());
+//                }
+//                Toast.makeText(getApplicationContext(),responses.get(i).getPrice(),Toast.LENGTH_LONG).show();
+                ArrayList<Response> responses = new ArrayList<Response>();
+                        responses.addAll(androidList.get(i).getResponses()) ;
+                Intent intent = new Intent(context, RequestResponses.class);
+                intent.putParcelableArrayListExtra("responses", (ArrayList<? extends Parcelable>) responses);
+
+                Bundle intent1 = new Bundle();
+
+//                        intent.putParcelableArrayListExtra("cars", responses);
+                Toast.makeText(getApplicationContext(), responses.size()+"",Toast.LENGTH_LONG).show();
+
+//                 intent.putParcelableArrayListExtra("responses", (ArrayList<? extends Parcelable>) responses);
+//                 context.startActivity(intent);
 
             }
         });

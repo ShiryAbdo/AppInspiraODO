@@ -118,4 +118,12 @@ public class SinInRegis extends AppCompatActivity {
 
 
     }
+
+
+    @Override
+    public void onBackPressed() {
+         Intent intent = new Intent(SinInRegis.this,   LogInActivity.class);
+         startActivity(intent);
+        finish();
+    }
 }

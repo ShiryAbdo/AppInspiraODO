@@ -1,42 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/backgraud"
     android:layout_height="match_parent"
     tools:context="com.Inspira.odo.sellerUi.WorkingOnOne"
     android:orientation="vertical">
 
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark" >
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
 
         <ImageView
             android:id="@+id/go_back"
             android:layout_gravity="start"
+            android:padding="@dimen/_5sdp"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
-            android:padding="@dimen/_4sdp"
-            android:layout_margin="@dimen/_10sdp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:src="@drawable/back"
             android:contentDescription="back" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:layout_margin="@dimen/_8sdp"
-            android:textColor="#fff"
             android:gravity="center"
-             android:textAlignment="viewStart"
-             android:text= "@string/Working_On"
-            android:id="@+id/wasf_titel"
+            android:text= "@string/Working_On"
+            android:layout_gravity="center"
+            android:textColor="#fff"
+             android:id="@+id/wasf_titel"
             />
-
         <ImageView
             android:id="@+id/competRegister"
             android:layout_gravity="end"
@@ -44,11 +43,8 @@
             android:layout_height="@dimen/_25sdp"
             android:padding="@dimen/_4sdp"
             android:layout_margin="@dimen/_10sdp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
             android:src="@drawable/courrect"
             android:contentDescription="back" />
-
     </android.support.v7.widget.Toolbar>
 
 
@@ -56,7 +52,7 @@
         <ExpandableListView
             android:groupIndicator="@null"
             android:id="@+id/expandible_listview"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"></ExpandableListView>
 
 </LinearLayout>

@@ -1,4 +1,6 @@
 
+
+
 package com.Inspira.odo.data.Model;
 
 import java.util.List;
@@ -34,7 +36,7 @@ public class Order {
         this.carYear = carYear;
         this.orderList = orderList;
         this.ImagedList=orderImages;
-     }
+    }
 
 
     public List<OrderImage> getImagedList() {

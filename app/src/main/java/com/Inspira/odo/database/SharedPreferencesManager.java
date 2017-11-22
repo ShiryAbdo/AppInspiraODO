@@ -27,6 +27,10 @@ public class SharedPreferencesManager {
 
     private  String UserType = "UserType";
     private  String Token ="Token";
+    private  String latitud ;
+    private  String  longitud ;
+
+
 
     public SharedPreferencesManager(Context mContext) {
         this.mContext = mContext;
@@ -129,7 +133,8 @@ public class SharedPreferencesManager {
         this.partTyp = partType;
     }
 
-    public String getUserType() {
+    public String getUserType()
+    {
         return  pref.getString(UserType,null);
     }
 
@@ -146,4 +151,22 @@ public class SharedPreferencesManager {
         editor.putString(Token, token);
         editor.commit();
     }
+
+    public String getLatitude() {
+        return  pref.getString(latitud,null);
+    }
+
+    public void setLatitude(String latitude) {
+        editor.putString(latitud, latitude);
+        editor.commit();
+     }
+
+    public String getLongitude() {
+        return  pref.getString(longitud,null);
+    }
+
+    public void setLongitude(String longitude) {
+        editor.putString(latitud, longitude);
+        editor.commit();
+     }
 }

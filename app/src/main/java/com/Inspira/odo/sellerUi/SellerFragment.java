@@ -52,8 +52,9 @@ public class SellerFragment extends Fragment {
         CreatCampanyAcount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                startActivity(intent);
-                if(!fName.getText().toString().trim().equals("")&&
+
+
+                 if(!fName.getText().toString().trim().equals("")&&
                         !phoneNo.getText().toString().trim().equals("")&&
                         !password.getText().toString().trim().equals("")&&
                         !email.getText().toString().trim().equals("")&&
@@ -68,7 +69,10 @@ public class SellerFragment extends Fragment {
                         if(checkedEmail==true) {
                             if (checkPassword == true) {
                                 Intent intent = new Intent(getActivity(), ContinuingRegSeler.class);
-//                        intent
+                                intent.putExtra("fName",fName.getText().toString().trim());
+                                intent.putExtra("phoneNo",phoneNo.getText().toString().trim());
+                                intent.putExtra("password",password.getText().toString().trim());
+                                intent.putExtra("email",email.getText().toString().trim());
                                 startActivity(intent);
 
                             }else {

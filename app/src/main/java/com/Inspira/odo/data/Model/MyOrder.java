@@ -27,7 +27,7 @@ public class MyOrder {
     private List<Object> orderImages = null;
     @SerializedName("responses")
     @Expose
-    private List<Object> responses = null;
+    private List<Response> responses = null;
     @SerializedName("carDetails")
     @Expose
     private CarDetails carDetails;
@@ -55,8 +55,7 @@ public class MyOrder {
         return orderPartType;
     }
 
-    public void setOrderPartType(String orderPartType)
-    {
+    public void setOrderPartType(String orderPartType) {
         this.orderPartType = orderPartType;
     }
 
@@ -84,11 +83,11 @@ public class MyOrder {
         this.orderImages = orderImages;
     }
 
-    public List<Object> getResponses() {
+    public List<Response> getResponses() {
         return responses;
     }
 
-    public void setResponses(List<Object> responses) {
+    public void setResponses(List<Response> responses) {
         this.responses = responses;
     }
 

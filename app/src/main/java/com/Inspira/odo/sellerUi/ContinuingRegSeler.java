@@ -5,25 +5,26 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.Inspira.odo.R;
 import com.Inspira.odo.adaptors.CustomArrayAdapter_Spinner;
-import com.Inspira.odo.adaptors.GeoAutoCompleteAdapter;
+import com.Inspira.odo.database.SharedPreferencesManager;
 import com.Inspira.odo.helper.LocaleHelper;
-import com.Inspira.odo.model.GeoSearchResult;
+import com.Inspira.odo.mainLuncher.RegistrationActivity;
 import com.Inspira.odo.ui.DelayAutoCompleteTextView;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
-
-import static com.Inspira.odo.util.GeoAddress.getLatLong;
+ import static com.Inspira.odo.util.GeoAddress.getLatLong;
 import static com.Inspira.odo.util.GeoAddress.getLocationInfo;
 import static com.Inspira.odo.util.UserRegistrationPref.USER_COMPANY_ADDRESS;
 import static com.Inspira.odo.util.UserRegistrationPref.USER_COMPANY_LAT;
@@ -40,9 +41,18 @@ public class ContinuingRegSeler extends AppCompatActivity {
     Spinner sellerType;
     ArrayList<String> categories ;
     CustomArrayAdapter_Spinner  myAdaptor ;
-    EditText companyName;
+    EditText companyName ,company_address;
+    TextView Enter_location;
     private static String geoValue;
     private static double lat , lng;
+    Bundle bundle;
+    String latitude,longitude;
+    String text ,itemType;
+    SharedPreferencesManager  sharedPreferencesManager ;
+    String  fName, phoneNo, password, email  ,companyNamey,company_addressy;
+    LocaleHelper localeHelper ;
+    ImageView go_back ;
+
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -53,28 +63,95 @@ public class ContinuingRegSeler extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
          setContentView(R.layout.activity_continuing_reg_seler);
+        go_back= (ImageView)findViewById(R.id.go_back);
+        localeHelper= new LocaleHelper();
+        String lange=  localeHelper.getLanguage(ContinuingRegSeler.this);
+        if(lange.equals("ar")){
+            go_back.setImageResource(R.drawable.back_right);
+        }else if(lange.equals("en")){
+            go_back.setImageResource(R.drawable.back);
+        }
         Campany_acount_Countio = (Button)findViewById(R.id.Campany_acount_Countio);
         sellerType =(Spinner)findViewById(R.id.spinner_tYpeSeler);
         companyName = (EditText) findViewById(R.id.company_name);
-        geo_autocomplete = (DelayAutoCompleteTextView) findViewById(R.id.company_address);
+        Enter_location=(TextView) findViewById(R.id.Enter_location);
+        text =getString(R.string.Enter_location);
+        sharedPreferencesManager=new SharedPreferencesManager(ContinuingRegSeler.this);
+        company_address= (EditText)findViewById(R.id.company_address);
+        if(companyNamey!=null&&company_addressy!=null){
+            companyName.setText(companyNamey);
+            company_address.setText(company_addressy);
 
+        }
+
+//        geo_autocomplete = (DelayAutoCompleteTextView) findViewById(R.id.company_address);
+        bundle=getIntent().getExtras();
+        if(bundle!=null){
+
+             latitude=bundle.getString("latitude");
+            longitude=bundle.getString("longitude");
+            fName=bundle.getString("fName");
+            phoneNo= bundle.getString("phoneNo");
+            password=bundle.getString("password");
+            email=bundle.getString("email");
+            companyNamey = bundle.getString("companyName");
+            company_addressy = bundle.getString("company_address");
+
+
+
+        }
+        if(latitude!=null&&longitude!=null){
+            text =getString(R.string.done);
+            sharedPreferencesManager.setLatitude(latitude);
+            sharedPreferencesManager.setLongitude(longitude);
+        }
+
+        Toast.makeText(getApplicationContext(),latitude,Toast.LENGTH_SHORT).show();
+
+
+        Enter_location.setText(text);
+        Enter_location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ContinuingRegSeler.this,MapsActivity.class);
+                intent.putExtra("companyName",companyName.getText().toString().trim());
+                intent.putExtra("company_address",company_address.getText().toString().trim());
+                startActivity(intent);
+                finish();
+
+            }
+        });
+
+// latitude!=null&&longitude!=null&&
+//        fName!=null&&phoneNo!=null&&
+//                password!=null &&email!=null
         Campany_acount_Countio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean value = true;
-                if (companyName.getText().toString().isEmpty()){
-                    value = false;
-//                    companyName.setError(getString(R.string.required));
-                    companyName.requestFocus();
-                }else if (geo_autocomplete.getText().toString().isEmpty()) {
-                    value = false;
-//                    companyAddress.setError(getString(R.string.required));
-                    geo_autocomplete.requestFocus();
+                if(!companyName.getText().toString().trim().equals("")&&
+                  !company_address.getText().toString().trim().equals("")){
+                    if(itemType!=null ){
+                        Intent intent = new Intent(ContinuingRegSeler.this,WorkingOnOne.class);
+                        intent.putExtra("latitude",latitude);
+                        intent.putExtra("longitude",longitude);
+                        intent.putExtra("companyName",companyName.getText().toString().trim());
+                        intent.putExtra("company_address",company_address.getText().toString().trim());
+                        intent.putExtra("your_Type_requse",itemType);
+                        intent.putExtra("fName",fName);
+                        intent.putExtra("phoneNo",phoneNo);
+                        intent.putExtra("password",password);
+                        intent.putExtra("email",email);
+                        startActivity(intent);
+                    }else {
+                        Toast.makeText(getApplicationContext(),"jkk",Toast.LENGTH_SHORT).show();
+
+                    }
+
+                }else {
+                    Toast.makeText(getApplicationContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
                 }
-                if (value) {
-                    geoValue = geo_autocomplete.getText().toString();
-                    new GetAddress().execute();
-                }
+
+
                 
             }
         });
@@ -98,6 +175,7 @@ public class ContinuingRegSeler extends AppCompatActivity {
 
         // Spinner Drop down elements
         categories= new ArrayList<>();
+        categories.add(getString(R.string.your_Type_requse));
         categories.add("Spare Parts");
         categories.add("Battery");
         categories.add("Tyres");
@@ -109,50 +187,30 @@ public class ContinuingRegSeler extends AppCompatActivity {
         sellerType.setAdapter(myAdaptor);
 
 
-//        geo_autocomplete_clear = (ImageView) findViewById(R.id.geo_autocomplete_clear);
-
-        geo_autocomplete.setThreshold(2);
-         geo_autocomplete.setAdapter(new GeoAutoCompleteAdapter(this)); // 'this' is Activity instance
-
-        geo_autocomplete.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        // Spinner click listener
+        sellerType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                GeoSearchResult result = (GeoSearchResult) adapterView.getItemAtPosition(position);
-                geo_autocomplete.setText(result.getAddress());
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
+
+                // On selecting a spinner item
+                // On selecting a spinner item
+                String  itemReques= parent.getItemAtPosition(position).toString();
+                if(itemReques.equals(getString(R.string.your_Type_requse))){
+                    itemType=null;
+                    Toast.makeText(parent.getContext(),getString(R.string.chose_modle) , Toast.LENGTH_LONG).show();
+                }else {
+                    itemType=parent.getItemAtPosition(position).toString() ;
+                    sharedPreferencesManager.setPartType(itemType);
+                    Toast.makeText(parent.getContext(), itemType, Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
 
-        geo_autocomplete.addTextChangedListener(new TextWatcher() {
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if(s.length() > 0)
-                {
-//                    geo_autocomplete_clear.setVisibility(View.VISIBLE);
-                }
-                else
-                {
-//                    geo_autocomplete_clear.setVisibility(View.GONE);
-                }
-            }
-        });
-
-//        geo_autocomplete_clear.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                // TODO Auto-generated method stub
-//                geo_autocomplete.setText("");
-//            }
-//        });
 
     }
 
@@ -196,5 +254,12 @@ public class ContinuingRegSeler extends AppCompatActivity {
             lng = latLng.longitude;
             doContinue();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Log.d("CDA", "onBackPressed Called");
+        Intent setIntent = new Intent(ContinuingRegSeler.this , RegistrationActivity.class);
+        startActivity(setIntent);
     }
 }

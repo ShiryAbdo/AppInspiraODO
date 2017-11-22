@@ -18,6 +18,11 @@ public class WorkingOn {
         return carType;
     }
 
+    public WorkingOn(String carType, List<CarModel> carModels) {
+        this.carType = carType;
+        this.carModels = carModels;
+    }
+
     public void setCarType(String carType) {
         this.carType = carType;
     }

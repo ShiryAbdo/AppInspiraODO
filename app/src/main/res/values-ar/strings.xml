@@ -70,4 +70,5 @@
     <string name="Password_Not_matching">كلمة المرور غير متطابقه</string>
     <string name="cant_contain_a_space">أدخل البيانات</string>
     <string name="Enter_location">أدخل المكان علي الخريطة</string>
+    <string name="done">" تم  إدخال الموقع  علي الخريطة"</string>
 </resources>

@@ -2,8 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.Inspira.odo">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permisson.READ_GSERVICES" />
 
     <application
         android:name=".mainLuncher.MyApplication"
@@ -18,7 +21,7 @@
             android:value="@string/facebook_app_id" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyA9juXbz19ws8FQZUo0qFVLYiof5hlJ04M" />
+            android:value="@string/google_maps_key" />
 
         <activity
             android:name="com.facebook.FacebookActivity"
@@ -75,7 +78,9 @@
             android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
             android:name=".sellerUi.WorkingOnOne"
-            android:windowSoftInputMode="adjustPan|adjustResize" />
+            android:windowSoftInputMode="adjustPan|adjustResize">
+
+        </activity>
         <activity
             android:name=".sellerUi.NavigationDrawerSeler"
             android:windowSoftInputMode="adjustPan|adjustResize" />
@@ -87,7 +92,9 @@
             android:name=".buyerUi.TyreBattereyRequestsTabe"
             android:label="@string/title_activity_tyre_batterey_requests_tabe"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".buyerUi.detalisOfRequest"></activity>
+        <activity android:name=".buyerUi.detalisOfRequest" />
+        <activity android:name=".sellerUi.MapsActivity"></activity>
+        <activity android:name=".test"></activity>
     </application>
 
 </manifest>

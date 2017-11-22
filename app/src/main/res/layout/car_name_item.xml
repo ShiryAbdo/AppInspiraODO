@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:background="#000"
+<LinearLayout
+    android:background="#64a6a5a5"
     android:layout_width="match_parent"
     android:orientation="vertical"
+     android:layout_marginTop="@dimen/_5sdp"
+    android:layout_marginEnd="@dimen/_10sdp"
+    android:layout_marginStart="@dimen/_10sdp"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <TextView
@@ -10,6 +14,8 @@
         android:paddingLeft="15sp"
         android:id="@+id/rowParentText"
         android:textColor="#fff"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
         android:textSize="22sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -17,6 +23,6 @@
 android:layout_width="match_parent"
 android:background="#dea63e"
     android:alpha="0.8"
-android:layout_height="2sp"/>
+android:layout_height="1sp"/>
 
 </LinearLayout >

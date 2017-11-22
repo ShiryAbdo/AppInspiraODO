@@ -100,6 +100,8 @@
     <string name="Password_Not_matching">Password Not matching</string>
     <string name="cant_contain_a_space">This can\'t contain a space</string>
     <string name="Enter_location">Enter location</string>
+    <string name="done">Location Entered</string>
+    <string name="enter_location">Enter Location</string>
 
 
 </resources>

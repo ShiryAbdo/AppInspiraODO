@@ -43,7 +43,7 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 public class SparepartsRequests extends Fragment {
     RecyclerView recycler_view;
 //    odo.eu-gb.mybluemix.net/profile/buyer/myOrders
-SharedPreferencesManager sharedPreferencesManager ;
+    SharedPreferencesManager sharedPreferencesManager ;
     String PHONE_number ;
     MyRequestAdapter myRequestAdapter ;
     private ArrayList<MyOrder> MyOrderList;
@@ -112,7 +112,7 @@ SharedPreferencesManager sharedPreferencesManager ;
 
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
-        Call<ArrayList<MyOrder>> call = apiService.domyOrders(new MyRequest(PHONE_number)) ;
+        Call<ArrayList<MyOrder>> call = apiService.domyOrders(new MyRequest("01009560620")) ;
         call.enqueue(new Callback<ArrayList<MyOrder>>() {
             @Override
             public void onResponse(Call<ArrayList<MyOrder>>call, Response<ArrayList<MyOrder>> response) {

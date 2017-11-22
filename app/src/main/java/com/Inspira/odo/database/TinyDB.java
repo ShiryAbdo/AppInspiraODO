@@ -98,12 +98,7 @@ class TinyDB {
         return mFolder.getPath() + '/' + imageName;
     }
 
-    /**
-     * Saves the Bitmap as a PNG file at path 'fullPath'
-     * @param fullPath path of the image file
-     * @param bitmap the image as a Bitmap
-     * @return true if it successfully saved, false otherwise
-     */
+
     private boolean saveBitmap(String fullPath, Bitmap bitmap) {
         if (fullPath == null || bitmap == null)
             return false;

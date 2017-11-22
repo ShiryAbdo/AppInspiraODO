@@ -1,6 +1,7 @@
 package com.Inspira.odo.mainLuncher;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -10,6 +11,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import com.Inspira.odo.R;
 import com.Inspira.odo.helper.LocaleHelper;
@@ -32,6 +34,8 @@ public class RegistrationActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    LocaleHelper localeHelper ;
+    ImageView go_back ;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -42,6 +46,14 @@ public class RegistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
+        go_back= (ImageView)findViewById(R.id.go_back);
+        localeHelper= new LocaleHelper();
+       String lange=  localeHelper.getLanguage(RegistrationActivity.this);
+         if(lange.equals("ar")){
+             go_back.setImageResource(R.drawable.back_right);
+         }else if(lange.equals("en")){
+             go_back.setImageResource(R.drawable.back);
+         }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -109,4 +121,12 @@ public class RegistrationActivity extends AppCompatActivity {
             return null;
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(RegistrationActivity.this,   LogInActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

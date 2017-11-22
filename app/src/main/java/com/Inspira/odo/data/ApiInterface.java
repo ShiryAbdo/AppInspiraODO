@@ -7,8 +7,10 @@ import com.Inspira.odo.data.Model.MyOrder;
 import com.Inspira.odo.data.Model.MyRequest;
 import com.Inspira.odo.data.Model.Order;
 import com.Inspira.odo.data.Model.SellerRegistration;
+import com.Inspira.odo.model.UploadResponse;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.MultipartBody;
 import okhttp3.ResponseBody;
@@ -45,6 +47,6 @@ public interface ApiInterface {
 
     @Multipart
     @POST(UploadImage)
-    Call<Response> uploadImage(@Part MultipartBody.Part photos);
+    Call<List<UploadResponse>> uploadImage(@Part MultipartBody.Part photos);
 }
 

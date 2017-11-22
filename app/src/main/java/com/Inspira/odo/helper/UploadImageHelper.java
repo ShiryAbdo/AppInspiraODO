@@ -26,11 +26,17 @@ import android.widget.Toast;
 import com.Inspira.odo.R;
 import com.Inspira.odo.data.ApiClient;
 import com.Inspira.odo.data.ApiInterface;
+import com.Inspira.odo.model.UploadResponse;
 import com.google.gson.Gson;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -97,38 +103,44 @@ public class UploadImageHelper {
         RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpeg"), imageBytes);
 
         MultipartBody.Part body = MultipartBody.Part.createFormData("photos", "image.jpg", requestFile);
-        Call<Response> call = apiService.uploadImage(body);
-         call.enqueue(new Callback<Response>() {
+        Call<List<UploadResponse>> call = apiService.uploadImage(body);
+         call.enqueue(new Callback<List<UploadResponse>>() {
             @Override
-            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+            public void onResponse(Call<List<UploadResponse>> call, retrofit2.Response<List<UploadResponse>> response) {
 
 
                 if (response.isSuccessful()) {
 
-                    Response responseBody = response.body();
-                    String mImageUrl = URL + responseBody.message();
-                    Toast.makeText(getApplicationContext(), mImageUrl,Toast.LENGTH_LONG).show();
-//                    Snackbar.make(findViewById(R.id.content), responseBody.getMessage(),Snackbar.LENGTH_SHORT).show();
-
-                } else {
-
-                    ResponseBody errorBody = response.errorBody();
-
-                    Gson gson = new Gson();
-
+                    List<UploadResponse> responseBody = response.body();
                     try {
-
-                        Response errorResponse = gson.fromJson(errorBody.string(), Response.class);
-//                        Snackbar.make(findViewById(R.id.content), errorResponse.getMessage(),Snackbar.LENGTH_SHORT).show();
-
-                    } catch (IOException e) {
+                        JSONObject jsonObject = new JSONObject();
+                        jsonObject.put("orderImages",responseBody);
+                    } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
             }
+//                    String mImageUrl = URL + responseBody.message();
+//                    Toast.makeText(getApplicationContext(), mImageUrl,Toast.LENGTH_LONG).show();
+//                    Snackbar.make(findViewById(R.id.content), responseBody.getMessage(),Snackbar.LENGTH_SHORT).show();
+
+//                } else {
+//
+//                    ResponseBody errorBody = response.errorBody();
+//
+//                    Gson gson = new Gson();
+//
+//                    try {
+//
+//                        Response errorResponse = gson.fromJson(errorBody.string(), Response.class);
+////                        Snackbar.make(findViewById(R.id.content), errorResponse.getMessage(),Snackbar.LENGTH_SHORT).show();
+//
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+
 
             @Override
-            public void onFailure(Call<Response> call, Throwable t) {
+            public void onFailure(Call<List<UploadResponse>> call, Throwable t) {
 
 //                mProgressBar.setVisibility(View.GONE);
                 Log.d("", "onFailure: "+t.getLocalizedMessage());

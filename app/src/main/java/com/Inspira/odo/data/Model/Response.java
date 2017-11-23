@@ -3,12 +3,12 @@ package com.Inspira.odo.data.Model;
 
 import android.content.Context;
 
-import com.google.gson.annotations.Expose;
+ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class Response {
+public class Response  {
     public transient Context myContext;
 
     @SerializedName("description")

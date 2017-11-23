@@ -2,6 +2,7 @@ package com.Inspira.odo.adaptors;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v7.widget.CardView;
@@ -20,8 +21,10 @@ import com.Inspira.odo.buyerUi.RequestResponses;
 import com.Inspira.odo.data.Model.MyOrder;
 import com.Inspira.odo.data.Model.Response;
 import com.Inspira.odo.helper.DateTimeHelper;
+import com.Inspira.odo.mainLuncher.MyApplication;
 import com.Inspira.odo.model.SellerHomeData;
 import com.github.thunder413.datetimeutils.DateTimeUtils;
+import com.google.gson.Gson;
 
 import java.io.Serializable;
 import java.text.ParseException;
@@ -42,7 +45,7 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
     DateTimeHelper dateTimeHelper ;
     DateTimeUtils obj ;
 
-
+    MyApplication myApplication ;
 
     public MyRequestAdapter(ArrayList<MyOrder> android, Context c) {
         this.androidList = android;
@@ -50,6 +53,7 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
         this.obj = new DateTimeUtils();
         this.formater = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         this.dateTimeHelper= new DateTimeHelper(context);
+        myApplication= new MyApplication();
 
     }
 
@@ -114,16 +118,22 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
 //                Toast.makeText(getApplicationContext(),responses.get(i).getPrice(),Toast.LENGTH_LONG).show();
                 ArrayList<Response> responses = new ArrayList<Response>();
                         responses.addAll(androidList.get(i).getResponses()) ;
+                myApplication.setResponses(responses);
                 Intent intent = new Intent(context, RequestResponses.class);
-                intent.putParcelableArrayListExtra("responses", (ArrayList<? extends Parcelable>) responses);
+                Gson gson = new Gson();
+                String jsonString = gson.toJson(responses);
+                SharedPreferences sp = context.getSharedPreferences("KEY", Context.MODE_PRIVATE);
 
-                Bundle intent1 = new Bundle();
+//Save to SharedPreferences
+                sp.edit().putString("KEY", jsonString).commit();
+
+//                Bundle intent1 = new Bundle();
 
 //                        intent.putParcelableArrayListExtra("cars", responses);
                 Toast.makeText(getApplicationContext(), responses.size()+"",Toast.LENGTH_LONG).show();
 
 //                 intent.putParcelableArrayListExtra("responses", (ArrayList<? extends Parcelable>) responses);
-//                 context.startActivity(intent);
+                 context.startActivity(intent);
 
             }
         });

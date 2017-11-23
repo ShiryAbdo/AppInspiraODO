@@ -67,7 +67,7 @@ public class WorkingOnOne extends AppCompatActivity implements RecyclerViewClick
                 Toast.makeText(getApplicationContext(), workingOns.get(0).getCarModels().get(0).getYears().size()  +"",Toast.LENGTH_LONG).show();
                 int size =workingOns.get(0).getCarModels().get(0).getYears().size();
                 Toast.makeText(getApplicationContext(), workingOns.get(0).getCarModels().get(0).getYears().get(0) +"",Toast.LENGTH_LONG).show();
-                Toast.makeText(getApplicationContext(), workingOns.get(0).getCarModels().get(0).getYears().get(size) +"",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), workingOns.get(0).getCarModels().get(0).getYears().get(size-1) +"",Toast.LENGTH_LONG).show();
 
             }
         });

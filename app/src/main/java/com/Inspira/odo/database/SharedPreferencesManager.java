@@ -4,11 +4,15 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import com.Inspira.odo.data.Model.Response;
 
-public class SharedPreferencesManager {
+import java.util.ArrayList;
+
+
+ public class SharedPreferencesManager {
      int PRIVATE_MODE = 0;
      SharedPreferences pref;
-
+     ArrayList<Response> responses = new ArrayList<Response>();
     static SharedPreferences.Editor editor;
     private static final String KEY_IS_LOGGEDIN = "isLoggedIn" ;
     Context mContext;
@@ -169,4 +173,12 @@ public class SharedPreferencesManager {
         editor.putString(latitud, longitude);
         editor.commit();
      }
-}
+
+     public ArrayList<Response> getResponses() {
+         return responses;
+     }
+
+     public void setResponses(ArrayList<Response> responses) {
+         this.responses = responses;
+     }
+ }

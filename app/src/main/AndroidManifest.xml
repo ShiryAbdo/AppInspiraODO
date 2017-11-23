@@ -80,6 +80,7 @@
             android:name=".sellerUi.WorkingOnOne"
             android:windowSoftInputMode="adjustPan|adjustResize">
 
+
         </activity>
         <activity
             android:name=".sellerUi.NavigationDrawerSeler"

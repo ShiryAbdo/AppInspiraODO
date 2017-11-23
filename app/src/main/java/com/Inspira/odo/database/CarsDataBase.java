@@ -53,7 +53,7 @@ public class CarsDataBase {
         List<String> years = new ArrayList<>();
 
         for(int i =0 ; i<arrayList.size();i++){
-            if(i+1>arrayList.size()){
+            if(i+1 ==arrayList.size()){
               break;
             }else {
 

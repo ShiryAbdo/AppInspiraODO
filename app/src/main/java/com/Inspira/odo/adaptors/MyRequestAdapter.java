@@ -160,7 +160,7 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
             responses.addAll(androidList.get(position).getResponses());
             myApplication.setResponses(responses);
             Intent intent = new Intent(context, RequestResponses.class);
-            intent.putParcelableArrayListExtra("Response", (ArrayList<? extends Parcelable>) androidList.get(position).getResponses());
+            intent.putParcelableArrayListExtra("Response", responses);
 //            intent.putExtra("Response", responses);
             Toast.makeText(getApplicationContext(), responses.size() + "", Toast.LENGTH_LONG).show();
             context.startActivity(intent);

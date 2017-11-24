@@ -118,9 +118,7 @@ public class RequestResponses extends AppCompatActivity {
                               }
                           }
                       }
-
                       okdialog.dismiss();
-
                   }
               });
               okdialog.show();

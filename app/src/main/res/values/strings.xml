@@ -110,6 +110,10 @@
     <string name="title_activity_get_direction">Map</string>
     <string name="price">Price</string>
     <string name="Get_Direction">Get Direction</string>
+    <string name="choseArea">Chose Area</string>
+    <string name="cairo">Cairo</string>
+    <string name="ma3adi">Maadi</string>
+    <string name="giza">Giza</string>
 
 
 </resources>

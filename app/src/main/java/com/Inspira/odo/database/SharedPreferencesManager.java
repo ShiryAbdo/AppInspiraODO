@@ -33,6 +33,7 @@ import java.util.ArrayList;
     private  String Token ="Token";
     private  String latitud ;
     private  String  longitud ;
+     private  String  area ;
 
 
 
@@ -174,11 +175,14 @@ import java.util.ArrayList;
         editor.commit();
      }
 
-     public ArrayList<Response> getResponses() {
-         return responses;
+     public String getArea() {
+         return  pref.getString(area,null);
+
      }
 
-     public void setResponses(ArrayList<Response> responses) {
-         this.responses = responses;
+     public void setArea(String Area) {
+         this.area = area;
+         editor.putString(area, Area);
+         editor.commit();
      }
  }

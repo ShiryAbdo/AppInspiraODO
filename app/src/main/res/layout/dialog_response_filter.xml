@@ -40,14 +40,23 @@
            android:orientation="vertical"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content">
+           <android.support.design.widget.TextInputLayout
+               android:layout_width="match_parent"
+               android:theme="@style/TextLabel"
+               android:layout_height="wrap_content">
 
-           <EditText
-               android:textColor="#ffff"
-               android:id="@+id/price_from"
-               android:textColorHint="#ffff"
-               android:hint="@string/price_from"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content" />
+               <EditText
+                   android:id="@+id/price_from"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/price_from"
+                   android:background="#00ffffff"
+                   android:inputType="textPersonName"
+                   android:textColor="#ffffff"
+                   android:textColorHint="#ffffff" />
+
+           </android.support.design.widget.TextInputLayout>
+
            <View
                android:layout_width="match_parent"
                android:background="#dea63e"
@@ -60,14 +69,23 @@
            android:orientation="vertical"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content">
+           <android.support.design.widget.TextInputLayout
+               android:layout_width="match_parent"
+               android:theme="@style/TextLabel"
+               android:layout_height="wrap_content">
 
-           <EditText
-               android:textColor="#ffff"
-               android:id="@+id/to_price"
-               android:textColorHint="#ffff"
-               android:hint="@string/to_price"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content" />
+               <EditText
+                   android:id="@+id/to_price"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/to_price"
+                   android:background="#00ffffff"
+                   android:inputType="textPersonName"
+                   android:textColor="#ffffff"
+                   android:textColorHint="#ffffff" />
+
+           </android.support.design.widget.TextInputLayout>
+
            <View
                android:layout_width="match_parent"
                android:background="#dea63e"

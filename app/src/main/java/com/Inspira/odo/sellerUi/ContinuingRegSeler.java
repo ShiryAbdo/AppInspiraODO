@@ -38,21 +38,21 @@ public class ContinuingRegSeler extends AppCompatActivity {
     private Integer THRESHOLD = 2;
     private DelayAutoCompleteTextView geo_autocomplete;
 //    private ImageView geo_autocomplete_clear;
-    Spinner sellerType;
+    Spinner sellerType ,addArea;
     ArrayList<String> categories ;
-    CustomArrayAdapter_Spinner  myAdaptor ;
+    CustomArrayAdapter_Spinner  myAdaptor  ,Adaptor;
     EditText companyName ,company_address;
     TextView Enter_location;
     private static String geoValue;
     private static double lat , lng;
     Bundle bundle;
     String latitude,longitude;
-    String text ,itemType;
+    String text ,itemType ,arraType;
     SharedPreferencesManager  sharedPreferencesManager ;
     String  fName, phoneNo, password, email  ,companyNamey,company_addressy;
     LocaleHelper localeHelper ;
     ImageView go_back ;
-
+ ArrayList<String>AreaArray ;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -75,6 +75,7 @@ public class ContinuingRegSeler extends AppCompatActivity {
         sellerType =(Spinner)findViewById(R.id.spinner_tYpeSeler);
         companyName = (EditText) findViewById(R.id.company_name);
         Enter_location=(TextView) findViewById(R.id.Enter_location);
+        addArea=(Spinner)findViewById(R.id.addArea);
         text =getString(R.string.Enter_location);
         sharedPreferencesManager=new SharedPreferencesManager(ContinuingRegSeler.this);
         company_address= (EditText)findViewById(R.id.company_address);
@@ -130,7 +131,7 @@ public class ContinuingRegSeler extends AppCompatActivity {
             public void onClick(View view) {
                 if(!companyName.getText().toString().trim().equals("")&&
                   !company_address.getText().toString().trim().equals("")){
-                    if(itemType!=null ){
+                    if(itemType!=null && arraType!=null){
                         Intent intent = new Intent(ContinuingRegSeler.this,WorkingOnOne.class);
                         intent.putExtra("latitude",latitude);
                         intent.putExtra("longitude",longitude);
@@ -141,6 +142,7 @@ public class ContinuingRegSeler extends AppCompatActivity {
                         intent.putExtra("phoneNo",phoneNo);
                         intent.putExtra("password",password);
                         intent.putExtra("email",email);
+                        intent.putExtra("area",arraType);
                         startActivity(intent);
                     }else {
                         Toast.makeText(getApplicationContext(),"jkk",Toast.LENGTH_SHORT).show();
@@ -180,12 +182,20 @@ public class ContinuingRegSeler extends AppCompatActivity {
         categories.add("Battery");
         categories.add("Tyres");
         categories.add("Accessories");
+        AreaArray= new ArrayList<>();
+        AreaArray.add(getString(R.string.choseArea));
+        AreaArray.add(getString(R.string.cairo));
+        AreaArray.add(getString(R.string.ma3adi));
+        AreaArray.add(getString(R.string.giza));
+
+        Adaptor = new CustomArrayAdapter_Spinner(this,
+                R.layout.customspinneritem, AreaArray);
 
         myAdaptor = new CustomArrayAdapter_Spinner(this,
                 R.layout.customspinneritem, categories);
 
         sellerType.setAdapter(myAdaptor);
-
+        addArea.setAdapter(Adaptor);
 
         // Spinner click listener
         sellerType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -202,6 +212,29 @@ public class ContinuingRegSeler extends AppCompatActivity {
                     itemType=parent.getItemAtPosition(position).toString() ;
                     sharedPreferencesManager.setPartType(itemType);
                     Toast.makeText(parent.getContext(), itemType, Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        // Spinner click listener
+        addArea.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
+
+                // On selecting a spinner item
+                // On selecting a spinner item
+                String  itemReques= parent.getItemAtPosition(position).toString();
+                if(itemReques.equals(getString(R.string.choseArea))){
+                    arraType=null;
+                    Toast.makeText(parent.getContext(),getString(R.string.chose_modle) , Toast.LENGTH_LONG).show();
+                }else {
+                    arraType=parent.getItemAtPosition(position).toString() ;
+                    sharedPreferencesManager.setArea(arraType);
+                    Toast.makeText(parent.getContext(), arraType, Toast.LENGTH_LONG).show();
                 }
             }
 

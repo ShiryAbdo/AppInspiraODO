@@ -2,14 +2,12 @@ package com.Inspira.odo.buyerUi;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.util.ArrayMap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -67,7 +65,7 @@ public class RequestResponses extends AppCompatActivity {
           public void onClick(View view) {
               final Dialog okdialog = new Dialog(RequestResponses.this, R.style.custom_dialog_theme);
               okdialog.setContentView(R.layout.dialog_response_filter);
-              Button OK_d = okdialog.findViewById(R.id.ok);
+              Button OK_d = okdialog.findViewById(R.id.Search);
               EditText price_from =okdialog.findViewById(R.id.price_from);
               EditText to_price =okdialog.findViewById(R.id.to_price);
               EditText Area =okdialog.findViewById(R.id.Area);

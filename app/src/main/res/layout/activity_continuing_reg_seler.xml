@@ -198,6 +198,25 @@
             android:layout_width="match_parent"
             android:background="#dea63e"
             android:layout_height="@dimen/_1sdp"/>
+        <Spinner
+            android:layout_marginTop="@dimen/_15sdp"
+            android:id="@+id/addArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00ffffff"
+            android:spinnerMode="dropdown"
+            style="@style/Base.Widget.AppCompat.Spinner"
+            android:popupBackground="@android:color/transparent"
+            android:inputType="text"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:background="#dea63e"
+            android:layout_height="@dimen/_1sdp"/>
+
 
     </LinearLayout>
 

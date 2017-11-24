@@ -47,6 +47,7 @@ public class SparepartsRequests extends Fragment {
     String PHONE_number ;
     MyRequestAdapter myRequestAdapter ;
     private ArrayList<MyOrder> MyOrderList;
+    ArrayList<String>dataDisription ;
     private FilterData data = new FilterData();
     private ArrayMap<String, List<String>> applied_filters = new ArrayMap<>();
 
@@ -57,7 +58,7 @@ public class SparepartsRequests extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rooteView = inflater.inflate(R.layout.fragment_my_request, container, false);
-        getActivity().findViewById(R.id.filter).setVisibility(View.GONE);
+        getActivity().findViewById(R.id.filter).setVisibility(View.VISIBLE);
         setHasOptionsMenu(true);
         sharedPreferencesManager= new SharedPreferencesManager(getActivity());
         getActivity().setTitle(R.string.SparepartsRequests);
@@ -124,6 +125,7 @@ public class SparepartsRequests extends Fragment {
                         ArrayList<MyOrder> MyOrderList= new ArrayList<MyOrder>();
                         MyOrderList.addAll(bankJSONResponse);
                         Toast.makeText(getApplicationContext(),bankJSONResponse.get(0).getBuyerPhoneNumber()+"",Toast.LENGTH_LONG).show();
+
                         myRequestAdapter = new MyRequestAdapter(MyOrderList,getActivity());
                         recycler_view.setAdapter(myRequestAdapter);
                         Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_LONG).show();

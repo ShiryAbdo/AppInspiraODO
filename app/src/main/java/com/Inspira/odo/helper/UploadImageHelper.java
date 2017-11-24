@@ -51,9 +51,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
 import static com.facebook.FacebookSdk.getApplicationContext;
 
-/**
- * Created by shirya on 14/11/17.
- */
+
 
 public class UploadImageHelper {
 
@@ -110,6 +108,7 @@ public class UploadImageHelper {
 
 
                 if (response.isSuccessful()) {
+                 Toast.makeText(getApplicationContext(), response.code()+"",Toast.LENGTH_LONG).show();
 
                     List<UploadResponse> responseBody = response.body();
                     try {

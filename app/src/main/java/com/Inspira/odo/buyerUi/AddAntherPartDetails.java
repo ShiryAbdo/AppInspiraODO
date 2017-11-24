@@ -1,5 +1,4 @@
 package com.Inspira.odo.buyerUi;
-
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -21,6 +20,7 @@ import android.widget.Toast;
 import com.Inspira.odo.R;
 import com.Inspira.odo.data.ApiClient;
 import com.Inspira.odo.data.ApiInterface;
+import com.Inspira.odo.data.Model.MakOrder;
 import com.Inspira.odo.data.Model.Order;
 import com.Inspira.odo.data.Model.OrderImage;
 import com.Inspira.odo.data.Model.OrderList;
@@ -67,13 +67,13 @@ public class AddAntherPartDetails extends AppCompatActivity {
         sharedPreferencesManager= new SharedPreferencesManager(this);
         PHONE_number= sharedPreferencesManager.getUser_Phoe();
         bundle = getIntent().getExtras();
-         if(bundle !=null){
-             car_type=bundle.getString("car_type");
-             car_modle=bundle.getString("car_modle");
-             car_year=bundle.getString("car_year");
-             request_type=bundle.getString("request_type");
+        if(bundle !=null){
+            car_type=bundle.getString("car_type");
+            car_modle=bundle.getString("car_modle");
+            car_year=bundle.getString("car_year");
+            request_type=bundle.getString("request_type");
 
-         }
+        }
         orderList= new ArrayList<>();
         orderImages= new ArrayList<>();
         uploadImageHelper= new UploadImageHelper();
@@ -111,11 +111,11 @@ public class AddAntherPartDetails extends AppCompatActivity {
             }
         });
 
- if (imageName!=null){
+        if (imageName!=null){
 //      it seen null
-     viewT.setText(imageName);
-     Toast.makeText(getApplicationContext(),imageName,Toast.LENGTH_SHORT).show();
- }
+            viewT.setText(imageName);
+            Toast.makeText(getApplicationContext(),imageName,Toast.LENGTH_SHORT).show();
+        }
 
 
 
@@ -128,25 +128,25 @@ public class AddAntherPartDetails extends AppCompatActivity {
                 orderImages.add(new OrderImage("images"));
 
                 if(!part.getText().toString().trim().equals("")&&
-                   !enginCapasty.getText().toString().trim().equals("")&&
-                    !color.getText().toString().trim().equals("")){
-                    orderList.add(new OrderList(request_type,part.getText().toString().trim(), enginCapasty.getText().toString().trim(),color.getText().toString().trim()," "," "));
+                        !enginCapasty.getText().toString().trim().equals("")&&
+                        !color.getText().toString().trim().equals("")){
+                    orderList.add(new OrderList(request_type,part.getText().toString().trim(), enginCapasty.getText().toString().trim(),color.getText().toString().trim(),"p","c"));
 
 
                 }
 
-                if (imageName!=null) {
-                    orderImages.add(new OrderImage("images"));
-                }else {
-                    Toast.makeText(getApplicationContext(),"select image",Toast.LENGTH_SHORT).show();
-
-                }
+//                if (imageName!=null) {
+//                    orderImages.add(new OrderImage("images"));
+//                }else {
+//                    Toast.makeText(getApplicationContext(),"select image",Toast.LENGTH_SHORT).show();
+//
+//                }
 
                 final Dialog dialog = new Dialog(AddAntherPartDetails.this, R.style.custom_dialog_theme);
                 dialog.setContentView(R.layout.comfirm_layout);
                 final Button ok = dialog.findViewById(R.id.ok);
                 Button no  = dialog.findViewById(R.id.no);
-                 no.setOnClickListener(new View.OnClickListener() {
+                no.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
@@ -164,7 +164,7 @@ public class AddAntherPartDetails extends AppCompatActivity {
 
                         if(car_type!=null &&car_modle!=null&&car_year!=null){
                             if(PHONE_number!=null){
-                                sendOrder(PHONE_number,car_type,car_modle ,car_year,orderList ,orderImages);
+                                sendOrder("01009560620",car_type,car_modle ,car_year,orderList ,orderImages);
 
                             }else {
                                 Toast.makeText(getApplicationContext(),"رقم الهاتف غير موجود",Toast.LENGTH_SHORT).show();
@@ -215,7 +215,7 @@ public class AddAntherPartDetails extends AppCompatActivity {
                     add_image.setImageBitmap(bitmap);
                     imagepath = getPath(selectedImageUri);
                     File f = new File(imagepath);
-                      imageName = f.getName();
+                    imageName = f.getName();
 
                     InputStream is = getContentResolver().openInputStream(data.getData());
 
@@ -247,24 +247,24 @@ public class AddAntherPartDetails extends AppCompatActivity {
     public  void sendOrder (String phone ,String carType ,String carModel ,String   carYear ,  List<OrderList> orderList ,List<OrderImage> orderImages ){
 
 
-         ApiInterface apiService =
-                 ApiClient.getClient().create(ApiInterface.class);
+        ApiInterface apiService =
+                ApiClient.getClient().create(ApiInterface.class);
 
-         Call<ResponseBody> call = apiService.addOrders(new Order(phone ,carType,carModel,carYear,  orderList ,orderImages));
-         call.enqueue(new Callback<ResponseBody>() {
-             @Override
-             public void onResponse(Call<ResponseBody>call, Response<ResponseBody> response) {
-                 int responseCode = response.code();
-                 Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_LONG).show();
-                 Log.d("CODE", "ResponseCode: " + responseCode);
-             }
+        Call<ResponseBody> call = apiService.addOrders(new MakOrder(phone ,carType,carModel,carYear,  orderList ,orderImages));
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody>call, Response<ResponseBody> response) {
+                int responseCode = response.code();
+                Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_LONG).show();
+                Log.d("CODE", "ResponseCode: " + responseCode);
+            }
 
-             @Override
-             public void onFailure(Call<ResponseBody>call, Throwable t) {
-                 // Log error here since request failed
-                 Log.e(TAG, t.toString());
-             }
-         });
+            @Override
+            public void onFailure(Call<ResponseBody>call, Throwable t) {
+                // Log error here since request failed
+                Log.e(TAG, t.toString());
+            }
+        });
 
-     }
+    }
 }

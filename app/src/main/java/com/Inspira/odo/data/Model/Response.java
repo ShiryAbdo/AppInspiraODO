@@ -25,7 +25,8 @@ public class Response implements Parcelable
         @SuppressWarnings({
             "unchecked"
         })
-        public Response createFromParcel(Parcel in) {
+        public Response createFromParcel(Parcel in)
+        {
             return new Response(in);
         }
 

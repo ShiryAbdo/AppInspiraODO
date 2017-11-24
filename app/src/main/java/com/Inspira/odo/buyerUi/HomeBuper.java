@@ -65,10 +65,10 @@ public class HomeBuper extends Fragment {
 
         // Spinner Drop down elements
         categories_Type_of_requset.add(getString(R.string.your_Type_requse));
-        categories_Type_of_requset.add("Spare Parts");
-        categories_Type_of_requset.add("Battery");
-        categories_Type_of_requset.add("Tyres");
-        categories_Type_of_requset.add("Accessories");
+        categories_Type_of_requset.add("spareParts");
+        categories_Type_of_requset.add("batteries");
+        categories_Type_of_requset.add("tyres");
+        categories_Type_of_requset.add("accessories");
 
 
 

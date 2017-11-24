@@ -12,23 +12,20 @@ import java.util.ArrayList;
  public class SharedPreferencesManager {
      int PRIVATE_MODE = 0;
      SharedPreferences pref;
-     ArrayList<Response> responses = new ArrayList<Response>();
-    static SharedPreferences.Editor editor;
-    private static final String KEY_IS_LOGGEDIN = "isLoggedIn" ;
-    Context mContext;
-    private  static final String PREFS_NAME = "Inspira";
+     Context mContext;
+     static SharedPreferences.Editor editor;
 
+    private static final String KEY_IS_LOGGEDIN = "isLoggedIn" ;
+    private  static final String PREFS_NAME = "Inspira";
     private  String User_type= "User_Type";
     private  String User_Name = "User_Name";
     private  String User_Email= "User_Email";
     private  String User_Password= "User_Password";
     private  String User_Phoe = "User_Phone";
-
     private  String Car_Type =  "Car_Type" ;
     private  String Car_Modle = "Car_Modle";
-   private   String Car_Year =  "Car_Year"  ;
+    private   String Car_Year =  "Car_Year"  ;
     private  String partTyp ="partType" ;
-
     private  String UserType = "UserType";
     private  String Token ="Token";
     private  String latitud ;
@@ -184,5 +181,10 @@ import java.util.ArrayList;
          this.area = area;
          editor.putString(area, Area);
          editor.commit();
+     }
+     public  void clearShared (){
+         editor.clear();
+         editor.commit();
+
      }
  }

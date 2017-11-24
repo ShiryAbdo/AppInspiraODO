@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:layout_margin="@dimen/_8sdp"
-    android:backgroundTint="#9b9090"
+    android:backgroundTint="#00f5f5f5"
     android:clickable="true"
     android:focusable="true"
     android:id="@+id/card"

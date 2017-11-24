@@ -3,6 +3,7 @@ package com.Inspira.odo.data;
 import com.Inspira.odo.data.Model.BuyerRegistration;
 import com.Inspira.odo.data.Model.Login;
 import com.Inspira.odo.data.Model.LoginData;
+import com.Inspira.odo.data.Model.MakOrder;
 import com.Inspira.odo.data.Model.MyOrder;
 import com.Inspira.odo.data.Model.MyRequest;
 import com.Inspira.odo.data.Model.Order;
@@ -43,7 +44,7 @@ public interface ApiInterface {
     Call<ResponseBody> doSellerRegister(@Body SellerRegistration registration) ;
 
     @POST(Orders)
-    Call<ResponseBody> addOrders(@Body Order order);
+    Call<ResponseBody> addOrders(@Body MakOrder order);
 
     @Multipart
     @POST(UploadImage)

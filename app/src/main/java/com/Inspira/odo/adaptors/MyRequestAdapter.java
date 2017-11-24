@@ -81,8 +81,17 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
         java.util.Date d1 = null;
         Calendar cal = Calendar.getInstance();
 //        you need to split date resived
+        String dat= androidList.get(i).getDate();
+        String CurrentString = dat;
+        String[] separated = CurrentString.split("T");
+      String dateString=  separated[0];
+          String dataTime = separated[1];
+
+        String[] seped = dateString.split("-");
+         String time = seped[2]+"/"+seped[1]+"/"+seped[0];
         try {
-            d = dfDate.parse("01/02/2012 ");
+            Date date=dfDate.parse(time);
+            d = dfDate.parse(time);
             d1 = dfDate.parse(dfDate.format(cal.getTime()));//Returns 15/10/2012
         } catch (java.text.ParseException e) {
             e.printStackTrace();
@@ -160,7 +169,7 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
             responses.addAll(androidList.get(position).getResponses());
             myApplication.setResponses(responses);
             Intent intent = new Intent(context, RequestResponses.class);
-            intent.putParcelableArrayListExtra("Response", (ArrayList<? extends Parcelable>) androidList.get(position).getResponses());
+            intent.putParcelableArrayListExtra("Response", (ArrayList<? extends Parcelable>)  responses);
 //            intent.putExtra("Response", responses);
             Toast.makeText(getApplicationContext(), responses.size() + "", Toast.LENGTH_LONG).show();
             context.startActivity(intent);

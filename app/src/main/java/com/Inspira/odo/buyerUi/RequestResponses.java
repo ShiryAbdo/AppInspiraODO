@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.Inspira.odo.R;
@@ -21,7 +22,9 @@ import com.Inspira.odo.adaptors.ResponseAdaptor;
 import com.Inspira.odo.data.Model.MyOrder;
 import com.Inspira.odo.data.Model.Response;
 import com.Inspira.odo.database.SharedPreferencesManager;
+import com.Inspira.odo.helper.LocaleHelper;
 import com.Inspira.odo.mainLuncher.MyApplication;
+import com.Inspira.odo.mainLuncher.RegistrationActivity;
 import com.Inspira.odo.model.FilterData;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -41,11 +44,29 @@ public class RequestResponses extends AppCompatActivity {
     private ArrayMap<String, List<String>> applied_filters = new ArrayMap<>();
     ResponseAdaptor responseAdaptor ;
     List<Response> mSelectedList ;
+    LocaleHelper localeHelper ;
+    ImageView go_back ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_responses);
+        go_back= (ImageView)findViewById(R.id.go_back);
+        localeHelper= new LocaleHelper();
+        String lange=  localeHelper.getLanguage(RequestResponses.this);
+        if(lange.equals("ar")){
+            go_back.setImageResource(R.drawable.back_right);
+        }else if(lange.equals("en")){
+            go_back.setImageResource(R.drawable.back);
+        }
+        go_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RequestResponses.this, NavigationDrawerBuyer.class);
+                startActivity(intent);
+            }
+        });
+
         Intent intent = getIntent();
         mSelectedList = intent.getParcelableArrayListExtra("Response");
         data.setmList(mSelectedList);
@@ -125,7 +146,7 @@ public class RequestResponses extends AppCompatActivity {
 
 
     private void initViews(){
-        recycler_view = findViewById(R.id.recycler_view);
+        recycler_view = (RecyclerView) findViewById(R.id.recycler_view);
         recycler_view.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager((this));
         recycler_view.setLayoutManager(layoutManager);

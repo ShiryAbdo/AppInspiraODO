@@ -58,7 +58,7 @@ public class SparepartsRequests extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rooteView = inflater.inflate(R.layout.fragment_my_request, container, false);
-        getActivity().findViewById(R.id.filter).setVisibility(View.VISIBLE);
+        getActivity().findViewById(R.id.filter).setVisibility(View.GONE);
         setHasOptionsMenu(true);
         sharedPreferencesManager= new SharedPreferencesManager(getActivity());
         getActivity().setTitle(R.string.SparepartsRequests);

@@ -30,7 +30,7 @@ public class DateTimeHelper {
         Date restdate = new Date(restDatesinMillis);
 
 //        return format.format(restdate);
-        return String.format("%02d days : %02d hours : %02d minutes : %02d seconds%n",
+        return String.format("%02d d : %02d h : %02d min : %02d sec%n",
                 TimeUnit.MILLISECONDS.toDays(restDatesinMillis),
                 TimeUnit.MILLISECONDS.toHours(restDatesinMillis) ,
                 TimeUnit.MILLISECONDS.toMinutes(restDatesinMillis) ,

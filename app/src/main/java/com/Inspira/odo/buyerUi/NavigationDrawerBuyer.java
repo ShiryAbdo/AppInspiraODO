@@ -15,8 +15,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.Inspira.odo.database.SharedPreferencesManager;
 import com.Inspira.odo.helper.NavigationDrawerHelper;
 import com.Inspira.odo.R;
+import com.Inspira.odo.mainLuncher.ChangeLanguage;
 import com.Inspira.odo.mainLuncher.EditProfile;
 import com.Inspira.odo.helper.LocaleHelper;
 import com.Inspira.odo.mainLuncher.LogInActivity;
@@ -30,6 +32,7 @@ public class NavigationDrawerBuyer extends AppCompatActivity implements ListView
 private NavigationDrawerHelper mNavigationDrawerHelper;
 
 private Fragment mFragment;
+    SharedPreferencesManager sharedPreferencesManager ;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -42,6 +45,7 @@ protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.navigation_main);
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
+    sharedPreferencesManager= new SharedPreferencesManager(this);
 
         // Define  and initialize our NavigationDrawerHelper Class Constant
         // The First parameters is the Activity (this)
@@ -120,10 +124,11 @@ public boolean onOptionsItemSelected(MenuItem item) {
                 mFragment = new EditProfile();
                 break;
             case  8:
-
+                mFragment = new ChangeLanguage();
                 break;
             case  9:
              Intent intent = new Intent(NavigationDrawerBuyer.this, LogInActivity.class);
+                sharedPreferencesManager.clearShared();
                 startActivity(intent);
                 break;
         }

@@ -95,18 +95,32 @@
 
    </LinearLayout>
 
-    <EditText
+    <android.support.design.widget.TextInputLayout
         android:layout_marginTop="@dimen/_15sdp"
-        android:id="@+id/Area"
-        android:textColor="#ffffff"
-        android:text="@string/Area"
-         android:textColorHint="#ffffff"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginEnd="@dimen/_6sdp"
+        android:theme="@style/TextLabel"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/Area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/Area"
+            android:background="#00ffffff"
+            android:inputType="textPersonName"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff" />
+
+    </android.support.design.widget.TextInputLayout>
+
     <View
         android:layout_width="match_parent"
         android:background="#dea63e"
         android:layout_height="@dimen/_1sdp"/>
+
+
 
 
     <LinearLayout

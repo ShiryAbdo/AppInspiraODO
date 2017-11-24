@@ -60,9 +60,9 @@ public class BuperFragment extends Fragment {
         creatSelerAcout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//
-                Intent intent = new Intent(getActivity(), NavigationDrawerBuyer.class);
-                startActivity(intent);
+////
+//                Intent intent = new Intent(getActivity(), NavigationDrawerBuyer.class);
+//                startActivity(intent);
                 if(!fName.getText().toString().trim().equals("")&&
                         !phoneNo.getText().toString().trim().equals("")&&
                         !password.getText().toString().trim().equals("")&&
@@ -77,7 +77,7 @@ public class BuperFragment extends Fragment {
                         boolean checkPassword =checkValidation.ComfierPassord(password ,Confirm_Password);
                         if(checkedEmail==true){
                             if(checkPassword==true){
-//                                getData();
+                                getData();
                             }else {
                                 Toast.makeText(getApplicationContext(),getString(R.string.Password_Not_matching),Toast.LENGTH_SHORT).show();
 
@@ -120,6 +120,7 @@ public class BuperFragment extends Fragment {
                     sharedPreferencesManager.setLogin(true);
                     sharedPreferencesManager.setUser_Name(fName.getText().toString());
                     sharedPreferencesManager.setUser_Phoe(phoneNo.getText().toString());
+                    sharedPreferencesManager.setUserType("buyer");
 
                     Toast.makeText(getContext(),"ResponseCode: " + responseCode,Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getActivity(), NavigationDrawerBuyer.class);

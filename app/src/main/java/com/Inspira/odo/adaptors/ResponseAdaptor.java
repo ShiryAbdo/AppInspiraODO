@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
+import android.os.Parcelable;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -72,6 +73,8 @@ public class ResponseAdaptor  extends RecyclerView.Adapter<ResponseAdaptor.ViewH
                 intent.putExtra("Longitude",androidList.get(i).getSellerData().getCompanyOnMap().getLongitude());
                 intent.putExtra("name",androidList.get(i).getDescription());
                 intent.putExtra("CompanyAddress",androidList.get(i).getSellerData().getCompanyAddress());
+                intent.putParcelableArrayListExtra("Response", (ArrayList<? extends Parcelable>) androidList );
+
                 context.startActivity(intent);
 
             }

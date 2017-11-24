@@ -2,10 +2,14 @@
 package com.Inspira.odo.data.Model;
 
 import java.util.List;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.os.Parcelable.Creator;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class MyOrder {
+public class MyOrder implements Parcelable
+{
 
     @SerializedName("_id")
     @Expose
@@ -18,10 +22,10 @@ public class MyOrder {
     private String orderPartType;
     @SerializedName("order")
     @Expose
-    private OrderM order;
+    private Order order;
     @SerializedName("__v")
     @Expose
-    private Integer v;
+    private int v;
     @SerializedName("orderImages")
     @Expose
     private List<Object> orderImages = null;
@@ -34,6 +38,37 @@ public class MyOrder {
     @SerializedName("Date")
     @Expose
     private String date;
+    public final static Creator<MyOrder> CREATOR = new Creator<MyOrder>() {
+
+
+        @SuppressWarnings({
+            "unchecked"
+        })
+        public MyOrder createFromParcel(Parcel in) {
+            return new MyOrder(in);
+        }
+
+        public MyOrder[] newArray(int size) {
+            return (new MyOrder[size]);
+        }
+
+    }
+    ;
+
+    protected MyOrder(Parcel in) {
+        this.id = ((String) in.readValue((String.class.getClassLoader())));
+        this.buyerPhoneNumber = ((String) in.readValue((String.class.getClassLoader())));
+        this.orderPartType = ((String) in.readValue((String.class.getClassLoader())));
+        this.order = ((Order) in.readValue((Order.class.getClassLoader())));
+        this.v = ((int) in.readValue((int.class.getClassLoader())));
+        in.readList(this.orderImages, (Object.class.getClassLoader()));
+        in.readList(this.responses, (Response.class.getClassLoader()));
+        this.carDetails = ((CarDetails) in.readValue((CarDetails.class.getClassLoader())));
+        this.date = ((String) in.readValue((String.class.getClassLoader())));
+    }
+
+    public MyOrder() {
+    }
 
     public String getId() {
         return id;
@@ -59,19 +94,19 @@ public class MyOrder {
         this.orderPartType = orderPartType;
     }
 
-    public OrderM getOrder() {
+    public Order getOrder() {
         return order;
     }
 
-    public void setOrder(OrderM order) {
+    public void setOrder(Order order) {
         this.order = order;
     }
 
-    public Integer getV() {
+    public int getV() {
         return v;
     }
 
-    public void setV(Integer v) {
+    public void setV(int v) {
         this.v = v;
     }
 
@@ -105,6 +140,22 @@ public class MyOrder {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeValue(id);
+        dest.writeValue(buyerPhoneNumber);
+        dest.writeValue(orderPartType);
+        dest.writeValue(order);
+        dest.writeValue(v);
+        dest.writeList(orderImages);
+        dest.writeList(responses);
+        dest.writeValue(carDetails);
+        dest.writeValue(date);
+    }
+
+    public int describeContents() {
+        return  0;
     }
 
 }

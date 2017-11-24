@@ -1,91 +1,110 @@
 
-
-
 package com.Inspira.odo.data.Model;
 
-import java.util.List;
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Order {
+import java.util.List;
 
-    @SerializedName("phoneNumber")
+public class Order implements Parcelable
+{
+
+    @SerializedName("partType")
     @Expose
-    private String phoneNumber;
-    @SerializedName("carType")
+    private String partType;
+    @SerializedName("part")
     @Expose
-    private String carType;
-    @SerializedName("carModel")
+    private String part;
+    @SerializedName("engineCapacity")
     @Expose
-    private String carModel;
-    @SerializedName("carYear")
+    private String engineCapacity;
+    @SerializedName("color")
     @Expose
-    private String carYear;
-    @SerializedName("orderList")
+    private String color;
+    @SerializedName("ampere")
     @Expose
-    private List<OrderList> orderList = null;
-    @SerializedName("orderImages")
-    @Expose
-    private List<OrderImage> ImagedList = null;
+    private String ampere;
+    public final static Creator<Order> CREATOR = new Creator<Order>() {
 
 
-    public Order(String phoneNumber, String carType, String carModel, String carYear, List<OrderList> orderList , List<OrderImage> orderImages ) {
-        this.phoneNumber = phoneNumber;
-        this.carType = carType;
-        this.carModel = carModel;
-        this.carYear = carYear;
-        this.orderList = orderList;
-        this.ImagedList=orderImages;
+        @SuppressWarnings({
+            "unchecked"
+        })
+        public Order createFromParcel(Parcel in) {
+            return new Order(in);
+        }
+
+        public Order[] newArray(int size) {
+            return (new Order[size]);
+        }
+
+    }
+    ;
+
+    protected Order(Parcel in) {
+        this.partType = ((String) in.readValue((String.class.getClassLoader())));
+        this.part = ((String) in.readValue((String.class.getClassLoader())));
+        this.engineCapacity = ((String) in.readValue((String.class.getClassLoader())));
+        this.color = ((String) in.readValue((String.class.getClassLoader())));
+        this.ampere = ((String) in.readValue((String.class.getClassLoader())));
     }
 
-
-    public List<OrderImage> getImagedList() {
-        return ImagedList;
+    public Order(String phone, String carType, String carModel, String carYear, List<OrderList> orderList, List<OrderImage> orderImages) {
     }
 
-    public void setImagedList(List<OrderImage> imagedList) {
-        ImagedList = imagedList;
+    public String getPartType() {
+        return partType;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public void setPartType(String partType) {
+        this.partType = partType;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public String getPart() {
+        return part;
     }
 
-    public String getCarType() {
-        return carType;
+    public void setPart(String part) {
+        this.part = part;
     }
 
-    public void setCarType(String carType) {
-        this.carType = carType;
+    public String getEngineCapacity() {
+        return engineCapacity;
     }
 
-    public String getCarModel() {
-        return carModel;
+    public void setEngineCapacity(String engineCapacity) {
+        this.engineCapacity = engineCapacity;
     }
 
-    public void setCarModel(String carModel) {
-        this.carModel = carModel;
+    public String getColor() {
+        return color;
     }
 
-    public String getCarYear() {
-        return carYear;
+    public void setColor(String color) {
+        this.color = color;
     }
 
-    public void setCarYear(String carYear) {
-        this.carYear = carYear;
+    public String getAmpere() {
+        return ampere;
     }
 
-    public List<OrderList> getOrderList() {
-        return orderList;
+    public void setAmpere(String ampere) {
+        this.ampere = ampere;
     }
 
-    public void setOrderList(List<OrderList> orderList) {
-        this.orderList = orderList;
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeValue(partType);
+        dest.writeValue(part);
+        dest.writeValue(engineCapacity);
+        dest.writeValue(color);
+        dest.writeValue(ampere);
     }
 
+    public int describeContents() {
+        return  0;
+    }
 
 }

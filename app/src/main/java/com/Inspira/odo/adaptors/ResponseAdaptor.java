@@ -33,8 +33,8 @@ public class ResponseAdaptor  extends RecyclerView.Adapter<ResponseAdaptor.ViewH
     private Context context;
     private int lastPosition=-1;
 
-    public ResponseAdaptor(ArrayList<Response> android, Context c) {
-        this.androidList = android;
+    public ResponseAdaptor(Context c, ArrayList<Response> responses) {
+        this.androidList = responses;
         this.context=c;
     }
 
@@ -48,7 +48,7 @@ public class ResponseAdaptor  extends RecyclerView.Adapter<ResponseAdaptor.ViewH
 
     @Override
     public void onBindViewHolder(ResponseAdaptor.ViewHolder viewHolder, final int i) {
-        viewHolder.price.setText(androidList.get(i).getPrice());
+        viewHolder.price.setText(androidList.get(i).getPrice().toString());
         viewHolder.description_request.setText(androidList.get(i).getDescription());
         viewHolder.location.setText(androidList.get(i).getSellerData().getCompanyAddress());
         viewHolder.time.setText("time");
@@ -175,6 +175,36 @@ public class ResponseAdaptor  extends RecyclerView.Adapter<ResponseAdaptor.ViewH
         String mainLocality = address.getSubAdminArea();
 
         return city + ", " + state+ ", " +country;
+    }
+
+    public void add(Response r) {
+        androidList.add(r);
+        notifyItemInserted(androidList.size() -1);
+    }
+
+    public void addAll(List<Response> moveResults) {
+        for (Response result : moveResults) {
+//            if (!result.getProducts().isEmpty())
+            add(result);
+        }
+    }
+
+    public void remove(Response r) {
+        int position = androidList.indexOf(r);
+        if (position > -1) {
+            androidList.remove(position);
+            notifyDataSetChanged();
+        }
+    }
+
+    public void clear() {
+        while (getItemCount() > 0) {
+            remove(getItem(0));
+        }
+    }
+
+    private Response getItem(int position) {
+        return androidList.get(position);
     }
 
 }

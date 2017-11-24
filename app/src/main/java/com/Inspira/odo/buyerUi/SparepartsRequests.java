@@ -144,15 +144,7 @@ public class SparepartsRequests extends Fragment {
         });
     }
 
-    private void addToSelectedMap(String key, String value) {
-        if (applied_filters.get(key) != null && !applied_filters.get(key).contains(value)) {
-            applied_filters.get(key).add(value);
-        } else {
-            List<String> temp = new ArrayList<>();
-            temp.add(value);
-            applied_filters.put(key, temp);
-        }
-    }
+
 
 
 

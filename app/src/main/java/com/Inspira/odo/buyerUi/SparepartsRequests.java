@@ -57,17 +57,17 @@ public class SparepartsRequests extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rooteView = inflater.inflate(R.layout.fragment_my_request, container, false);
+        getActivity().findViewById(R.id.filter).setVisibility(View.GONE);
         setHasOptionsMenu(true);
         sharedPreferencesManager= new SharedPreferencesManager(getActivity());
         getActivity().setTitle(R.string.SparepartsRequests);
-        getActivity().findViewById(R.id.filter).setVisibility(View.VISIBLE);
-        PHONE_number= sharedPreferencesManager.getUser_Phoe();
+         PHONE_number= sharedPreferencesManager.getUser_Phoe();
         MyOrderList= new ArrayList<>();
 
         initViews() ;
 
         //onClick
-
+//
 //        addToSelectedMap("price_max", String.valueOf(price_max));
 //        addToSelectedMap("price_min", String.valueOf(price_min));
 //
@@ -95,6 +95,7 @@ public class SparepartsRequests extends Fragment {
 //        }
         return  rooteView ;
     }
+
 
 
     private void initViews(){

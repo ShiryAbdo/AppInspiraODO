@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="com.google.android.providers.gsf.permisson.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:name=".mainLuncher.MyApplication"
@@ -78,10 +79,7 @@
             android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
             android:name=".sellerUi.WorkingOnOne"
-            android:windowSoftInputMode="adjustPan|adjustResize">
-
-
-        </activity>
+            android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
             android:name=".sellerUi.NavigationDrawerSeler"
             android:windowSoftInputMode="adjustPan|adjustResize" />
@@ -94,8 +92,14 @@
             android:label="@string/title_activity_tyre_batterey_requests_tabe"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".buyerUi.detalisOfRequest" />
-        <activity android:name=".sellerUi.MapsActivity"></activity>
-        <activity android:name=".test"></activity>
+        <activity android:name=".sellerUi.MapsActivity" />
+        <activity android:name=".mainLuncher.ContioFacebbokRigis" />
+        <activity
+            android:name=".buyerUi.GetDirection"
+            android:label="@string/title_activity_get_direction"></activity>
+        <activity
+            android:name=".buyerUi.MapsActivity"
+            android:label="@string/title_activity_get_direction"></activity>
     </application>
 
 </manifest>

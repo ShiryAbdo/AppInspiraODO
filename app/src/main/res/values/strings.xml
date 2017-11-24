@@ -102,6 +102,14 @@
     <string name="Enter_location">Enter location</string>
     <string name="done">Location Entered</string>
     <string name="enter_location">Enter Location</string>
+    <string name="Search">Search</string>
+    <string name="Area">Area</string>
+    <string name="to_price">to Price</string>
+    <string name="price_from">Price From</string>
+    <string name="Location">Location</string>
+    <string name="title_activity_get_direction">Map</string>
+    <string name="price">Price</string>
+    <string name="Get_Direction">Get Direction</string>
 
 
 </resources>

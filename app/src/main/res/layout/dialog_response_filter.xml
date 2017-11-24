@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#000"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:padding="@dimen/_10sdp"
+    android:layout_marginRight="@dimen/_30sdp"
+    android:layout_marginLeft="@dimen/_30sdp"
+    android:layout_marginStart="@dimen/_30sdp"
+    android:layout_marginEnd="@dimen/_30sdp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_gravity="start"
+            android:gravity="start"
+            android:textSize="@dimen/_20sdp"
+            android:textStyle="bold"
+            android:background="#00dadada"
+            android:text="@string/filters"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <LinearLayout
+           android:layout_weight="1"
+           android:padding="@dimen/_10sdp"
+           android:orientation="vertical"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
+
+           <EditText
+               android:textColor="#ffff"
+               android:id="@+id/price_from"
+               android:textColorHint="#ffff"
+               android:hint="@string/price_from"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+           <View
+               android:layout_width="match_parent"
+               android:background="#dea63e"
+               android:layout_height="@dimen/_1sdp"/>
+       </LinearLayout>
+
+       <LinearLayout
+           android:padding="@dimen/_10sdp"
+           android:layout_weight="1"
+           android:orientation="vertical"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
+
+           <EditText
+               android:textColor="#ffff"
+               android:id="@+id/to_price"
+               android:textColorHint="#ffff"
+               android:hint="@string/to_price"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+           <View
+               android:layout_width="match_parent"
+               android:background="#dea63e"
+               android:layout_height="@dimen/_1sdp"/>
+       </LinearLayout>
+
+
+   </LinearLayout>
+
+    <EditText
+        android:layout_marginTop="@dimen/_15sdp"
+        android:id="@+id/Area"
+        android:textColor="#ffffff"
+        android:text="@string/Area"
+         android:textColorHint="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <View
+        android:layout_width="match_parent"
+        android:background="#dea63e"
+        android:layout_height="@dimen/_1sdp"/>
+
+
+    <LinearLayout
+        android:padding="@dimen/_20sdp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_weight="1"
+            android:layout_gravity="end"
+            android:gravity="end"
+            android:id="@+id/Search"
+            android:background="#00dadada"
+            android:text="@string/Search"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+</LinearLayout>

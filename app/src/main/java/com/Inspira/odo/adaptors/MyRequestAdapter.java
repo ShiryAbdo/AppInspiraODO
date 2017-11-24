@@ -98,7 +98,7 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
 
 
 
-//        if(androidList.get(i).==false){
+//        if(androidList.get(i).isFavorite()==false){
 //            viewHolder.Favorite_image.setImageResource(R.drawable.star);
 //
 //        }else {

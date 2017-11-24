@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_margin="@dimen/_8sdp"
+    android:backgroundTint="#9b9090"
+    android:clickable="true"
+    android:focusable="true"
+    android:id="@+id/card"
+
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/image_itme_selle"
+                android:layout_weight=".2"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:src="@drawable/logo_small"/>
+            <LinearLayout
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:id="@+id/description_request"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name request"/>
+                <LinearLayout
+                    android:weightSum="3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:id="@+id/price"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:layout_weight="1"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Car Name"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:weightSum="3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:id="@+id/location"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:layout_weight="1"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Year"/>
+                    <View
+                        android:layout_margin="@dimen/_5sdp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:layout_width="@dimen/_2sdp"
+                        android:layout_height="@dimen/_20sdp"/>
+                    <TextView
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:id="@+id/time"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Modle"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/Favorite_image"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:src="@drawable/star"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"/>
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>

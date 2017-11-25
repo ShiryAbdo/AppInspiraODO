@@ -52,7 +52,7 @@ public class DataSellerHomeAdaptor  extends RecyclerView.Adapter<DataSellerHomeA
         viewHolder.year_car.setText(androidList.get(i).getCarDetails().getCarYear());
         viewHolder.model_car.setText(androidList.get(i).getCarDetails().getCarModel());
         viewHolder.color_car.setText(androidList.get(i).getOrder().getColor());
-        viewHolder.time_of_post.setText("time");
+        viewHolder.time_of_post.setText(androidList.get(i).getDate());
 
         viewHolder.card.setOnClickListener(new View.OnClickListener() {
             @Override

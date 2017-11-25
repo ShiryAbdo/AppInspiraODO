@@ -63,6 +63,22 @@ public class ContinuingRegSeler extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
          setContentView(R.layout.activity_continuing_reg_seler);
+        bundle=getIntent().getExtras();
+        if(bundle!=null){
+
+            latitude=bundle.getString("latitude");
+            longitude=bundle.getString("longitude");
+            fName=bundle.getString("fName");
+            phoneNo= bundle.getString("phoneNo");
+            password=bundle.getString("password");
+            email=bundle.getString("email");
+            companyNamey = bundle.getString("companyName");
+            company_addressy = bundle.getString("company_address");
+
+
+
+        }
+        Toast.makeText(getApplicationContext(),fName+ "//"+phoneNo +"//"+password +"//"+email,Toast.LENGTH_SHORT).show();
         go_back= (ImageView)findViewById(R.id.go_back);
         localeHelper= new LocaleHelper();
         String lange=  localeHelper.getLanguage(ContinuingRegSeler.this);
@@ -86,21 +102,7 @@ public class ContinuingRegSeler extends AppCompatActivity {
         }
 
 //        geo_autocomplete = (DelayAutoCompleteTextView) findViewById(R.id.company_address);
-        bundle=getIntent().getExtras();
-        if(bundle!=null){
 
-             latitude=bundle.getString("latitude");
-            longitude=bundle.getString("longitude");
-            fName=bundle.getString("fName");
-            phoneNo= bundle.getString("phoneNo");
-            password=bundle.getString("password");
-            email=bundle.getString("email");
-            companyNamey = bundle.getString("companyName");
-            company_addressy = bundle.getString("company_address");
-
-
-
-        }
         if(latitude!=null&&longitude!=null){
             text =getString(R.string.done);
             sharedPreferencesManager.setLatitude(latitude);
@@ -178,10 +180,10 @@ public class ContinuingRegSeler extends AppCompatActivity {
         // Spinner Drop down elements
         categories= new ArrayList<>();
         categories.add(getString(R.string.your_Type_requse));
-        categories.add("Spare Parts");
-        categories.add("Battery");
-        categories.add("Tyres");
-        categories.add("Accessories");
+        categories.add("spareParts");
+        categories.add("batteries");
+        categories.add("tyres");
+        categories.add("accessories");
         AreaArray= new ArrayList<>();
         AreaArray.add(getString(R.string.choseArea));
         AreaArray.add(getString(R.string.cairo));

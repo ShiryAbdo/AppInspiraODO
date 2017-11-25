@@ -110,13 +110,36 @@ public class AccesoriesRequests extends Fragment {
         add_anther_part_detalis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"cliced",Toast.LENGTH_SHORT).show();
 
-                AccesoriesRequests newFragment = new AccesoriesRequests();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_container, newFragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                if(PartId.getText().toString().trim()!=null){
+                    if(PHONE_number!=null){
+                        if(imageName!=null){
+                            Toast.makeText(getApplicationContext(),imageName,Toast.LENGTH_SHORT).show();
+                            orderImages.add(new OrderImage(imageName));
+                            sendOrder(PHONE_number,carType,carModle ,carYear,orderList ,orderImages);
+                            Toast.makeText(getApplicationContext(),"cliced",Toast.LENGTH_SHORT).show();
+                            AccesoriesRequests newFragment = new AccesoriesRequests();
+                            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                            transaction.replace(R.id.fragment_container, newFragment);
+                            transaction.addToBackStack(null);
+                            transaction.commit();
+
+                        }else {
+                            Toast.makeText(getApplicationContext(),"إختار صوره",Toast.LENGTH_SHORT).show();
+
+                        }
+
+
+                    }else {
+                        Toast.makeText(getApplicationContext(),"رقم الهاتف غير موجود",Toast.LENGTH_SHORT).show();
+
+                    }
+                }else{
+                    Toast.makeText(getApplicationContext(),"add Accessories detalies",Toast.LENGTH_LONG).show();
+
+                }
+
+
             }
         });
         submet_requst= (Button)rooteViw.findViewById(R.id.submet_requst);

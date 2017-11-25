@@ -59,32 +59,39 @@
 
 
 </LinearLayout>
-    <RadioButton
-        android:id="@+id/one_Tyre"
+    <RadioGroup
+         android:layout_gravity="center"
+        android:id="@+id/radioG"
+        android:layout_marginBottom="@dimen/_5sdp"
         android:layout_width="wrap_content"
-        android:textColor="#ffffff"
-        android:buttonTint="@color/colorPrimary"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content"
-        android:text="@string/one_Tyre" />
+        android:layout_height="wrap_content" >
 
-    <RadioButton
-        android:id="@+id/two_tyre"
-        android:layout_width="wrap_content"
-        android:textColor="#ffffff"
-        android:buttonTint="@color/colorPrimary"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content"
-        android:text="@string/two_tyre" />
+        <RadioButton
+            android:id="@+id/one_Tyre"
+            android:layout_width="wrap_content"
+            android:textColor="#ffffff"
+            android:buttonTint="@color/colorPrimary"
+            android:layout_height="wrap_content"
+            android:text="@string/one_Tyre" />
 
-    <RadioButton
-        android:id="@+id/four_tyre"
-        android:layout_width="wrap_content"
-        android:textColor="#ffffff"
-        android:buttonTint="@color/colorPrimary"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content"
-        android:text="@string/four_tyre" />
+        <RadioButton
+            android:id="@+id/two_tyre"
+            android:layout_width="wrap_content"
+            android:textColor="#ffffff"
+            android:buttonTint="@color/colorPrimary"
+            android:layout_height="wrap_content"
+            android:text="@string/two_tyre" />
+
+        <RadioButton
+            android:id="@+id/four_tyre"
+            android:layout_width="wrap_content"
+            android:textColor="#ffffff"
+            android:buttonTint="@color/colorPrimary"
+            android:layout_height="wrap_content"
+            android:text="@string/four_tyre" />
+
+
+    </RadioGroup>
 
     <LinearLayout
         android:layout_weight="1"

@@ -2,8 +2,6 @@ package com.Inspira.odo.adaptors;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -18,21 +16,16 @@ import android.widget.Toast;
 
 import com.Inspira.odo.R;
 import com.Inspira.odo.buyerUi.RequestResponses;
-import com.Inspira.odo.data.Model.MyOrder;
+import com.Inspira.odo.database.MyOrder;
 import com.Inspira.odo.data.Model.Response;
 import com.Inspira.odo.helper.DateTimeHelper;
 import com.Inspira.odo.mainLuncher.MyApplication;
-import com.Inspira.odo.model.SellerHomeData;
 import com.github.thunder413.datetimeutils.DateTimeUtils;
-import com.google.gson.Gson;
 
-import java.io.Serializable;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 

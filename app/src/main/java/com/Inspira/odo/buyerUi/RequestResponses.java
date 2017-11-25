@@ -1,9 +1,7 @@
 package com.Inspira.odo.buyerUi;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v4.util.ArrayMap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,20 +12,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.Inspira.odo.R;
 import com.Inspira.odo.adaptors.MyRequestAdapter;
 import com.Inspira.odo.adaptors.ResponseAdaptor;
-import com.Inspira.odo.data.Model.MyOrder;
+import com.Inspira.odo.database.MyOrder;
 import com.Inspira.odo.data.Model.Response;
 import com.Inspira.odo.database.SharedPreferencesManager;
 import com.Inspira.odo.helper.LocaleHelper;
 import com.Inspira.odo.mainLuncher.MyApplication;
-import com.Inspira.odo.mainLuncher.RegistrationActivity;
 import com.Inspira.odo.model.FilterData;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.List;

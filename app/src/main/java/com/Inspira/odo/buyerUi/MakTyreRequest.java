@@ -17,7 +17,6 @@ import com.Inspira.odo.R;
 import com.Inspira.odo.data.ApiClient;
 import com.Inspira.odo.data.ApiInterface;
 import com.Inspira.odo.data.Model.MakOrder;
-import com.Inspira.odo.data.Model.Order;
 import com.Inspira.odo.data.Model.OrderImage;
 import com.Inspira.odo.data.Model.OrderList;
 import com.Inspira.odo.database.SharedPreferencesManager;

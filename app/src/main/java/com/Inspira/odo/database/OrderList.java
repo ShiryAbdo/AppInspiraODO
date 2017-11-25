@@ -1,10 +1,10 @@
 
-package com.Inspira.odo.data.Model;
+package com.Inspira.odo.database;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class OrderM {
+public class OrderList {
 
     @SerializedName("partType")
     @Expose
@@ -21,13 +21,24 @@ public class OrderM {
     @SerializedName("ampere")
     @Expose
     private String ampere;
+    @SerializedName("size")
+    @Expose
+    private String size;
+
+    public OrderList(String partType, String part, String engineCapacity, String color, String ampere, String size) {
+        this.partType = partType;
+        this.part = part;
+        this.engineCapacity = engineCapacity;
+        this.color = color;
+        this.ampere = ampere;
+        this.size = size;
+    }
 
     public String getPartType() {
         return partType;
     }
 
     public void setPartType(String partType) {
-
         this.partType = partType;
     }
 
@@ -35,8 +46,7 @@ public class OrderM {
         return part;
     }
 
-    public void setPart(String part)
-    {
+    public void setPart(String part) {
         this.part = part;
     }
 
@@ -62,6 +72,14 @@ public class OrderM {
 
     public void setAmpere(String ampere) {
         this.ampere = ampere;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
     }
 
 }

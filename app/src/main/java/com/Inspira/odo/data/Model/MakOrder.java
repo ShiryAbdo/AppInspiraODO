@@ -26,7 +26,13 @@ public class MakOrder {
     @Expose
     private List<OrderImage> orderImages = null;
 
-    public MakOrder(String phone, String carType, String carModel, String carYear, List<OrderList> orderList, List<OrderImage> orderImages) {
+    public MakOrder(String phoneNumber, String carType, String carModel, String carYear, List<OrderList> orderList, List<OrderImage> orderImages) {
+        this.phoneNumber = phoneNumber;
+        this.carType = carType;
+        this.carModel = carModel;
+        this.carYear = carYear;
+        this.orderList = orderList;
+        this.orderImages = orderImages;
     }
 
     public String getPhoneNumber() {

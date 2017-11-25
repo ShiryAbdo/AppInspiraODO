@@ -1,47 +1,36 @@
 package com.Inspira.odo.adaptors;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.Inspira.odo.R;
-import com.Inspira.odo.model.SellerHomeData;
-import com.Inspira.odo.sellerUi.DialogeSellerData;
+import com.Inspira.odo.sellerData.RelatedOrder;
+import com.Inspira.odo.sellerUi.RespondtoaReques;
 
 import java.util.ArrayList;
-
-import static android.R.attr.data;
-import static android.R.attr.theme;
 
 /**
  * Created by shirya on 03/11/17.
  */
 
 public class DataSellerHomeAdaptor  extends RecyclerView.Adapter<DataSellerHomeAdaptor.ViewHolder> {
-    private ArrayList<SellerHomeData> androidList;
+    private ArrayList<RelatedOrder> androidList;
     private Context context;
     private int lastPosition=-1;
     Activity activity ;
-    ArrayList<String>categories_CarType ,categories_car_model ;
 
-    public DataSellerHomeAdaptor(ArrayList<SellerHomeData> android, Context c , Activity activity) {
+    public DataSellerHomeAdaptor(ArrayList<RelatedOrder> android, Context c , Activity activity) {
         this.androidList = android;
         this.context=c;
         this.activity =activity ;
@@ -57,107 +46,24 @@ public class DataSellerHomeAdaptor  extends RecyclerView.Adapter<DataSellerHomeA
 
     @Override
     public void onBindViewHolder(DataSellerHomeAdaptor.ViewHolder viewHolder, final int i) {
-        viewHolder.Name_request.setText(androidList.get(i).getNameRequest());
-        viewHolder.name_car.setText(androidList.get(i).getNameCar());
-        viewHolder.Type_car.setText(androidList.get(i).getTypeCare());
-        viewHolder.year_car.setText(androidList.get(i).getYearCar());
-        viewHolder.model_car.setText(androidList.get(i).getModleCare());
-        viewHolder.color_car.setText(androidList.get(i).getColorcar());
-        viewHolder.time_of_post.setText(androidList.get(i).getTimePost());
-//        if(androidList.get(i).isFavorite()==false){
-//            viewHolder.Favorite_image.setImageResource(R.drawable.star);
-//
-//        }else {
-//            viewHolder.Favorite_image.setImageResource(R.drawable.staryellow);
-//        }
-
-
-//        viewHolder.card.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View view, MotionEvent motionEvent) {
-//
-//                final Dialog okdialog = new Dialog(context.getApplicationContext(), R.style.custom_dialog_theme);
-//                okdialog.setContentView(R.layout.dialog_seller_home_data);
-//                Button OK_d =(Button)okdialog.findViewById(R.id.ok);
-//                Spinner SpinnerCarType = (Spinner)okdialog.findViewById(R.id.SpinnerCarType);
-//                Spinner your_car_model = (Spinner)okdialog.findViewById(R.id.your_car_model);
-//                Spinner your_car_year =(Spinner)okdialog.findViewById(R.id.your_car_year);
-//                ArrayList<String>categories ;
-//                CustomArrayAdapter_Spinner  myAdaptor ;
-//
-//                // Spinner Drop down elements
-//                categories= new ArrayList<>();
-//                categories.add("Automobile");
-//                categories.add("Business Services");
-//                categories.add("Computers");
-//                categories.add("Education");
-//                categories.add("Personal");
-//                categories.add("Travel");
-//
-//                myAdaptor = new CustomArrayAdapter_Spinner(context.getApplicationContext(),
-//                        R.layout.customspinneritem, categories);
-//                SpinnerCarType.setAdapter(myAdaptor);
-//                your_car_model.setAdapter(myAdaptor);
-//                your_car_year.setAdapter(myAdaptor);
-//                OK_d.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        okdialog.dismiss();
-//
-//                    }
-//                });okdialog.show();
-//
-//                return false;
-//            }
-//        });
+        viewHolder.Name_request.setText(androidList.get(i).getCarDetails().getCarType());
+        viewHolder.name_car.setText(androidList.get(i).getOrderPartType());
+        viewHolder.Type_car.setText(androidList.get(i).getCarDetails().getCarType());
+        viewHolder.year_car.setText(androidList.get(i).getCarDetails().getCarYear());
+        viewHolder.model_car.setText(androidList.get(i).getCarDetails().getCarModel());
+        viewHolder.color_car.setText(androidList.get(i).getOrder().getColor());
+        viewHolder.time_of_post.setText("time");
 
         viewHolder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
-                final Dialog okdialog = new Dialog(activity, R.style.custom_dialog_theme);
-                okdialog.setContentView(R.layout.dialog_seller_home_data);
-                Button OK_d =(Button)okdialog.findViewById(R.id.ok);
-                Spinner SpinnerCarType = (Spinner)okdialog.findViewById(R.id.SpinnerCarType);
-                Spinner your_car_model = (Spinner)okdialog.findViewById(R.id.your_car_model);
-                Spinner your_car_year =(Spinner)okdialog.findViewById(R.id.your_car_year);
-                ArrayList<String>categories ;
-                 CustomArrayAdapter_Spinner  myAdaptor_CarType  ,myAdaptor_car_model ;
-                categories_CarType = new ArrayList<String>();
-                categories_CarType.add(R.string.your_car_type+"");
-                categories_CarType.add("Business Services");
-                categories_CarType.add("Computers");
-                categories_CarType.add("Education");
-                categories_CarType.add("Personal");
-                categories_CarType.add("Travel");
 
-                // Spinner Drop down elements
-                categories_car_model= new ArrayList<String>();
-                categories_car_model.add(R.string.your_car_modle+"");
-                categories_car_model.add("Business Services");
-                categories_car_model.add("Computers");
-                categories_car_model.add("Education");
-                categories_car_model.add("Personal");
-                categories_car_model.add("Travel");
-                myAdaptor_CarType = new CustomArrayAdapter_Spinner(context.getApplicationContext(),
-                        R.layout.customspinneritem, categories_CarType);
-                myAdaptor_car_model = new CustomArrayAdapter_Spinner(context,
-                        R.layout.customspinneritem, categories_car_model);
-                SpinnerCarType.setAdapter(myAdaptor_CarType);
-                your_car_model.setAdapter(myAdaptor_car_model);
-                 OK_d.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        okdialog.dismiss();
-
-                    }
-                });okdialog.show();
-//
-//                Toast.makeText(context,"this",Toast.LENGTH_SHORT).show();
-//                Intent intent= new Intent(context, DialogeSellerData.class);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-//                context.startActivity(intent);
+                Toast.makeText(context,"this",Toast.LENGTH_SHORT).show();
+                Intent intent= new Intent(context, RespondtoaReques.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                context.startActivity(intent);
 
 
             }

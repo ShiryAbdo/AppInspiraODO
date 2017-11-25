@@ -1,10 +1,12 @@
 
-package com.Inspira.odo.data.Model;
+package com.Inspira.odo.database;
 
 import java.util.List;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcelable.Creator;
+
+import com.Inspira.odo.data.Model.CarDetails;
+import com.Inspira.odo.data.Model.Response;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

@@ -1,5 +1,5 @@
 
-package com.Inspira.odo.data.Model;
+package com.Inspira.odo.database;
 
 import android.os.Parcel;
 import android.os.Parcelable;

@@ -25,7 +25,6 @@ import com.Inspira.odo.R;
 import com.Inspira.odo.data.ApiClient;
 import com.Inspira.odo.data.ApiInterface;
 import com.Inspira.odo.data.Model.MakOrder;
-import com.Inspira.odo.data.Model.Order;
 import com.Inspira.odo.data.Model.OrderImage;
 import com.Inspira.odo.data.Model.OrderList;
 import com.Inspira.odo.database.SharedPreferencesManager;
@@ -46,9 +45,7 @@ import static android.app.Activity.RESULT_OK;
 import static android.content.ContentValues.TAG;
 import static com.facebook.FacebookSdk.getApplicationContext;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class MaKArequest extends Fragment {
     Button submet_requst ;
     List<OrderList> orderList ;

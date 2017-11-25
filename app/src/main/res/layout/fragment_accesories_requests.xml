@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:id="@+id/fragment_container"
     android:layout_height="match_parent"
     android:background="@drawable/backgraud"
     tools:context="com.Inspira.odo.buyerUi.AccesoriesRequests">

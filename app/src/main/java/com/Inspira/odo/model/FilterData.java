@@ -1,7 +1,6 @@
 package com.Inspira.odo.model;
 
 
-import com.Inspira.odo.data.Model.MyOrder;
 import com.Inspira.odo.data.Model.Response;
 
 import java.util.ArrayList;

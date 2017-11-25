@@ -8,8 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="com.google.android.providers.gsf.permisson.READ_GSERVICES" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-
-        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
     <application
@@ -49,13 +48,7 @@
             android:name=".mainLuncher.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_splash"
-            android:theme="@style/FullscreenTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/FullscreenTheme"></activity>
         <activity android:name=".mainLuncher.RegistrationActivity" />
         <activity
             android:name=".buyerUi.NavigationActivity"
@@ -85,7 +78,13 @@
             android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
             android:name=".sellerUi.NavigationDrawerSeler"
-            android:windowSoftInputMode="adjustPan|adjustResize" />
+            android:windowSoftInputMode="adjustPan|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".sellerUi.DialogeSellerData"
             android:windowSoftInputMode="adjustPan|adjustResize" />
@@ -99,10 +98,11 @@
         <activity android:name=".mainLuncher.ContioFacebbokRigis" />
         <activity
             android:name=".buyerUi.GetDirection"
-            android:label="@string/title_activity_get_direction"></activity>
+            android:label="@string/title_activity_get_direction" />
         <activity
             android:name=".buyerUi.MapsActivity"
-            android:label="@string/title_activity_get_direction"></activity>
+            android:label="@string/title_activity_get_direction" />
+        <activity android:name=".sellerUi.RespondtoaReques"></activity>
     </application>
 
 </manifest>

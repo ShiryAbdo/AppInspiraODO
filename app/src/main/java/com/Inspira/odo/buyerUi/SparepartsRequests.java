@@ -13,26 +13,17 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.Inspira.odo.R;
-import com.Inspira.odo.adaptors.DataAdapter;
 import com.Inspira.odo.adaptors.MyRequestAdapter;
 import com.Inspira.odo.data.ApiClient;
 import com.Inspira.odo.data.ApiInterface;
-import com.Inspira.odo.data.Model.*;
 import com.Inspira.odo.data.Model.MyRequest;
+import com.Inspira.odo.database.MyOrder;
 import com.Inspira.odo.database.SharedPreferencesManager;
 import com.Inspira.odo.model.FilterData;
-import com.Inspira.odo.model.SellerHomeData;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

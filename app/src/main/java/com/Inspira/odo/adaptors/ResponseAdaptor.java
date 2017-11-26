@@ -7,6 +7,7 @@ import android.location.Geocoder;
 import android.os.Parcelable;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,16 +17,26 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.Inspira.odo.R;
 import com.Inspira.odo.buyerUi.detalisOfRequest;
+import com.Inspira.odo.data.ApiClient;
+import com.Inspira.odo.data.ApiInterface;
+import com.Inspira.odo.data.Model.BuyerAddsFavourite;
 import com.Inspira.odo.data.Model.Response;
+import com.Inspira.odo.database.SharedPreferencesManager;
 import com.Inspira.odo.model.SellerHomeData;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+
+import static android.content.ContentValues.TAG;
 import static com.facebook.FacebookSdk.getApplicationContext;
 
 
@@ -33,10 +44,14 @@ public class ResponseAdaptor  extends RecyclerView.Adapter<ResponseAdaptor.ViewH
     private ArrayList<Response> androidList;
     private Context context;
     private int lastPosition=-1;
+    SharedPreferencesManager sharedPreferencesManager ;
+    String orderId ;
 
-    public ResponseAdaptor(Context c, ArrayList<Response> responses) {
+    public ResponseAdaptor(Context c, ArrayList<Response> responses ,String orderId) {
         this.androidList = responses;
         this.context=c;
+        sharedPreferencesManager= new SharedPreferencesManager(context);
+        this.orderId=orderId ;
     }
 
     @Override
@@ -48,11 +63,19 @@ public class ResponseAdaptor  extends RecyclerView.Adapter<ResponseAdaptor.ViewH
     }
 
     @Override
-    public void onBindViewHolder(ResponseAdaptor.ViewHolder viewHolder, final int i) {
+    public void onBindViewHolder(final ResponseAdaptor.ViewHolder viewHolder, final int i) {
         viewHolder.price.setText(androidList.get(i).getPrice().toString());
         viewHolder.description_request.setText(androidList.get(i).getDescription());
         viewHolder.location.setText(androidList.get(i).getSellerData().getCompanyAddress());
         viewHolder.time.setText("time");
+        viewHolder.Favorite_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sharedPreferencesManager= new SharedPreferencesManager(context);
+                addFairtes(sharedPreferencesManager.getUser_Phoe(),androidList.get(i).getSellerData().getSellerPhoneNumber(),orderId,viewHolder);
+
+            }
+        });
 
 //        Double.parseDouble
 
@@ -142,6 +165,8 @@ public class ResponseAdaptor  extends RecyclerView.Adapter<ResponseAdaptor.ViewH
             price = (TextView)view.findViewById(R.id.price);
             location = (TextView)view.findViewById(R.id.location);
             time = (TextView)view.findViewById(R.id.time);
+            Favorite_image = (ImageView) view.findViewById(R.id.Favorite_image);
+
 
 
 
@@ -209,5 +234,37 @@ public class ResponseAdaptor  extends RecyclerView.Adapter<ResponseAdaptor.ViewH
     private Response getItem(int position) {
         return androidList.get(position);
     }
+
+    public  void addFairtes(String buyerPhoneNumber, String sellerPhoneNumber, String orderId , final  ViewHolder viewHolder){
+        ApiInterface apiService =
+                ApiClient.getClient().create(ApiInterface.class);
+
+        Call<ResponseBody> call = apiService.addfavouriteBuer(new BuyerAddsFavourite( buyerPhoneNumber,sellerPhoneNumber,orderId));
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody>call, retrofit2.Response<ResponseBody> response) {
+                int responseCode = response.code();
+                Log.d("CODE", "ResponseCode: " + responseCode);
+                if(responseCode==200){
+                    viewHolder.Favorite_image.setImageResource(R.drawable.staryellow);
+
+                    Toast.makeText(context,"ResponseCode: " + responseCode,Toast.LENGTH_SHORT).show();
+
+                }else {
+
+                    Toast.makeText(context,"ResponseCode: " + responseCode,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context," else",Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody>call, Throwable t) {
+                // Log error here since request failed
+                Log.e(TAG, t.toString());
+            }
+        });
+
+    }
+
 
 }

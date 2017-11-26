@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Parcelable;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +16,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.Inspira.odo.R;
+import com.Inspira.odo.buyerUi.NavigationDrawerBuyer;
 import com.Inspira.odo.buyerUi.RequestResponses;
+import com.Inspira.odo.data.ApiClient;
+import com.Inspira.odo.data.ApiInterface;
+import com.Inspira.odo.data.Model.BuyerAddsFavourite;
+import com.Inspira.odo.data.Model.BuyerRegistration;
 import com.Inspira.odo.database.MyOrder;
 import com.Inspira.odo.data.Model.Response;
+import com.Inspira.odo.database.SharedPreferencesManager;
 import com.Inspira.odo.helper.DateTimeHelper;
 import com.Inspira.odo.mainLuncher.MyApplication;
 import com.github.thunder413.datetimeutils.DateTimeUtils;
@@ -27,6 +34,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+
+import static android.content.ContentValues.TAG;
 import static com.facebook.FacebookSdk.getApplicationContext;
 
 
@@ -37,7 +49,7 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
     SimpleDateFormat formater ;
     DateTimeHelper dateTimeHelper ;
     DateTimeUtils obj ;
-
+    SharedPreferencesManager sharedPreferencesManager ;
     MyApplication myApplication ;
 
     public MyRequestAdapter(ArrayList<MyOrder> android, Context c) {
@@ -47,6 +59,7 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
         this.formater = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         this.dateTimeHelper= new DateTimeHelper(context);
         myApplication= new MyApplication();
+        sharedPreferencesManager= new SharedPreferencesManager(context);
 
     }
 
@@ -59,7 +72,7 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
     }
 
     @Override
-    public void onBindViewHolder(MyRequestAdapter.ViewHolder viewHolder, final int i) {
+    public void onBindViewHolder(final MyRequestAdapter.ViewHolder viewHolder, final int i) {
         viewHolder.Name_request.setText(androidList.get(i).getOrder().getPart());
         viewHolder.name_car.setText(androidList.get(i).getCarDetails().getCarModel());
         viewHolder.Type_car.setText(androidList.get(i).getCarDetails().getCarType());
@@ -92,6 +105,7 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
          String resul= dateTimeHelper.substractDates(d1,d ,dfDate);
 
          viewHolder.time_of_post.setText(resul);
+   viewHolder.Favorite_image.setVisibility(View.GONE);
 
         setAnimation(viewHolder.card, i);
 
@@ -163,6 +177,7 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
             myApplication.setResponses(responses);
             Intent intent = new Intent(context, RequestResponses.class);
             intent.putParcelableArrayListExtra("Response", (ArrayList<? extends Parcelable>)  responses);
+            intent.putExtra("orderId",androidList.get(position).getId());
 //            intent.putExtra("Response", responses);
             Toast.makeText(getApplicationContext(), responses.size() + "", Toast.LENGTH_LONG).show();
             context.startActivity(intent);
@@ -171,4 +186,6 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
 
 
         }
+
+
     }

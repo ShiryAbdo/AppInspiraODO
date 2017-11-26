@@ -31,15 +31,14 @@ public class RequestResponses extends AppCompatActivity {
     RecyclerView recycler_view;
     SharedPreferencesManager sharedPreferencesManager ;
     String PHONE_number;
-    MyRequestAdapter myRequestAdapter ;
-    private ArrayList<MyOrder> MyOrderList;
-      MyApplication myApplication ;
+       MyApplication myApplication ;
     private FilterData data = new FilterData();
     private ArrayMap<String, List<String>> applied_filters = new ArrayMap<>();
     ResponseAdaptor responseAdaptor ;
     List<Response> mSelectedList ;
     LocaleHelper localeHelper ;
     ImageView go_back ;
+    String orderId ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +62,8 @@ public class RequestResponses extends AppCompatActivity {
 
         Intent intent = getIntent();
         mSelectedList = intent.getParcelableArrayListExtra("Response");
+        Bundle bundle = getIntent().getExtras();
+        orderId=bundle.getString("orderId");
         data.setmList(mSelectedList);
         myApplication= new MyApplication();
         initViews();
@@ -71,8 +72,7 @@ public class RequestResponses extends AppCompatActivity {
 
         sharedPreferencesManager= new SharedPreferencesManager(this);
         PHONE_number= sharedPreferencesManager.getUser_Phoe();
-        MyOrderList= new ArrayList<>();
-      findViewById(R.id.filter).setOnClickListener(new View.OnClickListener() {
+       findViewById(R.id.filter).setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
               final Dialog okdialog = new Dialog(RequestResponses.this, R.style.custom_dialog_theme);
@@ -142,7 +142,7 @@ public class RequestResponses extends AppCompatActivity {
         recycler_view.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager((this));
         recycler_view.setLayoutManager(layoutManager);
-        responseAdaptor= new ResponseAdaptor(this, (ArrayList<Response>) mSelectedList);
+        responseAdaptor= new ResponseAdaptor(this, (ArrayList<Response>) mSelectedList , orderId);
         recycler_view.setAdapter(responseAdaptor);
 
 

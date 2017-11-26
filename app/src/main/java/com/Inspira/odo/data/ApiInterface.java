@@ -1,5 +1,6 @@
 package com.Inspira.odo.data;
 
+import com.Inspira.odo.data.Model.BuyerAddsFavourite;
 import com.Inspira.odo.data.Model.BuyerRegistration;
 import com.Inspira.odo.data.Model.Login;
 import com.Inspira.odo.data.Model.LoginData;
@@ -32,6 +33,7 @@ public interface ApiInterface {
     String myOrders ="/profile/buyer/myOrders" ;
     String RelatedOrders ="/orders/seller/relatedOrders" ;
     String RespondtoaReques ="/respondToOrder";
+    String favouritesAddBuer ="/favourites/add";
 
 
 
@@ -47,6 +49,8 @@ public interface ApiInterface {
 
     @POST(Orders)
     Call<ResponseBody> addOrders(@Body MakOrder order);
+    @POST(favouritesAddBuer)
+    Call<ResponseBody> addfavouriteBuer(@Body BuyerAddsFavourite buyerAddsFavourite);
 
     @Multipart
     @POST(UploadImage)

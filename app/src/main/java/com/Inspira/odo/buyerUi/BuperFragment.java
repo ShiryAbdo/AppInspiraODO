@@ -61,8 +61,8 @@ public class BuperFragment extends Fragment {
             @Override
             public void onClick(View view) {
 ////
-//                Intent intent = new Intent(getActivity(), NavigationDrawerBuyer.class);
-//                startActivity(intent);
+                Intent intent = new Intent(getActivity(), NavigationDrawerBuyer.class);
+                startActivity(intent);
                 if(!fName.getText().toString().trim().equals("")&&
                         !phoneNo.getText().toString().trim().equals("")&&
                         !password.getText().toString().trim().equals("")&&

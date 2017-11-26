@@ -22,6 +22,16 @@ public class RespondToOrder {
     @Expose
     private String description;
 
+
+    public RespondToOrder(String sellerPhoneNumber, String buyerPhoneNumber, String orderID, String price,
+                          String description) {
+        this.sellerPhoneNumber = sellerPhoneNumber;
+        this.buyerPhoneNumber = buyerPhoneNumber;
+        this.orderID = orderID;
+        this.price = price;
+        this.description = description;
+    }
+
     public String getSellerPhoneNumber() {
         return sellerPhoneNumber;
     }

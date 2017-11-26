@@ -4,6 +4,7 @@ package com.Inspira.odo.sellerUi;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.util.ArrayMap;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -25,11 +26,14 @@ import com.Inspira.odo.data.Model.DataCar;
 import com.Inspira.odo.data.Model.MyRequest;
 import com.Inspira.odo.database.MyOrder;
 import com.Inspira.odo.database.SharedPreferencesManager;
-import com.Inspira.odo.model.SellerHomeData;
+import com.Inspira.odo.mainLuncher.MyApplication;
+ import com.Inspira.odo.model.SellerHomeData;
+import com.Inspira.odo.sellerData.FilterData;
 import com.Inspira.odo.sellerData.RelatedOrder;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -44,14 +48,18 @@ public class SellerHome extends Fragment {
 
     RecyclerView recycler_view ;
     View rooteView ;
-    private ArrayList<SellerHomeData> data;
+    private ArrayList<SellerHomeData> datah;
     private DataSellerHomeAdaptor dataSellerHomeAdaptor ;
     ArrayList<String>categories_CarType ,categories_car_model  ,categories_car_year;
     DataCar dataCar ;
+    ArrayList<RelatedOrder> MyOrderList ;
     String itemTYear ,item_model ,itemType;
     Map<String, ArrayList<String> > AllData ;
 
     SharedPreferencesManager sharedPreferencesManager ;
+    MyApplication myApplication ;
+    private FilterData data = new FilterData();
+    private ArrayMap<String, List<String>> applied_filters = new ArrayMap<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,14 +67,22 @@ public class SellerHome extends Fragment {
         rooteView =inflater.inflate(R.layout.fragment_seller_home, container, false);
         sharedPreferencesManager= new SharedPreferencesManager(getActivity());
         Toast.makeText(getApplicationContext(),sharedPreferencesManager.getUser_Phoe(),Toast.LENGTH_LONG).show();
-        data = new ArrayList<>();
+        datah = new ArrayList<>();
         getActivity().findViewById(R.id.filter).setVisibility(View.VISIBLE);
         getActivity().findViewById(R.id.filter).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showFilter();
+
+        showFilter();
+
+
+
+
+
+
             }
         });
+
         initViews();
          return rooteView ;
 
@@ -98,11 +114,13 @@ public class SellerHome extends Fragment {
                 if(responseCode==200){
                     ArrayList<RelatedOrder> bankJSONResponse = response.body();
                     if(!bankJSONResponse.isEmpty()){
-                        ArrayList<RelatedOrder> MyOrderList= new ArrayList<RelatedOrder>();
+                       MyOrderList= new ArrayList<RelatedOrder>();
                         MyOrderList.addAll(bankJSONResponse);
 
                         dataSellerHomeAdaptor=  new DataSellerHomeAdaptor(MyOrderList,getActivity(),getActivity());
                         recycler_view.setAdapter(dataSellerHomeAdaptor);
+                        data.setmList(MyOrderList);
+                        myApplication= new MyApplication();
                         dataSellerHomeAdaptor.notifyDataSetChanged();
                         Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_LONG).show();
 //                        Log.d("CODE", "ResponseCode: " + responseCode);
@@ -125,7 +143,8 @@ public class SellerHome extends Fragment {
         super.onResume();
         getActivity().setTitle(R.string.home_seller);
     }
-    public  void showFilter (){
+    public    void showFilter (){
+        boolean check = false ;
         final Dialog okdialog = new Dialog(getActivity(), R.style.custom_dialog_theme);
         okdialog.setContentView(R.layout.dialog_seller_home_data);
         Button OK_d =(Button)okdialog.findViewById(R.id.ok);
@@ -240,12 +259,63 @@ public class SellerHome extends Fragment {
             @Override
             public void onClick(View view) {
                 okdialog.dismiss();
+                if(item_model!=null&&itemTYear!=null &&itemType!=null){
+                    addToSelectedMap("price_max", itemType);
+                    addToSelectedMap("price_min", itemType);
+                    addToSelectedMap("area",  itemTYear);
+                    if (data != null) {
+                        ArrayMap<String, List<String>> applied_filter = applied_filters;
+                        if (applied_filter.size() != 0) {
+                            List<RelatedOrder> filteredList = data.getAllData();
+                            //iterate over arraymap
+                            for (Map.Entry<String, List<String>> entry : applied_filter.entrySet()) {
+                                Log.d("k9res", "entry.key: " + entry.getKey());
+                                switch (entry.getKey()) {
+                                    case "price_max":
+                                        filteredList = data.getCarType(entry.getValue(), filteredList);
+                                        break;
+                                    case "price_min":
+                                        filteredList = data.getModle(entry.getValue(), filteredList);
+                                        break;
+                                    case "area":
+                                        filteredList = data.getYeat(entry.getValue(), filteredList);
+                                        break;
+
+                                }
+
+                                MyOrderList.clear();
+                                MyOrderList.addAll(filteredList);
+                                dataSellerHomeAdaptor.notifyDataSetChanged();
+
+                            }
+
+
+                        }
+                    }
+
+                }else {
+
+                    Toast.makeText(getActivity(),"chose data",Toast.LENGTH_LONG).show();
+                }
+
+
+
 
             }
         });okdialog.show();
-//
+
+
     }
 
+    private void addToSelectedMap(String key, String value) {
+        if (applied_filters.get(key) != null && !applied_filters.get(key).contains(value)) {
+            applied_filters.get(key).add(value);
+        } else {
+            List<String> temp = new ArrayList<>();
+            temp.add(value);
+            applied_filters.put(key, temp);
+        }
+    }
 
 
 }

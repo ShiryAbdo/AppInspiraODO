@@ -23,6 +23,7 @@ import com.Inspira.odo.R;
 import com.Inspira.odo.buyerUi.detalisOfRequest;
 import com.Inspira.odo.data.ApiClient;
 import com.Inspira.odo.data.ApiInterface;
+import com.Inspira.odo.data.Model.AddsFavourite;
 import com.Inspira.odo.data.Model.BuyerAddsFavourite;
 import com.Inspira.odo.data.Model.Response;
 import com.Inspira.odo.database.SharedPreferencesManager;
@@ -239,7 +240,7 @@ public class ResponseAdaptor  extends RecyclerView.Adapter<ResponseAdaptor.ViewH
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
 
-        Call<ResponseBody> call = apiService.addfavouriteBuer(new BuyerAddsFavourite( buyerPhoneNumber,sellerPhoneNumber,orderId));
+        Call<ResponseBody> call = apiService.addfavourite(new AddsFavourite( buyerPhoneNumber,sellerPhoneNumber,orderId));
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody>call, retrofit2.Response<ResponseBody> response) {

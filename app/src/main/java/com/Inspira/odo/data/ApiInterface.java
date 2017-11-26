@@ -1,5 +1,6 @@
 package com.Inspira.odo.data;
 
+import com.Inspira.odo.data.Model.AddsFavourite;
 import com.Inspira.odo.data.Model.BuyerAddsFavourite;
 import com.Inspira.odo.data.Model.BuyerRegistration;
 import com.Inspira.odo.data.Model.Login;
@@ -50,7 +51,7 @@ public interface ApiInterface {
     @POST(Orders)
     Call<ResponseBody> addOrders(@Body MakOrder order);
     @POST(favouritesAddBuer)
-    Call<ResponseBody> addfavouriteBuer(@Body BuyerAddsFavourite buyerAddsFavourite);
+    Call<ResponseBody> addfavourite(@Body AddsFavourite addsFavourite);
 
     @Multipart
     @POST(UploadImage)

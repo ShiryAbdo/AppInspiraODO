@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.Inspira.odo.R;
+import com.Inspira.odo.data.ApiClient;
+import com.Inspira.odo.data.ApiInterface;
+import com.Inspira.odo.data.Model.AddsFavourite;
 import com.Inspira.odo.data.Model.Response;
+import com.Inspira.odo.database.SharedPreferencesManager;
 import com.Inspira.odo.helper.DateTimeHelper;
 import com.Inspira.odo.mainLuncher.MyApplication;
 import com.Inspira.odo.sellerData.RelatedOrder;
@@ -27,6 +32,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+
+import static android.content.ContentValues.TAG;
+
 /**
  * Created by shirya on 03/11/17.
  */
@@ -37,6 +48,7 @@ public class DataSellerHomeAdaptor  extends RecyclerView.Adapter<DataSellerHomeA
     private int lastPosition=-1;
     DateTimeHelper dateTimeHelper ;
     Activity activity ;
+    SharedPreferencesManager sharedPreferencesManager ;
 
     MyApplication myApplication ;
 
@@ -46,6 +58,8 @@ public class DataSellerHomeAdaptor  extends RecyclerView.Adapter<DataSellerHomeA
         this.activity =activity ;
         this.dateTimeHelper= new DateTimeHelper(context);
         myApplication= new MyApplication();
+        sharedPreferencesManager= new SharedPreferencesManager(context);
+
     }
 
     @Override
@@ -57,7 +71,7 @@ public class DataSellerHomeAdaptor  extends RecyclerView.Adapter<DataSellerHomeA
     }
 
     @Override
-    public void onBindViewHolder(DataSellerHomeAdaptor.ViewHolder viewHolder, final int i) {
+    public void onBindViewHolder(final DataSellerHomeAdaptor.ViewHolder viewHolder, final int i) {
         viewHolder.Name_request.setText(androidList.get(i).getOrder().getPart());
         viewHolder.name_car.setText(androidList.get(i).getCarDetails().getCarType());
         viewHolder.Type_car.setText(androidList.get(i).getCarDetails().getCarModel());
@@ -89,6 +103,12 @@ public class DataSellerHomeAdaptor  extends RecyclerView.Adapter<DataSellerHomeA
         String resul= dateTimeHelper.substractDates(d1,d ,dfDate);
 
         viewHolder.time_of_post.setText(resul);
+        viewHolder.Favorite_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addFairtes(androidList.get(i).getBuyerPhoneNumber(),sharedPreferencesManager.getUser_Phoe(),androidList.get(i).getId(),viewHolder);
+            }
+        });
 
         viewHolder.card.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,5 +199,36 @@ public class DataSellerHomeAdaptor  extends RecyclerView.Adapter<DataSellerHomeA
     private RelatedOrder getItem(int position) {
         return androidList.get(position);
     }
+    public  void addFairtes(String buyerPhoneNumber, String sellerPhoneNumber, String orderId , final  ViewHolder viewHolder){
+        ApiInterface apiService =
+                ApiClient.getClient().create(ApiInterface.class);
+
+        Call<ResponseBody> call = apiService.addfavourite(new AddsFavourite( buyerPhoneNumber,sellerPhoneNumber,orderId));
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody>call, retrofit2.Response<ResponseBody> response) {
+                int responseCode = response.code();
+                Log.d("CODE", "ResponseCode: " + responseCode);
+                if(responseCode==200){
+                    viewHolder.Favorite_image.setImageResource(R.drawable.staryellow);
+
+                    Toast.makeText(context,"ResponseCode: " + responseCode,Toast.LENGTH_SHORT).show();
+
+                }else {
+
+                    Toast.makeText(context,"ResponseCode: " + responseCode,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context," else",Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody>call, Throwable t) {
+                // Log error here since request failed
+                Log.e(TAG, t.toString());
+            }
+        });
+
+    }
+
 
 }

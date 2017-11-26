@@ -16,6 +16,7 @@ public class CarsDataBase {
 
     public static void storeReadLater(Context context,String dataBaseName ,String carType,String carModel,String carYear) {
         TinyDB tinydb = new TinyDB(context);
+        Toast.makeText(getApplicationContext(),carType+ "/" + carModel + "/" + carYear,Toast.LENGTH_SHORT).show();
         String readLater = carType+ "/" + carModel + "/" + carYear;
         ArrayList<String> readLaterList = tinydb.getListString(dataBaseName);
         if (readLaterList == null) {
@@ -54,8 +55,24 @@ public class CarsDataBase {
 
         for(int i =0 ; i<arrayList.size();i++){
             if(i+1 ==arrayList.size()){
-              break;
-            }else {
+
+                if (arrayList.get(i).getCarType().equals(arrayList.get(i-1).getCarType())&&arrayList.get(i).getCarModel().equals(arrayList.get(i-1).getCarModel())){
+                    CarModel  carModel= new CarModel();
+                    if(!years.contains(arrayList.get(i).getCarYear())){
+                        years.add(arrayList.get(i).getCarYear());
+                    }
+                    carModel.setModel(arrayList.get(i).getCarModel());
+                    carModel.setYears(years);
+                    carModelArray.add(carModel);
+                    commendArray.add(new  WorkingOn (arrayList.get(i).getCarType(),carModelArray) );
+                    Toast.makeText(getApplicationContext(),"add",Toast.LENGTH_SHORT).show();
+
+
+                }else {
+                    Toast.makeText(getApplicationContext(),"els",Toast.LENGTH_SHORT).show();
+                    years.clear();
+                }
+             }else {
 
                 if (arrayList.get(i).getCarType().equals(arrayList.get(i+1).getCarType())&&arrayList.get(i).getCarModel().equals(arrayList.get(i+1).getCarModel())){
                     CarModel  carModel= new CarModel();

@@ -9,6 +9,7 @@ import com.Inspira.odo.data.Model.MyRequest;
 import com.Inspira.odo.data.Model.SellerRegistration;
 import com.Inspira.odo.model.UploadResponse;
 import com.Inspira.odo.sellerData.RelatedOrder;
+import com.Inspira.odo.sellerData.RespondToOrder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,7 @@ public interface ApiInterface {
     String login = "/login/" ;
     String myOrders ="/profile/buyer/myOrders" ;
     String RelatedOrders ="/orders/seller/relatedOrders" ;
+    String RespondtoaReques ="/respondToOrder";
 
 
 
@@ -56,7 +58,7 @@ public interface ApiInterface {
 
     @POST(RelatedOrders)
     Call<ArrayList<RelatedOrder>> getRelatedOrder(@Body MyRequest myRequest) ;
-//@POST(RelatedOrders)
-//Call<ResponseBody> getRelatedOrder(@Body RelatedOrder relatedOrder) ;
+    @POST(RespondtoaReques)
+    Call<ResponseBody> doRespondtoaReques(@Body RespondToOrder respondToOrder);
 }
 

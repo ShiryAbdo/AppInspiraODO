@@ -24,6 +24,7 @@ import com.Inspira.odo.data.ApiInterface;
 import com.Inspira.odo.data.Model.DataCar;
 import com.Inspira.odo.data.Model.MyRequest;
 import com.Inspira.odo.database.MyOrder;
+import com.Inspira.odo.database.SharedPreferencesManager;
 import com.Inspira.odo.model.SellerHomeData;
 import com.Inspira.odo.sellerData.RelatedOrder;
 
@@ -50,12 +51,14 @@ public class SellerHome extends Fragment {
     String itemTYear ,item_model ,itemType;
     Map<String, ArrayList<String> > AllData ;
 
-
+    SharedPreferencesManager sharedPreferencesManager ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rooteView =inflater.inflate(R.layout.fragment_seller_home, container, false);
+        sharedPreferencesManager= new SharedPreferencesManager(getActivity());
+        Toast.makeText(getApplicationContext(),sharedPreferencesManager.getUser_Phoe(),Toast.LENGTH_LONG).show();
         data = new ArrayList<>();
         getActivity().findViewById(R.id.filter).setVisibility(View.VISIBLE);
         getActivity().findViewById(R.id.filter).setOnClickListener(new View.OnClickListener() {
@@ -82,7 +85,7 @@ public class SellerHome extends Fragment {
 
 
     private void loadJSON() {
-        Toast.makeText(getApplicationContext(),"coled",Toast.LENGTH_LONG).show();
+
 
 
         ApiInterface apiService =
@@ -97,7 +100,6 @@ public class SellerHome extends Fragment {
                     if(!bankJSONResponse.isEmpty()){
                         ArrayList<RelatedOrder> MyOrderList= new ArrayList<RelatedOrder>();
                         MyOrderList.addAll(bankJSONResponse);
-                        Toast.makeText(getApplicationContext(),bankJSONResponse.get(0).getBuyerPhoneNumber()+"",Toast.LENGTH_LONG).show();
 
                         dataSellerHomeAdaptor=  new DataSellerHomeAdaptor(MyOrderList,getActivity(),getActivity());
                         recycler_view.setAdapter(dataSellerHomeAdaptor);

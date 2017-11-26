@@ -15,10 +15,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.Inspira.odo.R;
+import com.Inspira.odo.helper.DateTimeHelper;
+import com.Inspira.odo.mainLuncher.MyApplication;
 import com.Inspira.odo.sellerData.RelatedOrder;
 import com.Inspira.odo.sellerUi.RespondtoaReques;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by shirya on 03/11/17.
@@ -28,12 +33,17 @@ public class DataSellerHomeAdaptor  extends RecyclerView.Adapter<DataSellerHomeA
     private ArrayList<RelatedOrder> androidList;
     private Context context;
     private int lastPosition=-1;
+    DateTimeHelper dateTimeHelper ;
     Activity activity ;
+
+    MyApplication myApplication ;
 
     public DataSellerHomeAdaptor(ArrayList<RelatedOrder> android, Context c , Activity activity) {
         this.androidList = android;
         this.context=c;
         this.activity =activity ;
+        this.dateTimeHelper= new DateTimeHelper(context);
+        myApplication= new MyApplication();
     }
 
     @Override
@@ -46,13 +56,37 @@ public class DataSellerHomeAdaptor  extends RecyclerView.Adapter<DataSellerHomeA
 
     @Override
     public void onBindViewHolder(DataSellerHomeAdaptor.ViewHolder viewHolder, final int i) {
-        viewHolder.Name_request.setText(androidList.get(i).getCarDetails().getCarType());
-        viewHolder.name_car.setText(androidList.get(i).getOrderPartType());
-        viewHolder.Type_car.setText(androidList.get(i).getCarDetails().getCarType());
+        viewHolder.Name_request.setText(androidList.get(i).getOrder().getPart());
+        viewHolder.name_car.setText(androidList.get(i).getCarDetails().getCarType());
+        viewHolder.Type_car.setText(androidList.get(i).getCarDetails().getCarModel());
         viewHolder.year_car.setText(androidList.get(i).getCarDetails().getCarYear());
-        viewHolder.model_car.setText(androidList.get(i).getCarDetails().getCarModel());
+        viewHolder.model_car.setText(androidList.get(i).getOrder().getPartType());
         viewHolder.color_car.setText(androidList.get(i).getOrder().getColor());
-        viewHolder.time_of_post.setText(androidList.get(i).getDate());
+
+
+         SimpleDateFormat dfDate  = new SimpleDateFormat("dd/MM/yyyy");
+        java.util.Date d = null;
+        java.util.Date d1 = null;
+        Calendar cal = Calendar.getInstance();
+//        you need to split date resived
+        String dat= androidList.get(i).getDate();
+        String CurrentString = dat;
+        String[] separated = CurrentString.split("T");
+        String dateString=  separated[0];
+        String dataTime = separated[1];
+
+        String[] seped = dateString.split("-");
+        String time = seped[2]+"/"+seped[1]+"/"+seped[0];
+        try {
+            Date date=dfDate.parse(time);
+            d = dfDate.parse(time);
+            d1 = dfDate.parse(dfDate.format(cal.getTime()));//Returns 15/10/2012
+        } catch (java.text.ParseException e) {
+            e.printStackTrace();
+        }
+        String resul= dateTimeHelper.substractDates(d1,d ,dfDate);
+
+        viewHolder.time_of_post.setText(resul);
 
         viewHolder.card.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +96,9 @@ public class DataSellerHomeAdaptor  extends RecyclerView.Adapter<DataSellerHomeA
 
                 Toast.makeText(context,"this",Toast.LENGTH_SHORT).show();
                 Intent intent= new Intent(context, RespondtoaReques.class);
+                intent.putExtra("part",androidList.get(i).getOrder().getPart());
+                intent.putExtra("buyerPhoneNumber",androidList.get(i).getBuyerPhoneNumber());
+                intent.putExtra("orderID",androidList.get(i).getId());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
                 context.startActivity(intent);
 

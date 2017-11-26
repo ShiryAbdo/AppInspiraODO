@@ -54,17 +54,25 @@ LocationListener{
     private Marker currentLocationmMarker;
     public static final int REQUEST_LOCATION_CODE = 99;
     int PROXIMITY_RADIUS = 10000;
-    String latitude,longitude;
     LatLng newpoint ;
     Bundle bundle ;
-    String  companyName,company_address;
+    String  fName, phoneNo, password, email ,latitude,longitude, companyName,company_address ,your_Type_requse ,arraType;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mapsone);
-        if(bundle!=null) {
-            companyName = bundle.getString("companyName");
-            company_address = bundle.getString("company_address");
+        bundle=getIntent().getExtras();
+        if(bundle!=null){
+
+            fName=bundle.getString("fName");
+            phoneNo= bundle.getString("phoneNo");
+            password=bundle.getString("password");
+            email=bundle.getString("email");
+            companyName= bundle.getString("companyName");
+            company_address= bundle.getString("company_address");
+            your_Type_requse=bundle.getString("your_Type_requse");
+
         }
         displayPromptForEnablingGPS(MapsActivity.this);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
@@ -86,6 +94,12 @@ LocationListener{
                     intent.putExtra("longitude",longitude);
                     intent.putExtra("companyName",companyName);
                     intent.putExtra("company_address",company_address);
+                     intent.putExtra("your_Type_requse",your_Type_requse);
+                    intent.putExtra("fName",fName);
+                    intent.putExtra("phoneNo",phoneNo);
+                    intent.putExtra("password",password);
+                    intent.putExtra("email",email);
+                    intent.putExtra("area",arraType);
                     startActivity(intent);
                 }else {
                     Toast.makeText(getApplicationContext(),getString(R.string.Enter_location),Toast.LENGTH_SHORT).show();

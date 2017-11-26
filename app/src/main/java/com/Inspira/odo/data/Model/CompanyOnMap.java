@@ -16,6 +16,12 @@ public class CompanyOnMap implements Parcelable
     @SerializedName("latitude")
     @Expose
     private String latitude;
+
+    public CompanyOnMap(String longitude, String latitude) {
+        this.longitude = longitude;
+        this.latitude = latitude;
+    }
+
     public final static Creator<CompanyOnMap> CREATOR = new Creator<CompanyOnMap>() {
 
 

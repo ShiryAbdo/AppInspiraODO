@@ -98,6 +98,8 @@ public class ContinuingRegSeler extends AppCompatActivity {
         if(companyNamey!=null&&company_addressy!=null){
             companyName.setText(companyNamey);
             company_address.setText(company_addressy);
+            Toast.makeText(getApplicationContext(),companyNamey,Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),company_addressy,Toast.LENGTH_SHORT).show();
 
         }
 
@@ -119,6 +121,12 @@ public class ContinuingRegSeler extends AppCompatActivity {
                 Intent intent = new Intent(ContinuingRegSeler.this,MapsActivity.class);
                 intent.putExtra("companyName",companyName.getText().toString().trim());
                 intent.putExtra("company_address",company_address.getText().toString().trim());
+                intent.putExtra("your_Type_requse",itemType);
+                intent.putExtra("fName",fName);
+                intent.putExtra("phoneNo",phoneNo);
+                intent.putExtra("password",password);
+                intent.putExtra("email",email);
+                intent.putExtra("area",arraType);
                 startActivity(intent);
                 finish();
 
@@ -259,37 +267,37 @@ public class ContinuingRegSeler extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private class GetAddress extends AsyncTask<String, Void, String> {
-
-
-        private LatLng latLng;
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-
-        }
-
-        @Override
-        protected String doInBackground(String... strings) {
-            try{
-                latLng = getLatLong(getLocationInfo(geoValue));
-
-                return null;
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            lat = latLng.latitude;
-            lng = latLng.longitude;
-            doContinue();
-        }
-    }
+//    private class GetAddress extends AsyncTask<String, Void, String> {
+//
+//
+//        private LatLng latLng;
+//
+//        @Override
+//        protected void onPreExecute() {
+//            super.onPreExecute();
+//
+//        }
+//
+//        @Override
+//        protected String doInBackground(String... strings) {
+//            try{
+//                latLng = getLatLong(getLocationInfo(geoValue));
+//
+//                return null;
+//            }
+//            catch (Exception e){
+//                e.printStackTrace();
+//            }
+//            return null;
+//        }
+//
+//        @Override
+//        protected void onPostExecute(String s) {
+//            lat = latLng.latitude;
+//            lng = latLng.longitude;
+//            doContinue();
+//        }
+//    }
 
     @Override
     public void onBackPressed() {

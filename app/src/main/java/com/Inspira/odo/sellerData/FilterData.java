@@ -41,11 +41,10 @@ public class FilterData {
                     tempList.add(Response);
                 }
             }
-
         }
         return tempList;
     }
-    public List<RelatedOrder> getModle(List<String> category, List<RelatedOrder> mList) {
+    public List<RelatedOrder> getModel(List<String> category, List<RelatedOrder> mList) {
         List<RelatedOrder> tempList = new ArrayList<>();
         for (RelatedOrder Response : mList) {
             for (String c : category) {
@@ -53,23 +52,20 @@ public class FilterData {
                     tempList.add(Response);
                 }
             }
-
         }
         return tempList;
     }
 
 
 
-    public List<RelatedOrder> getYeat(List<String> price, List<RelatedOrder> mList) {
+    public List<RelatedOrder> getYear(List<String> year, List<RelatedOrder> mList) {
         List<RelatedOrder> tempList = new ArrayList<>();
-        List<Double> doubleList = new ArrayList<>();
-        for(String s : price) doubleList.add(Double.valueOf(s));
+        List<Integer>integerList = new ArrayList<>();
+        for(String s : year) integerList.add(Integer.valueOf(s));
         for (RelatedOrder MyOrder : mList) {
-            if (MyOrder.getCarDetails(). getCarYear().equals(price)) {
+            if (MyOrder.getCarDetails(). getCarYear().equals(year)) {
                 tempList.add(MyOrder);
             }
-
-
         }
         return tempList;
     }

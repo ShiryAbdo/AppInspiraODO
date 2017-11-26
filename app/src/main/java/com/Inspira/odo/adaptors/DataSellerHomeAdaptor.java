@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.Inspira.odo.R;
+import com.Inspira.odo.data.Model.Response;
 import com.Inspira.odo.helper.DateTimeHelper;
 import com.Inspira.odo.mainLuncher.MyApplication;
 import com.Inspira.odo.sellerData.RelatedOrder;
@@ -24,6 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by shirya on 03/11/17.
@@ -147,6 +149,35 @@ public class DataSellerHomeAdaptor  extends RecyclerView.Adapter<DataSellerHomeA
 
 
         }
+    }
+    public void add(RelatedOrder r) {
+        androidList.add(r);
+        notifyItemInserted(androidList.size() -1);
+    }
+
+    public void addAll(List<RelatedOrder> moveResults) {
+        for (RelatedOrder result : moveResults) {
+//            if (!result.getProducts().isEmpty())
+            add(result);
+        }
+    }
+
+    public void remove(RelatedOrder r) {
+        int position = androidList.indexOf(r);
+        if (position > -1) {
+            androidList.remove(position);
+            notifyDataSetChanged();
+        }
+    }
+
+    public void clear() {
+        while (getItemCount() > 0) {
+            remove(getItem(0));
+        }
+    }
+
+    private RelatedOrder getItem(int position) {
+        return androidList.get(position);
     }
 
 }

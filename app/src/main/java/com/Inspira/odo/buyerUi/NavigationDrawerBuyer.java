@@ -130,17 +130,17 @@ public boolean onOptionsItemSelected(MenuItem item) {
                 mFragment = new ChangeLanguage();
                 break;
             case  9:
-                boolean check =  sharedPreferencesManager.isCheckFacebookLogin();
-                if(check==true){
+//                boolean check =  sharedPreferencesManager.isCheckFacebookLogin();
+//                if(check){
                     LoginManager.getInstance().logOut();
                     Intent intent = new Intent(NavigationDrawerBuyer.this, LogInActivity.class);
                     sharedPreferencesManager.clearShared();
                     startActivity(intent);
-                }else {
-                    Intent intent = new Intent(NavigationDrawerBuyer.this, LogInActivity.class);
-                    sharedPreferencesManager.clearShared();
-                    startActivity(intent);
-                }
+//                }else {
+////                    Intent intent = new Intent(NavigationDrawerBuyer.this, LogInActivity.class);
+////                    sharedPreferencesManager.clearShared();
+////                    startActivity(intent);
+//                }
 
 
 

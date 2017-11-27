@@ -190,7 +190,7 @@ import java.util.ArrayList;
      }
 
      public boolean isCheckFacebookLogin() {
-         return pref.getBoolean(StringCheckFacebookLogin,false);
+         return pref.getBoolean(StringCheckFacebookLogin,true);
 
      }
 

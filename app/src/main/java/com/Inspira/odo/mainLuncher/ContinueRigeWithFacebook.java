@@ -26,7 +26,7 @@ import retrofit2.Response;
 import static android.content.ContentValues.TAG;
 
 public class ContinueRigeWithFacebook extends AppCompatActivity {
-    EditText Mobile_Number;
+    EditText Mobile_Number ,passworred;
     Button Continue ;
     Bundle bundle ;
     String user_name  ,email;
@@ -43,6 +43,7 @@ public class ContinueRigeWithFacebook extends AppCompatActivity {
         }
         setContentView(R.layout.activity_continue_rige_with_facebook);
         Mobile_Number=(EditText)findViewById(R.id.Mobile_Number);
+        passworred=(EditText)findViewById(R.id.passworred);
         Continue=(Button)findViewById(R.id.Continue);
         Continue.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,8 +53,8 @@ public class ContinueRigeWithFacebook extends AppCompatActivity {
 //                startActivity(intent);
                 Toast.makeText(getApplicationContext(),email,Toast.LENGTH_SHORT).show();
                 Toast.makeText(getApplicationContext(),user_name,Toast.LENGTH_SHORT).show();
-                if(user_name!=null&&!Mobile_Number.getText().toString().trim().equals("")&&email!=null){
-                    getData(Mobile_Number.getText().toString().trim(),user_name,email,"pass","","");
+                if(user_name!=null&&!Mobile_Number.getText().toString().trim().equals("")&&email!=null &&passworred.getText().toString().trim().equals("")){
+                    getData(Mobile_Number.getText().toString().trim(),user_name,email,passworred.getText().toString().trim(),"","");
                 }else {
                     Toast.makeText(getApplicationContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
                 }

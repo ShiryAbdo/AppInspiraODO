@@ -48,7 +48,7 @@
             android:name=".mainLuncher.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_splash"
-            android:theme="@style/FullscreenTheme" >
+            android:theme="@style/FullscreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -78,14 +78,10 @@
             android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
             android:name=".sellerUi.ContinuingRegSeler"
-            android:windowSoftInputMode="adjustPan|adjustResize">
-
-        </activity>
+            android:windowSoftInputMode="adjustPan|adjustResize"></activity>
         <activity
             android:name=".sellerUi.WorkingOnOne"
-            android:windowSoftInputMode="adjustPan|adjustResize" >
-
-        </activity>
+            android:windowSoftInputMode="adjustPan|adjustResize"></activity>
         <activity
             android:name=".sellerUi.NavigationDrawerSeler"
             android:windowSoftInputMode="adjustPan|adjustResize" />
@@ -119,6 +115,7 @@
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
+        <activity android:name=".mainLuncher.ContinueRigeWithFacebook"></activity>
     </application>
 
 </manifest>

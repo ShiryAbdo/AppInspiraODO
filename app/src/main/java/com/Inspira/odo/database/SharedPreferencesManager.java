@@ -31,7 +31,8 @@ import java.util.ArrayList;
     private  String latitud ;
     private  String  longitud ;
      private  String  area ;
-
+ private  boolean checkFacebookLogin =false;
+     private  String StringCheckFacebookLogin = "checkFacebookLogin";
 
 
     public SharedPreferencesManager(Context mContext) {
@@ -187,4 +188,14 @@ import java.util.ArrayList;
          editor.commit();
 
      }
+
+     public boolean isCheckFacebookLogin() {
+         return pref.getBoolean(StringCheckFacebookLogin,false);
+
+     }
+
+     public void setCheckFacebookLogin(boolean checkFacebookLogin) {
+         editor.putBoolean(StringCheckFacebookLogin,checkFacebookLogin);
+         editor.commit();
+      }
  }

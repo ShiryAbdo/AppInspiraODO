@@ -18,7 +18,8 @@ public class BuyerRegistration {
     @SerializedName("userType")
     private String userType;
 
-    public BuyerRegistration(String phoneNumber, String fullName, String email, String password ,String hashVal ,String  userType ) {
+    public BuyerRegistration(String phoneNumber, String fullName, String email, String password ,String hashVal ,
+                             String  userType ) {
         this.phoneNumber = phoneNumber;
         this.fullName = fullName;
         this.email = email;

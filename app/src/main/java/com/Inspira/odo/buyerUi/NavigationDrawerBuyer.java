@@ -23,6 +23,8 @@ import com.Inspira.odo.mainLuncher.EditProfile;
 import com.Inspira.odo.helper.LocaleHelper;
 import com.Inspira.odo.mainLuncher.LogInActivity;
 import com.Inspira.odo.model.ObjectDrawerItem;
+import com.facebook.FacebookSdk;
+import com.facebook.login.LoginManager;
 
 import java.util.ArrayList;
 
@@ -43,6 +45,7 @@ private Fragment mFragment;
 protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_main);
+    FacebookSdk.sdkInitialize(getApplicationContext());
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
     sharedPreferencesManager= new SharedPreferencesManager(this);
@@ -127,9 +130,20 @@ public boolean onOptionsItemSelected(MenuItem item) {
                 mFragment = new ChangeLanguage();
                 break;
             case  9:
-             Intent intent = new Intent(NavigationDrawerBuyer.this, LogInActivity.class);
-                sharedPreferencesManager.clearShared();
-                startActivity(intent);
+                boolean check =  sharedPreferencesManager.isCheckFacebookLogin();
+                if(check==true){
+                    LoginManager.getInstance().logOut();
+                    Intent intent = new Intent(NavigationDrawerBuyer.this, LogInActivity.class);
+                    sharedPreferencesManager.clearShared();
+                    startActivity(intent);
+                }else {
+                    Intent intent = new Intent(NavigationDrawerBuyer.this, LogInActivity.class);
+                    sharedPreferencesManager.clearShared();
+                    startActivity(intent);
+                }
+
+
+
                 break;
         }
         attachFragment();

@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">ODO</string>
-    <string name="facebook_app_id" translatable="false">959779104184559</string>
-    <string name="fb_login_protocol_scheme" translatable="false">fb959779104184559</string>
+    <string name="facebook_app_id">165077480758226</string>
+    <string name="fb_login_protocol_scheme">fb165077480758226</string>
+
+    <!--<string name="facebook_app_id" translatable="false">165077480758226</string>-->
+    <!--<string name="fb_login_protocol_scheme" translatable="false">fb959779104184559</string>-->
 
     <string name="title_activity_splash" translatable="false">SplashActivity</string>
     <string name="dummy_button">Dummy Button</string>

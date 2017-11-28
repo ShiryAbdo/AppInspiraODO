@@ -35,6 +35,8 @@ public interface ApiInterface {
     String RespondtoaReques ="/respondToOrder";
     String favouritesAddBuer ="/orders/buyer/favourites/add";
     String favouritesAddSeller ="/orders/seller/favourites/add" ;
+    String buyerfavouritesget ="buyer/favourites/get";
+    String sellerfavouritesget="seller/favourites/get";
 
 
 
@@ -54,6 +56,10 @@ public interface ApiInterface {
     Call<ResponseBody> addfavouriteBuyer(@Body AddsFavourite addsFavourite);
 
 
+    @POST(buyerfavouritesget)
+    Call<ArrayList<RelatedOrder>> Getbuyerfavourites(@Body MyRequest myRequest) ;
+
+
     @Multipart
     @POST(UploadImage)
     Call<List<UploadResponse>> uploadImage(@Part MultipartBody.Part photos);
@@ -68,5 +74,8 @@ public interface ApiInterface {
     Call<ResponseBody> doRespondtoaReques(@Body RespondToOrder respondToOrder);
     @POST(favouritesAddSeller)
     Call<ResponseBody> addfavouriteSeller(@Body AddsFavourite addsFavourite);
+
+    @POST(sellerfavouritesget)
+    Call<ArrayList<RelatedOrder>> Getsellerfavourites(@Body MyRequest myRequest) ;
 }
 

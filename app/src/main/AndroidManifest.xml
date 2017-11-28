@@ -48,11 +48,7 @@
             android:name=".mainLuncher.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
              android:theme="@style/FullscreenTheme" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".mainLuncher.RegistrationActivity" />
         <activity
@@ -80,7 +76,13 @@
             android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
             android:name=".sellerUi.WorkingOnOne"
-            android:windowSoftInputMode="adjustPan|adjustResize" />
+            android:windowSoftInputMode="adjustPan|adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".sellerUi.NavigationDrawerSeler"
             android:windowSoftInputMode="adjustPan|adjustResize">

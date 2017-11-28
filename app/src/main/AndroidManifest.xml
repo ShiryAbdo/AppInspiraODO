@@ -47,8 +47,13 @@
         <activity
             android:name=".mainLuncher.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_splash"
-            android:theme="@style/FullscreenTheme" />
+             android:theme="@style/FullscreenTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".mainLuncher.RegistrationActivity" />
         <activity
             android:name=".buyerUi.NavigationActivity"
@@ -79,11 +84,7 @@
         <activity
             android:name=".sellerUi.NavigationDrawerSeler"
             android:windowSoftInputMode="adjustPan|adjustResize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".sellerUi.DialogeSellerData"

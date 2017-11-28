@@ -12,8 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.Inspira.odo.R;
-import com.Inspira.odo.model.SellerHomeData;
-import com.Inspira.odo.model.ShowFavourite;
+ import com.Inspira.odo.model.ShowFavourite;
 
 import java.util.ArrayList;
 

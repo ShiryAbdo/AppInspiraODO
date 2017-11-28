@@ -17,9 +17,6 @@ package com.Inspira.odo.WorkingOn;
 import android.content.Context;
 import android.widget.ExpandableListView;
 
-/**
- * Created by serajam on 10/22/2017.
- */
 
 public class SecondLevelExpandableListView extends ExpandableListView {
 

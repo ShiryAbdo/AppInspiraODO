@@ -15,6 +15,7 @@ import com.Inspira.odo.data.ApiClient;
 import com.Inspira.odo.data.ApiInterface;
 import com.Inspira.odo.data.Model.BuyerRegistration;
 import com.Inspira.odo.database.SharedPreferencesManager;
+import com.Inspira.odo.helper.CheckValidation;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
 
@@ -24,18 +25,21 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static android.content.ContentValues.TAG;
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class ContinueRigeWithFacebook extends AppCompatActivity {
-    EditText Mobile_Number ,passworred;
+    EditText Mobile_Number ,passworred ,Confirm_Password;
     Button Continue ;
     Bundle bundle ;
     String user_name  ,email;
- SharedPreferencesManager sharedPreferencesManager ;
+    SharedPreferencesManager sharedPreferencesManager ;
+    CheckValidation checkValidation ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
         sharedPreferencesManager= new SharedPreferencesManager(ContinueRigeWithFacebook.this);
+        checkValidation= new CheckValidation(this);
                 bundle=getIntent().getExtras();
         if(bundle!=null){
             user_name = bundle.getString("user_name");
@@ -45,6 +49,7 @@ public class ContinueRigeWithFacebook extends AppCompatActivity {
         Mobile_Number=(EditText)findViewById(R.id.Mobile_Number);
         passworred=(EditText)findViewById(R.id.passworred);
         Continue=(Button)findViewById(R.id.Continue);
+        Confirm_Password=(EditText)findViewById(R.id.Confirm_Password);
         Continue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,7 +59,14 @@ public class ContinueRigeWithFacebook extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),email,Toast.LENGTH_SHORT).show();
                 Toast.makeText(getApplicationContext(),user_name,Toast.LENGTH_SHORT).show();
                 if(user_name!=null&&!Mobile_Number.getText().toString().trim().equals("")&&email!=null &&passworred.getText().toString().trim().equals("")){
-                    getData(Mobile_Number.getText().toString().trim(),user_name,email,passworred.getText().toString().trim(),"","");
+                    boolean checkPassword =checkValidation.ComfierPassord(passworred ,Confirm_Password);
+                    if(checkPassword==true){
+                        getData(Mobile_Number.getText().toString().trim(),user_name,email,passworred.getText().toString().trim(),"","");
+
+                    }else {
+                        Toast.makeText(getApplicationContext(),getString(R.string.Password_Not_matching),Toast.LENGTH_SHORT).show();
+
+                    }
                 }else {
                     Toast.makeText(getApplicationContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
                 }

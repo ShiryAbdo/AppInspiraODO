@@ -31,6 +31,9 @@ public class SellerRegistration {
     @SerializedName("companyAddress")
     @Expose
     private String companyAddress;
+    @SerializedName("companyArea")
+    @Expose
+    private String companyArea;
     @SerializedName("companyOnMap")
     @Expose
     private CompanyOnMap companyOnMap;
@@ -41,7 +44,7 @@ public class SellerRegistration {
     @Expose
     private List<WorkingOn> workingOn = null;
 
-    public SellerRegistration(String phoneNumber, String fullName, String email, String password, String hashVal, String companyName, String companyAddress, CompanyOnMap companyOnMap, String companyType, List<WorkingOn> workingOn) {
+    public SellerRegistration(String phoneNumber, String fullName, String email, String password, String hashVal, String companyName, String companyAddress,String companyArea, CompanyOnMap companyOnMap, String companyType, List<WorkingOn> workingOn) {
         this.phoneNumber = phoneNumber;
         this.fullName = fullName;
         this.email = email;
@@ -53,6 +56,7 @@ public class SellerRegistration {
         this.companyOnMap = companyOnMap;
         this.companyType = companyType;
         this.workingOn = workingOn;
+        this.companyArea =companyArea ;
     }
 
     public String getPhoneNumber() {

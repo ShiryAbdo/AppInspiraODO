@@ -6,10 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-
 import com.Inspira.odo.R;
-
 import java.util.ArrayList;
+
+
 
 public class YearsAdapter extends RecyclerView.Adapter<YearsAdapter.ViewHolder>{
 Context context;

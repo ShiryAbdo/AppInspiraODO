@@ -16,8 +16,7 @@ public class CarsDataBase {
 
     public static void storeReadLater(Context context,String dataBaseName ,String carType,String carModel,String carYear) {
         TinyDB tinydb = new TinyDB(context);
-        Toast.makeText(getApplicationContext(),carType+ "/" + carModel + "/" + carYear,Toast.LENGTH_SHORT).show();
-        String readLater = carType+ "/" + carModel + "/" + carYear;
+         String readLater = carType+ "=" + carModel + "=" + carYear;
         ArrayList<String> readLaterList = tinydb.getListString(dataBaseName);
         if (readLaterList == null) {
             readLaterList = new ArrayList<>();
@@ -34,7 +33,10 @@ public class CarsDataBase {
 
         ArrayList<String> readLaterList = tinydb.getListString(dataBaseName);
         for (String string : readLaterList) {
-            String segments[] = string.split("/");
+
+            String segments[] = string.split("=");
+            Toast.makeText(getApplicationContext(),segments.length+"",Toast.LENGTH_SHORT).show();
+
             if (segments.length == 3 ) {
                 String type = segments[0];
                 String model = segments[1];

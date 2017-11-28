@@ -43,7 +43,7 @@ public class WorkingOnOne extends AppCompatActivity implements RecyclerViewClick
     ImageView competRegister;
     SharedPreferencesManager sharedPreferencesManager ;
     Bundle bundle ;
-    String  fName, phoneNo, password, email ,latitude,longitude, companyName,company_address ,your_Type_requse;
+    String  fName, phoneNo, password, email ,latitude,longitude, companyName,company_address ,your_Type_requse ,area;
     LocaleHelper localeHelper ;
     ImageView go_back ;
     ArrayList<WorkingOn> workingOns;
@@ -73,6 +73,7 @@ public class WorkingOnOne extends AppCompatActivity implements RecyclerViewClick
             companyName= bundle.getString("companyName");
             company_address= bundle.getString("company_address");
             your_Type_requse=bundle.getString("your_Type_requse");
+            area= bundle.getString("area");
 
         }
         competRegister=(ImageView)findViewById(R.id.competRegister);
@@ -83,7 +84,7 @@ public class WorkingOnOne extends AppCompatActivity implements RecyclerViewClick
                 CompanyOnMap companyOnMap = new CompanyOnMap(longitude,latitude);
                 if(fName!=null&&email!=null&&password!=null&&companyName!=null&&company_address!=null&&your_Type_requse!=null){
                     if(phoneNo!=null){
-                        addSeller(phoneNo, fName,email,password,"1bu4i3iug262bi6u22j2ij3bug5ug45i",companyName,company_address,companyOnMap ,your_Type_requse,workingOns);
+                        addSeller(phoneNo, fName,email,password,"1bu4i3iug262bi6u22j2ij3bug5ug45i",companyName,company_address ,area,companyOnMap ,your_Type_requse,workingOns);
                         Toast.makeText(getApplicationContext(), phoneNo +"",Toast.LENGTH_LONG).show();
 
                     }else {
@@ -91,12 +92,12 @@ public class WorkingOnOne extends AppCompatActivity implements RecyclerViewClick
                     }
                     Toast.makeText(getApplicationContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
 
+                }else {
+                    Toast.makeText(getApplicationContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
+
                 }
 
 
-                int size =workingOns.get(0).getCarModels().get(0).getYears().size();
-                Toast.makeText(getApplicationContext(), workingOns.get(0).getCarModels().get(0).getYears().get(0) +"",Toast.LENGTH_LONG).show();
-                Toast.makeText(getApplicationContext(), workingOns.get(0).getCarModels().get(0).getYears().get(size-1) +"",Toast.LENGTH_LONG).show();
 
             }
         });
@@ -144,11 +145,11 @@ public class WorkingOnOne extends AppCompatActivity implements RecyclerViewClick
             }
         }
     }
-    public  void addSeller (final String phoneNumber, final String fullName, String email, String password, String hashVal, String companyName, String companyAddress, CompanyOnMap companyOnMap, String companyType, List<WorkingOn> workingOn){
+    public  void addSeller (final String phoneNumber, final String fullName, String email, String password, String hashVal, String companyName, String companyAddress ,String area, CompanyOnMap companyOnMap, String companyType, List<WorkingOn> workingOn){
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
 
-        Call<ResponseBody> call = apiService.doSellerRegister(new SellerRegistration(phoneNumber, fullName,email,password,hashVal,companyName,companyAddress ,companyOnMap ,companyType ,workingOn));
+        Call<ResponseBody> call = apiService.doSellerRegister(new SellerRegistration(phoneNumber, fullName,email,password,hashVal,companyName,companyAddress ,area ,companyOnMap ,companyType ,workingOn));
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody>call, Response<ResponseBody> response) {
@@ -163,7 +164,7 @@ public class WorkingOnOne extends AppCompatActivity implements RecyclerViewClick
                     Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), NavigationDrawerSeler.class);
                     startActivity(intent);
-                     finish();
+                    finish();
                 }else {
 
                     Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_SHORT).show();

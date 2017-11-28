@@ -63,6 +63,7 @@ public class SellerHome extends Fragment {
     private FilterData data = new FilterData();
     private ArrayMap<String, List<String>> applied_filters = new ArrayMap<>();
     AdView adView ;
+    String phone_number =   sharedPreferencesManager.getUser_Phoe() ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -108,7 +109,7 @@ public class SellerHome extends Fragment {
 
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
-        Call<ArrayList<RelatedOrder>> call = apiService.getRelatedOrder(new MyRequest("01009560622"));
+        Call<ArrayList<RelatedOrder>> call = apiService.getRelatedOrder(new MyRequest(phone_number));
         call.enqueue(new Callback<ArrayList<RelatedOrder>>() {
             @Override
             public void onResponse(Call<ArrayList<RelatedOrder>> call, Response<ArrayList<RelatedOrder>> response) {

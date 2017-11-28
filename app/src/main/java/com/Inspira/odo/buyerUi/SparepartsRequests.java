@@ -16,7 +16,7 @@ import com.Inspira.odo.R;
 import com.Inspira.odo.adaptors.MyRequestAdapter;
 import com.Inspira.odo.data.ApiClient;
 import com.Inspira.odo.data.ApiInterface;
-import com.Inspira.odo.data.Model.MyRequest;
+import com.Inspira.odo.model.MyRequest;
 import com.Inspira.odo.database.MyOrder;
 import com.Inspira.odo.database.SharedPreferencesManager;
 import com.Inspira.odo.model.FilterData;

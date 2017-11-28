@@ -23,12 +23,16 @@ import com.Inspira.odo.adaptors.DataSellerHomeAdaptor;
 import com.Inspira.odo.data.ApiClient;
 import com.Inspira.odo.data.ApiInterface;
 import com.Inspira.odo.data.Model.DataCar;
-import com.Inspira.odo.data.Model.MyRequest;
+import com.Inspira.odo.model.MyRequest;
 import com.Inspira.odo.database.SharedPreferencesManager;
 import com.Inspira.odo.mainLuncher.MyApplication;
 import com.Inspira.odo.model.SellerHomeData;
+import com.Inspira.odo.sellerData.CarDetails;
 import com.Inspira.odo.sellerData.FilterData;
+import com.Inspira.odo.sellerData.Order;
 import com.Inspira.odo.sellerData.RelatedOrder;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,12 +62,18 @@ public class SellerHome extends Fragment {
     private DataSellerHomeAdaptor dataSellerHomeAdaptor;
     private FilterData data = new FilterData();
     private ArrayMap<String, List<String>> applied_filters = new ArrayMap<>();
+    AdView adView ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rooteView = inflater.inflate(R.layout.fragment_seller_home, container, false);
         sharedPreferencesManager = new SharedPreferencesManager(getActivity());
+        // Load an ad into the AdMob banner view.
+        adView = (AdView)rooteView.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .setRequestAgent("android_studio:ad_template").build();
+        adView.loadAd(adRequest);
         Toast.makeText(getApplicationContext(), sharedPreferencesManager.getUser_Phoe(), Toast.LENGTH_LONG).show();
         datah = new ArrayList<>();
         getActivity().findViewById(R.id.filter).setVisibility(View.VISIBLE);
@@ -107,7 +117,23 @@ public class SellerHome extends Fragment {
                     ArrayList<RelatedOrder> bankJSONResponse = response.body();
                     if (!bankJSONResponse.isEmpty()) {
                         MyOrderList = new ArrayList<RelatedOrder>();
-                        MyOrderList.addAll(bankJSONResponse);
+                        RelatedOrder gg= new RelatedOrder();
+                        gg.setBuyerPhoneNumber("");
+                        gg.setCarDetails(new CarDetails());
+                        gg.setDate("");
+                        gg.setId("");
+                        gg.setOrder(new Order());
+                        gg.setOrderPartType("");
+
+                        for (int i =0; i<bankJSONResponse.size(); i++){
+                            if(i==2){
+                                MyOrderList.add(gg);
+                            }else {
+                                MyOrderList.add(bankJSONResponse.get(i));
+                            }
+
+                        }
+                         MyOrderList.addAll(bankJSONResponse);
 
                         dataSellerHomeAdaptor = new DataSellerHomeAdaptor(MyOrderList, getActivity(), getActivity());
                         recycler_view.setAdapter(dataSellerHomeAdaptor);

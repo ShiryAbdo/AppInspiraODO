@@ -22,6 +22,8 @@ import com.Inspira.odo.database.SharedPreferencesManager;
 import com.Inspira.odo.helper.LocaleHelper;
 import com.Inspira.odo.mainLuncher.MyApplication;
 import com.Inspira.odo.model.FilterData;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,11 +41,16 @@ public class RequestResponses extends AppCompatActivity {
     LocaleHelper localeHelper ;
     ImageView go_back ;
     String orderId ;
-
+AdView adView ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_responses);
+        // Load an ad into the AdMob banner view.
+        adView = (AdView)findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .setRequestAgent("android_studio:ad_template").build();
+        adView.loadAd(adRequest);
         go_back= (ImageView)findViewById(R.id.go_back);
         localeHelper= new LocaleHelper();
         String lange=  localeHelper.getLanguage(RequestResponses.this);

@@ -65,7 +65,7 @@ public class ResponseAdaptor  extends RecyclerView.Adapter<ResponseAdaptor.ViewH
 
     @Override
     public void onBindViewHolder(final ResponseAdaptor.ViewHolder viewHolder, final int i) {
-        viewHolder.price.setText(androidList.get(i).getPrice().toString());
+        viewHolder.price.setText(androidList.get(i).getPrice().toString() +"EGP");
         viewHolder.description_request.setText(androidList.get(i).getDescription());
         viewHolder.location.setText(androidList.get(i).getSellerData().getCompanyAddress());
         viewHolder.time.setText("time");
@@ -240,7 +240,7 @@ public class ResponseAdaptor  extends RecyclerView.Adapter<ResponseAdaptor.ViewH
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
 
-        Call<ResponseBody> call = apiService.addfavourite(new AddsFavourite( buyerPhoneNumber,sellerPhoneNumber,orderId));
+        Call<ResponseBody> call = apiService.addfavouriteBuyer(new AddsFavourite( buyerPhoneNumber,sellerPhoneNumber,orderId));
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody>call, retrofit2.Response<ResponseBody> response) {

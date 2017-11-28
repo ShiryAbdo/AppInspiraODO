@@ -16,6 +16,8 @@ import android.widget.Toast;
 import com.Inspira.odo.adaptors.CustomArrayAdapter_Spinner;
 import com.Inspira.odo.data.Model.DataCar;
 import com.Inspira.odo.database.SharedPreferencesManager;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,6 +35,7 @@ public class HomeBuper extends Fragment {
     Map<String, ArrayList<String> > AllData ;
     SharedPreferencesManager sharedPreferencesManager ;
     int positionModle ;
+    AdView adView ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,6 +43,12 @@ public class HomeBuper extends Fragment {
         // Inflate the layout for this fragment
    View rooteView = inflater.inflate(R.layout.fragment_home_buper, container, false);
         sharedPreferencesManager= new SharedPreferencesManager(getActivity());
+        // Load an ad into the AdMob banner view.
+        adView = (AdView)rooteView.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .setRequestAgent("android_studio:ad_template").build();
+        adView.loadAd(adRequest);
+
 
         getActivity().setTitle(R.string.Home);
         AllData = new HashMap<>() ;

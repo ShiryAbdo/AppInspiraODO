@@ -1,5 +1,5 @@
 
-package com.Inspira.odo.data.Model;
+package com.Inspira.odo.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

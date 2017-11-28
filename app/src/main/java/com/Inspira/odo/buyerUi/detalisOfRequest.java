@@ -22,6 +22,8 @@ import com.Inspira.odo.helper.LocaleHelper;
 import com.Inspira.odo.mainLuncher.MyApplication;
 import com.Inspira.odo.mainLuncher.RegistrationActivity;
 import com.Inspira.odo.model.FilterData;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,11 +39,17 @@ public class detalisOfRequest extends AppCompatActivity {
     String prices, SellerPhoneNumber, Latitude, Longitude, name, CompanyAddress;
     ImageView back ;
     LocaleHelper localeHelper ;
+    AdView adView ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalis_of_request);
+        // Load an ad into the AdMob banner view.
+        adView = (AdView)findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .setRequestAgent("android_studio:ad_template").build();
+        adView.loadAd(adRequest);
         back=(ImageView)findViewById(R.id.image);
         localeHelper= new LocaleHelper();
         String lange=  localeHelper.getLanguage(detalisOfRequest.this);
@@ -81,7 +89,7 @@ public class detalisOfRequest extends AppCompatActivity {
             }
         });
 
-        price.setText(prices);
+        price.setText(prices + "EGP");
         name_of_part.setText(name);
         Date.setText("date");
         LOCATION.setText(CompanyAddress);

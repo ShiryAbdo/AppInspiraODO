@@ -2,23 +2,30 @@ package com.Inspira.odo.adaptors;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.Inspira.odo.R;
-import com.Inspira.odo.buyerUi.NavigationDrawerBuyer;
+import com.Inspira.odo.data.ApiClient;
+import com.Inspira.odo.data.ApiInterface;
+import com.Inspira.odo.model.MyRequest;
 import com.Inspira.odo.model.ObjectDrawerItem;
+import com.Inspira.odo.sellerData.RelatedOrder;
 import com.Inspira.odo.sellerUi.NavigationDrawerSeler;
 
 import java.util.ArrayList;
 
-import static com.Inspira.odo.R.drawable.rounded_border;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static android.content.ContentValues.TAG;
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 
 /**
@@ -30,6 +37,7 @@ public class DrawerItemCustomAdapter extends BaseAdapter {
     int mLayoutResourceId;
     ArrayList<ObjectDrawerItem> mData = new ArrayList<>();
     Activity activiy ;
+    int x = 0 ;
 
     public DrawerItemCustomAdapter(Activity activit,Context context, int layoutResourceId,  ArrayList<ObjectDrawerItem>  data) {
         this.mContext = context;
@@ -70,14 +78,44 @@ public class DrawerItemCustomAdapter extends BaseAdapter {
 
 
          TextView nameTextView = (TextView) listItem.findViewById(R.id.drawer_item_name);
-        TextView numbers = (TextView)listItem.findViewById(R.id.numbers);
+        final TextView numbers = (TextView)listItem.findViewById(R.id.numbers);
 
          nameTextView.setText(objectDrawerItem.getName());
 
         if (activiy instanceof NavigationDrawerSeler && position==0){
 
-            numbers.setText(" "+objectDrawerItem.getNumber()+" ");
-            numbers.setBackgroundResource(R.drawable.round);
+            ApiInterface apiService =
+                    ApiClient.getClient().create(ApiInterface.class);
+            Call<ArrayList<RelatedOrder>> call = apiService.getRelatedOrder(new MyRequest("01009560622"));
+            call.enqueue(new Callback<ArrayList<RelatedOrder>>() {
+                @Override
+                public void onResponse(Call<ArrayList<RelatedOrder>> call, Response<ArrayList<RelatedOrder>> response) {
+                    int responseCode = response.code();
+
+                    if (responseCode == 200) {
+                        ArrayList<RelatedOrder> bankJSONResponse = response.body();
+                        if (!bankJSONResponse.isEmpty()) {
+                            ArrayList<RelatedOrder> array  = bankJSONResponse;
+                            x = array.size();
+                            numbers.setText(" "+x+" ");
+                            numbers.setBackgroundResource(R.drawable.round);
+
+
+                            Toast.makeText(getApplicationContext(), "ResponseCode: " + responseCode, Toast.LENGTH_LONG).show();
+//                        Log.d("CODE", "ResponseCode: " + responseCode);
+                        }
+                    }
+
+
+                }
+
+                @Override
+                public void onFailure(Call<ArrayList<RelatedOrder>> call, Throwable t) {
+                    // Log error here since request failed
+                    Log.e(TAG, t.toString());
+                }
+            });
+
 
 
 
@@ -85,5 +123,39 @@ public class DrawerItemCustomAdapter extends BaseAdapter {
 
 
         return listItem;
+    }
+
+
+    private int loadJSON() {
+
+         ApiInterface apiService =
+                ApiClient.getClient().create(ApiInterface.class);
+        Call<ArrayList<RelatedOrder>> call = apiService.getRelatedOrder(new MyRequest("01009560622"));
+        call.enqueue(new Callback<ArrayList<RelatedOrder>>() {
+            @Override
+            public void onResponse(Call<ArrayList<RelatedOrder>> call, Response<ArrayList<RelatedOrder>> response) {
+                int responseCode = response.code();
+
+                if (responseCode == 200) {
+                    ArrayList<RelatedOrder> bankJSONResponse = response.body();
+                    if (!bankJSONResponse.isEmpty()) {
+                        ArrayList<RelatedOrder> array  = bankJSONResponse;
+                        x = array.size();
+
+                        Toast.makeText(getApplicationContext(), "ResponseCode: " + responseCode, Toast.LENGTH_LONG).show();
+//                        Log.d("CODE", "ResponseCode: " + responseCode);
+                    }
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<RelatedOrder>> call, Throwable t) {
+                // Log error here since request failed
+                Log.e(TAG, t.toString());
+            }
+        });
+        return x;
     }
 }

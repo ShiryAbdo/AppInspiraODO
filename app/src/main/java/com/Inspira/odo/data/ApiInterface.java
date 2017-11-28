@@ -1,13 +1,12 @@
 package com.Inspira.odo.data;
 
 import com.Inspira.odo.data.Model.AddsFavourite;
-import com.Inspira.odo.data.Model.BuyerAddsFavourite;
 import com.Inspira.odo.data.Model.BuyerRegistration;
 import com.Inspira.odo.data.Model.Login;
 import com.Inspira.odo.data.Model.LoginData;
 import com.Inspira.odo.data.Model.MakOrder;
 import com.Inspira.odo.database.MyOrder;
-import com.Inspira.odo.data.Model.MyRequest;
+import com.Inspira.odo.model.MyRequest;
 import com.Inspira.odo.data.Model.SellerRegistration;
 import com.Inspira.odo.model.UploadResponse;
 import com.Inspira.odo.sellerData.RelatedOrder;
@@ -34,7 +33,8 @@ public interface ApiInterface {
     String myOrders ="/profile/buyer/myOrders" ;
     String RelatedOrders ="/orders/seller/relatedOrders" ;
     String RespondtoaReques ="/respondToOrder";
-    String favouritesAddBuer ="/favourites/add";
+    String favouritesAddBuer ="/orders/buyer/favourites/add";
+    String favouritesAddSeller ="/orders/seller/favourites/add" ;
 
 
 
@@ -51,7 +51,8 @@ public interface ApiInterface {
     @POST(Orders)
     Call<ResponseBody> addOrders(@Body MakOrder order);
     @POST(favouritesAddBuer)
-    Call<ResponseBody> addfavourite(@Body AddsFavourite addsFavourite);
+    Call<ResponseBody> addfavouriteBuyer(@Body AddsFavourite addsFavourite);
+
 
     @Multipart
     @POST(UploadImage)
@@ -65,5 +66,7 @@ public interface ApiInterface {
     Call<ArrayList<RelatedOrder>> getRelatedOrder(@Body MyRequest myRequest) ;
     @POST(RespondtoaReques)
     Call<ResponseBody> doRespondtoaReques(@Body RespondToOrder respondToOrder);
+    @POST(favouritesAddSeller)
+    Call<ResponseBody> addfavouriteSeller(@Body AddsFavourite addsFavourite);
 }
 

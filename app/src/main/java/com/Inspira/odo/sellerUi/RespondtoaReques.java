@@ -19,6 +19,8 @@ import com.Inspira.odo.data.Model.BuyerRegistration;
 import com.Inspira.odo.database.SharedPreferencesManager;
 import com.Inspira.odo.helper.LocaleHelper;
 import com.Inspira.odo.sellerData.RespondToOrder;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -40,10 +42,16 @@ public class RespondtoaReques extends AppCompatActivity {
     LocaleHelper localeHelper ;
     Calendar cal ;
     Button Respon ;
+    AdView adView ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_respondtoa_reques);
+        // Load an ad into the AdMob banner view.
+        adView = (AdView)findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .setRequestAgent("android_studio:ad_template").build();
+        adView.loadAd(adRequest);
         setTitle(R.string.Respond_to_aReques);
         image=(ImageView)findViewById(R.id.image);
 //        Calendar cal = Calendar.getInstance();

@@ -6,15 +6,32 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.Inspira.odo.R;
 import com.Inspira.odo.adaptors.DataAdapter;
+import com.Inspira.odo.adaptors.DataSellerHomeAdaptor;
+import com.Inspira.odo.data.ApiClient;
+import com.Inspira.odo.data.ApiInterface;
+import com.Inspira.odo.mainLuncher.MyApplication;
+import com.Inspira.odo.model.MyRequest;
 import com.Inspira.odo.model.SellerHomeData;
+import com.Inspira.odo.sellerData.CarDetails;
+import com.Inspira.odo.sellerData.Order;
+import com.Inspira.odo.sellerData.RelatedOrder;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static android.content.ContentValues.TAG;
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -44,21 +61,34 @@ public class MyFavorites extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager((this.getActivity()));
         recycler_view.setLayoutManager(layoutManager);
 
-
         loadJSON();
     }
 
     private void loadJSON() {
-        data.add(new SellerHomeData(0,"Front Bark Pads","Frarry","Verna","1999","1500vv" ,"red","1:13",true) );
-        data.add(new SellerHomeData(0," Pads","Hundia","Verna","1990","1500vv" ,"black","5:13",false) );
-        data.add(new SellerHomeData(0,"Front ","Marsedis","Verna","1559","1500vv" ,"blue","7:13",true) );
-        data.add(new SellerHomeData(0,"part part","Hundia","Verna","1459","1500vv" ,"selver","11:13",false) );
-        data.add(new SellerHomeData(0,"Bark ","Marsedis","Verna","1339","1500vv" ,"black","1:13",true) );
-        data.add(new SellerHomeData(0,"Front Bark Pads","Frarry","Verna","1909","1500vv" ,"red","1:13",false) );
-        dataSellerHomeAdaptor= new DataAdapter(data,getActivity().getBaseContext());
-        recycler_view.setAdapter(dataSellerHomeAdaptor);
-        dataSellerHomeAdaptor.notifyDataSetChanged();
 
+        ApiInterface apiService =
+                ApiClient.getClient().create(ApiInterface.class);
+        Call<ArrayList<RelatedOrder>> call = apiService.getRelatedOrder(new MyRequest("01009560622"));
+        call.enqueue(new Callback<ArrayList<RelatedOrder>>() {
+            @Override
+            public void onResponse(Call<ArrayList<RelatedOrder>> call, Response<ArrayList<RelatedOrder>> response) {
+                int responseCode = response.code();
+                if (responseCode == 200) {
+                    ArrayList<RelatedOrder> bankJSONResponse = response.body();
+                    if (!bankJSONResponse.isEmpty()) {
+
+                    }
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<RelatedOrder>> call, Throwable t) {
+                // Log error here since request failed
+                Log.e(TAG, t.toString());
+            }
+        });
     }
 
 

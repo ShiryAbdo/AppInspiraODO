@@ -46,13 +46,12 @@ public class RequestResponses extends AppCompatActivity {
     ImageView go_back ;
     String orderId ,arraType ;
     ArrayList<String>AreaArray ;
-AdView adView ;
+    AdView adView ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_responses);
-        // Load an ad into the AdMob banner view.
-        adView = (AdView)findViewById(R.id.adView);
+         adView = (AdView)findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
                 .setRequestAgent("android_studio:ad_template").build();
         adView.loadAd(adRequest);
@@ -80,7 +79,6 @@ AdView adView ;
         myApplication= new MyApplication();
         initViews();
 
-//         Toast.makeText(getApplicationContext(), mSelectedList.get(0).getPrice()+"this",Toast.LENGTH_LONG).show();
 
         sharedPreferencesManager= new SharedPreferencesManager(this);
         PHONE_number= sharedPreferencesManager.getUser_Phoe();

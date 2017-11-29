@@ -80,12 +80,7 @@
 
 
 
-        <TextView
-            android:textColor="#ffffff"
-            android:id="@+id/view"
-            android:textSize="@dimen/_15sdp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+
     </LinearLayout>
 
 

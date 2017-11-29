@@ -101,9 +101,6 @@
         <activity android:name=".buyerUi.detalisOfRequest" />
         <activity android:name=".sellerUi.MapsActivity" />
         <activity
-            android:name=".buyerUi.GetDirection"
-            android:label="@string/title_activity_get_direction" />
-        <activity
             android:name=".buyerUi.MapsActivity"
             android:label="@string/title_activity_get_direction" />
         <activity android:name=".sellerUi.RespondtoaReques" />

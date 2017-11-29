@@ -58,33 +58,7 @@ public class SparepartsRequests extends Fragment {
 
         initViews() ;
 
-        //onClick
-//
-//        addToSelectedMap("price_max", String.valueOf(price_max));
-//        addToSelectedMap("price_min", String.valueOf(price_min));
-//
-//
-//        if (result != null) {
-//            ArrayMap<String, List<String>> applied_filter = (ArrayMap<String, List<String>>) result;
-//            if (applied_filter.size() != 0) {
-//                List<MyOrder> filteredList = data.getAllData();
-//                //iterate over arraymap
-//                for (Map.Entry<String, List<String>> entry : applied_filter.entrySet()) {
-//                    Log.d("k9res", "entry.key: " + entry.getKey());
-//                    switch (entry.getKey()) {
-//                        case "price_max":
-//                            filteredList = data.getPriceFilteredMyOrderMax(entry.getValue(), filteredList);
-//                            break;
-//                        case "price_min":
-//                            filteredList = data.getPriceFilteredMyOrderMin(entry.getValue(), filteredList);
-//                            break;
-//                    }
-//
-//                    myRequestAdapter.clear();
-//                    myRequestAdapter.addAll(filteredList);
-//                }
-//            }
-//        }
+
         return  rooteView ;
     }
 
@@ -105,7 +79,7 @@ public class SparepartsRequests extends Fragment {
 
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
-        Call<ArrayList<MyOrder>> call = apiService.domyOrders(new MyRequest("01009560620")) ;
+        Call<ArrayList<MyOrder>> call = apiService.domyOrders(new MyRequest(PHONE_number)) ;
         call.enqueue(new Callback<ArrayList<MyOrder>>() {
             @Override
             public void onResponse(Call<ArrayList<MyOrder>>call, Response<ArrayList<MyOrder>> response) {
@@ -115,13 +89,9 @@ public class SparepartsRequests extends Fragment {
                     if(!bankJSONResponse.isEmpty()){
                         ArrayList<MyOrder> MyOrderList= new ArrayList<MyOrder>();
                         MyOrderList.addAll(bankJSONResponse);
-                        Toast.makeText(getApplicationContext(),bankJSONResponse.get(0).getBuyerPhoneNumber()+"",Toast.LENGTH_LONG).show();
-
                         myRequestAdapter = new MyRequestAdapter(MyOrderList,getActivity());
                         recycler_view.setAdapter(myRequestAdapter);
-                        Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_LONG).show();
-                        Log.d("CODE", "ResponseCode: " + responseCode);
-                    }
+                     }
                 }
 
 

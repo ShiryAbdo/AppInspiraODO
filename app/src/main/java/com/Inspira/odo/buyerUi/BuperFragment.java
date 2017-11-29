@@ -46,8 +46,7 @@ public class BuperFragment extends Fragment {
         sharedPreferencesManager= new SharedPreferencesManager(getApplicationContext());
         checkValidation= new CheckValidation(getContext());
         if (sharedPreferencesManager.isLoggedIn()) {
-            // User is already logged in. Take him to main activity
-            Intent intent = new Intent(getActivity(), NavigationDrawerBuyer.class);
+             Intent intent = new Intent(getActivity(), NavigationDrawerBuyer.class);
             startActivity(intent);
             getActivity().finish();
         }
@@ -118,16 +117,14 @@ public class BuperFragment extends Fragment {
                     sharedPreferencesManager.setUser_Name(fName.getText().toString());
                     sharedPreferencesManager.setUser_Phoe(phoneNo.getText().toString());
                     sharedPreferencesManager.setUserType("buyer");
-
-                    Toast.makeText(getContext(),"ResponseCode: " + responseCode,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),getString(R.string.successfully_registered),Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getActivity(), NavigationDrawerBuyer.class);
                     startActivity(intent);
                    getActivity().finish();
                 }else {
 
-                    Toast.makeText(getContext(),"ResponseCode: " + responseCode,Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getContext()," else",Toast.LENGTH_SHORT).show();
-                }
+                    Toast.makeText(getContext(), getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
+                 }
             }
 
             @Override

@@ -141,6 +141,15 @@
     <string name="title_activity_continue_rige_tration">ContinueRigeTration</string>
     <string name="RequestResponses">RequestResponses</string>
     <string name="Describetion">Describetion</string>
+    <string name="successfully_registered">Successfully registered</string>
+    <string name="select_image">Select image</string>
+    <string name="Phone_number_does_not_exist">Phone number does not exist</string>
+    <string name="The_Arabic_and_Medellin">The Car Type and Modle brand are not available</string>
+    <string name="Request_successfully_submitted">Request successfully submitted</string>
+    <string name="assign_permission">You don\'t assign permission.</string>
+    <string name="Select_the_type_of_batteries">Select the type of batteries</string>
+    <string name="add_Battery_details">add Battery details</string>
+    <string name="Select_the_frame_type">Select the frame type</string>
 
 
 </resources>

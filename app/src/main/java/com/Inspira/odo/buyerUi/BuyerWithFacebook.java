@@ -42,8 +42,7 @@ public class BuyerWithFacebook extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        roote = inflater.inflate(R.layout.fragment_buyer_with_facebook, container, false);
+         roote = inflater.inflate(R.layout.fragment_buyer_with_facebook, container, false);
         user_name = getArguments().getString("user_name");
         email=  getArguments().getString("email");
         FacebookSdk.sdkInitialize(getApplicationContext());
@@ -64,8 +63,8 @@ public class BuyerWithFacebook extends Fragment {
                         String   phone = Mobile_Number.getText().toString().trim();
                         String pass =passworred.getText().toString().trim();
                         if(email!=null){
-                            getData(phone,user_name,email,pass,"","");
-//                        getData(Mobile_Number.getText().toString().trim(),user_name,email,passworred.getText().toString().trim(),"","");
+//                            getData(phone,user_name,email,pass,"","");
+                        getData(Mobile_Number.getText().toString().trim(),user_name,email,passworred.getText().toString().trim(),"","");
 
                         }
 
@@ -101,13 +100,13 @@ public class BuyerWithFacebook extends Fragment {
                     sharedPreferencesManager.setUserType("buyer");
                     sharedPreferencesManager.setCheckFacebookLogin(true);
 
-                    Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),getString(R.string.successfully_registered),Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getActivity(), NavigationDrawerBuyer.class);
                     startActivity(intent);
                     getActivity().finish();
                 }else {
 
-                    Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
                 }
             }
 

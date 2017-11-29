@@ -57,8 +57,7 @@ public class MaKArequest extends Fragment {
     private static final int INTENT_REQUEST_CODE = 100;
     UploadImageHelper uploadImageHelper ;
     private String imagepath=null;
-    TextView viewT ;
-    String imageName = null ;
+     String imageName = null ;
     SharedPreferencesManager sharedPreferencesManager ;
     ImageView back ;
     String PHONE_number ;
@@ -80,8 +79,7 @@ public class MaKArequest extends Fragment {
         uploadImageHelper= new UploadImageHelper();
         uploadImageHelper.requestStoragePermission(getActivity());
 
-        viewT = (TextView)rooteView.findViewById(R.id.view);
-        part=(EditText)rooteView.findViewById(R.id.part) ;
+         part=(EditText)rooteView.findViewById(R.id.part) ;
         enginCapasty=(EditText)rooteView.findViewById(R.id.enginCapasty) ;
         color=(EditText)rooteView.findViewById(R.id.color) ;
         add_image= (ImageView)rooteView.findViewById(R.id.add_image);
@@ -105,11 +103,6 @@ public class MaKArequest extends Fragment {
             }
         });
 
-        if (imageName!=null){
-//      it seen null
-            viewT.setText(imageName);
-            Toast.makeText(getApplicationContext(),imageName,Toast.LENGTH_SHORT).show();
-        }
 
 
 
@@ -119,20 +112,22 @@ public class MaKArequest extends Fragment {
             public void onClick(View view) {
 //                orderList.add(new OrderList("spareParts","Motor","20","red" , "amper","size"));
 
-                orderImages.add(new OrderImage("images"));
 
                 if(!part.getText().toString().trim().equals("")&&
                         !enginCapasty.getText().toString().trim().equals("")&&
                         !color.getText().toString().trim().equals("")){
-                    orderList.add(new OrderList(request_type,part.getText().toString().trim(), enginCapasty.getText().toString().trim(),color.getText().toString().trim()," "," "));
 
 
-                }
+                    if (imageName!=null) {
+                        orderImages.add(new OrderImage(imageName));
+                        orderList.add(new OrderList(request_type,part.getText().toString().trim(), enginCapasty.getText().toString().trim(),color.getText().toString().trim()," "," "));
 
-                if (imageName!=null) {
-                    orderImages.add(new OrderImage("images"));
-                }else {
-                    Toast.makeText(getApplicationContext(),"select image",Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(getApplicationContext(),getString(R.string.select_image),Toast.LENGTH_SHORT).show();
+
+                    }
+
+
 
                 }
 
@@ -158,16 +153,24 @@ public class MaKArequest extends Fragment {
 
                         if(car_type!=null &&car_modle!=null&&car_year!=null){
                             if(PHONE_number!=null){
-                                sendOrder(PHONE_number,car_type,car_modle ,car_year,orderList ,orderImages);
+                                if (imageName!=null){
+                                    sendOrder(PHONE_number,car_type,car_modle ,car_year,orderList ,orderImages);
+
+
+                                }else {
+                                    Toast.makeText(getApplicationContext(),getString(R.string.select_image),Toast.LENGTH_SHORT).show();
+
+
+                                }
 
                             }else {
-                                Toast.makeText(getApplicationContext(),"رقم الهاتف غير موجود",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(),getString(R.string.Phone_number_does_not_exist),Toast.LENGTH_SHORT).show();
 
                             }
 
                         }else {
 
-                            Toast.makeText(getApplicationContext(),"ماركة العربية و الميل غير موجودين ",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),getString(R.string.The_Arabic_and_Medellin ),Toast.LENGTH_SHORT).show();
                         }
 
 
@@ -250,7 +253,7 @@ public class MaKArequest extends Fragment {
             @Override
             public void onResponse(Call<ResponseBody>call, Response<ResponseBody> response) {
                 int responseCode = response.code();
-                Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),getString(R.string.Request_successfully_submitted ),Toast.LENGTH_LONG).show();
                 Log.d("CODE", "ResponseCode: " + responseCode);
             }
 

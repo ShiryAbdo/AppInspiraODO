@@ -76,7 +76,7 @@ public class MakTyreRequest extends Fragment {
             one_Tyre.setChecked(false);
             two_tyre.setChecked(false);
         }else {
-            Toast.makeText(getApplicationContext(),"إختار نوع الإطار ",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),getString(R.string.Select_the_frame_type ),Toast.LENGTH_LONG).show();
 
         }
 
@@ -86,12 +86,12 @@ public class MakTyreRequest extends Fragment {
 
 
                 if (!Size.getText().toString().trim().equals("")) {
-                    orderList.add(new OrderList(carePar, TyrT, "", "", "", Size.getText().toString().trim()));
+                    orderList.add(new OrderList(carePar, TyrT, "-", "-", "-", Size.getText().toString().trim()));
                     if (PHONE_number != null) {
                         sendOrder(PHONE_number, carType, carModle, carYear, orderList, orderImages);
 
                     } else {
-                        Toast.makeText(getApplicationContext(), "رقم الهاتف غير موجود", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),getString(R.string.Phone_number_does_not_exist),Toast.LENGTH_SHORT).show();
 
                     }
                 } else {

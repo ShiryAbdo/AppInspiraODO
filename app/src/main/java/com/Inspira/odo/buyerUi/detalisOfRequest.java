@@ -34,8 +34,7 @@ public class detalisOfRequest extends AppCompatActivity {
     Button Get_Direction;
     Bundle bundle;
     List<Response> mSelectedList ;
-    private FilterData data = new FilterData();
-    MyApplication myApplication ;
+     MyApplication myApplication ;
     String prices, SellerPhoneNumber, Latitude, Longitude, name, CompanyAddress;
     ImageView back ;
     LocaleHelper localeHelper ;
@@ -45,8 +44,7 @@ public class detalisOfRequest extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalis_of_request);
-        // Load an ad into the AdMob banner view.
-        adView = (AdView)findViewById(R.id.adView);
+         adView = (AdView)findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
                 .setRequestAgent("android_studio:ad_template").build();
         adView.loadAd(adRequest);
@@ -81,8 +79,6 @@ public class detalisOfRequest extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
                 Intent intent = new Intent(detalisOfRequest.this,RequestResponses.class);
                 intent.putParcelableArrayListExtra("Response", (ArrayList<? extends Parcelable>)  mSelectedList);
                 startActivity(intent);
@@ -99,24 +95,23 @@ public class detalisOfRequest extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                String phone_no = tv_phone.getText().toString().replaceAll("-", "");
-                Intent callIntent = new Intent(Intent.ACTION_CALL);
-//                Uri.parse("tel:" + Constants.CALL_CENTER_NUMBER)
-                callIntent.setData(Uri.parse("tel:" + SellerPhoneNumber));
-                callIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                if (ActivityCompat.checkSelfPermission(detalisOfRequest.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                    // TODO: Consider calling
-                    //    ActivityCompat#requestPermissions
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
-                    return;
-                }
-                startActivity(callIntent);
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
+                phoneCall(SellerPhoneNumber);
+//                 Intent callIntent = new Intent(Intent.ACTION_CALL);
+//                 callIntent.setData(Uri.parse("tel:" + SellerPhoneNumber));
+//                callIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                if (ActivityCompat.checkSelfPermission(detalisOfRequest.this, Manifest.permission.CALL_PHONE)
+//                        != PackageManager.PERMISSION_GRANTED) {
+//                    // TODO: Consider calling
+//                    //    ActivityCompat#requestPermissions
+//                    // here to request the missing permissions, and then overriding
+//                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+//                    //                                          int[] grantResults)
+//                    // to handle the case where the user grants the permission. See the documentation
+//                    // for ActivityCompat#requestPermissions for more details.
+//                    return;
+//                }
+//                startActivity(callIntent);
+
             }
         });
         Get_Direction=(Button)findViewById(R.id.Get_Direction);
@@ -127,22 +122,21 @@ public class detalisOfRequest extends AppCompatActivity {
                 Intent intent = new Intent(android.content.Intent.ACTION_VIEW, gmmIntentUri);
                 startActivity(intent);
 
-//                Intent intent =new Intent(detalisOfRequest.this,MapsActivity.class);
-//                startActivity(intent);
             }
         });
 
 
 
     }
-    private void phoneCall(){
+    private void phoneCall(String tel ){
         if (ActivityCompat.checkSelfPermission(this,
                 Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
             Intent callIntent = new Intent(Intent.ACTION_CALL);
-            callIntent.setData(Uri.parse("tel:12345678900"));
+            callIntent.setData(Uri.parse("tel:" + tel));
              startActivity(callIntent);
         }else{
-            Toast.makeText(this, "You don't assign permission.", Toast.LENGTH_SHORT).show();
-        }
+            Toast.makeText(this, getString(R.string.assign_permission),Toast.LENGTH_SHORT).show();
+
+         }
     }
 }

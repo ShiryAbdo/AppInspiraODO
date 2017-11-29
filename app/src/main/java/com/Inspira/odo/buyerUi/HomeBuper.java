@@ -178,7 +178,7 @@ public class HomeBuper extends Fragment {
                  String itemTYea= parent.getItemAtPosition(position).toString();
                 if(itemTYea.equals(getString(R.string.your_car_year))){
                     itemTYear=null;
-//                    Toast.makeText(parent.getContext(),getString(R.string.chose_modle) , Toast.LENGTH_LONG).show();
+                    Toast.makeText(parent.getContext(),getString(R.string.your_car_year) , Toast.LENGTH_LONG).show();
                 }else {
                     itemTYear=parent.getItemAtPosition(position).toString() ;
                     sharedPreferencesManager.setCar_Year(itemTYear);

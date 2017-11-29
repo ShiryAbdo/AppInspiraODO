@@ -111,7 +111,8 @@ public class MakeBatteryRequest extends Fragment {
             larg_poles.setChecked(false);
             small_poles.setChecked(false);
         }else {
-            Toast.makeText(getApplicationContext(),"إختار نوع  البطاريات  ",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),getString(R.string.Select_the_type_of_batteries),Toast.LENGTH_SHORT).show();
+
 
         }
 
@@ -153,19 +154,19 @@ public class MakeBatteryRequest extends Fragment {
         });
 
 
-        orderImages.add(new OrderImage(""));
+        orderImages.add(new OrderImage("image"));
 
         saveData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 if(!Size.getText().toString().trim().equals("") &&!amper.getText().toString().trim().equals("")){
-                    orderList.add(new OrderList(carePar,Run_flot_tyresT,"","","",Size.getText().toString().trim()));
+                    orderList.add(new OrderList(carePar,Run_flot_tyresT,"-","-","-",Size.getText().toString().trim()));
                     if(PHONE_number!=null){
                         sendOrder(PHONE_number,carType,carModle ,carYear,orderList ,orderImages);
 
                     }else {
-                        Toast.makeText(getApplicationContext(),"رقم الهاتف غير موجود",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),getString(R.string.Phone_number_does_not_exist),Toast.LENGTH_SHORT).show();
 
                     }
                 }else{
@@ -173,11 +174,12 @@ public class MakeBatteryRequest extends Fragment {
                         sendOrder(PHONE_number,carType,carModle ,carYear,orderList ,orderImages);
 
                     }else {
-                        Toast.makeText(getApplicationContext(),"رقم الهاتف غير موجود",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),getString(R.string.Phone_number_does_not_exist),Toast.LENGTH_SHORT).show();
 
                     }
-                    orderList.add(new OrderList(carePar,Run_flot_tyresT,"","","",""));
-                    Toast.makeText(getApplicationContext(),"add Bsttery detalies",Toast.LENGTH_LONG).show();
+                    orderList.add(new OrderList(carePar,Run_flot_tyresT,"-","-","-","-"));
+                    Toast.makeText(getApplicationContext(),getString(R.string.add_Battery_details),Toast.LENGTH_SHORT).show();
+
 
                 }
 
@@ -199,7 +201,7 @@ public class MakeBatteryRequest extends Fragment {
             @Override
             public void onResponse(Call<ResponseBody>call, Response<ResponseBody> response) {
                 int responseCode = response.code();
-                Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),getString(R.string.Request_successfully_submitted ),Toast.LENGTH_LONG).show();
                 Log.d("CODE", "ResponseCode: " + responseCode);
             }
 

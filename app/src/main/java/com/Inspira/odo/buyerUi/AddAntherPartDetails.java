@@ -50,8 +50,7 @@ public class AddAntherPartDetails extends AppCompatActivity {
     private static final int INTENT_REQUEST_CODE = 100;
     UploadImageHelper uploadImageHelper ;
     private String imagepath=null;
-    TextView viewT ;
-    String imageName = null ;
+     String imageName = null ;
     SharedPreferencesManager sharedPreferencesManager ;
     ImageView back ;
     String PHONE_number ;
@@ -77,8 +76,7 @@ public class AddAntherPartDetails extends AppCompatActivity {
         uploadImageHelper= new UploadImageHelper();
         uploadImageHelper.requestStoragePermission(AddAntherPartDetails.this);
 
-        viewT = (TextView)findViewById(R.id.view);
-        part=(EditText)findViewById(R.id.part) ;
+         part=(EditText)findViewById(R.id.part) ;
         enginCapasty=(EditText)findViewById(R.id.enginCapasty) ;
         color=(EditText)findViewById(R.id.color) ;
         add_image= (ImageView)findViewById(R.id.add_image);
@@ -109,11 +107,6 @@ public class AddAntherPartDetails extends AppCompatActivity {
             }
         });
 
-        if (imageName!=null){
-//      it seen null
-            viewT.setText(imageName);
-            Toast.makeText(getApplicationContext(),imageName,Toast.LENGTH_SHORT).show();
-        }
 
 
 
@@ -121,24 +114,28 @@ public class AddAntherPartDetails extends AppCompatActivity {
         submet_requst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                orderList.add(new OrderList("spareParts","Motor","20","red" , "amper","size"));
 
-                orderImages.add(new OrderImage("images"));
 
                 if(!part.getText().toString().trim().equals("")&&
                         !enginCapasty.getText().toString().trim().equals("")&&
                         !color.getText().toString().trim().equals("")){
-                    orderList.add(new OrderList(request_type,part.getText().toString().trim(), enginCapasty.getText().toString().trim(),color.getText().toString().trim(),"p","c"));
+
+                    if (imageName!=null) {
+                        orderImages.add(new OrderImage(imageName));
+                        orderList.add(new OrderList(request_type,part.getText().toString().trim(), enginCapasty.getText().toString().trim(),color.getText().toString().trim(),"-","-"));
+
+                    }else {
+                        Toast.makeText(getApplicationContext(),getString(R.string.select_image),Toast.LENGTH_SHORT).show();
+
+                    }
+
+                }else {
+                    Toast.makeText(getApplicationContext(), getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
 
 
                 }
 
-//                if (imageName!=null) {
-//                    orderImages.add(new OrderImage("images"));
-//                }else {
-//                    Toast.makeText(getApplicationContext(),"select image",Toast.LENGTH_SHORT).show();
-//
-//                }
+
 
                 final Dialog dialog = new Dialog(AddAntherPartDetails.this, R.style.custom_dialog_theme);
                 dialog.setContentView(R.layout.comfirm_layout);
@@ -162,16 +159,23 @@ public class AddAntherPartDetails extends AppCompatActivity {
 
                         if(car_type!=null &&car_modle!=null&&car_year!=null){
                             if(PHONE_number!=null){
-                                sendOrder("01009560620",car_type,car_modle ,car_year,orderList ,orderImages);
+                                if (imageName!=null) {
+                                    sendOrder(PHONE_number,car_type,car_modle ,car_year,orderList ,orderImages);
+
+
+                                }else {
+                                    Toast.makeText(getApplicationContext(),getString(R.string.select_image),Toast.LENGTH_SHORT).show();
+
+                                }
 
                             }else {
-                                Toast.makeText(getApplicationContext(),"رقم الهاتف غير موجود",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(),getString(R.string.Phone_number_does_not_exist),Toast.LENGTH_SHORT).show();
 
                             }
 
                         }else {
 
-                            Toast.makeText(getApplicationContext(),"ماركة العربية و الميل غير موجودين ",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),getString(R.string.The_Arabic_and_Medellin ),Toast.LENGTH_SHORT).show();
                         }
 
 
@@ -253,7 +257,7 @@ public class AddAntherPartDetails extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseBody>call, Response<ResponseBody> response) {
                 int responseCode = response.code();
-                Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),getString(R.string.Request_successfully_submitted ),Toast.LENGTH_LONG).show();
                 Log.d("CODE", "ResponseCode: " + responseCode);
             }
 

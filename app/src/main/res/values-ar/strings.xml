@@ -73,4 +73,14 @@
     <string name="done">" تم  إدخال الموقع  علي الخريطة"</string>
     <string name="Area">المنطقة</string>
     <string name="Describetion">الوصف</string>
+    <string name="choseArea"></string>
+    <string name="successfully_registered">تم التسجيل بنجاح</string>
+    <string name="select_image">اختر صورة</string>
+    <string name="The_Arabic_and_Medellin">ماركة العربية و  المديل  غير موجودين</string>
+    <string name="Request_successfully_submitted">تم إرسال الطلب بنجاح</string>
+    <string name="Phone_number_does_not_exist">رقم الهاتف غير موجود</string>
+    <string name="assign_permission">رقم الهاتف غير موجود</string>
+    <string name="Select_the_type_of_batteries">إختار نوع  البطاريات</string>
+    <string name="add_Battery_details">إضافة تفاصيل البطارية</string>
+    <string name="Select_the_frame_type">إختار نوع الإطار</string>
 </resources>

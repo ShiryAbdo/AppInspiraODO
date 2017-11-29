@@ -10,15 +10,8 @@ import android.view.ViewGroup;
 
 import com.Inspira.odo.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class MyFavourites extends Fragment {
 
-
-    public MyFavourites() {
-        // Required empty public constructor
-    }
 
 
     @Override

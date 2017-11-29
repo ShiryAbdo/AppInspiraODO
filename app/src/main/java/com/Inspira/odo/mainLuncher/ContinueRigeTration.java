@@ -20,6 +20,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.Inspira.odo.R;
+import com.Inspira.odo.buyerUi.BuperFragment;
+import com.Inspira.odo.sellerUi.SellerFragment;
 
 public class ContinueRigeTration extends AppCompatActivity {
 
@@ -137,9 +139,17 @@ public class ContinueRigeTration extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            switch (position) {
+                case 0:
+                    BuperFragment buperFragment = new BuperFragment();
+                    return buperFragment;
+                case 1:
+                    SellerFragment sellerFragment = new SellerFragment();
+
+                    return sellerFragment;
+
+            }
+            return null;
         }
 
         @Override
@@ -152,11 +162,9 @@ public class ContinueRigeTration extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "SECTION 1";
+                    return  getString(R.string.Buyer);
                 case 1:
-                    return "SECTION 2";
-                case 2:
-                    return "SECTION 3";
+                    return getString(R.string.Seller);
             }
             return null;
         }

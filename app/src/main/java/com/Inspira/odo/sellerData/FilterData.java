@@ -31,7 +31,25 @@ public class FilterData {
         return mList;
     }
 
+ public  List<RelatedOrder>  getFilter (String cartype ,String careModle ,String year ,List<RelatedOrder> mList){
+     List<RelatedOrder> tempList = new ArrayList<>();
+//     CarDetails carDetails = new CarDetails();
+//     carDetails.setCarModel(careModle);
+//     carDetails.setCarType(cartype);
+//     carDetails.setCarYear(year);
 
+     for (RelatedOrder Response : mList) {
+         if(Response.getCarDetails().getCarYear()!=null){
+             if (Response.getCarDetails().getCarYear().equals(year)) {
+                 tempList.add(Response);
+             }
+
+         }
+
+     }
+
+     return tempList;
+ }
 
     public List<RelatedOrder> getCarType(List<String> category, List<RelatedOrder> mList) {
         List<RelatedOrder> tempList = new ArrayList<>();

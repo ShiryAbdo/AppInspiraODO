@@ -63,7 +63,7 @@ public class SellerHome extends Fragment {
     private FilterData data = new FilterData();
     private ArrayMap<String, List<String>> applied_filters = new ArrayMap<>();
     AdView adView ;
-    String phone_number =   sharedPreferencesManager.getUser_Phoe() ;
+//    String phone_number =   sharedPreferencesManager.getUser_Phoe() ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -109,7 +109,7 @@ public class SellerHome extends Fragment {
 
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
-        Call<ArrayList<RelatedOrder>> call = apiService.getRelatedOrder(new MyRequest(phone_number));
+        Call<ArrayList<RelatedOrder>> call = apiService.getRelatedOrder(new MyRequest("01009560622"));
         call.enqueue(new Callback<ArrayList<RelatedOrder>>() {
             @Override
             public void onResponse(Call<ArrayList<RelatedOrder>> call, Response<ArrayList<RelatedOrder>> response) {
@@ -277,34 +277,40 @@ public class SellerHome extends Fragment {
         OK_d.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                List<RelatedOrder> filteredList = data.getAllData();
                 if (item_model != null && itemTYear != null && itemType != null) {
-                    addToSelectedMap("itemType", itemType);
-                    addToSelectedMap("item_model", item_model);
-                    addToSelectedMap("itemTYear", itemTYear);
-                    if (data != null) {
-                        ArrayMap<String, List<String>> applied_filter = applied_filters;
-                        if (applied_filter.size() != 0) {
-                            List<RelatedOrder> filteredList = data.getAllData();
-                            //iterate over arraymap
-                            for (Map.Entry<String, List<String>> entry : applied_filter.entrySet()) {
-                                Log.d("k9res", "entry.key: " + entry.getKey());
-                                switch (entry.getKey()) {
-                                    case "itemType":
-                                        filteredList = data.getCarType(entry.getValue(), filteredList);
-                                        break;
-                                    case "item_model":
-                                        filteredList = data.getModel(entry.getValue(), filteredList);
-                                        break;
-                                    case "itemTYear":
-                                        filteredList = data.getYear(entry.getValue(), filteredList);
-                                        break;
+                    filteredList = data.getFilter(itemType,item_model,itemTYear ,filteredList);
+                    dataSellerHomeAdaptor.clear();
+                    dataSellerHomeAdaptor.addAll(filteredList);
+                    dataSellerHomeAdaptor.notifyDataSetChanged();
 
-                                }
-                                dataSellerHomeAdaptor.clear();
-                                dataSellerHomeAdaptor.addAll(filteredList);
-                            }
-                        }
-                    }
+//                    addToSelectedMap("itemType", itemType);
+//                    addToSelectedMap("item_model", item_model);
+//                    addToSelectedMap("itemTYear", itemTYear);
+//                    if (data != null) {
+//                        ArrayMap<String, List<String>> applied_filter = applied_filters;
+//                        if (applied_filter.size() != 0) {
+//                            List<RelatedOrder> filteredList = data.getAllData();
+//                            //iterate over arraymap
+//                            for (Map.Entry<String, List<String>> entry : applied_filter.entrySet()) {
+//                                Log.d("k9res", "entry.key: " + entry.getKey());
+//                                switch (entry.getKey()) {
+//                                    case "itemType":
+//                                        filteredList = data.getCarType(entry.getValue(), filteredList);
+//                                        break;
+//                                    case "item_model":
+//                                        filteredList = data.getModel(entry.getValue(), filteredList);
+//                                        break;
+//                                    case "itemTYear":
+//                                        filteredList = data.getYear(entry.getValue(), filteredList);
+//                                        break;
+//
+//                                }
+//                                dataSellerHomeAdaptor.clear();
+//                                dataSellerHomeAdaptor.addAll(filteredList);
+//                            }
+//                        }
+//                    }
 
                 } else {
 

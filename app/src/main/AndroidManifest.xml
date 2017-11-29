@@ -75,15 +75,17 @@
         <activity
             android:name=".sellerUi.WorkingOnOne"
             android:windowSoftInputMode="adjustPan|adjustResize">
+
+        </activity>
+        <activity
+            android:name=".sellerUi.NavigationDrawerSeler"
+            android:windowSoftInputMode="adjustPan|adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".sellerUi.NavigationDrawerSeler"
-            android:windowSoftInputMode="adjustPan|adjustResize"></activity>
         <activity
             android:name=".sellerUi.DialogeSellerData"
             android:windowSoftInputMode="adjustPan|adjustResize" />

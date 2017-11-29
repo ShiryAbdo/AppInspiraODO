@@ -216,6 +216,7 @@ public class DataSellerHomeAdaptor  extends RecyclerView.Adapter<DataSellerHomeA
     public void addAll(List<RelatedOrder> moveResults) {
         for (RelatedOrder result : moveResults) {
 //            if (!result.getProducts().isEmpty())
+            Toast.makeText(context,"add",Toast.LENGTH_LONG).show();
             add(result);
         }
     }

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgraud"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.Inspira.odo.sellerUi.SellerWithFacebook">
+
+    <LinearLayout
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <android.support.design.widget.TextInputLayout
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:theme="@style/TextLabel"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/Mobile_Number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/Mobile_Number"
+                android:background="#00ffffff"
+                android:inputType="phone"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <View
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:background="#dea63e"
+            android:layout_height="@dimen/_2sdp"/>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:theme="@style/TextLabel"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/passworred"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/Password"
+                android:background="#00ffffff"
+                android:inputType="textPassword"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <View
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:background="#dea63e"
+            android:layout_height="@dimen/_2sdp"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:theme="@style/TextLabel"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/Confirm_Password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/Confirm_Password"
+                android:background="#00ffffff"
+                android:inputType="textPassword"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <View
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:background="#dea63e"
+            android:layout_height="@dimen/_2sdp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:layout_gravity="bottom"
+            android:padding="@dimen/_2sdp"
+            style="?metaButtonBarButtonStyle"
+            android:textSize="@dimen/_20sdp"
+            android:id="@+id/Continue"
+            android:background="#dcae3b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Continue" />
+    </LinearLayout>
+
+
+</LinearLayout>

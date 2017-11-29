@@ -170,7 +170,7 @@ public class LogInActivity extends AppCompatActivity {
         if (first_name!=null&&email!=null&&last_name!=null){
             String  user_name = first_name+last_name;
             if(user_name!=null){
-                Intent intent = new Intent(LogInActivity.this, ContinueRigeWithFacebook.class);
+                Intent intent = new Intent(LogInActivity.this,  ContinueRigeTration.class);
                 intent.putExtra("user_name",user_name);
                 intent.putExtra("email",email);
                 startActivity(intent);

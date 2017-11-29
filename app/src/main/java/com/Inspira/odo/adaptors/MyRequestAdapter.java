@@ -28,6 +28,7 @@ import com.Inspira.odo.database.SharedPreferencesManager;
 import com.Inspira.odo.helper.DateTimeHelper;
 import com.Inspira.odo.mainLuncher.MyApplication;
 import com.github.thunder413.datetimeutils.DateTimeUtils;
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -108,6 +109,18 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
    viewHolder.Favorite_image.setVisibility(View.GONE);
 
         setAnimation(viewHolder.card, i);
+
+        if(androidList.get(i).getOrderImages().get(i).getId()!=null){
+            if(androidList.get(i).getOrderImages().get(i).getOriginalName().equals("image")){
+
+            }else {
+
+                final String imagee ="https://odo.eu-gb.mybluemix.net/images/download/"+ androidList.get(i).getOrderImages().get(i).getId();
+                Picasso.with(context).load(imagee).error(android.R.drawable.stat_notify_error).fit().into(viewHolder.image_itme_selle);
+
+            }
+        }
+
 
 
 

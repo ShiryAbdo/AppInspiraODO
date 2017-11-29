@@ -27,6 +27,7 @@ import com.Inspira.odo.sellerUi.RespondtoaReques;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -154,6 +155,16 @@ public class DataSellerHomeAdaptor  extends RecyclerView.Adapter<DataSellerHomeA
 
 
             setAnimation(viewHolder.card, i);
+            if(androidList.get(i).getOrderImages().get(i).getId()!=null){
+                if(androidList.get(i).getOrderImages().get(i).getOriginalName().equals("image")){
+
+                }else {
+
+                    final String imagee ="https://odo.eu-gb.mybluemix.net/images/download/"+ androidList.get(i).getOrderImages().get(i).getId();
+                    Picasso.with(context).load(imagee).error(android.R.drawable.stat_notify_error).fit().into(viewHolder.image_itme_selle);
+
+                }
+            }
          }
 
     }

@@ -2,6 +2,8 @@
 package com.Inspira.odo.sellerData;
 
 import java.util.List;
+
+import com.Inspira.odo.database.OrderImage;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -24,7 +26,7 @@ public class RelatedOrder {
     private Integer v;
     @SerializedName("orderImages")
     @Expose
-    private List<Object> orderImages = null;
+    private List<OrderImage> orderImages = null;
     @SerializedName("responses")
     @Expose
     private List<Object> responses = null;
@@ -75,11 +77,11 @@ public class RelatedOrder {
         this.v = v;
     }
 
-    public List<Object> getOrderImages() {
+    public List<OrderImage> getOrderImages() {
         return orderImages;
     }
 
-    public void setOrderImages(List<Object> orderImages) {
+    public void setOrderImages(List<OrderImage> orderImages) {
         this.orderImages = orderImages;
     }
 

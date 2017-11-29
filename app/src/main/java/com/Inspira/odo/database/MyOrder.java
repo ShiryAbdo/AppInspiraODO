@@ -30,7 +30,7 @@ public class MyOrder implements Parcelable
     private int v;
     @SerializedName("orderImages")
     @Expose
-    private List<Object> orderImages = null;
+    private List<OrderImage> orderImages = null;
     @SerializedName("responses")
     @Expose
     private List<Response> responses = null;
@@ -112,11 +112,11 @@ public class MyOrder implements Parcelable
         this.v = v;
     }
 
-    public List<Object> getOrderImages() {
+    public List<OrderImage> getOrderImages() {
         return orderImages;
     }
 
-    public void setOrderImages(List<Object> orderImages) {
+    public void setOrderImages(List<OrderImage> orderImages) {
         this.orderImages = orderImages;
     }
 

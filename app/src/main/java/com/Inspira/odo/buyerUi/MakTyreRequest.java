@@ -88,6 +88,7 @@ public class MakTyreRequest extends Fragment {
                 if (!Size.getText().toString().trim().equals("")) {
                     orderList.add(new OrderList(carePar, TyrT, "-", "-", "-", Size.getText().toString().trim()));
                     if (PHONE_number != null) {
+                        orderImages.add(new OrderImage("image"));
                         sendOrder(PHONE_number, carType, carModle, carYear, orderList, orderImages);
 
                     } else {

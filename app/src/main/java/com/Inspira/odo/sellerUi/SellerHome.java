@@ -63,20 +63,19 @@ public class SellerHome extends Fragment {
     private FilterData data = new FilterData();
     private ArrayMap<String, List<String>> applied_filters = new ArrayMap<>();
     AdView adView ;
-//    String phone_number =   sharedPreferencesManager.getUser_Phoe() ;
+    String phone_number ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rooteView = inflater.inflate(R.layout.fragment_seller_home, container, false);
         sharedPreferencesManager = new SharedPreferencesManager(getActivity());
-        // Load an ad into the AdMob banner view.
-        adView = (AdView)rooteView.findViewById(R.id.adView);
+        phone_number =   sharedPreferencesManager.getUser_Phoe() ;
+         adView = (AdView)rooteView.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
                 .setRequestAgent("android_studio:ad_template").build();
         adView.loadAd(adRequest);
-        Toast.makeText(getApplicationContext(), sharedPreferencesManager.getUser_Phoe(), Toast.LENGTH_LONG).show();
-        datah = new ArrayList<>();
+         datah = new ArrayList<>();
         getActivity().findViewById(R.id.filter).setVisibility(View.VISIBLE);
         getActivity().findViewById(R.id.filter).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,10 +105,10 @@ public class SellerHome extends Fragment {
 
     private void loadJSON() {
 
-
+//"01009560622"
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
-        Call<ArrayList<RelatedOrder>> call = apiService.getRelatedOrder(new MyRequest("01009560622"));
+        Call<ArrayList<RelatedOrder>> call = apiService.getRelatedOrder(new MyRequest(phone_number));
         call.enqueue(new Callback<ArrayList<RelatedOrder>>() {
             @Override
             public void onResponse(Call<ArrayList<RelatedOrder>> call, Response<ArrayList<RelatedOrder>> response) {
@@ -141,8 +140,7 @@ public class SellerHome extends Fragment {
                         data.setmList(MyOrderList);
                         myApplication = new MyApplication();
                         dataSellerHomeAdaptor.notifyDataSetChanged();
-                        Toast.makeText(getApplicationContext(), "ResponseCode: " + responseCode, Toast.LENGTH_LONG).show();
-//                        Log.d("CODE", "ResponseCode: " + responseCode);
+ //                        Log.d("CODE", "ResponseCode: " + responseCode);
                     }
                 }
 
@@ -208,16 +206,14 @@ public class SellerHome extends Fragment {
                 String itemTyp = parent.getItemAtPosition(position).toString();
                 if (itemTyp.equals(getString(R.string.your_car_type))) {
                     itemType = null;
-//                    Toast.makeText(parent.getContext(),getString(R.string.chose_type) , Toast.LENGTH_LONG).show();
-                } else {
+                 } else {
                     itemType = parent.getItemAtPosition(position).toString();
                     categories_car_model.clear();
                     categories_car_model.add(getString(R.string.your_car_modle));
                     categories_car_model.addAll(AllData.get(itemType));
 
 
-//                    Toast.makeText(parent.getContext(), itemType, Toast.LENGTH_LONG).show();
-                }
+                 }
             }
 
             @Override
@@ -239,12 +235,10 @@ public class SellerHome extends Fragment {
                 String item_mode = parent.getItemAtPosition(position).toString();
                 if (item_mode.equals(getString(R.string.your_car_modle))) {
                     item_model = null;
-//                    Toast.makeText(parent.getContext(),getString(R.string.chose_modle) , Toast.LENGTH_LONG).show();
-                } else {
+                 } else {
 
                     item_model = parent.getItemAtPosition(position).toString();
-                    //                    Toast.makeText(parent.getContext(), item_model, Toast.LENGTH_LONG).show();
-                }
+                 }
             }
 
             @Override
@@ -261,11 +255,9 @@ public class SellerHome extends Fragment {
                 String itemTYea = parent.getItemAtPosition(position).toString();
                 if (itemTYea.equals(getString(R.string.your_car_year))) {
                     itemTYear = null;
-//                    Toast.makeText(parent.getContext(),getString(R.string.chose_modle) , Toast.LENGTH_LONG).show();
-                } else {
+                 } else {
                     itemTYear = parent.getItemAtPosition(position).toString();
-                    //                    Toast.makeText(parent.getContext(), itemTYear, Toast.LENGTH_LONG).show();
-                }
+                 }
             }
 
             @Override
@@ -314,7 +306,7 @@ public class SellerHome extends Fragment {
 
                 } else {
 
-                    Toast.makeText(getActivity(), "chose data", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.choose_data),Toast.LENGTH_SHORT).show();
                 }
                 okdialog.dismiss();
             }

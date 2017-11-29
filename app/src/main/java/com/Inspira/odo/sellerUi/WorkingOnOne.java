@@ -133,7 +133,6 @@ public class WorkingOnOne extends AppCompatActivity implements RecyclerViewClick
                 competRegister.setVisibility(View.VISIBLE);
             }
 
-//            Toast.makeText(getApplicationContext(), parent+","+header+","+year,Toast.LENGTH_LONG).show();
 
 
 
@@ -161,15 +160,14 @@ public class WorkingOnOne extends AppCompatActivity implements RecyclerViewClick
                     sharedPreferencesManager.setUser_Phoe(phoneNumber);
                     sharedPreferencesManager.setUserType("seller");
 
-                    Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),getString(R.string.successfully_registered),Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), NavigationDrawerSeler.class);
                     startActivity(intent);
                     finish();
                 }else {
 
-                    Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getApplicationContext()," else",Toast.LENGTH_SHORT).show();
-                }
+                    Toast.makeText(getApplicationContext(), getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
+                 }
             }
 
             @Override

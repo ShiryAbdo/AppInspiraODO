@@ -160,6 +160,7 @@ LocationListener{
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setMyLocationEnabled(true);
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             bulidGoogleApiClient();
@@ -246,7 +247,7 @@ LocationListener{
         LatLng latLng = new LatLng(location.getLatitude() , location.getLongitude());
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
-        markerOptions.title("Current Location");
+        markerOptions.title(getGeocodeName(location.getLatitude(),location.getLongitude()));
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
         currentLocationmMarker = mMap.addMarker(markerOptions);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
@@ -330,4 +331,8 @@ LocationListener{
         Intent setIntent = new Intent(MapsActivity.this , ContinuingRegSeler.class);
         startActivity(setIntent);
     }
+
+
+
+
 }

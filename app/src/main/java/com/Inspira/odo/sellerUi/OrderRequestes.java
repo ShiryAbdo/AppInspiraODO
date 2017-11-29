@@ -41,12 +41,16 @@ public class OrderRequestes extends Fragment {
     MyApplication myApplication;
      private DataSellerHomeAdaptor dataSellerHomeAdaptor;
     private FilterData data = new FilterData();
+    String phone_number ;
+
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rooteView= inflater.inflate(R.layout.fragment_order_requestes, container, false);
+        sharedPreferencesManager = new SharedPreferencesManager(getActivity());
+        phone_number =   sharedPreferencesManager.getUser_Phoe() ;
         getActivity().setTitle(R.string.Order_Requestes);
         getActivity().findViewById(R.id.filter).setVisibility(View.GONE);
         initViews();
@@ -66,10 +70,10 @@ public class OrderRequestes extends Fragment {
 
     private void loadJSON() {
 
-
+//"01009560622"
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
-        Call<ArrayList<RelatedOrder>> call = apiService.getRelatedOrder(new MyRequest("01009560622"));
+        Call<ArrayList<RelatedOrder>> call = apiService.getRelatedOrder(new MyRequest(phone_number));
         call.enqueue(new Callback<ArrayList<RelatedOrder>>() {
             @Override
             public void onResponse(Call<ArrayList<RelatedOrder>> call, Response<ArrayList<RelatedOrder>> response) {

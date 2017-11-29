@@ -37,7 +37,7 @@ public class ContinuingRegSeler extends AppCompatActivity {
     Button Campany_acount_Countio ;
     private Integer THRESHOLD = 2;
     private DelayAutoCompleteTextView geo_autocomplete;
-//    private ImageView geo_autocomplete_clear;
+//  private ImageView geo_autocomplete_clear;
     Spinner sellerType ,addArea;
     ArrayList<String> categories ;
     CustomArrayAdapter_Spinner  myAdaptor  ,Adaptor;
@@ -78,8 +78,7 @@ public class ContinuingRegSeler extends AppCompatActivity {
 
 
         }
-        Toast.makeText(getApplicationContext(),fName+ "//"+phoneNo +"//"+password +"//"+email,Toast.LENGTH_SHORT).show();
-        go_back= (ImageView)findViewById(R.id.go_back);
+         go_back= (ImageView)findViewById(R.id.go_back);
         localeHelper= new LocaleHelper();
         String lange=  localeHelper.getLanguage(ContinuingRegSeler.this);
         if(lange.equals("ar")){
@@ -111,7 +110,6 @@ public class ContinuingRegSeler extends AppCompatActivity {
             sharedPreferencesManager.setLongitude(longitude);
         }
 
-        Toast.makeText(getApplicationContext(),latitude,Toast.LENGTH_SHORT).show();
 
 
         Enter_location.setText(text);
@@ -133,9 +131,6 @@ public class ContinuingRegSeler extends AppCompatActivity {
             }
         });
 
-// latitude!=null&&longitude!=null&&
-//        fName!=null&&phoneNo!=null&&
-//                password!=null &&email!=null
         Campany_acount_Countio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -155,7 +150,7 @@ public class ContinuingRegSeler extends AppCompatActivity {
                         intent.putExtra("area",arraType);
                         startActivity(intent);
                     }else {
-                        Toast.makeText(getApplicationContext(),"jkk",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),getString(R.string.enter_data),Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -217,12 +212,11 @@ public class ContinuingRegSeler extends AppCompatActivity {
                 String  itemReques= parent.getItemAtPosition(position).toString();
                 if(itemReques.equals(getString(R.string.your_Type_requse))){
                     itemType=null;
-                    Toast.makeText(parent.getContext(),getString(R.string.chose_modle) , Toast.LENGTH_LONG).show();
+                    Toast.makeText(parent.getContext(),getString(R.string.your_Type_requse) , Toast.LENGTH_LONG).show();
                 }else {
                     itemType=parent.getItemAtPosition(position).toString() ;
                     sharedPreferencesManager.setPartType(itemType);
-                    Toast.makeText(parent.getContext(), itemType, Toast.LENGTH_LONG).show();
-                }
+                 }
             }
 
             @Override

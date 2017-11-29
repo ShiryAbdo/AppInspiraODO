@@ -23,7 +23,9 @@ import com.Inspira.odo.data.Model.MakOrder;
 import com.Inspira.odo.data.Model.OrderImage;
 import com.Inspira.odo.data.Model.OrderList;
 import com.Inspira.odo.database.SharedPreferencesManager;
+import com.Inspira.odo.helper.LocaleHelper;
 import com.Inspira.odo.helper.UploadImageHelper;
+import com.Inspira.odo.mainLuncher.RegistrationActivity;
 
 import java.io.File;
 import java.io.IOException;
@@ -54,13 +56,22 @@ public class AddAntherPartDetails extends AppCompatActivity {
     SharedPreferencesManager sharedPreferencesManager ;
     ImageView back ;
     String PHONE_number ;
-
+    LocaleHelper localeHelper ;
+    ImageView go_back ;
 //    partType == request_type ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_add_anther_part_details);
+        go_back= (ImageView)findViewById(R.id.go_back);
+        localeHelper= new LocaleHelper();
+        String lange=  localeHelper.getLanguage(AddAntherPartDetails.this);
+        if(lange.equals("ar")){
+            go_back.setImageResource(R.drawable.back_right);
+        }else if(lange.equals("en")){
+            go_back.setImageResource(R.drawable.back);
+        }
         sharedPreferencesManager= new SharedPreferencesManager(this);
         PHONE_number= sharedPreferencesManager.getUser_Phoe();
         bundle = getIntent().getExtras();

@@ -83,4 +83,15 @@
     <string name="Select_the_type_of_batteries">إختار نوع  البطاريات</string>
     <string name="add_Battery_details">إضافة تفاصيل البطارية</string>
     <string name="Select_the_frame_type">إختار نوع الإطار</string>
+    <string name="choose_data">اختر البيانات</string>
+    <string name="Respon">تم الإرسال</string>
+    <string name="Not_sent">لم يتم الإرسال</string>
+    <string name="MakeBatteryRequest">أطلب بطارية</string>
+    <string name="English">إنجليزي</string>
+    <string name="Arabic">عربي</string>
+    <string name="Get_Direction">الموقع  علي الخريطة</string>
+    <string name="Location">الموقع</string>
+    <string name="OrderRequestes">طلبات الزبائن</string>
+    <string name="RequestResponses">الردود علي الطلبات</string>
+    <string name="Search">بحث</string>
 </resources>

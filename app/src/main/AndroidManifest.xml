@@ -76,6 +76,7 @@
             android:name=".buyerUi.NavigationDrawerBuyer"
             android:windowSoftInputMode="adjustPan|adjustResize" >
 
+
         </activity>
         <activity
             android:name=".sellerUi.ContinuingRegSeler"
@@ -90,9 +91,6 @@
             android:windowSoftInputMode="adjustPan|adjustResize">
 
         </activity>
-        <activity
-            android:name=".sellerUi.DialogeSellerData"
-            android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity android:name=".buyerUi.AddAntherPartDetails" />
         <activity
             android:name=".buyerUi.TyreBattereyRequestsTabe"
@@ -101,8 +99,7 @@
         <activity android:name=".buyerUi.detalisOfRequest" />
         <activity android:name=".sellerUi.MapsActivity" />
         <activity
-            android:name=".buyerUi.MapsActivity"
-            android:label="@string/title_activity_get_direction" />
+            android:name=".buyerUi.MapsActivity" />
         <activity android:name=".sellerUi.RespondtoaReques" />
         <!-- This meta-data tag is required to use Google Play Services. -->
         <meta-data
@@ -110,8 +107,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".adds.Main3Activity"
-            android:label="@string/title_activity_main3" /> <!-- Include the AdActivity configChanges and theme. -->
+            android:name=".adds.Main3Activity" /> <!-- Include the AdActivity configChanges and theme. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"

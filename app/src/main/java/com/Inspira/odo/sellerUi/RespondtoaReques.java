@@ -115,14 +115,13 @@ public class RespondtoaReques extends AppCompatActivity {
                 Log.d("CODE", "ResponseCode: " + responseCode);
                 if(responseCode==200){
 
+                    Toast.makeText(getApplicationContext(),getString(R.string.Response),Toast.LENGTH_SHORT).show();
 
-                    Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_SHORT).show();
 
                 }else {
 
-                    Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getApplicationContext()," else",Toast.LENGTH_SHORT).show();
-                }
+                    Toast.makeText(getApplicationContext(),getString(R.string.Not_sent),Toast.LENGTH_SHORT).show();
+                 }
             }
 
             @Override

@@ -10,16 +10,20 @@
 
 
     <Button
+        android:layout_margin="@dimen/_10sdp"
         android:id="@+id/Tyre"
+        android:textSize="@dimen/_25sdp"
         android:textAllCaps="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tyre Request" />
+        android:text="@string/MakTyreRequest" />
 
     <Button
+        android:layout_margin="@dimen/_10sdp"
+        android:textSize="@dimen/_25sdp"
         android:textAllCaps="false"
         android:id="@+id/Battery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Battery Rrquest" />
+        android:text="@string/MakeBatteryRequest" />
 </LinearLayout>

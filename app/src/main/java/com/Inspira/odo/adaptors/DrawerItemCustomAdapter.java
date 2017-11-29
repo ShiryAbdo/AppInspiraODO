@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.Inspira.odo.R;
 import com.Inspira.odo.data.ApiClient;
 import com.Inspira.odo.data.ApiInterface;
+import com.Inspira.odo.database.SharedPreferencesManager;
 import com.Inspira.odo.model.MyRequest;
 import com.Inspira.odo.model.ObjectDrawerItem;
 import com.Inspira.odo.sellerData.RelatedOrder;
@@ -38,12 +39,18 @@ public class DrawerItemCustomAdapter extends BaseAdapter {
     ArrayList<ObjectDrawerItem> mData = new ArrayList<>();
     Activity activiy ;
     int x = 0 ;
+    SharedPreferencesManager sharedPreferencesManager ;
+    String phone ;
 
     public DrawerItemCustomAdapter(Activity activit,Context context, int layoutResourceId,  ArrayList<ObjectDrawerItem>  data) {
         this.mContext = context;
         this.mLayoutResourceId = layoutResourceId;
         this.mData = data;
         activiy =activit;
+        sharedPreferencesManager= new SharedPreferencesManager(context);
+
+        phone= sharedPreferencesManager.getUser_Phoe();
+
     }
 
     @Override
@@ -83,10 +90,11 @@ public class DrawerItemCustomAdapter extends BaseAdapter {
          nameTextView.setText(objectDrawerItem.getName());
 
         if (activiy instanceof NavigationDrawerSeler && position==0){
-
+            phone= sharedPreferencesManager.getUser_Phoe();
+//"01009560622"
             ApiInterface apiService =
                     ApiClient.getClient().create(ApiInterface.class);
-            Call<ArrayList<RelatedOrder>> call = apiService.getRelatedOrder(new MyRequest("01009560622"));
+            Call<ArrayList<RelatedOrder>> call = apiService.getRelatedOrder(new MyRequest(phone));
             call.enqueue(new Callback<ArrayList<RelatedOrder>>() {
                 @Override
                 public void onResponse(Call<ArrayList<RelatedOrder>> call, Response<ArrayList<RelatedOrder>> response) {

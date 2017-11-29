@@ -25,9 +25,7 @@ public class SellerFragment extends Fragment {
 
 
     Button CreatCampanyAcount ;
-
-    Button creatSelerAcout ;
-    EditText fName, phoneNo, password, email ,Confirm_Password;
+     EditText fName, phoneNo, password, email ,Confirm_Password;
     SharedPreferencesManager sharedPreferencesManager ;
     CheckValidation checkValidation ;
 

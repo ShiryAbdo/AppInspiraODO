@@ -20,11 +20,13 @@ import com.Inspira.odo.buyerUi.HomeBuper;
 import com.Inspira.odo.buyerUi.MaKArequest;
 import com.Inspira.odo.buyerUi.MyRequest;
 import com.Inspira.odo.buyerUi.NavigationDrawerBuyer;
+import com.Inspira.odo.database.SharedPreferencesManager;
 import com.Inspira.odo.helper.NavigationDrawerHelper;
 import com.Inspira.odo.mainLuncher.ChangeLanguage;
 import com.Inspira.odo.mainLuncher.EditProfile;
 import com.Inspira.odo.mainLuncher.LogInActivity;
 import com.Inspira.odo.model.ObjectDrawerItem;
+import com.facebook.login.LoginManager;
 
 import java.util.ArrayList;
 
@@ -33,25 +35,26 @@ public class NavigationDrawerSeler extends AppCompatActivity  implements ListVie
     private NavigationDrawerHelper mNavigationDrawerHelper;
 
     private Fragment mFragment;
-
+    SharedPreferencesManager sharedPreferencesManager ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer_seler);
+        sharedPreferencesManager= new SharedPreferencesManager(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         // Define  and initialize our NavigationDrawerHelper Class Constant
         // The First parameters is the Activity (this)
         // The Second is the ListView.OnItemClickListener (this), as our Activity implements it
-
+//"Order Requestes"
         ArrayList<ObjectDrawerItem> drawerItem = new ArrayList<>();
-        drawerItem.add(new ObjectDrawerItem(0, "Order Requestes"));
-        drawerItem.add(new ObjectDrawerItem(1, "My Favorites"));
+        drawerItem.add(new ObjectDrawerItem(0, getString(R.string.OrderRequestes)));
+        drawerItem.add(new ObjectDrawerItem(1, getString(R.string.My_Favorites)));
         drawerItem.add(new ObjectDrawerItem(2, ""));
-        drawerItem.add(new ObjectDrawerItem(3, "Edit Profile"));
-        drawerItem.add(new ObjectDrawerItem(4, "Change Language"));
-        drawerItem.add(new ObjectDrawerItem(5, "Log Out"));
+        drawerItem.add(new ObjectDrawerItem(3,getString(R.string.Edit_Profile)));
+        drawerItem.add(new ObjectDrawerItem(4, getString(R.string.Change_Language)));
+        drawerItem.add(new ObjectDrawerItem(5, getString(R.string.Loge_Out)));
         mNavigationDrawerHelper = new NavigationDrawerHelper();
         mNavigationDrawerHelper.init(this,toolbar ,this,drawerItem);
 
@@ -109,8 +112,11 @@ public class NavigationDrawerSeler extends AppCompatActivity  implements ListVie
                 mFragment = new ChangeLanguage();
                 break;
             case  6:
+                LoginManager.getInstance().logOut();
                 Intent intent = new Intent(NavigationDrawerSeler.this, LogInActivity.class);
+                sharedPreferencesManager.clearShared();
                 startActivity(intent);
+
                 break;
         }
         attachFragment();

@@ -63,6 +63,7 @@ public class MakeBatteryRequest extends Fragment {
         // Inflate the layout for this fragment
         View rooteView = inflater.inflate(R.layout.fragment_make_battery_request, container, false);
          sharedPreferencesManager= new SharedPreferencesManager(getActivity());
+        getActivity().setTitle(R.string.MakeBatteryRequest);
         carModle =sharedPreferencesManager.getCar_Modle();
         carYear =sharedPreferencesManager.getCar_Year() ;
         carType =sharedPreferencesManager.getCar_Type();

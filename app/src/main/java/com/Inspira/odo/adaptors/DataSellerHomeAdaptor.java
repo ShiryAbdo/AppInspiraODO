@@ -15,8 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.Inspira.odo.R;
-import com.Inspira.odo.adds.AdViewClass;
-import com.Inspira.odo.data.ApiClient;
+ import com.Inspira.odo.data.ApiClient;
 import com.Inspira.odo.data.ApiInterface;
 import com.Inspira.odo.data.Model.AddsFavourite;
 import com.Inspira.odo.database.SharedPreferencesManager;
@@ -49,8 +48,7 @@ public class DataSellerHomeAdaptor  extends RecyclerView.Adapter<DataSellerHomeA
     DateTimeHelper dateTimeHelper ;
     Activity activity ;
     SharedPreferencesManager sharedPreferencesManager ;
-    AdViewClass adViewClass ;
-    MyApplication myApplication ;
+     MyApplication myApplication ;
     AdView adView ;
 
     public DataSellerHomeAdaptor(ArrayList<RelatedOrder> android, Context c , Activity activity) {
@@ -60,7 +58,6 @@ public class DataSellerHomeAdaptor  extends RecyclerView.Adapter<DataSellerHomeA
         this.dateTimeHelper= new DateTimeHelper(context);
         myApplication= new MyApplication();
         sharedPreferencesManager= new SharedPreferencesManager(context);
-        adViewClass =new AdViewClass(activity, adView ,c);
 
     }
 

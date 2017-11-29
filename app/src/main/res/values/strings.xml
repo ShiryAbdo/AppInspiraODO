@@ -128,7 +128,7 @@
     <!- -->
     <string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
     <string name="title_activity_maps">Map</string>
-    <string name="Respon">Respon</string>
+    <string name="Respon">Sended</string>
     <string name="title_activity_main4">Main4Activity</string>
 
     <string name="hello_world">Hello world!</string>
@@ -150,6 +150,13 @@
     <string name="Select_the_type_of_batteries">Select the type of batteries</string>
     <string name="add_Battery_details">add Battery details</string>
     <string name="Select_the_frame_type">Select the frame type</string>
+    <string name="choose_data">Choose data</string>
+    <string name="Response">Response</string>
+    <string name="Not_sent">Not sent</string>
+    <string name="MakeBatteryRequest">MakeBatteryRequest</string>
+    <string name="Arabic">Arabic</string>
+    <string name="English">English</string>
+    <string name="OrderRequestes">Order Requestes</string>
 
 
 </resources>

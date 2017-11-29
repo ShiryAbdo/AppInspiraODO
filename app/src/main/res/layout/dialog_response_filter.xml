@@ -96,18 +96,15 @@
    </LinearLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:layout_marginTop="@dimen/_15sdp"
         android:layout_width="match_parent"
-        android:layout_marginStart="@dimen/_6sdp"
-        android:layout_marginEnd="@dimen/_6sdp"
         android:theme="@style/TextLabel"
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/Area"
+            android:id="@+id/Describetion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/Area"
+            android:hint="@string/Describetion"
             android:background="#00ffffff"
             android:inputType="textPersonName"
             android:textColor="#ffffff"
@@ -120,11 +117,30 @@
         android:background="#dea63e"
         android:layout_height="@dimen/_1sdp"/>
 
+    <Spinner
+        android:layout_marginTop="@dimen/_20sdp"
+        android:id="@+id/addArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00ffffff"
+        android:spinnerMode="dropdown"
+        style="@style/Base.Widget.AppCompat.Spinner"
+        android:popupBackground="@android:color/transparent"
+        android:inputType="text"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:background="#dea63e"
+        android:layout_height="@dimen/_1sdp"/>
+
 
 
 
     <LinearLayout
-        android:padding="@dimen/_20sdp"
+        android:padding="@dimen/_10sdp"
         android:layout_gravity="center"
         android:gravity="center"
         android:layout_width="match_parent"
@@ -136,7 +152,7 @@
             android:gravity="end"
             android:id="@+id/Search"
             android:background="#00dadada"
-            android:text="@string/Search"
+            android:text="@string/apply"
             android:textColor="@color/colorPrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

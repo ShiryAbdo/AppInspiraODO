@@ -240,7 +240,7 @@ public class ContinuingRegSeler extends AppCompatActivity {
                 String  itemReques= parent.getItemAtPosition(position).toString();
                 if(itemReques.equals(getString(R.string.choseArea))){
                     arraType=null;
-                    Toast.makeText(parent.getContext(),getString(R.string.chose_modle) , Toast.LENGTH_LONG).show();
+                    Toast.makeText(parent.getContext(),getString(R.string.choseArea) , Toast.LENGTH_LONG).show();
                 }else {
                     arraType=parent.getItemAtPosition(position).toString() ;
                     sharedPreferencesManager.setArea(arraType);

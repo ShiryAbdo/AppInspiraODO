@@ -139,6 +139,8 @@
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="title_activity_main5">Main5Activity</string>
     <string name="title_activity_continue_rige_tration">ContinueRigeTration</string>
+    <string name="RequestResponses">RequestResponses</string>
+    <string name="Describetion">Describetion</string>
 
 
 </resources>

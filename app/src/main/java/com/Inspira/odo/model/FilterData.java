@@ -75,6 +75,19 @@ public class FilterData {
         return tempList;
     }
 
+    public List<Response> getPriceFilteredMyOrderDIS(List<String> category, List<Response> mList) {
+        List<Response> tempList = new ArrayList<>();
+        for (Response Response : mList) {
+            for (String c : category) {
+                if (Response.getDescription().equalsIgnoreCase(c)) {
+                    tempList.add(Response);
+                }
+            }
+
+        }
+        return tempList;
+    }
+
 
     public class compareMyOrder implements Comparator<Response> {
         public int compare(Response a, Response b) {

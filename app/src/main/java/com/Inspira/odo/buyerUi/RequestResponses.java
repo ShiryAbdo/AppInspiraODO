@@ -9,11 +9,15 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.Inspira.odo.R;
+import com.Inspira.odo.adaptors.CustomArrayAdapter_Spinner;
 import com.Inspira.odo.adaptors.MyRequestAdapter;
 import com.Inspira.odo.adaptors.ResponseAdaptor;
 import com.Inspira.odo.database.MyOrder;
@@ -40,7 +44,8 @@ public class RequestResponses extends AppCompatActivity {
     List<Response> mSelectedList ;
     LocaleHelper localeHelper ;
     ImageView go_back ;
-    String orderId ;
+    String orderId ,arraType ;
+    ArrayList<String>AreaArray ;
 AdView adView ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,13 +92,48 @@ AdView adView ;
               Button OK_d = okdialog.findViewById(R.id.Search);
               final EditText price_from =okdialog.findViewById(R.id.price_from);
               final EditText to_price =okdialog.findViewById(R.id.to_price);
-              final EditText Area =okdialog.findViewById(R.id.Area);
+              final Spinner addArea =okdialog.findViewById(R.id.addArea);
+              final  EditText Describetion=okdialog.findViewById(R.id.Describetion);
+              AreaArray= new ArrayList<>();
+              AreaArray.add(getString(R.string.choseArea));
+              AreaArray.add(getString(R.string.cairo));
+              AreaArray.add(getString(R.string.ma3adi));
+              AreaArray.add(getString(R.string.giza));
+               CustomArrayAdapter_Spinner  Adaptor = new CustomArrayAdapter_Spinner(RequestResponses.this,
+                      R.layout.customspinneritem, AreaArray);
+              addArea.setAdapter(Adaptor);
+
+
+              // Spinner click listener
+              addArea.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                  @Override
+                  public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
+
+                      // On selecting a spinner item
+                      // On selecting a spinner item
+                      String  itemReques= parent.getItemAtPosition(position).toString();
+                      if(itemReques.equals(getString(R.string.choseArea))){
+                          arraType=null;
+                          Toast.makeText(parent.getContext(),getString(R.string.choseArea) , Toast.LENGTH_LONG).show();
+                      }else {
+                          arraType=parent.getItemAtPosition(position).toString() ;
+                          sharedPreferencesManager.setArea(arraType);
+                          Toast.makeText(parent.getContext(), arraType, Toast.LENGTH_LONG).show();
+                      }
+                  }
+
+                  @Override
+                  public void onNothingSelected(AdapterView<?> adapterView) {
+
+                  }
+              });
               OK_d.setOnClickListener(new View.OnClickListener() {
                   @Override
                   public void onClick(View view) {
                       addToSelectedMap("price_max", to_price.getText().toString());
                       addToSelectedMap("price_min", price_from.getText().toString());
-                      addToSelectedMap("area", Area.getText().toString());
+                      addToSelectedMap("area", arraType);
+                      addToSelectedMap("describetion", Describetion.getText().toString());
                       if (mSelectedList != null) {
                           ArrayMap<String, List<String>> applied_filter = applied_filters;
                           if (applied_filter.size() != 0) {
@@ -110,6 +150,9 @@ AdView adView ;
                                           break;
                                       case "area":
                                           filteredList = data.getAddressFilteredResponse(entry.getValue(),filteredList);
+                                          break;
+                                      case "describetion":
+                                          filteredList = data.getPriceFilteredMyOrderDIS(entry.getValue(),filteredList);
                                           break;
 
                                   }

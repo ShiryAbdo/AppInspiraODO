@@ -236,7 +236,7 @@ public class AddAntherPartDetails extends AppCompatActivity {
                      imagepath = getPath(selectedImageUri);
                     File f = new File(imagepath);
                     imageName = f.getName();
-             Toast.makeText(getApplicationContext(),imagepath,Toast.LENGTH_LONG).show();
+                     Toast.makeText(getApplicationContext(),imagepath,Toast.LENGTH_LONG).show();
                     InputStream is = getContentResolver().openInputStream(data.getData());
 
                     UploadImageHelper.uploadImage(uploadImageHelper.getBytes(smallbitmap));

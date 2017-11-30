@@ -75,6 +75,7 @@
             android:text="@string/one_Tyre" />
 
         <RadioButton
+
             android:id="@+id/two_tyre"
             android:layout_width="wrap_content"
             android:textColor="#ffffff"

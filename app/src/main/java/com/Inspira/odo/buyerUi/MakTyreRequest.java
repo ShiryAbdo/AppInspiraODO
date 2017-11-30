@@ -1,6 +1,7 @@
 package com.Inspira.odo.buyerUi;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.util.Log;
@@ -62,6 +63,13 @@ public class MakTyreRequest extends Fragment {
         if( Run_flot_tyres.isChecked()){
             Run_flot_tyrest=getString(R.string.Run_flot_tyres);
         }
+        one_Tyre.setTextColor(Color.WHITE);
+        two_tyre.setTextColor(Color.WHITE);
+        four_tyre.setTextColor(Color.WHITE);
+        one_Tyre.setText(R.string.one_Tyre);
+        two_tyre.setText(R.string.two_tyre);
+        four_tyre.setText(R.string.four_tyre);
+
 
         if(one_Tyre.isChecked()){
             TyrT=getString(R.string.one_Tyre);

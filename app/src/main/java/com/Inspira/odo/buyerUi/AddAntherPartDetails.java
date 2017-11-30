@@ -4,6 +4,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -38,7 +39,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static android.R.attr.width;
 import static android.content.ContentValues.TAG;
+import static android.support.v7.appcompat.R.attr.height;
 
 public class AddAntherPartDetails extends AppCompatActivity {
 
@@ -105,7 +108,7 @@ public class AddAntherPartDetails extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/jpeg");
+                intent.setType("image/*");
 
                 try {
                     startActivityForResult(intent, INTENT_REQUEST_CODE);
@@ -171,6 +174,20 @@ public class AddAntherPartDetails extends AppCompatActivity {
                         if(car_type!=null &&car_modle!=null&&car_year!=null){
                             if(PHONE_number!=null){
                                 if (imageName!=null) {
+
+
+                                    final Dialog okdialog = new Dialog(AddAntherPartDetails.this, R.style.custom_dialog_theme);
+                                    okdialog.setContentView(R.layout.ok_dialog);
+                                    Button OK_d = okdialog.findViewById(R.id.ok);
+                                    OK_d.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+                                            okdialog.dismiss();
+
+                                        }
+                                    });
+                                    okdialog.show();
+
                                     sendOrder(PHONE_number,car_type,car_modle ,car_year,orderList ,orderImages);
 
 
@@ -193,17 +210,6 @@ public class AddAntherPartDetails extends AppCompatActivity {
 
 
 
-                        final Dialog okdialog = new Dialog(AddAntherPartDetails.this, R.style.custom_dialog_theme);
-                        okdialog.setContentView(R.layout.ok_dialog);
-                        Button OK_d = okdialog.findViewById(R.id.ok);
-                        OK_d.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                okdialog.dismiss();
-
-                            }
-                        });
-                        okdialog.show();
 
                     }
                 });
@@ -225,14 +231,15 @@ public class AddAntherPartDetails extends AppCompatActivity {
                 try {
                     Uri selectedImageUri = data.getData();
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImageUri);
-                    add_image.setImageBitmap(bitmap);
-                    imagepath = getPath(selectedImageUri);
+                    Bitmap smallbitmap = Bitmap.createScaledBitmap(bitmap, 250, 250, true);
+                     add_image.setImageBitmap(smallbitmap);
+                     imagepath = getPath(selectedImageUri);
                     File f = new File(imagepath);
                     imageName = f.getName();
-
+             Toast.makeText(getApplicationContext(),imagepath,Toast.LENGTH_LONG).show();
                     InputStream is = getContentResolver().openInputStream(data.getData());
 
-                    UploadImageHelper.uploadImage(uploadImageHelper.getBytes(is));
+                    UploadImageHelper.uploadImage(uploadImageHelper.getBytes(smallbitmap));
 
                 } catch (IOException e) {
                     e.printStackTrace();

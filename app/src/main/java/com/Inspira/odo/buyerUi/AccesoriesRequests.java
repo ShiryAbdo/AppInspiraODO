@@ -117,8 +117,7 @@ public class AccesoriesRequests extends Fragment {
                             Toast.makeText(getApplicationContext(),imageName,Toast.LENGTH_SHORT).show();
                             orderImages.add(new OrderImage(imageName));
                             sendOrder(PHONE_number,carType,carModle ,carYear,orderList ,orderImages);
-                            Toast.makeText(getApplicationContext(),"cliced",Toast.LENGTH_SHORT).show();
-                            AccesoriesRequests newFragment = new AccesoriesRequests();
+                             AccesoriesRequests newFragment = new AccesoriesRequests();
                             FragmentTransaction transaction = getFragmentManager().beginTransaction();
                             transaction.replace(R.id.fragment_container, newFragment);
                             transaction.addToBackStack(null);
@@ -231,9 +230,8 @@ public class AccesoriesRequests extends Fragment {
             @Override
             public void onResponse(Call<ResponseBody>call, Response<ResponseBody> response) {
                 int responseCode = response.code();
-                Toast.makeText(getApplicationContext(),"ResponseCode: " + responseCode,Toast.LENGTH_LONG).show();
-                Log.d("CODE", "ResponseCode: " + responseCode);
-            }
+                Toast.makeText(getApplicationContext(),getString(R.string.Request_successfully_submitted ),Toast.LENGTH_LONG).show();
+             }
 
             @Override
             public void onFailure(Call<ResponseBody>call, Throwable t) {

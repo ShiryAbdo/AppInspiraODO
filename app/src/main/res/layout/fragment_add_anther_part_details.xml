@@ -71,10 +71,11 @@
             android:text="Add Photo"/>
 
         <ImageView
+            android:adjustViewBounds="true"
             android:id="@+id/add_image"
             android:layout_gravity="center"
             android:src="@drawable/logoodo"
-            android:layout_width="@dimen/_50sdp"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/_50sdp" />
 
 

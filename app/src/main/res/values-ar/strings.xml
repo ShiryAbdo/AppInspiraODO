@@ -58,8 +58,7 @@
     <string name="Size">المقاس</string>
     <string name="Loge_Out">"  الخروج"</string>
     <string name="donot_know">" لا أعرف "</string>
-    <string name="four_tyre" translatable="false">" "</string>
-    <string name="i_do_not_know">"لا أعرف تفاصيل البطارية   "</string>
+     <string name="i_do_not_know">"لا أعرف تفاصيل البطارية   "</string>
     <string name="know">أعرف تفاصيل البطارية</string>
     <string name="mak_arequest"></string>
     <string name="larg_poles">أواشيط كبيرة</string>

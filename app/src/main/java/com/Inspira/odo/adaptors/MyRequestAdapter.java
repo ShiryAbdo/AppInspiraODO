@@ -52,6 +52,7 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
     DateTimeUtils obj ;
     SharedPreferencesManager sharedPreferencesManager ;
     MyApplication myApplication ;
+      String imagee;
 
     public MyRequestAdapter(ArrayList<MyOrder> android, Context c) {
         this.androidList = android;
@@ -75,11 +76,17 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
     @Override
     public void onBindViewHolder(final MyRequestAdapter.ViewHolder viewHolder, final int i) {
         viewHolder.Name_request.setText(androidList.get(i).getOrder().getPart());
-        viewHolder.name_car.setText(androidList.get(i).getCarDetails().getCarModel());
-        viewHolder.Type_car.setText(androidList.get(i).getCarDetails().getCarType());
-        viewHolder.year_car.setText(androidList.get(i).getCarDetails().getCarYear());
-        viewHolder.model_car.setText(androidList.get(i).getCarDetails().getCarModel());
-        viewHolder.color_car.setText(androidList.get(i).getOrder().getColor());
+        if(androidList.get(i).getCarDetails()!=null){
+            viewHolder.name_car.setText(androidList.get(i).getCarDetails().getCarModel());
+            viewHolder.Type_car.setText(androidList.get(i).getCarDetails().getCarType());
+            viewHolder.year_car.setText(androidList.get(i).getCarDetails().getCarYear());
+            viewHolder.model_car.setText(androidList.get(i).getCarDetails().getCarModel());
+            viewHolder.color_car.setText(androidList.get(i).getOrder().getColor());
+
+        }else {
+
+        }
+
 
 
 //        responses =androidList.get(i).getResponses();
@@ -110,15 +117,19 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
 
         setAnimation(viewHolder.card, i);
 
-        if(androidList.get(i).getOrderImages().get(i).getId()!=null){
-            if(androidList.get(i).getOrderImages().get(i).getOriginalName().equals("image")){
+        if(!androidList.get(i).getOrderImages().isEmpty()){
+            if(!androidList.get(i).getOrderImages().get(i).getOriginalName().equals("image")){
+                if(androidList.get(i).getOrderImages().get(i).getId()!=null){
+                    imagee ="https://odo.eu-gb.mybluemix.net/images/download/"+ androidList.get(i).getOrderImages().get(i).getId();
+                    Toast.makeText(context,imagee,Toast.LENGTH_LONG).show();
+                    Picasso.with(context).load(imagee).error(android.R.drawable.stat_notify_error).fit().into(viewHolder.image_itme_selle);
 
-            }else {
+                }else {
 
-                final String imagee ="https://odo.eu-gb.mybluemix.net/images/download/"+ androidList.get(i).getOrderImages().get(i).getId();
-                Picasso.with(context).load(imagee).error(android.R.drawable.stat_notify_error).fit().into(viewHolder.image_itme_selle);
 
+                }
             }
+
         }
 
 
@@ -185,15 +196,15 @@ public class MyRequestAdapter  extends RecyclerView.Adapter<MyRequestAdapter.Vie
         @Override
         public void onClick(View view) {
             int position = getAdapterPosition();
-            ArrayList<Response> responses = new ArrayList<>();
+
+             ArrayList<Response> responses = new ArrayList<>();
             responses.addAll(androidList.get(position).getResponses());
             myApplication.setResponses(responses);
             Intent intent = new Intent(context, RequestResponses.class);
             intent.putParcelableArrayListExtra("Response", (ArrayList<? extends Parcelable>)  responses);
             intent.putExtra("orderId",androidList.get(position).getId());
-//            intent.putExtra("Response", responses);
-            Toast.makeText(getApplicationContext(), responses.size() + "", Toast.LENGTH_LONG).show();
-            context.startActivity(intent);
+            intent.putExtra("Response", responses);
+             context.startActivity(intent);
         }
 
 

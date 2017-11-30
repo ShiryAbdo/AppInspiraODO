@@ -69,6 +69,9 @@ public class MaKArequest extends Fragment {
         View rooteView = inflater.inflate(R.layout.fragment_ma_karequest, container, false);
         getActivity().setTitle(R.string.MaK_Arequest);
         sharedPreferencesManager= new SharedPreferencesManager(getActivity());
+        car_modle =sharedPreferencesManager.getCar_Modle();
+        car_year =sharedPreferencesManager.getCar_Year() ;
+        car_type =sharedPreferencesManager.getCar_Type();
         PHONE_number= sharedPreferencesManager.getUser_Phoe();
         getActivity().findViewById(R.id.filter).setVisibility(View.GONE);
         submet_requst =(Button)rooteView.findViewById(R.id.submet_requst);
@@ -154,6 +157,18 @@ public class MaKArequest extends Fragment {
                         if(car_type!=null &&car_modle!=null&&car_year!=null){
                             if(PHONE_number!=null){
                                 if (imageName!=null){
+                                    final Dialog okdialog = new Dialog(getActivity(), R.style.custom_dialog_theme);
+                                    okdialog.setContentView(R.layout.ok_dialog);
+                                    Button OK_d = okdialog.findViewById(R.id.ok);
+                                    OK_d.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+                                            okdialog.dismiss();
+
+                                        }
+                                    });
+                                    okdialog.show();
+
                                     sendOrder(PHONE_number,car_type,car_modle ,car_year,orderList ,orderImages);
 
 
@@ -177,17 +192,6 @@ public class MaKArequest extends Fragment {
 
 
 
-                        final Dialog okdialog = new Dialog(getActivity(), R.style.custom_dialog_theme);
-                        okdialog.setContentView(R.layout.ok_dialog);
-                        Button OK_d = okdialog.findViewById(R.id.ok);
-                        OK_d.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                okdialog.dismiss();
-
-                            }
-                        });
-                        okdialog.show();
 
                     }
                 });

@@ -29,7 +29,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static android.content.ContentValues.TAG;
-import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class SparepartsRequests extends Fragment {
     RecyclerView recycler_view;
@@ -54,6 +53,7 @@ public class SparepartsRequests extends Fragment {
         sharedPreferencesManager= new SharedPreferencesManager(getActivity());
         getActivity().setTitle(R.string.SparepartsRequests);
          PHONE_number= sharedPreferencesManager.getUser_Phoe();
+        Toast.makeText(getActivity(),PHONE_number,Toast.LENGTH_LONG).show();
         MyOrderList= new ArrayList<>();
 
         initViews() ;
@@ -75,7 +75,7 @@ public class SparepartsRequests extends Fragment {
 
     }
     private void loadJSON() {
-
+        PHONE_number= sharedPreferencesManager.getUser_Phoe();
 
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
@@ -84,7 +84,9 @@ public class SparepartsRequests extends Fragment {
             @Override
             public void onResponse(Call<ArrayList<MyOrder>>call, Response<ArrayList<MyOrder>> response) {
                 int responseCode = response.code();
+                Toast.makeText(getActivity(),responseCode+"",Toast.LENGTH_LONG).show();
                 if(responseCode==200){
+
                     ArrayList<MyOrder> bankJSONResponse = response.body();
                     if(!bankJSONResponse.isEmpty()){
                         ArrayList<MyOrder> MyOrderList= new ArrayList<MyOrder>();

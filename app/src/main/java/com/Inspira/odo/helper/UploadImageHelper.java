@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -80,8 +81,8 @@ public class UploadImageHelper {
 
     public byte[] getBytes(InputStream is) throws IOException {
         ByteArrayOutputStream byteBuff = new ByteArrayOutputStream();
-
-        int buffSize = 1024;
+        int buffSize =8192;
+//        int buffSize = 1024;
         byte[] buff = new byte[buffSize];
 
         int len = 0;
@@ -91,6 +92,13 @@ public class UploadImageHelper {
 
         return byteBuff.toByteArray();
     }
+
+    public static byte[] getBytes(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        return stream.toByteArray();
+    }
+
 
 
     public static void uploadImage(byte[] imageBytes) {
@@ -117,25 +125,11 @@ public class UploadImageHelper {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+                }else {
+                    Toast.makeText(getApplicationContext(), response.code()+"",Toast.LENGTH_LONG).show();
+
                 }
             }
-//                    String mImageUrl = URL + responseBody.message();
-//                    Toast.makeText(getApplicationContext(), mImageUrl,Toast.LENGTH_LONG).show();
-//                    Snackbar.make(findViewById(R.id.content), responseBody.getMessage(),Snackbar.LENGTH_SHORT).show();
-
-//                } else {
-//
-//                    ResponseBody errorBody = response.errorBody();
-//
-//                    Gson gson = new Gson();
-//
-//                    try {
-//
-//                        Response errorResponse = gson.fromJson(errorBody.string(), Response.class);
-////                        Snackbar.make(findViewById(R.id.content), errorResponse.getMessage(),Snackbar.LENGTH_SHORT).show();
-//
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
 
 
             @Override
